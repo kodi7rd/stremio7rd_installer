@@ -1762,14 +1762,9 @@
             const rdApiKey = document.getElementById('rd_api_key').value;
 
             try {
-                log("#################################################################################################");
-                log("Stremio + Real Debrid Israel Addons Installer");
-                log("#################################################################################################");
                 const authKey = await loginToStremio(email, password);
-                log("#################################################################################################");
                 const addons = setTorrentioRdApiKey(rdApiKey);
                 await syncAddons(authKey, addons);
-                log("#################################################################################################");
             } catch (error) {
                 document.getElementById('result').textContent = error.message;
             }
