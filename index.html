@@ -7,8 +7,8 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
+            background-color: #121212; /* Dark background color */
+            color: #e0e0e0; /* Light text color */
             margin: 0;
             padding: 0;
             text-align: center;
@@ -17,9 +17,9 @@
             max-width: 600px;
             margin: 0 auto;
             padding: 20px;
-            background: #fff;
+            background: #1e1e1e; /* Darker container background */
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
         .header-img {
             max-width: 55%; /* Adjusted size */
@@ -28,7 +28,7 @@
             margin-bottom: 20px;
         }
         h1 {
-            color: #007bff;
+            color: #1e90ff; /* Bright blue color for header */
             font-size: 28px;
             margin-bottom: 20px;
         }
@@ -36,18 +36,21 @@
             display: block;
             margin: 10px 0 5px;
             font-weight: bold;
+            color: #e0e0e0; /* Light text color */
         }
         input {
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
-            border: 1px solid #ccc;
+            border: 1px solid #333; /* Dark border */
             border-radius: 4px;
+            background-color: #333; /* Dark input background */
+            color: #e0e0e0; /* Light text color */
             box-sizing: border-box;
         }
         button {
-            background-color: #007bff;
-            color: white;
+            background-color: #1e90ff; /* Bright blue button */
+            color: #fff;
             border: none;
             padding: 15px 20px;
             font-size: 16px;
@@ -55,7 +58,7 @@
             cursor: pointer;
         }
         button:hover {
-            background-color: #0056b3;
+            background-color: #1c86ee; /* Slightly darker blue on hover */
         }
         .result {
             margin-top: 20px;
@@ -63,7 +66,7 @@
         }
         .divider {
             margin: 30px 0;
-            border-top: 1px solid #ddd;
+            border-top: 1px solid #444; /* Darker divider */
         }
         .footer-img {
             max-width: 100%; /* Full width of the container */
@@ -84,7 +87,7 @@
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
             
-             <label for="rd_api_key">RealDebrid API Key (Find it <a href="https://real-debrid.com/apitoken" target="_blank">here</a>):</label>
+            <label for="rd_api_key">RealDebrid API Key (Find it <a href="https://real-debrid.com/apitoken" target="_blank">here</a>):</label>
             <input type="text" id="rd_api_key" name="rd_api_key" required>
             
             <button type="submit">Install Addons</button>
