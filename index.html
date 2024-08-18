@@ -64,6 +64,12 @@
             margin-top: 20px;
             font-weight: bold;
         }
+        .result.success {
+            color: #28a745; /* Green for success message */
+        }
+        .result.error {
+            color: #dc3545; /* Red for error message */
+        }
         .divider {
             margin: 30px 0;
             border-top: 1px solid #444; /* Darker divider */
@@ -1745,16 +1751,19 @@
                 const data = await response.json();
                 if (data.result && data.result.success) {
                     log('Installation complete!');
-                    document.getElementById('result').textContent = 'Installation complete!';
                     alert('Installation complete!'); // Popup message
+                    document.getElementById('result').textContent = 'Installation complete!';
+                    document.getElementById('result').className = 'result success'; // Apply success class
                 } else {
                     log(`Failed to sync addons: ${data.result.error}`);
                     document.getElementById('result').textContent = `Failed to sync addons: ${data.result.error}`;
+                    document.getElementById('result').className = 'result error'; // Apply error class
                 }
             } catch (error) {
                 log('Error syncing addons!');
                 console.error('Error syncing addons:', error);
                 document.getElementById('result').textContent = 'Error syncing addons!';
+                document.getElementById('result').className = 'result error'; // Apply error class
             }
         }
 
@@ -1770,6 +1779,7 @@
                 await syncAddons(authKey, addons);
             } catch (error) {
                 document.getElementById('result').textContent = error.message;
+                document.getElementById('result').className = 'result error'; // Apply error class
             }
         });
     </script>
