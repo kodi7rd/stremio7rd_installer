@@ -1735,6 +1735,17 @@
                 throw new Error('Login failed!');
             }
         }
+        
+        function detectUnsupportedOS() {
+            const userAgent = navigator.userAgent;
+
+            const isWindows = /Windows/.test(userAgent);
+            const isAndroid = /Android/.test(userAgent);
+
+            if (!isWindows && !isAndroid) {
+                alert("You are running from unsupported Stremio app OS. Open Stremio Web / App on other device.");
+            }
+        }
 
         async function syncAddons(authKey, addons) {
             console.log("Syncing addons...");
@@ -1759,6 +1770,7 @@
                     
                     // Open Stremio home page
                     window.open("stremio:///board", "_blank");
+                    detectUnsupportedOS();
                     
                 } else {
                     throw new Error(data.result?.error || 'Failed to sync addons');
