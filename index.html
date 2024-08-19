@@ -1737,11 +1737,7 @@
         }
         
         function detectIOS() {
-            const userAgent = navigator.userAgent;
-
-            const isiOS = /iPhone|iPad|iPod/.test(userAgent);
-
-            if (isiOS) {
+            if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
                 alert("You are running on an iPhone. Open Stremio Web to use Stremio.");
             }
         }
