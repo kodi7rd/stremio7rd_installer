@@ -1750,7 +1750,7 @@
                 if (data.result?.success) {
                     
                     console.log('Installation complete!');
-                    // alert('Installation complete!'); // Popup message
+                    alert('Installation complete!'); // Popup message
                     document.getElementById('result').textContent = 'Installation complete!';
                     document.getElementById('result').className = 'result success'; // Apply success class
                     
@@ -1758,11 +1758,7 @@
                     document.getElementById('stremioForm').reset();
                     
                     // Open Stremio home page
-                    try {
-                        window.open("stremio:///board", "_blank");
-                    } catch {
-                        alert("iPhone?")
-                    }
+                    window.open("stremio:///board", "_blank");
                     
                 } else {
                     throw new Error(data.result?.error || 'Failed to sync addons');
