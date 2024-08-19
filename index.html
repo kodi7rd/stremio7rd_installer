@@ -87,10 +87,10 @@
         <img class="header-img" src="https://i.imgur.com/CRpsxpE.jpeg" alt="Stremio + Real Debrid Israel Addons">
         <h1>Stremio + Real Debrid Israel Addons Installer</h1>
         <form id="stremioForm">
-            <label for="email">Email: (Facebook login is NOT supported)</label>
+            <label for="email">Stremio Email: (Facebook login is NOT supported)</label>
             <input type="text" id="email" name="email" required>
             
-            <label for="password">Password:</label>
+            <label for="password">Stremio Password:</label>
             <input type="password" id="password" name="password" required>
             
             <label for="rd_api_key">RealDebrid API Key (Find it <a href="https://real-debrid.com/apitoken" target="_blank" style="color: green;">here</a>):</label>
@@ -104,14 +104,10 @@
         <img class="footer-img" src="https://i.imgur.com/6xIhFcx.png" alt="Footer Image">
     </div>
 
-    <script>
+    <script type="text/javascript">
         const STREMIO_API_BASE_URL = "https://api.strem.io/api";
         const STREMIO_API_LOGIN_URL = `${STREMIO_API_BASE_URL}/login`;
         const STREMIO_API_SET_ADDONS_URL = `${STREMIO_API_BASE_URL}/addonCollectionSet`;
-
-        function log(message) {
-            console.log(message);
-        }
         
         function setTorrentioRdApiKey(realDebridApiKey) {
             return [
@@ -1720,7 +1716,7 @@
         }
 
         async function loginToStremio(email, password) {
-            log("Logging in...");
+            console.log("Logging in...");
             try {
                 const response = await fetch(STREMIO_API_LOGIN_URL, {
                     method: 'POST',
@@ -1731,17 +1727,17 @@
                 });
 
                 const data = await response.json();
-                log("Logged in successfully, authKey: " + data.result.authKey);
+                console.log("Logged in successfully, authKey: " + data.result.authKey);
                 return data.result.authKey;
             } catch (error) {
-                log('Login failed!');
+                console.log('Login failed!');
                 console.error('Login failed!', error);
                 throw new Error('Login failed!');
             }
         }
 
         async function syncAddons(authKey, addons) {
-            log("Syncing addons...");
+            console.log("Syncing addons...");
             try {
                 const response = await fetch(STREMIO_API_SET_ADDONS_URL, {
                     method: 'POST',
@@ -1750,20 +1746,31 @@
                 });
 
                 const data = await response.json();
-                if (data.result && data.result.success) {
-                    log('Installation complete!');
+
+                if (data.result?.success) {
+                    
+                    console.log('Installation complete!');
                     alert('Installation complete!'); // Popup message
                     document.getElementById('result').textContent = 'Installation complete!';
                     document.getElementById('result').className = 'result success'; // Apply success class
+                    
+                    // Clear all input fields
+                    document.getElementById('stremioForm').reset();
+                    
+                    // Open Stremio home page
+                    try {
+                        window.open("stremio:///board", "_blank");
+                    } catch {
+                        alert("iPhone?")
+                    }
+                    
                 } else {
-                    log(`Failed to sync addons: ${data.result.error}`);
-                    document.getElementById('result').textContent = `Failed to sync addons: ${data.result.error}`;
-                    document.getElementById('result').className = 'result error'; // Apply error class
+                    throw new Error(data.result?.error || 'Failed to sync addons');
                 }
+                
             } catch (error) {
-                log('Error syncing addons!');
                 console.error('Error syncing addons:', error);
-                document.getElementById('result').textContent = 'Error syncing addons!';
+                document.getElementById('result').textContent = `Error syncing addons: ${error.message}`;
                 document.getElementById('result').className = 'result error'; // Apply error class
             }
         }
