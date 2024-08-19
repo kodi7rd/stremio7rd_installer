@@ -1733,7 +1733,7 @@
                 return data.result.authKey;
             } catch (error) {
                 console.error('Login failed!', error);
-                throw new Error('הכניסה נכשלה!');
+                throw new Error('ההתחברות נכשלה!');
             }
         }
 
@@ -1760,7 +1760,7 @@
                 if (data.result?.success) {
                     
                     console.log('Addons installation complete!');
-                    alert('התקנת התוספים בוצעה בהצלחה! כעת תיפתח אפליקציית Stremio.');
+                    alert('התקנת התוספים בוצעה בהצלחה!\nכעת תיפתח אפליקציית Stremio.');
                     document.getElementById('result').textContent = 'התקנת התוספים בוצעה בהצלחה!';
                     document.getElementById('result').className = 'result success'; // Apply success class
                     
