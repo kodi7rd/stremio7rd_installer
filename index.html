@@ -1733,7 +1733,10 @@
                 return data.result.authKey;
             } catch (error) {
                 console.error('Login failed!', error);
-                throw new Error('ההתחברות נכשלה!');
+                let errorMessage = 'ההתחברות נכשלה! <br><br><a href="https://www.stremio.com/login" target="_blank" style="color: #1e90ff; text-decoration: underline;">קישור להתחברות באתר Stremio</a>'
+                document.getElementById('result').innerHTML = errorMessage;
+                document.getElementById('result').className = 'result error'; // Apply error class
+                throw new Error(errorMessage);
             }
         }
 
@@ -1781,6 +1784,7 @@
                 console.error('Failed to install addons:', error);
                 document.getElementById('result').textContent = `${error.message}`;
                 document.getElementById('result').className = 'result error'; // Apply error class
+                throw new Error('Failed to install addons:', error);
             }
         }
 
@@ -1790,14 +1794,9 @@
             const password = document.getElementById('password').value;
             const realDebridApiKey = document.getElementById('rd_api_key').value;
 
-            try {
-                const authKey = await loginToStremio(email, password);
-                const addons = defineAddonsJSON(realDebridApiKey);
-                await installAddons(authKey, addons);
-            } catch (error) {
-                document.getElementById('result').textContent = error.message;
-                document.getElementById('result').className = 'result error'; // Apply error class
-            }
+            const authKey = await loginToStremio(email, password);
+            const addons = defineAddonsJSON(realDebridApiKey);
+            await installAddons(authKey, addons);
         });
     </script>
 </body>
