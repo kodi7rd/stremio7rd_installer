@@ -1736,14 +1736,13 @@
             }
         }
         
-        function detectUnsupportedOS() {
+        function detectIOS() {
             const userAgent = navigator.userAgent;
 
-            const isWindows = /Windows/.test(userAgent);
-            const isAndroid = /Android/.test(userAgent);
+            const isiOS = /iPhone|iPad|iPod/.test(userAgent);
 
-            if (!isWindows && !isAndroid) {
-                alert("You are running from unsupported Stremio app OS. Open Stremio Web / App on other device.");
+            if (isiOS) {
+                alert("You are running on an iPhone. Open Stremio Web to use Stremio.");
             }
         }
 
@@ -1770,7 +1769,9 @@
                     
                     // Open Stremio home page
                     window.open("stremio:///board", "_blank");
-                    detectUnsupportedOS();
+                    
+                    // Alert for iPhone users
+                    detectIOS();
                     
                 } else {
                     throw new Error(data.result?.error || 'Failed to sync addons');
