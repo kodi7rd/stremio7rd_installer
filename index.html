@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stremio + Real Debrid Israel Installer</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -47,6 +46,8 @@
             background-color: #333; /* Dark input background */
             color: #e0e0e0; /* Light text color */
             box-sizing: border-box;
+            direction: ltr; /* Left to right text direction */
+            text-align: left; /* Align text to the left */
         }
         button {
             background-color: #1e90ff; /* Bright blue button */
@@ -85,22 +86,23 @@
 <body>
     <div class="container">
         <img class="header-img" src="https://i.imgur.com/CRpsxpE.jpeg" alt="Stremio + Real Debrid Israel Addons">
-        <h1>Stremio + Real Debrid Israel Addons Installer</h1>
+        <h1>שירות ההתקנות האוטומטי<br>Stremio + Real Debrid Israel</h1>
         <form id="stremioForm">
-            <label for="email">Stremio Email: (Facebook login is NOT supported)</label>
+            <label for="email">אימייל של משתמש ה-Stremio: (התחברות דרך פייסבוק אינה נתמכת!)</label>
             <input type="text" id="email" name="email" required>
             
-            <label for="password">Stremio Password:</label>
+            <label for="password">סיסמה למשתמש ה-Stremio:</label>
             <input type="password" id="password" name="password" required>
             
-            <label for="rd_api_key">RealDebrid API Key (Find it <a href="https://real-debrid.com/apitoken" target="_blank" style="color: green;">here</a>):</label>
+            <label for="rd_api_key">מפתח API של RealDebrid: (<a href="https://real-debrid.com/apitoken" target="_blank" style="color: #1e90ff; text-decoration: underline; font-weight: bold;">העתק אותו מכאן</a>)</label>
             <input type="text" id="rd_api_key" name="rd_api_key" required>
             
-            <button type="submit">Install Addons</button>
+            <button type="submit">התקן תוספים</button>
         </form>
 
         <div id="result" class="result"></div>
         <div class="divider"></div>
+        <h1>התוספים שיותקנו:</h1>
         <img class="footer-img" src="https://i.imgur.com/6xIhFcx.png" alt="Footer Image">
     </div>
 
@@ -109,7 +111,7 @@
         const STREMIO_API_LOGIN_URL = `${STREMIO_API_BASE_URL}/login`;
         const STREMIO_API_SET_ADDONS_URL = `${STREMIO_API_BASE_URL}/addonCollectionSet`;
         
-        function setTorrentioRdApiKey(realDebridApiKey) {
+        function defineAddonsJSON(realDebridApiKey) {
             return [
                 {
                     "transportUrl": "https://94c8cb9f702d-tmdb-addon.baby-beamup.club/%7B%22language%22%3A%22he-IL%22%7D/manifest.json",
@@ -1730,20 +1732,22 @@
                 console.log("Logged in successfully, authKey: " + data.result.authKey);
                 return data.result.authKey;
             } catch (error) {
-                console.log('Login failed!');
                 console.error('Login failed!', error);
-                throw new Error('Login failed!');
-            }
-        }
-        
-        function detectIOS() {
-            if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
-                alert("You are running on an iOS. Open Stremio Web to use Stremio.");
+                throw new Error('הכניסה נכשלה!');
             }
         }
 
-        async function syncAddons(authKey, addons) {
-            console.log("Syncing addons...");
+        async function installAddons(authKey, addons) {
+        
+            // Helper function to detect iOS devices
+            function detectIOS() {
+                if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+                    console.log("iOS device detected. Alerting user.")
+                    alert("המערכת זיהתה שאתה משתמש במכשיר של Apple.\nעל מנת לצפות בתכנים, השתמש ב-Stremio Web והגדר את אפליקציית VLC כנגן חיצוני.");
+                }
+            }
+            
+            console.log("Installing addons...");
             try {
                 const response = await fetch(STREMIO_API_SET_ADDONS_URL, {
                     method: 'POST',
@@ -1755,9 +1759,9 @@
 
                 if (data.result?.success) {
                     
-                    console.log('Installation complete!');
-                    alert('Installation complete!'); // Popup message
-                    document.getElementById('result').textContent = 'Installation complete!';
+                    console.log('Addons installation complete!');
+                    alert('התקנת התוספים בוצעה בהצלחה! כעת תיפתח אפליקציית Stremio.');
+                    document.getElementById('result').textContent = 'התקנת התוספים בוצעה בהצלחה!';
                     document.getElementById('result').className = 'result success'; // Apply success class
                     
                     // Clear all input fields
@@ -1770,12 +1774,12 @@
                     detectIOS();
                     
                 } else {
-                    throw new Error(data.result?.error || 'Failed to sync addons');
+                    throw new Error(data.result?.error || 'התרחשה שגיאה בהתקנת התוספים');
                 }
                 
             } catch (error) {
-                console.error('Error syncing addons:', error);
-                document.getElementById('result').textContent = `Error syncing addons: ${error.message}`;
+                console.error('Failed to install addons:', error);
+                document.getElementById('result').textContent = `${error.message}`;
                 document.getElementById('result').className = 'result error'; // Apply error class
             }
         }
@@ -1784,12 +1788,12 @@
             event.preventDefault();
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
-            const rdApiKey = document.getElementById('rd_api_key').value;
+            const realDebridApiKey = document.getElementById('rd_api_key').value;
 
             try {
                 const authKey = await loginToStremio(email, password);
-                const addons = setTorrentioRdApiKey(rdApiKey);
-                await syncAddons(authKey, addons);
+                const addons = defineAddonsJSON(realDebridApiKey);
+                await installAddons(authKey, addons);
             } catch (error) {
                 document.getElementById('result').textContent = error.message;
                 document.getElementById('result').className = 'result error'; // Apply error class
