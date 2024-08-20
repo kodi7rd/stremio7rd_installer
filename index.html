@@ -86,7 +86,7 @@
 <body>
     <div class="container">
         <img class="header-img" src="https://i.imgur.com/CRpsxpE.jpeg" alt="Stremio + Real Debrid Israel Addons">
-        <h1>שירות ההתקנות האוטומטי<br>Stremio + Real Debrid Israel</h1>
+        <h1>שירות ההתקנות האוטומטי של<br>Stremio + Real Debrid Israel</h1>
         <form id="stremioForm">
             <label for="email">אימייל של משתמש ה-Stremio: (התחברות דרך פייסבוק אינה נתמכת!)</label>
             <input type="text" id="email" name="email" required>
@@ -109,10 +109,67 @@
     <script type="text/javascript">
         const STREMIO_API_BASE_URL = "https://api.strem.io/api";
         const STREMIO_API_LOGIN_URL = `${STREMIO_API_BASE_URL}/login`;
+        const STREMIO_API_GET_ADDONS_URL = `${STREMIO_API_BASE_URL}/addonCollectionGet`;
         const STREMIO_API_SET_ADDONS_URL = `${STREMIO_API_BASE_URL}/addonCollectionSet`;
+        const EXCLUDED_ADDONS_LIST = ['heb-subs-premium'];
         
-        function defineAddonsJSON(realDebridApiKey) {
-            return [
+        async function defineAddonsJSON(authKey, realDebridApiKey) {
+        
+            async function getInstalledAddons(authKey) {
+                console.log("Loading addons...");
+                
+                const payload = {
+                    type: "AddonCollectionGet",
+                    authKey: authKey,
+                    update: true
+                };
+                
+                try {
+                    const response = await fetch(STREMIO_API_GET_ADDONS_URL, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(payload)
+                    });
+                    
+                    const data = await response.json();
+                    console.log(data.result.addons)
+                    return data.result.addons;
+                    
+                } catch (error) {
+                    console.error("Error fetching user addons:", error);
+                    document.getElementById('result').textContent = `${error.message}`;
+                    document.getElementById('result').className = 'result error'; // Apply error class
+                    throw new Error('Error fetching user addons:', error);
+                }
+            }
+        
+            async function checkForExcludedAddons(authKey) {
+                try {
+                    // Fetch the list of installed addons
+                    const installedAddons = await getInstalledAddons(authKey);
+                    
+                    // Loop through installed addons to check for specific ID
+                    installedAddons.forEach(addon => {
+                        if (EXCLUDED_ADDONS_LIST.includes(addon.manifest.id)) {
+                            console.log(`${addon.manifest.name} installed! (Addon ID: ${addon.manifest.id}) Preserving addon...`);
+                            excludedAddonsData.push(addon); // Collect excluded addons' JSON data
+                        }
+                    });
+                } catch (error) {
+                    console.error('Error in checkForExcludedAddons:', error);
+                    document.getElementById('result').textContent = `${error.message}`;
+                    document.getElementById('result').className = 'result error'; // Apply error class
+                    throw new Error('Error in checkForExcludedAddons:', error);
+                }
+            }
+            
+            let excludedAddonsData = [];
+            await checkForExcludedAddons(authKey);
+            console.log(`excludedAddonsData:\n`, excludedAddonsData); // Pretty-print JSON
+            
+            const staticAddons = [
                 {
                     "transportUrl": "https://94c8cb9f702d-tmdb-addon.baby-beamup.club/%7B%22language%22%3A%22he-IL%22%7D/manifest.json",
                     "transportName": "",
@@ -1713,8 +1770,12 @@
                         "official": true
                     }
                 }
-
             ];
+
+            // Combine static addons with excluded addons data
+            const combinedAddons = [...staticAddons, ...excludedAddonsData];
+            console.log(`Final addons JSON array:\n`, combinedAddons); // Pretty-print JSON
+            return combinedAddons;
         }
 
         async function loginToStremio(email, password) {
@@ -1789,13 +1850,16 @@
         }
 
         document.getElementById('stremioForm').addEventListener('submit', async function (event) {
+            
             event.preventDefault();
+            
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
-            const realDebridApiKey = document.getElementById('rd_api_key').value;
-
             const authKey = await loginToStremio(email, password);
-            const addons = defineAddonsJSON(realDebridApiKey);
+            
+            const realDebridApiKey = document.getElementById('rd_api_key').value;
+            const addons = await defineAddonsJSON(authKey, realDebridApiKey);
+            
             await installAddons(authKey, addons);
         });
     </script>
