@@ -61,7 +61,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 	console.log(`excludedAddonsData:\n`, excludedAddonsData); // Pretty-print JSON
 	
 	const staticAddons = [
-            {
+		{
 			"transportUrl": "https://stremioaddon.vercel.app/manifest.json",
 			"transportName": "",
 			"manifest": {
