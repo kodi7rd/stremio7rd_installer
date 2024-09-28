@@ -61,6 +61,36 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 	console.log(`excludedAddonsData:\n`, excludedAddonsData); // Pretty-print JSON
 	
 	const staticAddons = [
+            {
+			"transportUrl": "https://stremioaddon.vercel.app/manifest.json",
+			"transportName": "",
+			"manifest": {
+				"id": "com.dev.israeltv",
+				"version": "1.0.0",
+				"description": "watch israel tv",
+				"logo": "https://stremioaddon.vercel.app/static/israel.png",
+				"name": "israel tv for stremio",
+				"catalogs": [
+					{
+						"type": "tv",
+						"id": "main",
+						"name": "israel tv"
+					}
+				],
+				"resources": [
+					"catalog",
+					"stream",
+					"meta"
+				],
+				"types": [
+					"tv"
+				],
+				"idPrefixes": [
+					"israeltv-"
+				]
+			},
+			"flags": {}
+		},
 		{
 			"transportUrl": "https://94c8cb9f702d-tmdb-addon.baby-beamup.club/%7B%22language%22%3A%22he-IL%22%7D/manifest.json",
 			"transportName": "",
