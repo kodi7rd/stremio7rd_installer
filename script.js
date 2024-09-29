@@ -60,8 +60,8 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 	await checkForExcludedAddons(authKey);
 	console.log(`excludedAddonsData:\n`, excludedAddonsData); // Pretty-print JSON
 	
-	const staticAddons = [
-		{
+	// STATIC ADDONS
+	const ISRAEL_TV_ADDON = {
 			"transportUrl": "https://stremioaddon.vercel.app/manifest.json",
 			"transportName": "",
 			"manifest": {
@@ -90,8 +90,8 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 				]
 			},
 			"flags": {}
-		},
-		{
+		}
+	const TMDB_ADDON = {
 			"transportUrl": "https://94c8cb9f702d-tmdb-addon.baby-beamup.club/%7B%22language%22%3A%22he-IL%22%7D/manifest.json",
 			"transportName": "",
 			"manifest": {
@@ -512,8 +512,8 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 				"official": false,
 				"protected": false
 			}
-		},
-		{
+		}
+	const CINEMETA_ADDON = {
 			"transportUrl": "https://v3-cinemeta.strem.io/manifest.json",
 			"transportName": "",
 			"manifest": {
@@ -1038,8 +1038,8 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 				"official": true,
 				"protected": true
 			}
-		},
-		{
+		}
+	const LOCAL_FILES_ADDON = {
 			"transportUrl": "http://127.0.0.1:11470/local-addon/manifest.json",
 			"transportName": "",
 			"manifest": {
@@ -1091,8 +1091,8 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 				"official": true,
 				"protected": true
 			}
-		},
-		{
+		}
+	const CYBERFLIX_ADDON = {
 			"transportUrl": "https://cyberflix.elfhosted.com/c/catalogs=cd492,15846,c4e72,071c0,61f57,60f26,5653e,223ce,bfb17,ed8a6,88ef9,f3440%7Clang=en/manifest.json",
 			"transportName": "",
 			"manifest": {
@@ -1588,45 +1588,45 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 				"server_version": "0.3.3"
 			},
 			"flags": {}
-		},
-		{
-			"transportUrl": `https://torrentio.strem.fun/sort=qualitysize%7Cdebridoptions=nodownloadlinks,nocatalog%7Crealdebrid=${realDebridApiKey}/manifest.json`,
-			"transportName": "",
-			"manifest": {
-				"id": "com.stremio.torrentio.addon",
-				"version": "0.0.14",
-				"name": "Torrentio RD",
-				"description": "Provides torrent streams from scraped torrent providers. Currently supports YTS(+), EZTV(+), RARBG(+), 1337x(+), ThePirateBay(+), KickassTorrents(+), TorrentGalaxy(+), MagnetDL(+), HorribleSubs(+), NyaaSi(+), TokyoTosho(+), AniDex(+), Rutor(+), Rutracker(+), Comando(+), BluDV(+), Torrent9(+), MejorTorrent(+), Wolfmax4k(+), Cinecalidad(+) and RealDebrid enabled. To configure providers, RealDebrid/Premiumize/AllDebrid/DebridLink/Offcloud/Put.io support and other settings visit https://torrentio.strem.fun",
-				"catalogs": [],
-				"resources": [
-					{
-						"name": "stream",
-						"types": [
-							"movie",
-							"series"
-						],
-						"idPrefixes": [
-							"tt",
-							"kitsu"
-						]
-					}
-				],
-				"types": [
-					"movie",
-					"series",
-					"anime",
-					"other"
-				],
-				"background": "https://i.ibb.co/VtSfFP9/t8wVwcg.jpg",
-				"logo": "https://i.ibb.co/w4BnkC9/GwxAcDV.png",
-				"behaviorHints": {
-					"configurable": true,
-					"configurationRequired": false
+		}
+	const TORRENTIO_ADDON = {
+		"transportUrl": `https://torrentio.strem.fun/sort=qualitysize%7Cdebridoptions=nodownloadlinks,nocatalog%7Crealdebrid=${realDebridApiKey}/manifest.json`,
+		"transportName": "",
+		"manifest": {
+			"id": "com.stremio.torrentio.addon",
+			"version": "0.0.14",
+			"name": "Torrentio RD",
+			"description": "Provides torrent streams from scraped torrent providers. Currently supports YTS(+), EZTV(+), RARBG(+), 1337x(+), ThePirateBay(+), KickassTorrents(+), TorrentGalaxy(+), MagnetDL(+), HorribleSubs(+), NyaaSi(+), TokyoTosho(+), AniDex(+), Rutor(+), Rutracker(+), Comando(+), BluDV(+), Torrent9(+), MejorTorrent(+), Wolfmax4k(+), Cinecalidad(+) and RealDebrid enabled. To configure providers, RealDebrid/Premiumize/AllDebrid/DebridLink/Offcloud/Put.io support and other settings visit https://torrentio.strem.fun",
+			"catalogs": [],
+			"resources": [
+				{
+					"name": "stream",
+					"types": [
+						"movie",
+						"series"
+					],
+					"idPrefixes": [
+						"tt",
+						"kitsu"
+					]
 				}
-			},
-			"flags": {}
+			],
+			"types": [
+				"movie",
+				"series",
+				"anime",
+				"other"
+			],
+			"background": "https://i.ibb.co/VtSfFP9/t8wVwcg.jpg",
+			"logo": "https://i.ibb.co/w4BnkC9/GwxAcDV.png",
+			"behaviorHints": {
+				"configurable": true,
+				"configurationRequired": false
+			}
 		},
-		{
+		"flags": {}
+	}
+	const KTUVIT_ADDON = {
 			"transportUrl": "https://4b139a4b7f94-ktuvit-stremio.baby-beamup.club/manifest.json",
 			"transportName": "",
 			"manifest": {
@@ -1646,8 +1646,8 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 				"logo": "https://i0.wp.com/kodibeginner.com/wp-content/uploads/2020/10/ktuvit-me.jpg?w=300&ssl=1"
 			},
 			"flags": {}
-		},
-		{
+		}
+	const WIZDOM_ADDON = {
 			"transportUrl": "https://4b139a4b7f94-wizdom-stremio-v2.baby-beamup.club/manifest.json",
 			"transportName": "",
 			"manifest": {
@@ -1667,8 +1667,8 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 				"logo": "https://i.ibb.co/KLYK0TH/wizdon256.png"
 			},
 			"flags": {}
-		},
-		{
+		}
+	const OPENSUBTITLES_ADDON = {
 			"transportUrl": "https://opensubtitles-v3.strem.io/manifest.json",
 			"transportName": "",
 			"manifest": {
@@ -1691,7 +1691,8 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 				"official": true
 			}
 		}
-	];
+	
+	const staticAddons = [ISRAEL_TV_ADDON, TMDB_ADDON, CINEMETA_ADDON, LOCAL_FILES_ADDON, CYBERFLIX_ADDON, TORRENTIO_ADDON, KTUVIT_ADDON, WIZDOM_ADDON, OPENSUBTITLES_ADDON];
 
 	// Combine static addons with excluded addons data
 	const combinedAddons = [...staticAddons, ...excludedAddonsData];
