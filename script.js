@@ -2,6 +2,7 @@ const STREMIO_API_BASE_URL = "https://api.strem.io/api";
 const STREMIO_API_LOGIN_URL = `${STREMIO_API_BASE_URL}/login`;
 const STREMIO_API_GET_ADDONS_URL = `${STREMIO_API_BASE_URL}/addonCollectionGet`;
 const STREMIO_API_SET_ADDONS_URL = `${STREMIO_API_BASE_URL}/addonCollectionSet`;
+// Maybe will switch to exclude Cinemeta + Local files.
 const EXCLUDED_ADDONS_LIST = ['heb-subs-premium'];
 
 async function defineAddonsJSON(authKey, realDebridApiKey) {
