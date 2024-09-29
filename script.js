@@ -1717,7 +1717,7 @@ async function loginToStremio(email, password) {
 		return data.result.authKey;
 	} catch (error) {
 		console.error('Login failed!', error);
-		let errorMessage = 'ההתחברות נכשלה! <br><br><a href="https://www.stremio.com/login" target="_blank" style="color: #1e90ff; text-decoration: underline;">לא מצליח להתחבר? ודא את פרטיך באתר של Stremio</a>'
+		let errorMessage = 'ההתחברות נכשלה! <br><br><a href="https://www.stremio.com/login" target="_blank" style="color: #1e90ff; text-decoration: underline;">לא מצליח להתחבר? ודא את פרטי המשתמש שלך באתר של Stremio</a>'
 		document.getElementById('result').innerHTML = errorMessage;
 		document.getElementById('result').className = 'result error'; // Apply error class
 		throw new Error(errorMessage);
