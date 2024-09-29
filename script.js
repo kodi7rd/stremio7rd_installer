@@ -45,7 +45,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 			installedAddons.forEach(addon => {
 				if (EXCLUDED_ADDONS_LIST.includes(addon.manifest.id)) {
 					console.log(`${addon.manifest.name} installed! (Addon ID: ${addon.manifest.id}) Preserving addon...`);
-					excludedAddonsData.push(addon); // Collect excluded addons' JSON data
+					excludedAddonsData.push(addon); // Collect excluded addons JSON data
 				}
 			});
 		} catch (error) {
