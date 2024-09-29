@@ -1717,7 +1717,7 @@ async function loginToStremio(email, password) {
 		return data.result.authKey;
 	} catch (error) {
 		console.error('Login failed!', error);
-		let errorMessage = 'ההתחברות נכשלה! <br><br><a href="https://www.stremio.com/login" target="_blank" style="color: #1e90ff; text-decoration: underline;">קישור להתחברות באתר Stremio</a>'
+		let errorMessage = 'ההתחברות נכשלה! <br><br><a href="https://www.stremio.com/login" target="_blank" style="color: #1e90ff; text-decoration: underline;">לא מצליח להתחבר? ודא את פרטיך באתר של Stremio</a>'
 		document.getElementById('result').innerHTML = errorMessage;
 		document.getElementById('result').className = 'result error'; // Apply error class
 		throw new Error(errorMessage);
@@ -1785,3 +1785,8 @@ document.getElementById('stremioForm').addEventListener('submit', async function
 	
 	await installAddons(authKey, addons);
 });
+
+function openRDApiKeyPage() {
+    alert("הינך מועבר לאתר של Real Debrid לצורך העתקת מפתח ה-API האישי שלך.\n\nאם הינך מקבל עמוד שגיאה - התחבר למשתמש שלך על ידי לחיצה על Login בראש הדף בצד ימין.");
+    window.open("https://real-debrid.com/apitoken", "_blank");
+}
