@@ -2,7 +2,9 @@ const STREMIO_API_BASE_URL = "https://api.strem.io/api";
 const STREMIO_API_LOGIN_URL = `${STREMIO_API_BASE_URL}/login`;
 const STREMIO_API_GET_ADDONS_URL = `${STREMIO_API_BASE_URL}/addonCollectionGet`;
 const STREMIO_API_SET_ADDONS_URL = `${STREMIO_API_BASE_URL}/addonCollectionSet`;
-// Maybe will switch to exclude Cinemeta + Local files.
+// Addons exclusion
+const CINEMETA_ADDON_ID = 'com.linvo.cinemeta'
+const LOCAL_FILES_ADDON_ID = 'org.stremio.local'
 const EXCLUDED_ADDONS_LIST = ['heb-subs-premium'];
 
 async function defineAddonsJSON(authKey, realDebridApiKey) {
@@ -37,11 +39,8 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 		}
 	}
 
-	async function checkForExcludedAddons(authKey) {
+	async function checkForExcludedAddons(installedAddons) {
 		try {
-			// Fetch the list of installed addons
-			const installedAddons = await getInstalledAddons(authKey);
-			
 			// Loop through installed addons to check for specific ID
 			installedAddons.forEach(addon => {
 				if (EXCLUDED_ADDONS_LIST.includes(addon.manifest.id)) {
@@ -57,11 +56,50 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 		}
 	}
 	
+	const installedAddons = await getInstalledAddons(authKey);
+	
 	let excludedAddonsData = [];
-	await checkForExcludedAddons(authKey);
+	await checkForExcludedAddons(installedAddons);
 	console.log(`excludedAddonsData:\n`, excludedAddonsData); // Pretty-print JSON
 	
-	// ADDONS MANIFESTS
+	// Addons Manifests
+	const TORRENTIO_ADDON = {
+		"transportUrl": `https://torrentio.strem.fun/sort=qualitysize%7Cdebridoptions=nodownloadlinks,nocatalog%7Crealdebrid=${realDebridApiKey}/manifest.json`,
+		"transportName": "",
+		"manifest": {
+			"id": "com.stremio.torrentio.addon",
+			"version": "0.0.14",
+			"name": "Torrentio RD",
+			"description": "Provides torrent streams from scraped torrent providers. Currently supports YTS(+), EZTV(+), RARBG(+), 1337x(+), ThePirateBay(+), KickassTorrents(+), TorrentGalaxy(+), MagnetDL(+), HorribleSubs(+), NyaaSi(+), TokyoTosho(+), AniDex(+), Rutor(+), Rutracker(+), Comando(+), BluDV(+), Torrent9(+), MejorTorrent(+), Wolfmax4k(+), Cinecalidad(+) and RealDebrid enabled. To configure providers, RealDebrid/Premiumize/AllDebrid/DebridLink/Offcloud/Put.io support and other settings visit https://torrentio.strem.fun",
+			"catalogs": [],
+			"resources": [
+				{
+					"name": "stream",
+					"types": [
+						"movie",
+						"series"
+					],
+					"idPrefixes": [
+						"tt",
+						"kitsu"
+					]
+				}
+			],
+			"types": [
+				"movie",
+				"series",
+				"anime",
+				"other"
+			],
+			"background": "https://i.ibb.co/VtSfFP9/t8wVwcg.jpg",
+			"logo": "https://i.ibb.co/w4BnkC9/GwxAcDV.png",
+			"behaviorHints": {
+				"configurable": true,
+				"configurationRequired": false
+			}
+		},
+		"flags": {}
+	}
 	const ISRAEL_TV_ADDON = {
 			"transportUrl": "https://stremioaddon.vercel.app/manifest.json",
 			"transportName": "",
@@ -512,585 +550,6 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 			"flags": {
 				"official": false,
 				"protected": false
-			}
-		}
-	const CINEMETA_ADDON = {
-			"transportUrl": "https://v3-cinemeta.strem.io/manifest.json",
-			"transportName": "",
-			"manifest": {
-				"id": "com.linvo.cinemeta",
-				"version": "3.0.12",
-				"name": "Cinemeta",
-				"contactEmail": null,
-				"description": "The official addon for movie and series catalogs",
-				"logo": null,
-				"background": null,
-				"types": [
-					"movie",
-					"series"
-				],
-				"resources": [
-					"catalog",
-					"meta",
-					"addon_catalog"
-				],
-				"idPrefixes": [
-					"tt"
-				],
-				"catalogs": [
-					{
-						"id": "top",
-						"type": "movie",
-						"name": "Popular",
-						"extra": [
-							{
-								"name": "genre",
-								"isRequired": false,
-								"options": [
-									"Action",
-									"Adventure",
-									"Animation",
-									"Biography",
-									"Comedy",
-									"Crime",
-									"Documentary",
-									"Drama",
-									"Family",
-									"Fantasy",
-									"History",
-									"Horror",
-									"Mystery",
-									"Romance",
-									"Sci-Fi",
-									"Sport",
-									"Thriller",
-									"War",
-									"Western"
-								],
-								"optionsLimit": 1
-							},
-							{
-								"name": "search",
-								"isRequired": false,
-								"options": [],
-								"optionsLimit": 1
-							},
-							{
-								"name": "skip",
-								"isRequired": false,
-								"options": [],
-								"optionsLimit": 1
-							}
-						]
-					},
-					{
-						"id": "top",
-						"type": "series",
-						"name": "Popular",
-						"extra": [
-							{
-								"name": "genre",
-								"isRequired": false,
-								"options": [
-									"Action",
-									"Adventure",
-									"Animation",
-									"Biography",
-									"Comedy",
-									"Crime",
-									"Documentary",
-									"Drama",
-									"Family",
-									"Fantasy",
-									"History",
-									"Horror",
-									"Mystery",
-									"Romance",
-									"Sci-Fi",
-									"Sport",
-									"Thriller",
-									"War",
-									"Western",
-									"Reality-TV",
-									"Talk-Show",
-									"Game-Show"
-								],
-								"optionsLimit": 1
-							},
-							{
-								"name": "search",
-								"isRequired": false,
-								"options": [],
-								"optionsLimit": 1
-							},
-							{
-								"name": "skip",
-								"isRequired": false,
-								"options": [],
-								"optionsLimit": 1
-							}
-						]
-					},
-					{
-						"id": "year",
-						"type": "movie",
-						"name": "New",
-						"extra": [
-							{
-								"name": "genre",
-								"isRequired": true,
-								"options": [
-									"2024",
-									"2023",
-									"2022",
-									"2021",
-									"2020",
-									"2019",
-									"2018",
-									"2017",
-									"2016",
-									"2015",
-									"2014",
-									"2013",
-									"2012",
-									"2011",
-									"2010",
-									"2009",
-									"2008",
-									"2007",
-									"2006",
-									"2005",
-									"2004",
-									"2003",
-									"2002",
-									"2001",
-									"2000",
-									"1999",
-									"1998",
-									"1997",
-									"1996",
-									"1995",
-									"1994",
-									"1993",
-									"1992",
-									"1991",
-									"1990",
-									"1989",
-									"1988",
-									"1987",
-									"1986",
-									"1985",
-									"1984",
-									"1983",
-									"1982",
-									"1981",
-									"1980",
-									"1979",
-									"1978",
-									"1977",
-									"1976",
-									"1975",
-									"1974",
-									"1973",
-									"1972",
-									"1971",
-									"1970",
-									"1969",
-									"1968",
-									"1967",
-									"1966",
-									"1965",
-									"1964",
-									"1963",
-									"1962",
-									"1961",
-									"1960",
-									"1959",
-									"1958",
-									"1957",
-									"1956",
-									"1955",
-									"1954",
-									"1953",
-									"1952",
-									"1951",
-									"1950",
-									"1949",
-									"1948",
-									"1947",
-									"1946",
-									"1945",
-									"1944",
-									"1943",
-									"1942",
-									"1941",
-									"1940",
-									"1939",
-									"1938",
-									"1937",
-									"1936",
-									"1935",
-									"1934",
-									"1933",
-									"1932",
-									"1931",
-									"1930",
-									"1929",
-									"1928",
-									"1927",
-									"1926",
-									"1925",
-									"1924",
-									"1923",
-									"1922",
-									"1921",
-									"1920"
-								],
-								"optionsLimit": 1
-							},
-							{
-								"name": "skip",
-								"isRequired": false,
-								"options": [],
-								"optionsLimit": 1
-							}
-						]
-					},
-					{
-						"id": "year",
-						"type": "series",
-						"name": "New",
-						"extra": [
-							{
-								"name": "genre",
-								"isRequired": true,
-								"options": [
-									"2024",
-									"2023",
-									"2022",
-									"2021",
-									"2020",
-									"2019",
-									"2018",
-									"2017",
-									"2016",
-									"2015",
-									"2014",
-									"2013",
-									"2012",
-									"2011",
-									"2010",
-									"2009",
-									"2008",
-									"2007",
-									"2006",
-									"2005",
-									"2004",
-									"2003",
-									"2002",
-									"2001",
-									"2000",
-									"1999",
-									"1998",
-									"1997",
-									"1996",
-									"1995",
-									"1994",
-									"1993",
-									"1992",
-									"1991",
-									"1990",
-									"1989",
-									"1988",
-									"1987",
-									"1986",
-									"1985",
-									"1984",
-									"1983",
-									"1982",
-									"1981",
-									"1980",
-									"1979",
-									"1978",
-									"1977",
-									"1976",
-									"1975",
-									"1974",
-									"1973",
-									"1972",
-									"1971",
-									"1970",
-									"1969",
-									"1968",
-									"1967",
-									"1966",
-									"1965",
-									"1964",
-									"1963",
-									"1962",
-									"1961",
-									"1960"
-								],
-								"optionsLimit": 1
-							},
-							{
-								"name": "skip",
-								"isRequired": false,
-								"options": [],
-								"optionsLimit": 1
-							}
-						]
-					},
-					{
-						"id": "imdbRating",
-						"type": "movie",
-						"name": "Featured",
-						"extra": [
-							{
-								"name": "genre",
-								"isRequired": false,
-								"options": [
-									"Action",
-									"Adventure",
-									"Animation",
-									"Biography",
-									"Comedy",
-									"Crime",
-									"Documentary",
-									"Drama",
-									"Family",
-									"Fantasy",
-									"History",
-									"Horror",
-									"Mystery",
-									"Romance",
-									"Sci-Fi",
-									"Sport",
-									"Thriller",
-									"War",
-									"Western"
-								],
-								"optionsLimit": 1
-							},
-							{
-								"name": "skip",
-								"isRequired": false,
-								"options": [],
-								"optionsLimit": 1
-							}
-						]
-					},
-					{
-						"id": "imdbRating",
-						"type": "series",
-						"name": "Featured",
-						"extra": [
-							{
-								"name": "genre",
-								"isRequired": false,
-								"options": [
-									"Action",
-									"Adventure",
-									"Animation",
-									"Biography",
-									"Comedy",
-									"Crime",
-									"Documentary",
-									"Drama",
-									"Family",
-									"Fantasy",
-									"History",
-									"Horror",
-									"Mystery",
-									"Romance",
-									"Sci-Fi",
-									"Sport",
-									"Thriller",
-									"War",
-									"Western",
-									"Reality-TV",
-									"Talk-Show",
-									"Game-Show"
-								],
-								"optionsLimit": 1
-							},
-							{
-								"name": "skip",
-								"isRequired": false,
-								"options": [],
-								"optionsLimit": 1
-							}
-						]
-					},
-					{
-						"id": "last-videos",
-						"type": "series",
-						"name": "Last videos",
-						"extra": [
-							{
-								"name": "lastVideosIds",
-								"isRequired": true,
-								"options": [],
-								"optionsLimit": 100
-							}
-						]
-					},
-					{
-						"id": "calendar-videos",
-						"type": "series",
-						"name": "Calendar videos",
-						"extra": [
-							{
-								"name": "calendarVideosIds",
-								"isRequired": true,
-								"options": [],
-								"optionsLimit": 100
-							}
-						]
-					}
-				],
-				"addonCatalogs": [
-					{
-						"id": "official",
-						"type": "all",
-						"name": "Official",
-						"extraRequired": [],
-						"extraSupported": []
-					},
-					{
-						"id": "official",
-						"type": "movie",
-						"name": "Official",
-						"extraRequired": [],
-						"extraSupported": []
-					},
-					{
-						"id": "official",
-						"type": "series",
-						"name": "Official",
-						"extraRequired": [],
-						"extraSupported": []
-					},
-					{
-						"id": "official",
-						"type": "channel",
-						"name": "Official",
-						"extraRequired": [],
-						"extraSupported": []
-					},
-					{
-						"id": "community",
-						"type": "all",
-						"name": "Community",
-						"extraRequired": [],
-						"extraSupported": []
-					},
-					{
-						"id": "community",
-						"type": "movie",
-						"name": "Community",
-						"extraRequired": [],
-						"extraSupported": []
-					},
-					{
-						"id": "community",
-						"type": "series",
-						"name": "Community",
-						"extraRequired": [],
-						"extraSupported": []
-					},
-					{
-						"id": "community",
-						"type": "channel",
-						"name": "Community",
-						"extraRequired": [],
-						"extraSupported": []
-					},
-					{
-						"id": "community",
-						"type": "tv",
-						"name": "Community",
-						"extraRequired": [],
-						"extraSupported": []
-					},
-					{
-						"id": "community",
-						"type": "Podcasts",
-						"name": "Community",
-						"extraRequired": [],
-						"extraSupported": []
-					},
-					{
-						"id": "community",
-						"type": "other",
-						"name": "Community",
-						"extraRequired": [],
-						"extraSupported": []
-					}
-				],
-				"behaviorHints": {
-					"adult": false,
-					"p2p": false,
-					"configurable": false,
-					"configurationRequired": false
-				}
-			},
-			"flags": {
-				"official": true,
-				"protected": true
-			}
-		}
-	const LOCAL_FILES_ADDON = {
-			"transportUrl": "http://127.0.0.1:11470/local-addon/manifest.json",
-			"transportName": "",
-			"manifest": {
-				"id": "org.stremio.local",
-				"version": "1.10.0",
-				"name": "Local Files (without catalog support)",
-				"contactEmail": null,
-				"description": "Local add-on to find playable files: .torrent, .mp4, .mkv and .avi",
-				"logo": null,
-				"background": null,
-				"types": [
-					"movie",
-					"series",
-					"other"
-				],
-				"resources": [
-					{
-						"name": "meta",
-						"types": [
-							"other"
-						],
-						"idPrefixes": [
-							"local:",
-							"bt:"
-						]
-					},
-					{
-						"name": "stream",
-						"types": [
-							"movie",
-							"series"
-						],
-						"idPrefixes": [
-							"tt"
-						]
-					}
-				],
-				"idPrefixes": null,
-				"catalogs": [],
-				"addonCatalogs": [],
-				"behaviorHints": {
-					"adult": false,
-					"p2p": false,
-					"configurable": false,
-					"configurationRequired": false
-				}
-			},
-			"flags": {
-				"official": true,
-				"protected": true
 			}
 		}
 	const CYBERFLIX_ADDON = {
@@ -1590,43 +1049,6 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 			},
 			"flags": {}
 		}
-	const TORRENTIO_ADDON = {
-		"transportUrl": `https://torrentio.strem.fun/sort=qualitysize%7Cdebridoptions=nodownloadlinks,nocatalog%7Crealdebrid=${realDebridApiKey}/manifest.json`,
-		"transportName": "",
-		"manifest": {
-			"id": "com.stremio.torrentio.addon",
-			"version": "0.0.14",
-			"name": "Torrentio RD",
-			"description": "Provides torrent streams from scraped torrent providers. Currently supports YTS(+), EZTV(+), RARBG(+), 1337x(+), ThePirateBay(+), KickassTorrents(+), TorrentGalaxy(+), MagnetDL(+), HorribleSubs(+), NyaaSi(+), TokyoTosho(+), AniDex(+), Rutor(+), Rutracker(+), Comando(+), BluDV(+), Torrent9(+), MejorTorrent(+), Wolfmax4k(+), Cinecalidad(+) and RealDebrid enabled. To configure providers, RealDebrid/Premiumize/AllDebrid/DebridLink/Offcloud/Put.io support and other settings visit https://torrentio.strem.fun",
-			"catalogs": [],
-			"resources": [
-				{
-					"name": "stream",
-					"types": [
-						"movie",
-						"series"
-					],
-					"idPrefixes": [
-						"tt",
-						"kitsu"
-					]
-				}
-			],
-			"types": [
-				"movie",
-				"series",
-				"anime",
-				"other"
-			],
-			"background": "https://i.ibb.co/VtSfFP9/t8wVwcg.jpg",
-			"logo": "https://i.ibb.co/w4BnkC9/GwxAcDV.png",
-			"behaviorHints": {
-				"configurable": true,
-				"configurationRequired": false
-			}
-		},
-		"flags": {}
-	}
 	const KTUVIT_ADDON = {
 			"transportUrl": "https://4b139a4b7f94-ktuvit-stremio.baby-beamup.club/manifest.json",
 			"transportName": "",
@@ -1692,12 +1114,30 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 				"official": true
 			}
 		}
+
+
+	// Media Addons (Add Stremio's core Cinemeta + Local Files addons)
+	const mediaAddons = [
+		TORRENTIO_ADDON,
+		ISRAEL_TV_ADDON,
+		TMDB_ADDON,
+		...installedAddons.filter(addon => addon.manifest.id === CINEMETA_ADDON_ID || addon.manifest.id === LOCAL_FILES_ADDON_ID),
+		CYBERFLIX_ADDON
+	];
 	
-	const mediaAddons = [ISRAEL_TV_ADDON, TMDB_ADDON, CINEMETA_ADDON, LOCAL_FILES_ADDON, CYBERFLIX_ADDON, TORRENTIO_ADDON];
-	const subtitlesAddons = [KTUVIT_ADDON, WIZDOM_ADDON, OPENSUBTITLES_ADDON];
+	// Subtitles Addons
+	const subtitlesAddons = [
+		KTUVIT_ADDON,
+		WIZDOM_ADDON,
+		OPENSUBTITLES_ADDON
+	];
 
 	// Combine static addons with excluded addons data
-	const combinedAddons = [...mediaAddons, ...excludedAddonsData, ...subtitlesAddons];
+	const combinedAddons = [
+		...mediaAddons,
+		...excludedAddonsData,
+		...subtitlesAddons
+	];
 	console.log(`Final addons JSON array:\n`, combinedAddons); // Pretty-print JSON
 	return combinedAddons;
 }
