@@ -61,7 +61,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 	await checkForExcludedAddons(authKey);
 	console.log(`excludedAddonsData:\n`, excludedAddonsData); // Pretty-print JSON
 	
-	// STATIC ADDONS
+	// ADDONS MANIFESTS
 	const ISRAEL_TV_ADDON = {
 			"transportUrl": "https://stremioaddon.vercel.app/manifest.json",
 			"transportName": "",
@@ -1693,10 +1693,11 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 			}
 		}
 	
-	const staticAddons = [ISRAEL_TV_ADDON, TMDB_ADDON, CINEMETA_ADDON, LOCAL_FILES_ADDON, CYBERFLIX_ADDON, TORRENTIO_ADDON, KTUVIT_ADDON, WIZDOM_ADDON, OPENSUBTITLES_ADDON];
+	const mediaAddons = [ISRAEL_TV_ADDON, TMDB_ADDON, CINEMETA_ADDON, LOCAL_FILES_ADDON, CYBERFLIX_ADDON, TORRENTIO_ADDON];
+	const subtitlesAddons = [KTUVIT_ADDON, WIZDOM_ADDON, OPENSUBTITLES_ADDON];
 
 	// Combine static addons with excluded addons data
-	const combinedAddons = [...staticAddons, ...excludedAddonsData];
+	const combinedAddons = [...mediaAddons, ...excludedAddonsData, ...subtitlesAddons];
 	console.log(`Final addons JSON array:\n`, combinedAddons); // Pretty-print JSON
 	return combinedAddons;
 }
