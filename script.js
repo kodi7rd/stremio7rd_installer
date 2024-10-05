@@ -1188,7 +1188,7 @@ async function installAddons(authKey, addons) {
 		if (data.result?.success) {
 			
 			console.log('Addons installation complete!');
-			alert('התקנת התוספים בוצעה בהצלחה!\nכעת תיפתח אפליקציית Stremio.');
+			alert('התקנת התוספים בוצעה בהצלחה!\nכעת תיפתח אפליקציית Stremio.\nמומלץ להתנתק ולהתחבר מחדש למשתמש.');
 			document.getElementById('result').textContent = 'התקנת התוספים בוצעה בהצלחה!';
 			document.getElementById('result').className = 'result success'; // Apply success class
 			
