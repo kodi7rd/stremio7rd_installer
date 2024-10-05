@@ -94,36 +94,41 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 			"flags": {}
 		}
 	const TMDB_ADDON = {
-			"transportUrl": "https://94c8cb9f702d-tmdb-addon.baby-beamup.club/%7B%22language%22%3A%22he-IL%22%7D/manifest.json",
+			"transportUrl": "https://94c8cb9f702d-tmdb-addon.baby-beamup.club/%7B%22provide_imdbId%22%3A%22true%22%2C%22use_tmdb_prefix%22%3A%22true%22%2C%22language%22%3A%22he-IL%22%7D/manifest.json",
 			"transportName": "",
 			"manifest": {
 				"id": "tmdb-addon",
-				"version": "3.0.14",
-				"name": "The Movie Database Addon",
-				"contactEmail": null,
-				"description": "Metadata provided by TMDB with he-IL language.",
+				"version": "3.0.16",
+				"favicon": "https://github.com/mrcanelas/tmdb-addon/raw/main/images/favicon.png",
 				"logo": "https://github.com/mrcanelas/tmdb-addon/raw/main/images/logo.png",
 				"background": "https://github.com/mrcanelas/tmdb-addon/raw/main/images/background.png",
-				"types": [
-					"movie",
-					"series"
-				],
+				"name": "The Movie Database Addon",
+				"description": "Metadata provided by TMDB with he-IL language.",
 				"resources": [
 					"catalog",
 					"meta"
 				],
-				"idPrefixes": [
-					"tmdb:"
+				"types": [
+					"movie",
+					"series"
 				],
+				"idPrefixes": [
+					"tmdb:",
+					"tt"
+				],
+				"behaviorHints": {
+					"configurable": true,
+					"configurationRequired": false
+				},
 				"catalogs": [
 					{
 						"id": "tmdb.top",
 						"type": "movie",
 						"name": "TMDB - Popular",
+						"pageSize": 20,
 						"extra": [
 							{
 								"name": "genre",
-								"isRequired": false,
 								"options": [
 									"אימה",
 									"אנימציה",
@@ -144,31 +149,29 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 									"פשע",
 									"קומדיה",
 									"רומנטי"
-								],
-								"optionsLimit": 1
+								]
 							},
 							{
-								"name": "skip",
-								"isRequired": false,
-								"options": [],
-								"optionsLimit": 1
+								"name": "skip"
 							},
 							{
-								"name": "search",
-								"isRequired": false,
-								"options": [],
-								"optionsLimit": 1
+								"name": "search"
 							}
+						],
+						"extraSupported": [
+							"genre",
+							"skip",
+							"search"
 						]
 					},
 					{
 						"id": "tmdb.year",
 						"type": "movie",
-						"name": "TMDB - By Year",
+						"name": "TMDB - Year",
+						"pageSize": 20,
 						"extra": [
 							{
 								"name": "genre",
-								"isRequired": true,
 								"options": [
 									"2024",
 									"2023",
@@ -192,24 +195,28 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 									"2005",
 									"2004"
 								],
-								"optionsLimit": 1
+								"isRequired": true
 							},
 							{
-								"name": "skip",
-								"isRequired": false,
-								"options": [],
-								"optionsLimit": 1
+								"name": "skip"
 							}
+						],
+						"extraSupported": [
+							"genre",
+							"skip"
+						],
+						"extraRequired": [
+							"genre"
 						]
 					},
 					{
 						"id": "tmdb.language",
 						"type": "movie",
-						"name": "TMDB - By Language",
+						"name": "TMDB - Language",
+						"pageSize": 20,
 						"extra": [
 							{
 								"name": "genre",
-								"isRequired": true,
 								"options": [
 									"Hebrew",
 									"Afrikaans",
@@ -246,6 +253,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 									"Kazakh",
 									"Kirghiz",
 									"Korean",
+									"Kurdish",
 									"Latvian",
 									"Lithuanian",
 									"Malay",
@@ -264,6 +272,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 									"Sinhalese",
 									"Slovak",
 									"Slovenian",
+									"Somali",
 									"Spanish",
 									"Swahili",
 									"Swedish",
@@ -274,50 +283,59 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 									"Turkish",
 									"Ukrainian",
 									"Urdu",
+									"Uzbek",
 									"Vietnamese",
 									"Welsh",
 									"Zulu"
 								],
-								"optionsLimit": 1
+								"isRequired": true
 							},
 							{
-								"name": "skip",
-								"isRequired": false,
-								"options": [],
-								"optionsLimit": 1
+								"name": "skip"
 							}
+						],
+						"extraSupported": [
+							"genre",
+							"skip"
+						],
+						"extraRequired": [
+							"genre"
 						]
 					},
 					{
 						"id": "tmdb.trending",
 						"type": "movie",
 						"name": "TMDB - Trending",
+						"pageSize": 20,
 						"extra": [
 							{
 								"name": "genre",
-								"isRequired": true,
 								"options": [
 									"Day",
 									"Week"
 								],
-								"optionsLimit": 1
+								"isRequired": true
 							},
 							{
-								"name": "skip",
-								"isRequired": false,
-								"options": [],
-								"optionsLimit": 1
+								"name": "skip"
 							}
+						],
+						"extraSupported": [
+							"genre",
+							"skip"
+						],
+						"extraRequired": [
+							"genre"
 						]
 					},
 					{
 						"id": "tmdb.top",
 						"type": "series",
 						"name": "TMDB - Popular",
+						"pageSize": 20,
 						"extra": [
 							{
 								"name": "genre",
-								"isRequired": false,
 								"options": [
 									"אנימציה",
 									"אקשן והרפתקאות",
@@ -335,31 +353,29 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 									"פשע",
 									"קומדיה",
 									"ריאליטי"
-								],
-								"optionsLimit": 1
+								]
 							},
 							{
-								"name": "skip",
-								"isRequired": false,
-								"options": [],
-								"optionsLimit": 1
+								"name": "skip"
 							},
 							{
-								"name": "search",
-								"isRequired": false,
-								"options": [],
-								"optionsLimit": 1
+								"name": "search"
 							}
+						],
+						"extraSupported": [
+							"genre",
+							"skip",
+							"search"
 						]
 					},
 					{
 						"id": "tmdb.year",
 						"type": "series",
-						"name": "TMDB - By Year",
+						"name": "TMDB - Year",
+						"pageSize": 20,
 						"extra": [
 							{
 								"name": "genre",
-								"isRequired": true,
 								"options": [
 									"2024",
 									"2023",
@@ -383,24 +399,28 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 									"2005",
 									"2004"
 								],
-								"optionsLimit": 1
+								"isRequired": true
 							},
 							{
-								"name": "skip",
-								"isRequired": false,
-								"options": [],
-								"optionsLimit": 1
+								"name": "skip"
 							}
+						],
+						"extraSupported": [
+							"genre",
+							"skip"
+						],
+						"extraRequired": [
+							"genre"
 						]
 					},
 					{
 						"id": "tmdb.language",
 						"type": "series",
-						"name": "TMDB - By Language",
+						"name": "TMDB - Language",
+						"pageSize": 20,
 						"extra": [
 							{
 								"name": "genre",
-								"isRequired": true,
 								"options": [
 									"Hebrew",
 									"Afrikaans",
@@ -437,6 +457,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 									"Kazakh",
 									"Kirghiz",
 									"Korean",
+									"Kurdish",
 									"Latvian",
 									"Lithuanian",
 									"Malay",
@@ -455,6 +476,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 									"Sinhalese",
 									"Slovak",
 									"Slovenian",
+									"Somali",
 									"Spanish",
 									"Swahili",
 									"Swedish",
@@ -465,55 +487,54 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 									"Turkish",
 									"Ukrainian",
 									"Urdu",
+									"Uzbek",
 									"Vietnamese",
 									"Welsh",
 									"Zulu"
 								],
-								"optionsLimit": 1
+								"isRequired": true
 							},
 							{
-								"name": "skip",
-								"isRequired": false,
-								"options": [],
-								"optionsLimit": 1
+								"name": "skip"
 							}
+						],
+						"extraSupported": [
+							"genre",
+							"skip"
+						],
+						"extraRequired": [
+							"genre"
 						]
 					},
 					{
 						"id": "tmdb.trending",
 						"type": "series",
 						"name": "TMDB - Trending",
+						"pageSize": 20,
 						"extra": [
 							{
 								"name": "genre",
-								"isRequired": true,
 								"options": [
 									"Day",
 									"Week"
 								],
-								"optionsLimit": 1
+								"isRequired": true
 							},
 							{
-								"name": "skip",
-								"isRequired": false,
-								"options": [],
-								"optionsLimit": 1
+								"name": "skip"
 							}
+						],
+						"extraSupported": [
+							"genre",
+							"skip"
+						],
+						"extraRequired": [
+							"genre"
 						]
 					}
-				],
-				"addonCatalogs": [],
-				"behaviorHints": {
-					"adult": false,
-					"p2p": false,
-					"configurable": true,
-					"configurationRequired": false
-				}
+				]
 			},
-			"flags": {
-				"official": false,
-				"protected": false
-			}
+			"flags": {}
 		}
 	const CYBERFLIX_ADDON = {
 			"transportUrl": "https://cyberflix.elfhosted.com/c/catalogs=cd492,15846,c4e72,071c0,61f57,60f26,5653e,223ce,bfb17,ed8a6,88ef9,f3440%7Clang=en/manifest.json",
