@@ -93,6 +93,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 		},
 		"flags": {}
 	}
+	
 	const TMDB_ADDON = {
 		"transportUrl": "https://94c8cb9f702d-tmdb-addon.baby-beamup.club/%7B%22provide_imdbId%22%3A%22true%22%2C%22use_tmdb_prefix%22%3A%22true%22%2C%22language%22%3A%22he-IL%22%7D/manifest.json",
 		"transportName": "",
@@ -536,6 +537,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 		},
 		"flags": {}
 	}
+	
 	const CYBERFLIX_ADDON = {
 		"transportUrl": "https://cyberflix.elfhosted.com/c/catalogs=cd492,15846,c4e72,071c0,61f57,60f26,5653e,223ce,bfb17,ed8a6,88ef9,f3440%7Clang=en/manifest.json",
 		"transportName": "",
@@ -1033,6 +1035,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 		},
 		"flags": {}
 	}
+	
 	const KTUVIT_ADDON = {
 		"transportUrl": "https://4b139a4b7f94-ktuvit-stremio.baby-beamup.club/manifest.json",
 		"transportName": "",
@@ -1054,6 +1057,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 		},
 		"flags": {}
 	}
+	
 	const WIZDOM_ADDON = {
 		"transportUrl": "https://4b139a4b7f94-wizdom-stremio-v2.baby-beamup.club/manifest.json",
 		"transportName": "",
@@ -1075,6 +1079,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 		},
 		"flags": {}
 	}
+	
 	const OPENSUBTITLES_ADDON = {
 		"transportUrl": "https://opensubtitles-v3.strem.io/manifest.json",
 		"transportName": "",
@@ -1098,6 +1103,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 			"official": true
 		}
 	}
+	
 	const TORRENTIO_ADDON = {
 		"transportUrl": `https://torrentio.strem.fun/sort=qualitysize%7Cdebridoptions=nodownloadlinks%7Crealdebrid=${realDebridApiKey}/manifest.json`,
 		"transportName": "",
