@@ -1116,10 +1116,14 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 		}
 
 
+	// TV Addons
+	const TVAddons = [
+		ISRAEL_TV_ADDON
+	];
+
+
 	// Media Addons (Add Stremio's core Cinemeta + Local Files addons)
-	const mediaAddons = [
-		TORRENTIO_ADDON,
-		ISRAEL_TV_ADDON,
+	const catalogAddons = [
 		TMDB_ADDON,
 		...installedAddons.filter(addon => addon.manifest.id === CINEMETA_ADDON_ID || addon.manifest.id === LOCAL_FILES_ADDON_ID),
 		CYBERFLIX_ADDON
@@ -1131,12 +1135,19 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 		WIZDOM_ADDON,
 		OPENSUBTITLES_ADDON
 	];
+	
+	// RD Addons
+	const torrentAddons = [
+		TORRENTIO_ADDON
+	];
 
 	// Combine static addons with excluded addons data
 	const combinedAddons = [
-		...mediaAddons,
+		...TVAddons,
+		...catalogAddons,
 		...excludedAddonsData,
-		...subtitlesAddons
+		...subtitlesAddons,
+		...torrentAddons
 	];
 	console.log(`Final addons JSON array:\n`, combinedAddons); // Pretty-print JSON
 	return combinedAddons;
