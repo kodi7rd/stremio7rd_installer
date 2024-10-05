@@ -64,1040 +64,1040 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 	
 	// Addons Manifests
 	const ISRAEL_TV_ADDON = {
-			"transportUrl": "https://stremioaddon.vercel.app/manifest.json",
-			"transportName": "",
-			"manifest": {
-				"id": "com.dev.israeltv",
-				"version": "1.0.0",
-				"description": "watch israel tv",
-				"logo": "https://stremioaddon.vercel.app/static/israel.png",
-				"name": "israel tv for stremio",
-				"catalogs": [
-					{
-						"type": "tv",
-						"id": "main",
-						"name": "israel tv"
-					}
-				],
-				"resources": [
-					"catalog",
-					"stream",
-					"meta"
-				],
-				"types": [
-					"tv"
-				],
-				"idPrefixes": [
-					"israeltv-"
-				]
-			},
-			"flags": {}
-		}
+		"transportUrl": "https://stremioaddon.vercel.app/manifest.json",
+		"transportName": "",
+		"manifest": {
+			"id": "com.dev.israeltv",
+			"version": "1.0.0",
+			"description": "watch israel tv",
+			"logo": "https://stremioaddon.vercel.app/static/israel.png",
+			"name": "israel tv for stremio",
+			"catalogs": [
+				{
+					"type": "tv",
+					"id": "main",
+					"name": "israel tv"
+				}
+			],
+			"resources": [
+				"catalog",
+				"stream",
+				"meta"
+			],
+			"types": [
+				"tv"
+			],
+			"idPrefixes": [
+				"israeltv-"
+			]
+		},
+		"flags": {}
+	}
 	const TMDB_ADDON = {
-			"transportUrl": "https://94c8cb9f702d-tmdb-addon.baby-beamup.club/%7B%22provide_imdbId%22%3A%22true%22%2C%22use_tmdb_prefix%22%3A%22true%22%2C%22language%22%3A%22he-IL%22%7D/manifest.json",
-			"transportName": "",
-			"manifest": {
-				"id": "tmdb-addon",
-				"version": "3.0.16",
-				"favicon": "https://github.com/mrcanelas/tmdb-addon/raw/main/images/favicon.png",
-				"logo": "https://github.com/mrcanelas/tmdb-addon/raw/main/images/logo.png",
-				"background": "https://github.com/mrcanelas/tmdb-addon/raw/main/images/background.png",
-				"name": "The Movie Database Addon",
-				"description": "Metadata provided by TMDB with he-IL language.",
-				"resources": [
-					"catalog",
-					"meta"
-				],
-				"types": [
-					"movie",
-					"series"
-				],
-				"idPrefixes": [
-					"tmdb:",
-					"tt"
-				],
-				"behaviorHints": {
-					"configurable": true,
-					"configurationRequired": false
-				},
-				"catalogs": [
-					{
-						"id": "tmdb.top",
-						"type": "movie",
-						"name": "TMDB - Popular",
-						"pageSize": 20,
-						"extra": [
-							{
-								"name": "genre",
-								"options": [
-									"אימה",
-									"אנימציה",
-									"אקשן",
-									"דוקומנטרי",
-									"דרמה",
-									"הסטוריה",
-									"הרפתקאות",
-									"מדע בדיוני",
-									"מוסיקה",
-									"מותחן",
-									"מלחמה",
-									"מסתורין",
-									"מערבון",
-									"משפחה",
-									"סרט טלויזיה",
-									"פנטזיה",
-									"פשע",
-									"קומדיה",
-									"רומנטי"
-								]
-							},
-							{
-								"name": "skip"
-							},
-							{
-								"name": "search"
-							}
-						],
-						"extraSupported": [
-							"genre",
-							"skip",
-							"search"
-						]
-					},
-					{
-						"id": "tmdb.year",
-						"type": "movie",
-						"name": "TMDB - Year",
-						"pageSize": 20,
-						"extra": [
-							{
-								"name": "genre",
-								"options": [
-									"2024",
-									"2023",
-									"2022",
-									"2021",
-									"2020",
-									"2019",
-									"2018",
-									"2017",
-									"2016",
-									"2015",
-									"2014",
-									"2013",
-									"2012",
-									"2011",
-									"2010",
-									"2009",
-									"2008",
-									"2007",
-									"2006",
-									"2005",
-									"2004"
-								],
-								"isRequired": true
-							},
-							{
-								"name": "skip"
-							}
-						],
-						"extraSupported": [
-							"genre",
-							"skip"
-						],
-						"extraRequired": [
-							"genre"
-						]
-					},
-					{
-						"id": "tmdb.language",
-						"type": "movie",
-						"name": "TMDB - Language",
-						"pageSize": 20,
-						"extra": [
-							{
-								"name": "genre",
-								"options": [
-									"Hebrew",
-									"Afrikaans",
-									"Albanian",
-									"Arabic",
-									"Basque",
-									"Belarusian",
-									"Bengali",
-									"Breton",
-									"Bulgarian",
-									"Catalan",
-									"Chamorro",
-									"Croatian",
-									"Czech",
-									"Danish",
-									"Dutch",
-									"English",
-									"Esperanto",
-									"Estonian",
-									"Finnish",
-									"French",
-									"Gaelic",
-									"Galician",
-									"Georgian",
-									"German",
-									"Greek",
-									"Hindi",
-									"Hungarian",
-									"Indonesian",
-									"Irish",
-									"Italian",
-									"Japanese",
-									"Kannada",
-									"Kazakh",
-									"Kirghiz",
-									"Korean",
-									"Kurdish",
-									"Latvian",
-									"Lithuanian",
-									"Malay",
-									"Malayalam",
-									"Mandarin",
-									"Marathi",
-									"Norwegian",
-									"Norwegian Bokmål",
-									"Persian",
-									"Polish",
-									"Portuguese",
-									"Punjabi",
-									"Romanian",
-									"Russian",
-									"Serbian",
-									"Sinhalese",
-									"Slovak",
-									"Slovenian",
-									"Somali",
-									"Spanish",
-									"Swahili",
-									"Swedish",
-									"Tagalog",
-									"Tamil",
-									"Telugu",
-									"Thai",
-									"Turkish",
-									"Ukrainian",
-									"Urdu",
-									"Uzbek",
-									"Vietnamese",
-									"Welsh",
-									"Zulu"
-								],
-								"isRequired": true
-							},
-							{
-								"name": "skip"
-							}
-						],
-						"extraSupported": [
-							"genre",
-							"skip"
-						],
-						"extraRequired": [
-							"genre"
-						]
-					},
-					{
-						"id": "tmdb.trending",
-						"type": "movie",
-						"name": "TMDB - Trending",
-						"pageSize": 20,
-						"extra": [
-							{
-								"name": "genre",
-								"options": [
-									"Day",
-									"Week"
-								],
-								"isRequired": true
-							},
-							{
-								"name": "skip"
-							}
-						],
-						"extraSupported": [
-							"genre",
-							"skip"
-						],
-						"extraRequired": [
-							"genre"
-						]
-					},
-					{
-						"id": "tmdb.top",
-						"type": "series",
-						"name": "TMDB - Popular",
-						"pageSize": 20,
-						"extra": [
-							{
-								"name": "genre",
-								"options": [
-									"אנימציה",
-									"אקשן והרפתקאות",
-									"דוקומנטרי",
-									"דיבורים",
-									"דרמה",
-									"חדשות",
-									"ילדים",
-									"מדע בדיוני ופנטזיה",
-									"מלחמה ופוליטיקה",
-									"מסתורין",
-									"מערבון",
-									"משפחה",
-									"סבון",
-									"פשע",
-									"קומדיה",
-									"ריאליטי"
-								]
-							},
-							{
-								"name": "skip"
-							},
-							{
-								"name": "search"
-							}
-						],
-						"extraSupported": [
-							"genre",
-							"skip",
-							"search"
-						]
-					},
-					{
-						"id": "tmdb.year",
-						"type": "series",
-						"name": "TMDB - Year",
-						"pageSize": 20,
-						"extra": [
-							{
-								"name": "genre",
-								"options": [
-									"2024",
-									"2023",
-									"2022",
-									"2021",
-									"2020",
-									"2019",
-									"2018",
-									"2017",
-									"2016",
-									"2015",
-									"2014",
-									"2013",
-									"2012",
-									"2011",
-									"2010",
-									"2009",
-									"2008",
-									"2007",
-									"2006",
-									"2005",
-									"2004"
-								],
-								"isRequired": true
-							},
-							{
-								"name": "skip"
-							}
-						],
-						"extraSupported": [
-							"genre",
-							"skip"
-						],
-						"extraRequired": [
-							"genre"
-						]
-					},
-					{
-						"id": "tmdb.language",
-						"type": "series",
-						"name": "TMDB - Language",
-						"pageSize": 20,
-						"extra": [
-							{
-								"name": "genre",
-								"options": [
-									"Hebrew",
-									"Afrikaans",
-									"Albanian",
-									"Arabic",
-									"Basque",
-									"Belarusian",
-									"Bengali",
-									"Breton",
-									"Bulgarian",
-									"Catalan",
-									"Chamorro",
-									"Croatian",
-									"Czech",
-									"Danish",
-									"Dutch",
-									"English",
-									"Esperanto",
-									"Estonian",
-									"Finnish",
-									"French",
-									"Gaelic",
-									"Galician",
-									"Georgian",
-									"German",
-									"Greek",
-									"Hindi",
-									"Hungarian",
-									"Indonesian",
-									"Irish",
-									"Italian",
-									"Japanese",
-									"Kannada",
-									"Kazakh",
-									"Kirghiz",
-									"Korean",
-									"Kurdish",
-									"Latvian",
-									"Lithuanian",
-									"Malay",
-									"Malayalam",
-									"Mandarin",
-									"Marathi",
-									"Norwegian",
-									"Norwegian Bokmål",
-									"Persian",
-									"Polish",
-									"Portuguese",
-									"Punjabi",
-									"Romanian",
-									"Russian",
-									"Serbian",
-									"Sinhalese",
-									"Slovak",
-									"Slovenian",
-									"Somali",
-									"Spanish",
-									"Swahili",
-									"Swedish",
-									"Tagalog",
-									"Tamil",
-									"Telugu",
-									"Thai",
-									"Turkish",
-									"Ukrainian",
-									"Urdu",
-									"Uzbek",
-									"Vietnamese",
-									"Welsh",
-									"Zulu"
-								],
-								"isRequired": true
-							},
-							{
-								"name": "skip"
-							}
-						],
-						"extraSupported": [
-							"genre",
-							"skip"
-						],
-						"extraRequired": [
-							"genre"
-						]
-					},
-					{
-						"id": "tmdb.trending",
-						"type": "series",
-						"name": "TMDB - Trending",
-						"pageSize": 20,
-						"extra": [
-							{
-								"name": "genre",
-								"options": [
-									"Day",
-									"Week"
-								],
-								"isRequired": true
-							},
-							{
-								"name": "skip"
-							}
-						],
-						"extraSupported": [
-							"genre",
-							"skip"
-						],
-						"extraRequired": [
-							"genre"
-						]
-					}
-				]
+		"transportUrl": "https://94c8cb9f702d-tmdb-addon.baby-beamup.club/%7B%22provide_imdbId%22%3A%22true%22%2C%22use_tmdb_prefix%22%3A%22true%22%2C%22language%22%3A%22he-IL%22%7D/manifest.json",
+		"transportName": "",
+		"manifest": {
+			"id": "tmdb-addon",
+			"version": "3.0.16",
+			"favicon": "https://github.com/mrcanelas/tmdb-addon/raw/main/images/favicon.png",
+			"logo": "https://github.com/mrcanelas/tmdb-addon/raw/main/images/logo.png",
+			"background": "https://github.com/mrcanelas/tmdb-addon/raw/main/images/background.png",
+			"name": "The Movie Database Addon",
+			"description": "Metadata provided by TMDB with he-IL language.",
+			"resources": [
+				"catalog",
+				"meta"
+			],
+			"types": [
+				"movie",
+				"series"
+			],
+			"idPrefixes": [
+				"tmdb:",
+				"tt"
+			],
+			"behaviorHints": {
+				"configurable": true,
+				"configurationRequired": false
 			},
-			"flags": {}
-		}
+			"catalogs": [
+				{
+					"id": "tmdb.top",
+					"type": "movie",
+					"name": "TMDB - Popular",
+					"pageSize": 20,
+					"extra": [
+						{
+							"name": "genre",
+							"options": [
+								"אימה",
+								"אנימציה",
+								"אקשן",
+								"דוקומנטרי",
+								"דרמה",
+								"הסטוריה",
+								"הרפתקאות",
+								"מדע בדיוני",
+								"מוסיקה",
+								"מותחן",
+								"מלחמה",
+								"מסתורין",
+								"מערבון",
+								"משפחה",
+								"סרט טלויזיה",
+								"פנטזיה",
+								"פשע",
+								"קומדיה",
+								"רומנטי"
+							]
+						},
+						{
+							"name": "skip"
+						},
+						{
+							"name": "search"
+						}
+					],
+					"extraSupported": [
+						"genre",
+						"skip",
+						"search"
+					]
+				},
+				{
+					"id": "tmdb.year",
+					"type": "movie",
+					"name": "TMDB - Year",
+					"pageSize": 20,
+					"extra": [
+						{
+							"name": "genre",
+							"options": [
+								"2024",
+								"2023",
+								"2022",
+								"2021",
+								"2020",
+								"2019",
+								"2018",
+								"2017",
+								"2016",
+								"2015",
+								"2014",
+								"2013",
+								"2012",
+								"2011",
+								"2010",
+								"2009",
+								"2008",
+								"2007",
+								"2006",
+								"2005",
+								"2004"
+							],
+							"isRequired": true
+						},
+						{
+							"name": "skip"
+						}
+					],
+					"extraSupported": [
+						"genre",
+						"skip"
+					],
+					"extraRequired": [
+						"genre"
+					]
+				},
+				{
+					"id": "tmdb.language",
+					"type": "movie",
+					"name": "TMDB - Language",
+					"pageSize": 20,
+					"extra": [
+						{
+							"name": "genre",
+							"options": [
+								"Hebrew",
+								"Afrikaans",
+								"Albanian",
+								"Arabic",
+								"Basque",
+								"Belarusian",
+								"Bengali",
+								"Breton",
+								"Bulgarian",
+								"Catalan",
+								"Chamorro",
+								"Croatian",
+								"Czech",
+								"Danish",
+								"Dutch",
+								"English",
+								"Esperanto",
+								"Estonian",
+								"Finnish",
+								"French",
+								"Gaelic",
+								"Galician",
+								"Georgian",
+								"German",
+								"Greek",
+								"Hindi",
+								"Hungarian",
+								"Indonesian",
+								"Irish",
+								"Italian",
+								"Japanese",
+								"Kannada",
+								"Kazakh",
+								"Kirghiz",
+								"Korean",
+								"Kurdish",
+								"Latvian",
+								"Lithuanian",
+								"Malay",
+								"Malayalam",
+								"Mandarin",
+								"Marathi",
+								"Norwegian",
+								"Norwegian Bokmål",
+								"Persian",
+								"Polish",
+								"Portuguese",
+								"Punjabi",
+								"Romanian",
+								"Russian",
+								"Serbian",
+								"Sinhalese",
+								"Slovak",
+								"Slovenian",
+								"Somali",
+								"Spanish",
+								"Swahili",
+								"Swedish",
+								"Tagalog",
+								"Tamil",
+								"Telugu",
+								"Thai",
+								"Turkish",
+								"Ukrainian",
+								"Urdu",
+								"Uzbek",
+								"Vietnamese",
+								"Welsh",
+								"Zulu"
+							],
+							"isRequired": true
+						},
+						{
+							"name": "skip"
+						}
+					],
+					"extraSupported": [
+						"genre",
+						"skip"
+					],
+					"extraRequired": [
+						"genre"
+					]
+				},
+				{
+					"id": "tmdb.trending",
+					"type": "movie",
+					"name": "TMDB - Trending",
+					"pageSize": 20,
+					"extra": [
+						{
+							"name": "genre",
+							"options": [
+								"Day",
+								"Week"
+							],
+							"isRequired": true
+						},
+						{
+							"name": "skip"
+						}
+					],
+					"extraSupported": [
+						"genre",
+						"skip"
+					],
+					"extraRequired": [
+						"genre"
+					]
+				},
+				{
+					"id": "tmdb.top",
+					"type": "series",
+					"name": "TMDB - Popular",
+					"pageSize": 20,
+					"extra": [
+						{
+							"name": "genre",
+							"options": [
+								"אנימציה",
+								"אקשן והרפתקאות",
+								"דוקומנטרי",
+								"דיבורים",
+								"דרמה",
+								"חדשות",
+								"ילדים",
+								"מדע בדיוני ופנטזיה",
+								"מלחמה ופוליטיקה",
+								"מסתורין",
+								"מערבון",
+								"משפחה",
+								"סבון",
+								"פשע",
+								"קומדיה",
+								"ריאליטי"
+							]
+						},
+						{
+							"name": "skip"
+						},
+						{
+							"name": "search"
+						}
+					],
+					"extraSupported": [
+						"genre",
+						"skip",
+						"search"
+					]
+				},
+				{
+					"id": "tmdb.year",
+					"type": "series",
+					"name": "TMDB - Year",
+					"pageSize": 20,
+					"extra": [
+						{
+							"name": "genre",
+							"options": [
+								"2024",
+								"2023",
+								"2022",
+								"2021",
+								"2020",
+								"2019",
+								"2018",
+								"2017",
+								"2016",
+								"2015",
+								"2014",
+								"2013",
+								"2012",
+								"2011",
+								"2010",
+								"2009",
+								"2008",
+								"2007",
+								"2006",
+								"2005",
+								"2004"
+							],
+							"isRequired": true
+						},
+						{
+							"name": "skip"
+						}
+					],
+					"extraSupported": [
+						"genre",
+						"skip"
+					],
+					"extraRequired": [
+						"genre"
+					]
+				},
+				{
+					"id": "tmdb.language",
+					"type": "series",
+					"name": "TMDB - Language",
+					"pageSize": 20,
+					"extra": [
+						{
+							"name": "genre",
+							"options": [
+								"Hebrew",
+								"Afrikaans",
+								"Albanian",
+								"Arabic",
+								"Basque",
+								"Belarusian",
+								"Bengali",
+								"Breton",
+								"Bulgarian",
+								"Catalan",
+								"Chamorro",
+								"Croatian",
+								"Czech",
+								"Danish",
+								"Dutch",
+								"English",
+								"Esperanto",
+								"Estonian",
+								"Finnish",
+								"French",
+								"Gaelic",
+								"Galician",
+								"Georgian",
+								"German",
+								"Greek",
+								"Hindi",
+								"Hungarian",
+								"Indonesian",
+								"Irish",
+								"Italian",
+								"Japanese",
+								"Kannada",
+								"Kazakh",
+								"Kirghiz",
+								"Korean",
+								"Kurdish",
+								"Latvian",
+								"Lithuanian",
+								"Malay",
+								"Malayalam",
+								"Mandarin",
+								"Marathi",
+								"Norwegian",
+								"Norwegian Bokmål",
+								"Persian",
+								"Polish",
+								"Portuguese",
+								"Punjabi",
+								"Romanian",
+								"Russian",
+								"Serbian",
+								"Sinhalese",
+								"Slovak",
+								"Slovenian",
+								"Somali",
+								"Spanish",
+								"Swahili",
+								"Swedish",
+								"Tagalog",
+								"Tamil",
+								"Telugu",
+								"Thai",
+								"Turkish",
+								"Ukrainian",
+								"Urdu",
+								"Uzbek",
+								"Vietnamese",
+								"Welsh",
+								"Zulu"
+							],
+							"isRequired": true
+						},
+						{
+							"name": "skip"
+						}
+					],
+					"extraSupported": [
+						"genre",
+						"skip"
+					],
+					"extraRequired": [
+						"genre"
+					]
+				},
+				{
+					"id": "tmdb.trending",
+					"type": "series",
+					"name": "TMDB - Trending",
+					"pageSize": 20,
+					"extra": [
+						{
+							"name": "genre",
+							"options": [
+								"Day",
+								"Week"
+							],
+							"isRequired": true
+						},
+						{
+							"name": "skip"
+						}
+					],
+					"extraSupported": [
+						"genre",
+						"skip"
+					],
+					"extraRequired": [
+						"genre"
+					]
+				}
+			]
+		},
+		"flags": {}
+	}
 	const CYBERFLIX_ADDON = {
-			"transportUrl": "https://cyberflix.elfhosted.com/c/catalogs=cd492,15846,c4e72,071c0,61f57,60f26,5653e,223ce,bfb17,ed8a6,88ef9,f3440%7Clang=en/manifest.json",
-			"transportName": "",
-			"manifest": {
-				"id": "marcojoao.ml.cyberflix.catalog",
-				"version": "1.5.2",
-				"name": "Cyberflix Catalog",
-				"description": "Cyberflix, an catalog add-on for Stremio, aggregates the most popular steaming platforms such as Netflix, Amazon Prime or Hulu, and also specific catalogs for Kids, Asian or Anime.",
-				"logo": "http://cyberflix.elfhosted.com/logo.png",
-				"behaviorHints": {
-					"configurable": true,
-					"configurationRequired": false
+		"transportUrl": "https://cyberflix.elfhosted.com/c/catalogs=cd492,15846,c4e72,071c0,61f57,60f26,5653e,223ce,bfb17,ed8a6,88ef9,f3440%7Clang=en/manifest.json",
+		"transportName": "",
+		"manifest": {
+			"id": "marcojoao.ml.cyberflix.catalog",
+			"version": "1.5.2",
+			"name": "Cyberflix Catalog",
+			"description": "Cyberflix, an catalog add-on for Stremio, aggregates the most popular steaming platforms such as Netflix, Amazon Prime or Hulu, and also specific catalogs for Kids, Asian or Anime.",
+			"logo": "http://cyberflix.elfhosted.com/logo.png",
+			"behaviorHints": {
+				"configurable": true,
+				"configurationRequired": false
+			},
+			"idPrefixes": [
+				"cyberflix:"
+			],
+			"resources": [
+				"catalog",
+				"meta"
+			],
+			"types": [
+				"series",
+				"movie"
+			],
+			"catalogs": [
+				{
+					"id": "netflix.popular.movie",
+					"name": "Popular Movies",
+					"type": "Netflix",
+					"pageSize": 25,
+					"extra": [
+						{
+							"name": "genre",
+							"options": [
+								"Action",
+								"Adventure",
+								"Animation",
+								"Comedy",
+								"Crime",
+								"Documentary",
+								"Drama",
+								"Family",
+								"Fantasy",
+								"History",
+								"Horror",
+								"Music",
+								"Mystery",
+								"Romance",
+								"Sci-Fi",
+								"Sport",
+								"TV",
+								"Thriller",
+								"Western"
+							]
+						},
+						{
+							"name": "skip"
+						}
+					],
+					"extraSupported": [
+						"genre",
+						"skip"
+					]
 				},
-				"idPrefixes": [
-					"cyberflix:"
-				],
-				"resources": [
-					"catalog",
-					"meta"
-				],
-				"types": [
-					"series",
-					"movie"
-				],
-				"catalogs": [
-					{
-						"id": "netflix.popular.movie",
-						"name": "Popular Movies",
-						"type": "Netflix",
-						"pageSize": 25,
-						"extra": [
-							{
-								"name": "genre",
-								"options": [
-									"Action",
-									"Adventure",
-									"Animation",
-									"Comedy",
-									"Crime",
-									"Documentary",
-									"Drama",
-									"Family",
-									"Fantasy",
-									"History",
-									"Horror",
-									"Music",
-									"Mystery",
-									"Romance",
-									"Sci-Fi",
-									"Sport",
-									"TV",
-									"Thriller",
-									"Western"
-								]
-							},
-							{
-								"name": "skip"
-							}
-						],
-						"extraSupported": [
-							"genre",
-							"skip"
-						]
-					},
-					{
-						"id": "netflix.popular.series",
-						"name": "Popular Series",
-						"type": "Netflix",
-						"pageSize": 25,
-						"extra": [
-							{
-								"name": "genre",
-								"options": [
-									"Action",
-									"Adventure",
-									"Animation",
-									"Comedy",
-									"Crime",
-									"Documentary",
-									"Drama",
-									"Family",
-									"Fantasy",
-									"History",
-									"Horror",
-									"Kids",
-									"Music",
-									"Mystery",
-									"Romance",
-									"Sci-Fi",
-									"Sport",
-									"TV",
-									"Thriller",
-									"Western"
-								]
-							},
-							{
-								"name": "skip"
-							}
-						],
-						"extraSupported": [
-							"genre",
-							"skip"
-						]
-					},
-					{
-						"id": "disney_plus.popular.movie",
-						"name": "Popular Movies",
-						"type": "Disney Plus",
-						"pageSize": 25,
-						"extra": [
-							{
-								"name": "genre",
-								"options": [
-									"Action",
-									"Adventure",
-									"Animation",
-									"Comedy",
-									"Crime",
-									"Documentary",
-									"Drama",
-									"Family",
-									"Fantasy",
-									"History",
-									"Horror",
-									"Music",
-									"Mystery",
-									"Romance",
-									"Sci-Fi",
-									"Sport",
-									"TV",
-									"Thriller",
-									"Western"
-								]
-							},
-							{
-								"name": "skip"
-							}
-						],
-						"extraSupported": [
-							"genre",
-							"skip"
-						]
-					},
-					{
-						"id": "disney_plus.popular.series",
-						"name": "Popular Series",
-						"type": "Disney Plus",
-						"pageSize": 25,
-						"extra": [
-							{
-								"name": "genre",
-								"options": [
-									"Action",
-									"Adventure",
-									"Animation",
-									"Comedy",
-									"Crime",
-									"Documentary",
-									"Drama",
-									"Family",
-									"Fantasy",
-									"History",
-									"Kids",
-									"Music",
-									"Mystery",
-									"Romance",
-									"Sci-Fi",
-									"Sport",
-									"TV",
-									"Western"
-								]
-							},
-							{
-								"name": "skip"
-							}
-						],
-						"extraSupported": [
-							"genre",
-							"skip"
-						]
-					},
-					{
-						"id": "hbo_max.popular.movie",
-						"name": "Popular Movies",
-						"type": "Hbo Max",
-						"pageSize": 25,
-						"extra": [
-							{
-								"name": "genre",
-								"options": [
-									"Action",
-									"Adventure",
-									"Animation",
-									"Comedy",
-									"Crime",
-									"Documentary",
-									"Drama",
-									"Family",
-									"Fantasy",
-									"History",
-									"Horror",
-									"Music",
-									"Mystery",
-									"Romance",
-									"Sci-Fi",
-									"Sport",
-									"TV",
-									"Thriller",
-									"Western"
-								]
-							},
-							{
-								"name": "skip"
-							}
-						],
-						"extraSupported": [
-							"genre",
-							"skip"
-						]
-					},
-					{
-						"id": "hbo_max.popular.series",
-						"name": "Popular Series",
-						"type": "Hbo Max",
-						"pageSize": 25,
-						"extra": [
-							{
-								"name": "genre",
-								"options": [
-									"Action",
-									"Adventure",
-									"Animation",
-									"Comedy",
-									"Crime",
-									"Documentary",
-									"Drama",
-									"Family",
-									"Fantasy",
-									"History",
-									"Horror",
-									"Kids",
-									"Music",
-									"Mystery",
-									"Romance",
-									"Sci-Fi",
-									"Sport",
-									"TV",
-									"Thriller",
-									"Western"
-								]
-							},
-							{
-								"name": "skip"
-							}
-						],
-						"extraSupported": [
-							"genre",
-							"skip"
-						]
-					},
-					{
-						"id": "amazon_prime.popular.movie",
-						"name": "Popular Movies",
-						"type": "Amazon Prime",
-						"pageSize": 25,
-						"extra": [
-							{
-								"name": "genre",
-								"options": [
-									"Action",
-									"Adventure",
-									"Animation",
-									"Comedy",
-									"Crime",
-									"Documentary",
-									"Drama",
-									"Family",
-									"Fantasy",
-									"History",
-									"Horror",
-									"Music",
-									"Mystery",
-									"Romance",
-									"Sci-Fi",
-									"Sport",
-									"TV",
-									"Thriller",
-									"Western"
-								]
-							},
-							{
-								"name": "skip"
-							}
-						],
-						"extraSupported": [
-							"genre",
-							"skip"
-						]
-					},
-					{
-						"id": "amazon_prime.popular.series",
-						"name": "Popular Series",
-						"type": "Amazon Prime",
-						"pageSize": 25,
-						"extra": [
-							{
-								"name": "genre",
-								"options": [
-									"Action",
-									"Adventure",
-									"Animation",
-									"Comedy",
-									"Crime",
-									"Documentary",
-									"Drama",
-									"Family",
-									"Fantasy",
-									"History",
-									"Horror",
-									"Kids",
-									"Music",
-									"Mystery",
-									"Romance",
-									"Sci-Fi",
-									"Sport",
-									"TV",
-									"Thriller",
-									"Western"
-								]
-							},
-							{
-								"name": "skip"
-							}
-						],
-						"extraSupported": [
-							"genre",
-							"skip"
-						]
-					},
-					{
-						"id": "apple_tv_plus.popular.movie",
-						"name": "Popular Movies",
-						"type": "Apple Tv Plus",
-						"pageSize": 25,
-						"extra": [
-							{
-								"name": "genre",
-								"options": [
-									"Action",
-									"Adventure",
-									"Animation",
-									"Comedy",
-									"Crime",
-									"Documentary",
-									"Drama",
-									"Family",
-									"Fantasy",
-									"History",
-									"Horror",
-									"Music",
-									"Mystery",
-									"Romance",
-									"Sci-Fi",
-									"Sport",
-									"TV",
-									"Thriller"
-								]
-							},
-							{
-								"name": "skip"
-							}
-						],
-						"extraSupported": [
-							"genre",
-							"skip"
-						]
-					},
-					{
-						"id": "apple_tv_plus.popular.series",
-						"name": "Popular Series",
-						"type": "Apple Tv Plus",
-						"pageSize": 25,
-						"extra": [
-							{
-								"name": "genre",
-								"options": [
-									"Action",
-									"Adventure",
-									"Animation",
-									"Comedy",
-									"Crime",
-									"Documentary",
-									"Drama",
-									"Family",
-									"Fantasy",
-									"History",
-									"Horror",
-									"Kids",
-									"Music",
-									"Mystery",
-									"Romance",
-									"Sci-Fi",
-									"Sport",
-									"TV",
-									"Thriller"
-								]
-							},
-							{
-								"name": "skip"
-							}
-						],
-						"extraSupported": [
-							"genre",
-							"skip"
-						]
-					},
-					{
-						"id": "anime.popular.movie",
-						"name": "Popular Movies",
-						"type": "Anime",
-						"pageSize": 25,
-						"extra": [
-							{
-								"name": "genre",
-								"options": [
-									"Action",
-									"Adventure",
-									"Animation",
-									"Comedy",
-									"Crime",
-									"Documentary",
-									"Drama",
-									"Family",
-									"Fantasy",
-									"History",
-									"Horror",
-									"Music",
-									"Mystery",
-									"Romance",
-									"Sci-Fi",
-									"Sport",
-									"Thriller"
-								]
-							},
-							{
-								"name": "skip"
-							}
-						],
-						"extraSupported": [
-							"genre",
-							"skip"
-						]
-					},
-					{
-						"id": "anime.popular.series",
-						"name": "Popular Series",
-						"type": "Anime",
-						"pageSize": 25,
-						"extra": [
-							{
-								"name": "genre",
-								"options": [
-									"Action",
-									"Adventure",
-									"Animation",
-									"Comedy",
-									"Crime",
-									"Drama",
-									"Family",
-									"Fantasy",
-									"History",
-									"Horror",
-									"Kids",
-									"Music",
-									"Mystery",
-									"Romance",
-									"Sci-Fi",
-									"Sport",
-									"Thriller"
-								]
-							},
-							{
-								"name": "skip"
-							}
-						],
-						"extraSupported": [
-							"genre",
-							"skip"
-						]
-					}
-				],
-				"background": "http://cyberflix.elfhosted.com/background.png",
-				"last_update": "2024-08-18 02:23:41.705295",
-				"server_version": "0.3.3"
-			},
-			"flags": {}
-		}
+				{
+					"id": "netflix.popular.series",
+					"name": "Popular Series",
+					"type": "Netflix",
+					"pageSize": 25,
+					"extra": [
+						{
+							"name": "genre",
+							"options": [
+								"Action",
+								"Adventure",
+								"Animation",
+								"Comedy",
+								"Crime",
+								"Documentary",
+								"Drama",
+								"Family",
+								"Fantasy",
+								"History",
+								"Horror",
+								"Kids",
+								"Music",
+								"Mystery",
+								"Romance",
+								"Sci-Fi",
+								"Sport",
+								"TV",
+								"Thriller",
+								"Western"
+							]
+						},
+						{
+							"name": "skip"
+						}
+					],
+					"extraSupported": [
+						"genre",
+						"skip"
+					]
+				},
+				{
+					"id": "disney_plus.popular.movie",
+					"name": "Popular Movies",
+					"type": "Disney Plus",
+					"pageSize": 25,
+					"extra": [
+						{
+							"name": "genre",
+							"options": [
+								"Action",
+								"Adventure",
+								"Animation",
+								"Comedy",
+								"Crime",
+								"Documentary",
+								"Drama",
+								"Family",
+								"Fantasy",
+								"History",
+								"Horror",
+								"Music",
+								"Mystery",
+								"Romance",
+								"Sci-Fi",
+								"Sport",
+								"TV",
+								"Thriller",
+								"Western"
+							]
+						},
+						{
+							"name": "skip"
+						}
+					],
+					"extraSupported": [
+						"genre",
+						"skip"
+					]
+				},
+				{
+					"id": "disney_plus.popular.series",
+					"name": "Popular Series",
+					"type": "Disney Plus",
+					"pageSize": 25,
+					"extra": [
+						{
+							"name": "genre",
+							"options": [
+								"Action",
+								"Adventure",
+								"Animation",
+								"Comedy",
+								"Crime",
+								"Documentary",
+								"Drama",
+								"Family",
+								"Fantasy",
+								"History",
+								"Kids",
+								"Music",
+								"Mystery",
+								"Romance",
+								"Sci-Fi",
+								"Sport",
+								"TV",
+								"Western"
+							]
+						},
+						{
+							"name": "skip"
+						}
+					],
+					"extraSupported": [
+						"genre",
+						"skip"
+					]
+				},
+				{
+					"id": "hbo_max.popular.movie",
+					"name": "Popular Movies",
+					"type": "Hbo Max",
+					"pageSize": 25,
+					"extra": [
+						{
+							"name": "genre",
+							"options": [
+								"Action",
+								"Adventure",
+								"Animation",
+								"Comedy",
+								"Crime",
+								"Documentary",
+								"Drama",
+								"Family",
+								"Fantasy",
+								"History",
+								"Horror",
+								"Music",
+								"Mystery",
+								"Romance",
+								"Sci-Fi",
+								"Sport",
+								"TV",
+								"Thriller",
+								"Western"
+							]
+						},
+						{
+							"name": "skip"
+						}
+					],
+					"extraSupported": [
+						"genre",
+						"skip"
+					]
+				},
+				{
+					"id": "hbo_max.popular.series",
+					"name": "Popular Series",
+					"type": "Hbo Max",
+					"pageSize": 25,
+					"extra": [
+						{
+							"name": "genre",
+							"options": [
+								"Action",
+								"Adventure",
+								"Animation",
+								"Comedy",
+								"Crime",
+								"Documentary",
+								"Drama",
+								"Family",
+								"Fantasy",
+								"History",
+								"Horror",
+								"Kids",
+								"Music",
+								"Mystery",
+								"Romance",
+								"Sci-Fi",
+								"Sport",
+								"TV",
+								"Thriller",
+								"Western"
+							]
+						},
+						{
+							"name": "skip"
+						}
+					],
+					"extraSupported": [
+						"genre",
+						"skip"
+					]
+				},
+				{
+					"id": "amazon_prime.popular.movie",
+					"name": "Popular Movies",
+					"type": "Amazon Prime",
+					"pageSize": 25,
+					"extra": [
+						{
+							"name": "genre",
+							"options": [
+								"Action",
+								"Adventure",
+								"Animation",
+								"Comedy",
+								"Crime",
+								"Documentary",
+								"Drama",
+								"Family",
+								"Fantasy",
+								"History",
+								"Horror",
+								"Music",
+								"Mystery",
+								"Romance",
+								"Sci-Fi",
+								"Sport",
+								"TV",
+								"Thriller",
+								"Western"
+							]
+						},
+						{
+							"name": "skip"
+						}
+					],
+					"extraSupported": [
+						"genre",
+						"skip"
+					]
+				},
+				{
+					"id": "amazon_prime.popular.series",
+					"name": "Popular Series",
+					"type": "Amazon Prime",
+					"pageSize": 25,
+					"extra": [
+						{
+							"name": "genre",
+							"options": [
+								"Action",
+								"Adventure",
+								"Animation",
+								"Comedy",
+								"Crime",
+								"Documentary",
+								"Drama",
+								"Family",
+								"Fantasy",
+								"History",
+								"Horror",
+								"Kids",
+								"Music",
+								"Mystery",
+								"Romance",
+								"Sci-Fi",
+								"Sport",
+								"TV",
+								"Thriller",
+								"Western"
+							]
+						},
+						{
+							"name": "skip"
+						}
+					],
+					"extraSupported": [
+						"genre",
+						"skip"
+					]
+				},
+				{
+					"id": "apple_tv_plus.popular.movie",
+					"name": "Popular Movies",
+					"type": "Apple Tv Plus",
+					"pageSize": 25,
+					"extra": [
+						{
+							"name": "genre",
+							"options": [
+								"Action",
+								"Adventure",
+								"Animation",
+								"Comedy",
+								"Crime",
+								"Documentary",
+								"Drama",
+								"Family",
+								"Fantasy",
+								"History",
+								"Horror",
+								"Music",
+								"Mystery",
+								"Romance",
+								"Sci-Fi",
+								"Sport",
+								"TV",
+								"Thriller"
+							]
+						},
+						{
+							"name": "skip"
+						}
+					],
+					"extraSupported": [
+						"genre",
+						"skip"
+					]
+				},
+				{
+					"id": "apple_tv_plus.popular.series",
+					"name": "Popular Series",
+					"type": "Apple Tv Plus",
+					"pageSize": 25,
+					"extra": [
+						{
+							"name": "genre",
+							"options": [
+								"Action",
+								"Adventure",
+								"Animation",
+								"Comedy",
+								"Crime",
+								"Documentary",
+								"Drama",
+								"Family",
+								"Fantasy",
+								"History",
+								"Horror",
+								"Kids",
+								"Music",
+								"Mystery",
+								"Romance",
+								"Sci-Fi",
+								"Sport",
+								"TV",
+								"Thriller"
+							]
+						},
+						{
+							"name": "skip"
+						}
+					],
+					"extraSupported": [
+						"genre",
+						"skip"
+					]
+				},
+				{
+					"id": "anime.popular.movie",
+					"name": "Popular Movies",
+					"type": "Anime",
+					"pageSize": 25,
+					"extra": [
+						{
+							"name": "genre",
+							"options": [
+								"Action",
+								"Adventure",
+								"Animation",
+								"Comedy",
+								"Crime",
+								"Documentary",
+								"Drama",
+								"Family",
+								"Fantasy",
+								"History",
+								"Horror",
+								"Music",
+								"Mystery",
+								"Romance",
+								"Sci-Fi",
+								"Sport",
+								"Thriller"
+							]
+						},
+						{
+							"name": "skip"
+						}
+					],
+					"extraSupported": [
+						"genre",
+						"skip"
+					]
+				},
+				{
+					"id": "anime.popular.series",
+					"name": "Popular Series",
+					"type": "Anime",
+					"pageSize": 25,
+					"extra": [
+						{
+							"name": "genre",
+							"options": [
+								"Action",
+								"Adventure",
+								"Animation",
+								"Comedy",
+								"Crime",
+								"Drama",
+								"Family",
+								"Fantasy",
+								"History",
+								"Horror",
+								"Kids",
+								"Music",
+								"Mystery",
+								"Romance",
+								"Sci-Fi",
+								"Sport",
+								"Thriller"
+							]
+						},
+						{
+							"name": "skip"
+						}
+					],
+					"extraSupported": [
+						"genre",
+						"skip"
+					]
+				}
+			],
+			"background": "http://cyberflix.elfhosted.com/background.png",
+			"last_update": "2024-08-18 02:23:41.705295",
+			"server_version": "0.3.3"
+		},
+		"flags": {}
+	}
 	const KTUVIT_ADDON = {
-			"transportUrl": "https://4b139a4b7f94-ktuvit-stremio.baby-beamup.club/manifest.json",
-			"transportName": "",
-			"manifest": {
-				"id": "me.stremio.ktuvit",
-				"contactEmail": "maor@magori.online",
-				"version": "0.1.2",
-				"catalogs": [],
-				"resources": [
-					"subtitles"
-				],
-				"types": [
-					"movie",
-					"series"
-				],
-				"name": "Ktuvit.me Subtitles",
-				"description": "An unofficial Stremio addon for Hebrew subtitles from Ktuvit.me. Developed by Maor Development",
-				"logo": "https://i0.wp.com/kodibeginner.com/wp-content/uploads/2020/10/ktuvit-me.jpg?w=300&ssl=1"
-			},
-			"flags": {}
-		}
+		"transportUrl": "https://4b139a4b7f94-ktuvit-stremio.baby-beamup.club/manifest.json",
+		"transportName": "",
+		"manifest": {
+			"id": "me.stremio.ktuvit",
+			"contactEmail": "maor@magori.online",
+			"version": "0.1.2",
+			"catalogs": [],
+			"resources": [
+				"subtitles"
+			],
+			"types": [
+				"movie",
+				"series"
+			],
+			"name": "Ktuvit.me Subtitles",
+			"description": "An unofficial Stremio addon for Hebrew subtitles from Ktuvit.me. Developed by Maor Development",
+			"logo": "https://i0.wp.com/kodibeginner.com/wp-content/uploads/2020/10/ktuvit-me.jpg?w=300&ssl=1"
+		},
+		"flags": {}
+	}
 	const WIZDOM_ADDON = {
-			"transportUrl": "https://4b139a4b7f94-wizdom-stremio-v2.baby-beamup.club/manifest.json",
-			"transportName": "",
-			"manifest": {
-				"id": "xyz.stremio.wizdom",
-				"contactEmail": "maor@magori.online",
-				"version": "2.6.2",
-				"catalogs": [],
-				"resources": [
-					"subtitles"
-				],
-				"types": [
-					"movie",
-					"series"
-				],
-				"name": "Wizdom Subtitles",
-				"description": "An unofficial Stremio addon for Hebrew subtitles from wizdom.xyz. Developed by Maor Development",
-				"logo": "https://i.ibb.co/KLYK0TH/wizdon256.png"
-			},
-			"flags": {}
-		}
+		"transportUrl": "https://4b139a4b7f94-wizdom-stremio-v2.baby-beamup.club/manifest.json",
+		"transportName": "",
+		"manifest": {
+			"id": "xyz.stremio.wizdom",
+			"contactEmail": "maor@magori.online",
+			"version": "2.6.2",
+			"catalogs": [],
+			"resources": [
+				"subtitles"
+			],
+			"types": [
+				"movie",
+				"series"
+			],
+			"name": "Wizdom Subtitles",
+			"description": "An unofficial Stremio addon for Hebrew subtitles from wizdom.xyz. Developed by Maor Development",
+			"logo": "https://i.ibb.co/KLYK0TH/wizdon256.png"
+		},
+		"flags": {}
+	}
 	const OPENSUBTITLES_ADDON = {
-			"transportUrl": "https://opensubtitles-v3.strem.io/manifest.json",
-			"transportName": "",
-			"manifest": {
-				"id": "org.stremio.opensubtitlesv3",
-				"version": "1.0.0",
-				"name": "OpenSubtitles v3",
-				"catalogs": [],
-				"resources": [
-					"subtitles"
-				],
-				"types": [
-					"movie",
-					"series"
-				],
-				"idPrefixes": [
-					"tt"
-				]
-			},
-			"flags": {
-				"official": true
-			}
+		"transportUrl": "https://opensubtitles-v3.strem.io/manifest.json",
+		"transportName": "",
+		"manifest": {
+			"id": "org.stremio.opensubtitlesv3",
+			"version": "1.0.0",
+			"name": "OpenSubtitles v3",
+			"catalogs": [],
+			"resources": [
+				"subtitles"
+			],
+			"types": [
+				"movie",
+				"series"
+			],
+			"idPrefixes": [
+				"tt"
+			]
+		},
+		"flags": {
+			"official": true
 		}
+	}
 	const TORRENTIO_ADDON = {
 		"transportUrl": `https://torrentio.strem.fun/sort=qualitysize%7Cdebridoptions=nodownloadlinks%7Crealdebrid=${realDebridApiKey}/manifest.json`,
 		"transportName": "",
