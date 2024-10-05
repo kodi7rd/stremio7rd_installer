@@ -63,43 +63,6 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 	console.log(`excludedAddonsData:\n`, excludedAddonsData); // Pretty-print JSON
 	
 	// Addons Manifests
-	const TORRENTIO_ADDON = {
-		"transportUrl": `https://torrentio.strem.fun/sort=qualitysize%7Cdebridoptions=nodownloadlinks,nocatalog%7Crealdebrid=${realDebridApiKey}/manifest.json`,
-		"transportName": "",
-		"manifest": {
-			"id": "com.stremio.torrentio.addon",
-			"version": "0.0.14",
-			"name": "Torrentio RD",
-			"description": "Provides torrent streams from scraped torrent providers. Currently supports YTS(+), EZTV(+), RARBG(+), 1337x(+), ThePirateBay(+), KickassTorrents(+), TorrentGalaxy(+), MagnetDL(+), HorribleSubs(+), NyaaSi(+), TokyoTosho(+), AniDex(+), Rutor(+), Rutracker(+), Comando(+), BluDV(+), Torrent9(+), MejorTorrent(+), Wolfmax4k(+), Cinecalidad(+) and RealDebrid enabled. To configure providers, RealDebrid/Premiumize/AllDebrid/DebridLink/Offcloud/Put.io support and other settings visit https://torrentio.strem.fun",
-			"catalogs": [],
-			"resources": [
-				{
-					"name": "stream",
-					"types": [
-						"movie",
-						"series"
-					],
-					"idPrefixes": [
-						"tt",
-						"kitsu"
-					]
-				}
-			],
-			"types": [
-				"movie",
-				"series",
-				"anime",
-				"other"
-			],
-			"background": "https://i.ibb.co/VtSfFP9/t8wVwcg.jpg",
-			"logo": "https://i.ibb.co/w4BnkC9/GwxAcDV.png",
-			"behaviorHints": {
-				"configurable": true,
-				"configurationRequired": false
-			}
-		},
-		"flags": {}
-	}
 	const ISRAEL_TV_ADDON = {
 			"transportUrl": "https://stremioaddon.vercel.app/manifest.json",
 			"transportName": "",
@@ -1114,6 +1077,43 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 				"official": true
 			}
 		}
+	const TORRENTIO_ADDON = {
+		"transportUrl": `https://torrentio.strem.fun/sort=qualitysize%7Cdebridoptions=nodownloadlinks,nocatalog%7Crealdebrid=${realDebridApiKey}/manifest.json`,
+		"transportName": "",
+		"manifest": {
+			"id": "com.stremio.torrentio.addon",
+			"version": "0.0.14",
+			"name": "Torrentio RD",
+			"description": "Provides torrent streams from scraped torrent providers. Currently supports YTS(+), EZTV(+), RARBG(+), 1337x(+), ThePirateBay(+), KickassTorrents(+), TorrentGalaxy(+), MagnetDL(+), HorribleSubs(+), NyaaSi(+), TokyoTosho(+), AniDex(+), Rutor(+), Rutracker(+), Comando(+), BluDV(+), Torrent9(+), MejorTorrent(+), Wolfmax4k(+), Cinecalidad(+) and RealDebrid enabled. To configure providers, RealDebrid/Premiumize/AllDebrid/DebridLink/Offcloud/Put.io support and other settings visit https://torrentio.strem.fun",
+			"catalogs": [],
+			"resources": [
+				{
+					"name": "stream",
+					"types": [
+						"movie",
+						"series"
+					],
+					"idPrefixes": [
+						"tt",
+						"kitsu"
+					]
+				}
+			],
+			"types": [
+				"movie",
+				"series",
+				"anime",
+				"other"
+			],
+			"background": "https://i.ibb.co/VtSfFP9/t8wVwcg.jpg",
+			"logo": "https://i.ibb.co/w4BnkC9/GwxAcDV.png",
+			"behaviorHints": {
+				"configurable": true,
+				"configurationRequired": false
+			}
+		},
+		"flags": {}
+	}
 
 
 	// TV Addons
