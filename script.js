@@ -1162,6 +1162,44 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 		"flags": {}
 	}
 
+	const cometUserSettingsB64 = btoa(`{"indexers":["bitsearch","eztv","thepiratebay","therarbg","yts"],"maxResults":0,"maxSize":0,"resultFormat":["All"],"resolutions":["All"],"languages":["All"],"debridService":"realdebrid","debridApiKey":"${realDebridApiKey}","debridStreamProxyPassword":""}`);
+	const COMET_ADDON = {
+		"transportUrl": `https://comet.elfhosted.com/${cometUserSettingsB64}/manifest.json`,
+		"transportName": "",
+		"manifest": {
+			"id": "comet.elfhosted.com",
+			"name": "Comet | ElfHosted | RD",
+			"description": "Stremio's fastest torrent/debrid search add-on.",
+			"version": "1.0.0",
+			"catalogs": [],
+			"resources": [
+				{
+					"name": "stream",
+					"types": [
+						"movie",
+						"series"
+					],
+					"idPrefixes": [
+						"tt",
+						"kitsu"
+					]
+				}
+			],
+			"types": [
+				"movie",
+				"series",
+				"anime",
+				"other"
+			],
+			"logo": "https://i.imgur.com/jmVoVMu.jpeg",
+			"background": "https://i.imgur.com/WwnXB3k.jpeg",
+			"behaviorHints": {
+				"configurable": true,
+				"configurationRequired": false
+			}
+		},
+		"flags": {}
+	}
 
 	// TV Addons
 	const TVAddons = [
@@ -1185,7 +1223,8 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 	
 	// RD Addons
 	const torrentAddons = [
-		TORRENTIO_ADDON
+		TORRENTIO_ADDON,
+		COMET_ADDON
 	];
 
 	// Combine static addons with excluded addons data
