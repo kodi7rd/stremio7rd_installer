@@ -16,7 +16,23 @@
             <label for="password">סיסמה למשתמש ה-Stremio:</label>
             <input type="password" id="password" name="password" required>
 
-            <label>בחר את תוספי הדבריד שברצונך להתקין:</label>
+            <label>בחר את תוספי <span style="text-decoration: underline;">הכתוביות</span> שברצונך להתקין:</label>
+            <div class="toggle-group">
+                <div class="toggle-item">
+                    <input type="checkbox" id="ktuvit_addon_toggle" name="ktuvit_addon_toggle" class="toggle-input" checked>
+                    <label for="ktuvit_addon_toggle" class="toggle-label">Ktuvit</label>
+                </div>
+                <div class="toggle-item">
+                    <input type="checkbox" id="wizdom_addon_toggle" name="wizdom_addon_toggle" class="toggle-input" checked>
+                    <label for="wizdom_addon_toggle" class="toggle-label">Wizdom</label>
+                </div>
+                <div class="toggle-item">
+                    <input type="checkbox" id="opensubtitles_addon_toggle" name="opensubtitles_addon_toggle" class="toggle-input" checked>
+                    <label for="opensubtitles_addon_toggle" class="toggle-label">OpenSubtitles v3</label>
+                </div>
+            </div>
+
+            <label>בחר את תוספי <span style="text-decoration: underline;">הדבריד</span> שברצונך להתקין:</label>
             <div class="toggle-group">
                 <div class="toggle-item">
                     <input type="checkbox" id="torrentio_addon_toggle" name="torrentio_addon_toggle" class="toggle-input" checked>

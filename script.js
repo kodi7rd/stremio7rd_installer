@@ -1214,12 +1214,19 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 		CYBERFLIX_ADDON
 	];
 	
+	
 	// Subtitles Addons
-	const subtitlesAddons = [
-		KTUVIT_ADDON,
-		WIZDOM_ADDON,
-		OPENSUBTITLES_ADDON
-	];
+    let subtitlesAddons = [];
+    if (document.getElementById('ktuvit_addon_toggle').checked) {
+        subtitlesAddons.push(KTUVIT_ADDON);
+    }
+    if (document.getElementById('wizdom_addon_toggle').checked) {
+        subtitlesAddons.push(WIZDOM_ADDON);
+    }
+    if (document.getElementById('opensubtitles_addon_toggle').checked) {
+        subtitlesAddons.push(OPENSUBTITLES_ADDON);
+    }
+
 
     // RD Addons - conditionally based on user input
     let torrentAddons = [];
@@ -1229,6 +1236,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
     if (document.getElementById('comet_addon_toggle').checked) {
         torrentAddons.push(COMET_ADDON);
     }
+
 
 	// Combine static addons with excluded addons data
 	const combinedAddons = [
