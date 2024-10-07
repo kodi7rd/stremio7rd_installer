@@ -1331,3 +1331,22 @@ function openRDApiKeyPage() {
     alert("הינך מועבר לאתר של Real Debrid לצורך העתקת מפתח ה-API האישי שלך.\n\nאם הינך מקבל עמוד שגיאה - התחבר למשתמש שלך על ידי לחיצה על Login בראש הדף בצד ימין.");
     window.open("https://real-debrid.com/apitoken", "_blank");
 }
+
+// Enforce that at least one toggle is selected
+function enforceAtLeastOneSelected() {
+    const checkboxes = document.querySelectorAll(".toggle-input");
+
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener("change", () => {
+            const isAnyChecked = Array.from(checkboxes).some(cb => cb.checked);
+            if (!isAnyChecked) {
+                checkbox.checked = true; // Keep at least one checked
+            }
+        });
+    });
+}
+
+// Call the enforce function when the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", () => {
+    enforceAtLeastOneSelected();
+});
