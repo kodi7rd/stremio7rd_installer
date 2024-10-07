@@ -1220,12 +1220,15 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 		WIZDOM_ADDON,
 		OPENSUBTITLES_ADDON
 	];
-	
-	// RD Addons
-	const torrentAddons = [
-		TORRENTIO_ADDON,
-		COMET_ADDON
-	];
+
+    // RD Addons - conditionally based on user input
+    let torrentAddons = [];
+    if (document.getElementById('torrentio_addon_toggle').checked) {
+        torrentAddons.push(TORRENTIO_ADDON);
+    }
+    if (document.getElementById('comet_addon_toggle').checked) {
+        torrentAddons.push(COMET_ADDON);
+    }
 
 	// Combine static addons with excluded addons data
 	const combinedAddons = [

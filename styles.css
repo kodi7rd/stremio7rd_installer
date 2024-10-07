@@ -75,3 +75,33 @@ button:hover {
     border-radius: 8px;
     margin-top: 20px;
 }
+.toggle-group {
+    display: flex; /* Use flexbox for the group */
+    flex-direction: column; /* Arrange items in a column */
+    align-items: center; /* Center items horizontally */
+    margin-bottom: 15px; /* Space below the toggle group */
+}
+.toggle-item {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    margin-bottom: 5px; /* Space between each toggle item */
+    width: 100%; /* Make each item take the full width of the group */
+}
+.toggle-input {
+    display: none; /* Hide the default checkbox */
+}
+.toggle-label {
+    position: relative;
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #ccc; /* Background color for off state */
+    border-radius: 20px; /* Rounded corners */
+    color: #fff; /* Text color */
+    transition: background-color 0.3s; /* Smooth transition */
+    width: 170px; /* Set a static width for the toggle */
+    text-align: center; /* Center the text */
+}
+.toggle-input:checked + .toggle-label {
+    background-color: #4CAF50; /* Background color for on state */
+}

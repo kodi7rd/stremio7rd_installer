@@ -15,6 +15,18 @@
             
             <label for="password">סיסמה למשתמש ה-Stremio:</label>
             <input type="password" id="password" name="password" required>
+
+            <label>בחר את תוספי הדבריד שברצונך להתקין:</label>
+            <div class="toggle-group">
+                <div class="toggle-item">
+                    <input type="checkbox" id="torrentio_addon_toggle" name="torrentio_addon_toggle" class="toggle-input" checked>
+                    <label for="torrentio_addon_toggle" class="toggle-label">Torrentio RD</label>
+                </div>
+                <div class="toggle-item">
+                    <input type="checkbox" id="comet_addon_toggle" name="comet_addon_toggle" class="toggle-input" checked>
+                    <label for="comet_addon_toggle" class="toggle-label">Comet RD</label>
+                </div>
+            </div>
             
             <label for="rd_api_key">מפתח API של RealDebrid - <span style="font-weight: bold; color: red;">מנוי בתשלום!</span> <a href="#" onclick="openRDApiKeyPage(); return false;" style="color: #1e90ff; text-decoration: underline; font-weight: bold;"><span style="font-size: 1.5em;">(העתק אותו מכאן)</span></a></label>
             <input type="text" id="rd_api_key" name="rd_api_key" required>
