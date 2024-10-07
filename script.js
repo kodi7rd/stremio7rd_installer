@@ -1340,13 +1340,16 @@ function openRDApiKeyPage() {
     window.open("https://real-debrid.com/apitoken", "_blank");
 }
 
-// Enforce that at least one toggle is selected
-function enforceAtLeastOneSelected() {
-    const checkboxes = document.querySelectorAll(".toggle-input");
+// Enforce that at least one toggle is selected for Torrentio RD / Comet RD
+function enforceAtLeastOneSelectedForTorrents() {
+    const torrentCheckboxes = [
+        document.getElementById('torrentio_addon_toggle'),
+        document.getElementById('comet_addon_toggle')
+    ];
 
-    checkboxes.forEach(checkbox => {
+    torrentCheckboxes.forEach(checkbox => {
         checkbox.addEventListener("change", () => {
-            const isAnyChecked = Array.from(checkboxes).some(cb => cb.checked);
+            const isAnyChecked = torrentCheckboxes.some(cb => cb.checked);
             if (!isAnyChecked) {
                 checkbox.checked = true; // Keep at least one checked
             }
@@ -1356,5 +1359,5 @@ function enforceAtLeastOneSelected() {
 
 // Call the enforce function when the DOM is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
-    enforceAtLeastOneSelected();
+    enforceAtLeastOneSelectedForTorrents();
 });
