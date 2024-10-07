@@ -99,7 +99,7 @@ button:hover {
     border-radius: 20px; /* Rounded corners */
     color: #fff; /* Text color */
     transition: background-color 0.3s; /* Smooth transition */
-    width: 170px; /* Set a static width for the toggle */
+    width: 180px; /* Set a static width for the toggle */
     text-align: center; /* Center the text */
 }
 .toggle-input:checked + .toggle-label {
