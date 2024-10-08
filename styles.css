@@ -105,3 +105,12 @@ button:hover {
 .toggle-input:checked + .toggle-label {
     background-color: #4CAF50; /* Background color for on state */
 }
+.toggle-input:checked + .toggle-label::after {
+    content: '✔'; /* Add the checkmark */
+    position: absolute;
+    right: 15px; /* Position it on the right */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #ffffff;
+}
