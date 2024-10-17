@@ -108,7 +108,7 @@ button:hover {
 .toggle-input:checked + .toggle-label::after {
     content: '✔'; /* Add the checkmark */
     position: absolute;
-    right: 15px; /* Position it on the right */
+    right: 8px; /* Position it on the right */
     top: 50%;
     transform: translateY(-50%);
     font-size: 18px;
