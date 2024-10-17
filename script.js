@@ -1134,6 +1134,40 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 		"flags": {}
 	}
 	
+	const YIFY_ADDON = {
+		"transportUrl": "https://2ecbbd610840-yifysubtitles.baby-beamup.club/hebrew/manifest.json",
+		"transportName": "",
+		"manifest": {
+			"id": "community.yifysubtitles",
+			"version": "0.0.2",
+			"name": "yifysubtitles subtitles by dexter21767",
+			"description": "Addon for getting subtitles from yifysubtitles, by Dexter21767.",
+			"logo": "https://yifysubtitles.org/images/misc/yifysubtitles-logo-small.png",
+			"background": "https://github.com/Stremio/stremio-art/raw/main/originals/Zuupills.png",
+			"contactEmail": "ahmidiyasser@gmail.com",
+			"catalogs": [],
+			"resources": [
+				{
+					"name": "subtitles",
+					"types": [
+						"movie"
+					],
+					"idPrefixes": [
+						"tt"
+					]
+				}
+			],
+			"types": [
+				"subtitles"
+			],
+			"behaviorHints": {
+				"configurable": true,
+				"configurationRequired": false
+			}
+		},
+		"flags": {}
+	}
+	
 	const TORRENTIO_ADDON = {
 		"transportUrl": `https://torrentio.strem.fun/sort=qualitysize%7Cdebridoptions=nodownloadlinks%7Crealdebrid=${realDebridApiKey}/manifest.json`,
 		"transportName": "",
@@ -1258,6 +1292,9 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
     }
     if (document.getElementById('subsource_addon_toggle').checked) {
         subtitlesAddons.push(SUBSOURCE_ADDON);
+    }
+    if (document.getElementById('yify_addon_toggle').checked) {
+        subtitlesAddons.push(YIFY_ADDON);
     }
 
 
