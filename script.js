@@ -1104,6 +1104,36 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 		}
 	}
 	
+	const SUBSOURCE_ADDON = {
+		"transportUrl": "https://subsource.strem.bar/SGVicmV3L2hpSW5jbHVkZQ==/manifest.json",
+		"transportName": "",
+		"manifest": {
+			"id": "community.subsource.subtitles",
+			"version": "0.0.6",
+			"name": "SubSource Subtitles",
+			"description": "Unofficial addon for getting subtitles from SubSource.net",
+			"logo": "https://raw.githubusercontent.com/nexusdiscord/tv-logo/master/ss.png",
+			"background": "https://raw.githubusercontent.com/nexusdiscord/tv-logo/master/backgroundcinema.jpg",
+			"resources": [
+				"subtitles"
+			],
+			"types": [
+				"movie",
+				"series",
+				"subtitles"
+			],
+			"idPrefixes": [
+				"tt"
+			],
+			"catalogs": [],
+			"behaviorHints": {
+				"configurable": true,
+				"configurationRequired": false
+			}
+		},
+		"flags": {}
+	}
+	
 	const TORRENTIO_ADDON = {
 		"transportUrl": `https://torrentio.strem.fun/sort=qualitysize%7Cdebridoptions=nodownloadlinks%7Crealdebrid=${realDebridApiKey}/manifest.json`,
 		"transportName": "",
@@ -1225,6 +1255,9 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
     }
     if (document.getElementById('opensubtitles_addon_toggle').checked) {
         subtitlesAddons.push(OPENSUBTITLES_ADDON);
+    }
+    if (document.getElementById('subsource_addon_toggle').checked) {
+        subtitlesAddons.push(SUBSOURCE_ADDON);
     }
 
 
