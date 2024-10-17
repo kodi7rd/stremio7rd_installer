@@ -538,6 +538,114 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 		"flags": {}
 	}
 	
+	const STREAMING_CATALOGS_ADDON = {
+		"transportUrl": "https://7a82163c306e-stremio-netflix-catalog-addon.baby-beamup.club/bmZ4LGhibSxkbnAsYW1wLGF0cCxjcnUsaGx1LHBtcDo6OjE3MjkxOTY4NDM1Njk%3D/manifest.json",
+		"transportName": "",
+		"manifest": {
+			"id": "pw.ers.netflix-catalog",
+			"logo": "https://play-lh.googleusercontent.com/TBRwjS_qfJCSj1m7zZB93FnpJM5fSpMA_wUlFDLxWAb45T9RmwBvQd5cWR5viJJOhkI",
+			"version": "1.0.9",
+			"name": "Streaming Catalogs",
+			"description": "Your favourite streaming services!",
+			"catalogs": [
+				{
+					"id": "nfx",
+					"type": "movie",
+					"name": "Netflix"
+				},
+				{
+					"id": "nfx",
+					"type": "series",
+					"name": "Netflix"
+				},
+				{
+					"id": "hbm",
+					"type": "movie",
+					"name": "HBO Max"
+				},
+				{
+					"id": "hbm",
+					"type": "series",
+					"name": "HBO Max"
+				},
+				{
+					"id": "dnp",
+					"type": "movie",
+					"name": "Disney+"
+				},
+				{
+					"id": "dnp",
+					"type": "series",
+					"name": "Disney+"
+				},
+				{
+					"id": "hlu",
+					"type": "movie",
+					"name": "Hulu"
+				},
+				{
+					"id": "hlu",
+					"type": "series",
+					"name": "Hulu"
+				},
+				{
+					"id": "amp",
+					"type": "movie",
+					"name": "Prime Video"
+				},
+				{
+					"id": "amp",
+					"type": "series",
+					"name": "Prime Video"
+				},
+				{
+					"id": "pmp",
+					"type": "movie",
+					"name": "Paramount+"
+				},
+				{
+					"id": "pmp",
+					"type": "series",
+					"name": "Paramount+"
+				},
+				{
+					"id": "atp",
+					"type": "movie",
+					"name": "Apple TV+"
+				},
+				{
+					"id": "atp",
+					"type": "series",
+					"name": "Apple TV+"
+				},
+				{
+					"id": "cru",
+					"type": "movie",
+					"name": "Crunchyroll"
+				},
+				{
+					"id": "cru",
+					"type": "series",
+					"name": "Crunchyroll"
+				}
+			],
+			"resources": [
+				"catalog"
+			],
+			"types": [
+				"movie",
+				"series"
+			],
+			"idPrefixes": [
+				"tt"
+			],
+			"behaviorHints": {
+				"configurable": true
+			}
+		},
+		"flags": {}
+	}
+	
 	const CYBERFLIX_ADDON = {
 		"transportUrl": "https://cyberflix.elfhosted.com/c/catalogs=cd492,15846,c4e72,071c0,61f57,60f26,5653e,223ce,bfb17,ed8a6,88ef9,f3440%7Clang=en/manifest.json",
 		"transportName": "",
@@ -1271,12 +1379,25 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 	];
 
 
-	// Media Addons (Add Stremio's core Cinemeta + Local Files addons)
-	const catalogAddons = [
-		TMDB_ADDON,
-		...installedAddons.filter(addon => addon.manifest.id === CINEMETA_ADDON_ID || addon.manifest.id === LOCAL_FILES_ADDON_ID),
-		CYBERFLIX_ADDON
-	];
+	// Catalog Addons 
+	let catalogAddons = [];
+	
+    if (document.getElementById('tmdb_addon_toggle').checked) {
+        catalogAddons.push(TMDB_ADDON);
+    }
+
+	// Add Stremio's core Cinemeta + Local Files addons
+	catalogAddons.push(
+		...installedAddons.filter(addon => addon.manifest.id === CINEMETA_ADDON_ID || addon.manifest.id === LOCAL_FILES_ADDON_ID)
+	);
+	
+	// Conditionally add other catalog addons based on toggles
+    if (document.getElementById('streaming_catalogs_addon_toggle').checked) {
+        catalogAddons.push(STREAMING_CATALOGS_ADDON);
+    }
+    if (document.getElementById('cyberflix_addon_toggle').checked) {
+        catalogAddons.push(CYBERFLIX_ADDON);
+    }
 	
 	
 	// Subtitles Addons
