@@ -93,6 +93,55 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
         },
         "flags": {}
     }
+
+    const USA_TV_ADDON = {
+        "transportUrl": "https://848b3516657c-usatv.baby-beamup.club/manifest.json",
+        "transportName": "",
+        "manifest": {
+            "id": "community.usatv",
+            "version": "1.3.0",
+            "catalogs": [
+                {
+                    "name": "USA TV",
+                    "type": "tv",
+                    "id": "all",
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "isRequired": false,
+                            "options": [
+                                "Local",
+                                "News",
+                                "Sports",
+                                "Entertainment",
+                                "Premium",
+                                "Lifestyle",
+                                "Kids",
+                                "Documentaries",
+                                "Latino"
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "resources": [
+                "catalog",
+                "stream",
+                "meta"
+            ],
+            "types": [
+                "tv"
+            ],
+            "idPrefixes": [
+                "ustv"
+            ],
+            "name": "USA TV",
+            "description": "USA TV provides access to channels across various categories including local channels, news, sports, entertainment, premium, lifestyle, kids' shows, documentaries, Latino programming, and much more.",
+            "logo": "https://848b3516657c-usatv.baby-beamup.club/public/logo.png",
+            "background": "https://848b3516657c-usatv.baby-beamup.club/public/background.jpg"
+        },
+        "flags": {}
+    }
     
     const TMDB_ADDON = {
         "transportUrl": "https://94c8cb9f702d-tmdb-addon.baby-beamup.club/%7B%22provide_imdbId%22%3A%22true%22%2C%22use_tmdb_prefix%22%3A%22true%22%2C%22language%22%3A%22he-IL%22%7D/manifest.json",
@@ -1374,9 +1423,13 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
     }
 
     // TV Addons
-    const TVAddons = [
-        ISRAEL_TV_ADDON
-    ];
+    let TVAddons = [];
+    if (document.getElementById('israel_tv_addon_toggle').checked) {
+        TVAddons.push(ISRAEL_TV_ADDON);
+    }
+    if (document.getElementById('usa_tv_addon_toggle').checked) {
+        TVAddons.push(USA_TV_ADDON);
+    }
 
 
     // Catalog Addons 
