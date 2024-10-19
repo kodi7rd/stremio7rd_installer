@@ -1452,6 +1452,42 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
         },
         "flags": {}
     }
+    
+    const PEERFLIX_ADDON = {
+        "transportUrl": `https://peerflix-addon.onrender.com/language=en%7Cdebridoptions=nodownloadlinks,nocatalog%7Crealdebrid=${realDebridApiKey}/manifest.json`,
+        "transportName": "",
+        "manifest": {
+            "id": "com.keopps.peerflix",
+            "version": "2.2.0",
+            "name": "Peerflix RD",
+            "description": "Peerflix proporciona los mejores enlaces en español e inglés de películas y series de TV en Stremio.Para configurar proveedores de chache, RealDebrid/Premiumize/AllDebrid/DebridLink/Offcloud/Put.io visita https://peerflix-addon.onrender.com",
+            "catalogs": [],
+            "resources": [
+                {
+                    "name": "stream",
+                    "types": [
+                        "movie",
+                        "series"
+                    ],
+                    "idPrefixes": [
+                        "tt",
+                        "kitsu"
+                    ]
+                }
+            ],
+            "types": [
+                "movie",
+                "series"
+            ],
+            "background": "https://i.ibb.co/vL3SKgX/peerflix-background-2.jpg",
+            "logo": "https://i.ibb.co/9s1GqHn/logo512.png",
+            "behaviorHints": {
+                "configurable": true,
+                "configurationRequired": false
+            }
+        },
+        "flags": {}
+    }
 
     // TV Addons
     const TVAddonsToggles = [
@@ -1509,7 +1545,8 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
     // RD Addons
     const torrentAddonsToggles = [
         { toggleId: 'torrentio_addon_toggle', addon: TORRENTIO_ADDON },
-        { toggleId: 'comet_addon_toggle', addon: COMET_ADDON }
+        { toggleId: 'comet_addon_toggle', addon: COMET_ADDON },
+        { toggleId: 'peerflix_addon_toggle', addon: PEERFLIX_ADDON }
     ];
     
     let torrentAddons = [];
