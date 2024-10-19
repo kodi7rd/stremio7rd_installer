@@ -1261,6 +1261,37 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
         }
     }
     
+    const OPENSUBTITLES_PRO_ADDON = {
+        "transportUrl": "https://opensubtitlesv3-pro.dexter21767.com/eyJsYW5ncyI6WyJoZWJyZXciXSwic291cmNlIjoiYWxsIiwiYWlUcmFuc2xhdGVkIjp0cnVlLCJhdXRvQWRqdXN0bWVudCI6dHJ1ZX0=/manifest.json",
+        "transportName": "",
+        "manifest": {
+            "id": "community.opensubtitlesv3.pro",
+            "version": "0.1.0",
+            "name": "opensubtitles PRO",
+            "description": "ad-free and spam-free subtitles addon",
+            "logo": "https://i.imgur.com/cGc1DXB.png",
+            "background": "https://github.com/Stremio/stremio-art/raw/main/originals/reiphantomhive1.png",
+            "contactEmail": "dexter21767@gmail.com",
+            "catalogs": [],
+            "resources": [
+                "subtitles"
+            ],
+            "types": [
+                "movie",
+                "series"
+            ],
+            "idPrefixes": [
+                "tt",
+                "kitsu"
+            ],
+            "behaviorHints": {
+                "configurable": true,
+                "configurationRequired": false
+            }
+        },
+        "flags": {}
+    }
+    
     const SUBSOURCE_ADDON = {
         "transportUrl": "https://subsource.strem.bar/SGVicmV3L2hpSW5jbHVkZQ==/manifest.json",
         "transportName": "",
@@ -1463,6 +1494,9 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
     }
     if (document.getElementById('opensubtitles_addon_toggle').checked) {
         subtitlesAddons.push(OPENSUBTITLES_ADDON);
+    }
+    if (document.getElementById('opensubtitles_pro_addon_toggle').checked) {
+        subtitlesAddons.push(OPENSUBTITLES_PRO_ADDON);
     }
     if (document.getElementById('subsource_addon_toggle').checked) {
         subtitlesAddons.push(SUBSOURCE_ADDON);
