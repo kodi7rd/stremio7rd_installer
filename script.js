@@ -1454,13 +1454,17 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
     }
 
     // TV Addons
+    const TVAddonsToggles = [
+        { toggleId: 'israel_tv_addon_toggle', addon: ISRAEL_TV_ADDON },
+        { toggleId: 'usa_tv_addon_toggle', addon: USA_TV_ADDON }
+    ];
+    
     let TVAddons = [];
-    if (document.getElementById('israel_tv_addon_toggle').checked) {
-        TVAddons.push(ISRAEL_TV_ADDON);
-    }
-    if (document.getElementById('usa_tv_addon_toggle').checked) {
-        TVAddons.push(USA_TV_ADDON);
-    }
+    TVAddonsToggles.forEach(({ toggleId, addon }) => {
+        if (document.getElementById(toggleId).checked) {
+            TVAddons.push(addon);
+        }
+    });
 
 
     // Catalog Addons 
@@ -1485,35 +1489,35 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
     
     
     // Subtitles Addons
+    const subtitlesAddonsToggles = [
+        { toggleId: 'ktuvit_addon_toggle', addon: KTUVIT_ADDON },
+        { toggleId: 'wizdom_addon_toggle', addon: WIZDOM_ADDON },
+        { toggleId: 'opensubtitles_addon_toggle', addon: OPENSUBTITLES_ADDON },
+        { toggleId: 'opensubtitles_pro_addon_toggle', addon: OPENSUBTITLES_PRO_ADDON },
+        { toggleId: 'subsource_addon_toggle', addon: SUBSOURCE_ADDON },
+        { toggleId: 'yify_addon_toggle', addon: YIFY_ADDON }
+    ];
+
     let subtitlesAddons = [];
-    if (document.getElementById('ktuvit_addon_toggle').checked) {
-        subtitlesAddons.push(KTUVIT_ADDON);
-    }
-    if (document.getElementById('wizdom_addon_toggle').checked) {
-        subtitlesAddons.push(WIZDOM_ADDON);
-    }
-    if (document.getElementById('opensubtitles_addon_toggle').checked) {
-        subtitlesAddons.push(OPENSUBTITLES_ADDON);
-    }
-    if (document.getElementById('opensubtitles_pro_addon_toggle').checked) {
-        subtitlesAddons.push(OPENSUBTITLES_PRO_ADDON);
-    }
-    if (document.getElementById('subsource_addon_toggle').checked) {
-        subtitlesAddons.push(SUBSOURCE_ADDON);
-    }
-    if (document.getElementById('yify_addon_toggle').checked) {
-        subtitlesAddons.push(YIFY_ADDON);
-    }
+    subtitlesAddonsToggles.forEach(({ toggleId, addon }) => {
+        if (document.getElementById(toggleId).checked) {
+            subtitlesAddons.push(addon);
+        }
+    });
 
 
-    // RD Addons - conditionally based on user input
+    // RD Addons
+    const torrentAddonsToggles = [
+        { toggleId: 'torrentio_addon_toggle', addon: TORRENTIO_ADDON },
+        { toggleId: 'comet_addon_toggle', addon: COMET_ADDON }
+    ];
+    
     let torrentAddons = [];
-    if (document.getElementById('torrentio_addon_toggle').checked) {
-        torrentAddons.push(TORRENTIO_ADDON);
-    }
-    if (document.getElementById('comet_addon_toggle').checked) {
-        torrentAddons.push(COMET_ADDON);
-    }
+    torrentAddonsToggles.forEach(({ toggleId, addon }) => {
+        if (document.getElementById(toggleId).checked) {
+            torrentAddons.push(addon);
+        }
+    });
 
 
     // Combine static addons with excluded addons data
