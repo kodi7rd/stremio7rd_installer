@@ -76,7 +76,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
                 {
                     "type": "tv",
                     "id": "main",
-                    "name": "israel tv"
+                    "name": "ערוצי עידן פלוס"
                 }
             ],
             "resources": [
@@ -102,7 +102,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
             "version": "1.3.0",
             "catalogs": [
                 {
-                    "name": "USA TV",
+                    "name": "USA TV - ערוצים מהעולם",
                     "type": "tv",
                     "id": "all",
                     "extra": [
@@ -174,7 +174,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
                 {
                     "id": "tmdb.top",
                     "type": "movie",
-                    "name": "TMDB - Popular",
+                    "name": "TMDB - סרטים פופולרים",
                     "pageSize": 20,
                     "extra": [
                         {
@@ -381,7 +381,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
                 {
                     "id": "tmdb.top",
                     "type": "series",
-                    "name": "TMDB - Popular",
+                    "name": "TMDB - סדרות פופולריות",
                     "pageSize": 20,
                     "extra": [
                         {
@@ -1367,7 +1367,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
             "catalogs": [
                 {
                     "id": "torrentio-realdebrid",
-                    "name": "RealDebrid",
+                    "name": "Real Debrid Cloud - נצפה בעבר",
                     "type": "other",
                     "extra": [
                         {
