@@ -41,7 +41,6 @@
             
             <div class="toggle-group">
                 <label>בחר את תוספי <span style="text-decoration: underline;">הכתוביות</span> שברצונך להתקין:</label>
-                <h3><strong style="color: #FFA500;">מומלץ בחום! תוסף כתוביות פרימיום: <a href="https://stremiohebsubs.onrender.com/configure" target="_blank" style="color: #FFA500;">Heb Subs Premium</a></strong></h3>
                 <div class="toggle-item">
                     <input type="checkbox" id="ktuvit_addon_toggle" name="ktuvit_addon_toggle" class="toggle-input" checked>
                     <label for="ktuvit_addon_toggle" class="toggle-label">Ktuvit</label>
@@ -66,6 +65,7 @@
                     <input type="checkbox" id="yify_addon_toggle" name="yify_addon_toggle" class="toggle-input" checked>
                     <label for="yify_addon_toggle" class="toggle-label">YIFY (לסרטים בלבד)</label>
                 </div>
+                <h3><strong style="color: yellow;">מומלץ בחום! תוסף כתוביות פרימיום: <a href="https://stremiohebsubs.onrender.com/configure" target="_blank" style="color: yellow;">Heb Subs Premium</a></strong></h3>
             </div>
 
             <div class="toggle-group">
@@ -90,7 +90,12 @@
             <label for="password">סיסמה למשתמש ה-Stremio:</label>
             <input type="password" id="password" name="password" required>
             
-            <label for="rd_api_key">מפתח API של RealDebrid - <span style="font-weight: bold; color: red;">מנוי בתשלום!</span> <a href="#" onclick="openRDApiKeyPage(); return false;" style="color: #1e90ff; text-decoration: underline; font-weight: bold;"><span style="font-size: 1.5em;">(לחץ והעתק אותו מכאן)</span></a></label>
+            <label for="rd_api_key">
+            מפתח API של RealDebrid -
+            <a href="https://real-debrid.com/premium" target="_blank" style="font-weight: bold; text-decoration: underline; color: red;">מנוי בתשלום!</a>
+            <br>
+            <a href="#" onclick="openRDApiKeyPage(); return false;" style="color: #1e90ff; text-decoration: underline; font-weight: bold;"><span style="font-size: 1.5em;">(לחץ והעתק אותו מכאן)</span></a>
+            </label>
             <input type="text" id="rd_api_key" name="rd_api_key" required>
             
             <button type="submit">התקן תוספים</button>
@@ -99,9 +104,7 @@
         <div id="result" class="result"></div>
         <div class="divider"></div>
         <h1>תוספים המוגנים ממחיקה:</h1>
-        <a href="https://stremiohebsubs.onrender.com/configure" target="_blank">Heb Subs Premium</a>
-        <h1>התוספים שיותקנו:</h1>
-        <img class="footer-img" src="https://i.imgur.com/kttnZJw.png" alt="Footer Image">
+        <a href="https://stremiohebsubs.onrender.com/configure" target="_blank" style="font-weight: bold; text-decoration: underline; color: #1e90ff;">Heb Subs Premium</a>
     </div>
 
     <script src="script.js"></script> <!-- Link to JS file -->
