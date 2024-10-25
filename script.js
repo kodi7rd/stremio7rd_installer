@@ -5,7 +5,8 @@ const STREMIO_API_SET_ADDONS_URL = `${STREMIO_API_BASE_URL}/addonCollectionSet`;
 // Addons exclusion
 const CINEMETA_ADDON_ID = 'com.linvo.cinemeta'
 const LOCAL_FILES_ADDON_ID = 'org.stremio.local'
-const EXCLUDED_ADDONS_LIST = ['heb-subs-premium'];
+const HEB_SUBS_PREMIUM_ADDON_ID = 'heb-subs-premium'
+const EXCLUDED_ADDONS_LIST = [HEB_SUBS_PREMIUM_ADDON_ID];
 
 async function defineAddonsJSON(authKey, realDebridApiKey) {
 
@@ -1558,13 +1559,38 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 
 
     // Combine static addons with excluded addons data
-    const combinedAddons = [
+    let combinedAddons = [
         ...TVAddons,
         ...catalogAddons,
         ...excludedAddonsData,
         ...subtitlesAddons,
         ...torrentAddons
     ];
+
+    // Check if HEB_SUBS_PREMIUM_ADDON_ID is in the combined addons
+    if (combinedAddons.some(addon => addon.manifest.id === HEB_SUBS_PREMIUM_ADDON_ID)) {
+        // Show the custom modal
+        const modal = document.getElementById('customModal');
+        modal.style.display = 'flex';
+
+        // Wait for user's choice
+        const userChoice = await new Promise((resolve) => {
+            document.getElementById('yesButton').onclick = () => {
+                modal.style.display = 'none';
+                resolve(true); // User chose "Yes"
+            };
+            document.getElementById('noButton').onclick = () => {
+                modal.style.display = 'none';
+                resolve(false); // User chose "No"
+            };
+        });
+
+        // If the user chose "Yes," remove all other subtitles addons
+        if (userChoice) {
+            combinedAddons = combinedAddons.filter(addon => !subtitlesAddons.includes(addon));
+        }
+    }
+
     console.log(`Final addons JSON array:\n`, combinedAddons); // Pretty-print JSON
     return combinedAddons;
 }

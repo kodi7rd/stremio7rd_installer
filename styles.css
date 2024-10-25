@@ -114,3 +114,40 @@ button:hover {
     font-size: 18px;
     color: #ffffff;
 }
+#customModal {
+    display: none; /* Keep it hidden by default */
+    position: fixed; /* Fixed position to overlay */
+    top: 0; /* Position at the top */
+    left: 0; /* Position at the left */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    justify-content: center; /* Center the modal horizontally */
+    align-items: center; /* Center the modal vertically */
+    z-index: 1000; /* Ensure it appears above other content */
+}
+
+#customModal > div {
+    background-color: #1e1e1e; /* Dark background for the container */
+    color: #e0e0e0; /* Light text color for contrast */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Space around the content */
+    text-align: center; /* Center text */
+    width: 300px; /* Fixed width */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add shadow */
+}
+
+#customModal button {
+    background-color: #1e90ff; /* Button color */
+    color: #fff; /* White text for buttons */
+    border: none;
+    padding: 10px 15px; /* Adjust button padding */
+    font-size: 14px; /* Adjust font size */
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px; /* Space above buttons */
+}
+
+#customModal button:hover {
+    background-color: #1c86ee; /* Darker blue on hover */
+}
