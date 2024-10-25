@@ -1237,7 +1237,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
         "flags": {}
     }
     
-    const OPENSUBTITLES_ADDON = {
+    const OPENSUBTITLES_V3_ADDON = {
         "transportUrl": "https://opensubtitles-v3.strem.io/manifest.json",
         "transportName": "",
         "manifest": {
@@ -1528,7 +1528,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
     const subtitlesAddonsToggles = [
         { toggleId: 'ktuvit_addon_toggle', addon: KTUVIT_ADDON },
         { toggleId: 'wizdom_addon_toggle', addon: WIZDOM_ADDON },
-        { toggleId: 'opensubtitles_addon_toggle', addon: OPENSUBTITLES_ADDON },
+        { toggleId: 'opensubtitles_v3_addon_toggle', addon: OPENSUBTITLES_V3_ADDON },
         { toggleId: 'opensubtitles_pro_addon_toggle', addon: OPENSUBTITLES_PRO_ADDON },
         { toggleId: 'subsource_addon_toggle', addon: SUBSOURCE_ADDON },
         { toggleId: 'yify_addon_toggle', addon: YIFY_ADDON }
