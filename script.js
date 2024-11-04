@@ -56,6 +56,44 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
             throw new Error('Error in checkForExcludedAddons:', error);
         }
     }
+
+    async function getMediaFusionEncryptedSecret(realDebridApiKey) {
+        const MediaFusionUserSettings = `{"streaming_provider":{"token":"${realDebridApiKey}","service":"realdebrid","enable_watchlist_catalogs":false,"download_via_browser":false,"only_show_cached_streams":true},"selected_catalogs":[],"selected_resolutions":["4k","2160p","1440p","1080p","720p","576p","480p","360p","240p",null],"enable_catalogs":true,"enable_imdb_metadata":false,"max_size":"inf","max_streams_per_resolution":"50","torrent_sorting_priority":["cached","resolution","size","quality","language","seeders","created_at"],"show_full_torrent_name":true,"nudity_filter":["Severe"],"certification_filter":["Adults"],"language_sorting":["English","Tamil","Hindi","Malayalam","Kannada","Telugu","Chinese","Russian","Arabic","Japanese","Korean","Taiwanese","Latino","French","Spanish","Portuguese","Italian","German","Ukrainian","Polish","Czech","Thai","Indonesian","Vietnamese","Dutch","Bengali","Turkish","Greek",null],"quality_filter":["BluRay/UHD","WEB/HD","DVD/TV/SAT","CAM/Screener","Unknown"],"api_password":null,"mediaflow_config":null,"rpdb_config":null,"live_search_streams":false,"contribution_streams":false}`;
+
+        let MediaFusionEncryptedSecret = "invalid_rd_api_key"; // Default in case of failure
+            
+        // Helper function to add a timeout to the fetch request
+        const fetchWithTimeout = (url, options, timeout) => {
+            return Promise.race([
+                fetch(url, options),
+                new Promise((_, reject) =>
+                    setTimeout(() => reject(new Error("Request timed out")), timeout)
+                )
+            ]);
+        };
+        try {
+            const response = await fetchWithTimeout('https://mediafusion.elfhosted.com/encrypt-user-data', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: MediaFusionUserSettings
+            }, 3000); // 3-second timeout
+            
+            if (response.ok) { // Check if response status is OK (status in the range 200-299)
+                const result = await response.json();
+                if (result.status === 'success') {
+                    MediaFusionEncryptedSecret = result.encrypted_str;
+                }
+            } else {
+                console.log("Error: Non-200 response status", response.status);
+            }
+        } catch (error) {
+            console.log("Error encrypting MediaFusion data:", error.message);
+        }
+
+        return MediaFusionEncryptedSecret;
+    }
     
     const installedAddons = await getInstalledAddons(authKey);
     
@@ -1454,6 +1492,62 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
         "flags": {}
     }
     
+    const MediaFusionEncryptedSecret = await getMediaFusionEncryptedSecret(realDebridApiKey);
+    const MEDIAFUSION_ADDON = {
+        "transportUrl": `https://mediafusion.elfhosted.com/${MediaFusionEncryptedSecret}/manifest.json`,
+        "transportName": "",
+        "manifest": {
+            "id": "stremio.addons.mediafusion|elfhosted.realdebrid",
+            "version": "4.1.0",
+            "name": "MediaFusion | ElfHosted RD",
+            "contactEmail": "mhdzumair@gmail.com",
+            "description": "Universal Stremio Add-on for Movies, Series, Live TV &amp; Sports Events. Source: https://github.com/mhdzumair/MediaFusion",
+            "logo": "https://mediafusion.elfhosted.com/static/images/mediafusion-elfhosted-logo.png",
+            "behaviorHints": {
+                "configurable": true,
+                "configurationRequired": false
+            },
+            "resources": [
+                "catalog",
+                {
+                    "name": "stream",
+                    "types": [
+                        "movie",
+                        "series",
+                        "tv",
+                        "events"
+                    ],
+                    "idPrefixes": [
+                        "tt",
+                        "mf",
+                        "dl"
+                    ]
+                },
+                {
+                    "name": "meta",
+                    "types": [
+                        "movie",
+                        "series",
+                        "tv",
+                        "events"
+                    ],
+                    "idPrefixes": [
+                        "mf",
+                        "dl"
+                    ]
+                }
+            ],
+            "types": [
+                "movie",
+                "series",
+                "tv",
+                "events"
+            ],
+            "catalogs": []
+        },
+        "flags": {}
+    }
+    
     const PEERFLIX_ADDON = {
         "transportUrl": `https://peerflix-addon.onrender.com/language=en%7Cdebridoptions=nodownloadlinks,nocatalog%7Crealdebrid=${realDebridApiKey}/manifest.json`,
         "transportName": "",
@@ -1547,12 +1641,17 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
     const torrentAddonsToggles = [
         { toggleId: 'torrentio_addon_toggle', addon: TORRENTIO_ADDON },
         { toggleId: 'comet_addon_toggle', addon: COMET_ADDON },
+        { toggleId: 'mediafusion_addon_toggle', addon: MEDIAFUSION_ADDON },
         { toggleId: 'peerflix_addon_toggle', addon: PEERFLIX_ADDON }
     ];
     
     let torrentAddons = [];
     torrentAddonsToggles.forEach(({ toggleId, addon }) => {
         if (document.getElementById(toggleId).checked) {
+            if (addon === MEDIAFUSION_ADDON && MediaFusionEncryptedSecret === "invalid_rd_api_key") {
+                // Skip MEDIAFUSION_ADDON if invalid encrypted key
+                return;
+            }
             torrentAddons.push(addon);
         }
     });
@@ -1689,7 +1788,9 @@ function openRDApiKeyPage() {
 function enforceAtLeastOneSelectedForTorrents() {
     const torrentCheckboxes = [
         document.getElementById('torrentio_addon_toggle'),
-        document.getElementById('comet_addon_toggle')
+        document.getElementById('comet_addon_toggle'),
+        document.getElementById('mediafusion_addon_toggle'),
+        document.getElementById('peerflix_addon_toggle')
     ];
 
     torrentCheckboxes.forEach(checkbox => {
