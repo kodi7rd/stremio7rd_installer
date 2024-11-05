@@ -2404,8 +2404,8 @@ function openRDApiKeyPage() {
 function enforceAtLeastOneSelectedForTorrents() {
     const torrentCheckboxes = [
         document.getElementById('torrentio_addon_toggle'),
-        document.getElementById('comet_addon_toggle'),
         document.getElementById('mediafusion_addon_toggle'),
+        document.getElementById('comet_addon_toggle'),
         document.getElementById('peerflix_addon_toggle')
     ];
 
