@@ -14,18 +14,6 @@
         <form id="stremioForm">
 
             <div class="toggle-group">
-                <label>בחר את תוספי <span style="text-decoration: underline;">ערוצי הטלוויזיה</span> שברצונך להתקין:</label>
-                <div class="toggle-item">
-                    <input type="checkbox" id="israel_tv_addon_toggle" name="israel_tv_addon_toggle" class="toggle-input" checked>
-                    <label for="israel_tv_addon_toggle" class="toggle-label">Israel TV (עידן פלוס)</label>
-                </div>
-                <div class="toggle-item">
-                    <input type="checkbox" id="usa_tv_addon_toggle" name="usa_tv_addon_toggle" class="toggle-input" checked>
-                    <label for="usa_tv_addon_toggle" class="toggle-label">USA TV (ערוצים מהעולם)</label>
-                </div>
-            </div>
-
-            <div class="toggle-group">
                 <label>בחר את תוספי <span style="text-decoration: underline;">הקטלוגים</span> שברצונך להתקין:</label>
                 <div class="toggle-item">
                     <input type="checkbox" id="tmdb_addon_toggle" name="tmdb_addon_toggle" class="toggle-input" checked>
@@ -38,6 +26,26 @@
                 <div class="toggle-item">
                     <input type="checkbox" id="cyberflix_addon_toggle" name="cyberflix_addon_toggle" class="toggle-input">
                     <label for="cyberflix_addon_toggle" class="toggle-label">Cyberflix Catalog (לרשתות סטרימינג - גיבוי)</label>
+                </div>
+            </div>
+
+            <div class="toggle-group">
+                <label>בחר את תוספי <span style="text-decoration: underline;">הדבריד</span> שברצונך להתקין:</label>
+                <div class="toggle-item">
+                    <input type="checkbox" id="torrentio_addon_toggle" name="torrentio_addon_toggle" class="toggle-input" checked>
+                    <label for="torrentio_addon_toggle" class="toggle-label">Torrentio RD</label>
+                </div>
+                <div class="toggle-item">
+                    <input type="checkbox" id="comet_addon_toggle" name="comet_addon_toggle" class="toggle-input" checked>
+                    <label for="comet_addon_toggle" class="toggle-label">Comet RD</label>
+                </div>
+                <div class="toggle-item">
+                    <input type="checkbox" id="mediafusion_addon_toggle" name="mediafusion_addon_toggle" class="toggle-input" checked>
+                    <label for="mediafusion_addon_toggle" class="toggle-label">MediaFusion RD</label>
+                </div>
+                <div class="toggle-item">
+                    <input type="checkbox" id="peerflix_addon_toggle" name="peerflix_addon_toggle" class="toggle-input" checked>
+                    <label for="peerflix_addon_toggle" class="toggle-label">Peerflix RD</label>
                 </div>
             </div>
             
@@ -71,25 +79,17 @@
             </div>
 
             <div class="toggle-group">
-                <label>בחר את תוספי <span style="text-decoration: underline;">הדבריד</span> שברצונך להתקין:</label>
+                <label>בחר את תוספי <span style="text-decoration: underline;">ערוצי הטלוויזיה</span> שברצונך להתקין:</label>
                 <div class="toggle-item">
-                    <input type="checkbox" id="torrentio_addon_toggle" name="torrentio_addon_toggle" class="toggle-input" checked>
-                    <label for="torrentio_addon_toggle" class="toggle-label">Torrentio RD</label>
+                    <input type="checkbox" id="israel_tv_addon_toggle" name="israel_tv_addon_toggle" class="toggle-input" checked>
+                    <label for="israel_tv_addon_toggle" class="toggle-label">Israel TV (עידן פלוס)</label>
                 </div>
                 <div class="toggle-item">
-                    <input type="checkbox" id="comet_addon_toggle" name="comet_addon_toggle" class="toggle-input" checked>
-                    <label for="comet_addon_toggle" class="toggle-label">Comet RD</label>
-                </div>
-                <div class="toggle-item">
-                    <input type="checkbox" id="mediafusion_addon_toggle" name="mediafusion_addon_toggle" class="toggle-input" checked>
-                    <label for="mediafusion_addon_toggle" class="toggle-label">MediaFusion RD</label>
-                </div>
-                <div class="toggle-item">
-                    <input type="checkbox" id="peerflix_addon_toggle" name="peerflix_addon_toggle" class="toggle-input" checked>
-                    <label for="peerflix_addon_toggle" class="toggle-label">Peerflix RD</label>
+                    <input type="checkbox" id="usa_tv_addon_toggle" name="usa_tv_addon_toggle" class="toggle-input" checked>
+                    <label for="usa_tv_addon_toggle" class="toggle-label">USA TV (ערוצים מהעולם)</label>
                 </div>
             </div>
-            
+            <br>
             <label for="email">אימייל של משתמש ה-Stremio: <span style="text-decoration: underline; color: red;">(התחברות דרך פייסבוק אינה נתמכת!)</span></label>
             <input type="text" id="email" name="email" required>
             
