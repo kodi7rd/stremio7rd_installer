@@ -1452,45 +1452,6 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
         },
         "flags": {}
     }
-
-    const cometUserSettingsB64 = btoa(`{"indexers":["bitsearch","eztv","thepiratebay","therarbg","yts"],"maxResults":0,"maxSize":0,"resultFormat":["All"],"resolutions":["All"],"languages":["All"],"debridService":"realdebrid","debridApiKey":"${realDebridApiKey}","debridStreamProxyPassword":""}`);
-    const COMET_ADDON = {
-        "transportUrl": `https://comet.elfhosted.com/${cometUserSettingsB64}/manifest.json`,
-        "transportName": "",
-        "manifest": {
-            "id": "comet.elfhosted.com",
-            "name": "Comet | ElfHosted | RD",
-            "description": "Stremio's fastest torrent/debrid search add-on.",
-            "version": "1.0.0",
-            "catalogs": [],
-            "resources": [
-                {
-                    "name": "stream",
-                    "types": [
-                        "movie",
-                        "series"
-                    ],
-                    "idPrefixes": [
-                        "tt",
-                        "kitsu"
-                    ]
-                }
-            ],
-            "types": [
-                "movie",
-                "series",
-                "anime",
-                "other"
-            ],
-            "logo": "https://i.imgur.com/jmVoVMu.jpeg",
-            "background": "https://i.imgur.com/WwnXB3k.jpeg",
-            "behaviorHints": {
-                "configurable": true,
-                "configurationRequired": false
-            }
-        },
-        "flags": {}
-    }
     
     const MediaFusionEncryptedSecret = await getMediaFusionEncryptedSecret(realDebridApiKey);
     const MEDIAFUSION_ADDON = {
@@ -1544,6 +1505,45 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
                 "events"
             ],
             "catalogs": []
+        },
+        "flags": {}
+    }
+
+    const cometUserSettingsB64 = btoa(`{"indexers":["bitsearch","eztv","thepiratebay","therarbg","yts"],"maxResults":0,"maxSize":0,"resultFormat":["All"],"resolutions":["All"],"languages":["All"],"debridService":"realdebrid","debridApiKey":"${realDebridApiKey}","debridStreamProxyPassword":""}`);
+    const COMET_ADDON = {
+        "transportUrl": `https://comet.elfhosted.com/${cometUserSettingsB64}/manifest.json`,
+        "transportName": "",
+        "manifest": {
+            "id": "comet.elfhosted.com",
+            "name": "Comet | ElfHosted | RD",
+            "description": "Stremio's fastest torrent/debrid search add-on.",
+            "version": "1.0.0",
+            "catalogs": [],
+            "resources": [
+                {
+                    "name": "stream",
+                    "types": [
+                        "movie",
+                        "series"
+                    ],
+                    "idPrefixes": [
+                        "tt",
+                        "kitsu"
+                    ]
+                }
+            ],
+            "types": [
+                "movie",
+                "series",
+                "anime",
+                "other"
+            ],
+            "logo": "https://i.imgur.com/jmVoVMu.jpeg",
+            "background": "https://i.imgur.com/WwnXB3k.jpeg",
+            "behaviorHints": {
+                "configurable": true,
+                "configurationRequired": false
+            }
         },
         "flags": {}
     }
@@ -1640,18 +1640,14 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
     // RD Addons
     const torrentAddonsToggles = [
         { toggleId: 'torrentio_addon_toggle', addon: TORRENTIO_ADDON },
+        ...(MediaFusionEncryptedSecret !== "invalid_rd_api_key" ? [{ toggleId: 'mediafusion_addon_toggle', addon: MEDIAFUSION_ADDON }] : []),
         { toggleId: 'comet_addon_toggle', addon: COMET_ADDON },
-        { toggleId: 'mediafusion_addon_toggle', addon: MEDIAFUSION_ADDON },
         { toggleId: 'peerflix_addon_toggle', addon: PEERFLIX_ADDON }
     ];
     
     let torrentAddons = [];
     torrentAddonsToggles.forEach(({ toggleId, addon }) => {
         if (document.getElementById(toggleId).checked) {
-            if (addon === MEDIAFUSION_ADDON && MediaFusionEncryptedSecret === "invalid_rd_api_key") {
-                // Skip MEDIAFUSION_ADDON if invalid encrypted key
-                return;
-            }
             torrentAddons.push(addon);
         }
     });
