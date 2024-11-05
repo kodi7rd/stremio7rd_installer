@@ -187,7 +187,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
         "transportName": "",
         "manifest": {
             "id": "tmdb-addon",
-            "version": "3.0.16",
+            "version": "3.0.18",
             "favicon": "https://github.com/mrcanelas/tmdb-addon/raw/main/images/favicon.png",
             "logo": "https://github.com/mrcanelas/tmdb-addon/raw/main/images/logo.png",
             "background": "https://github.com/mrcanelas/tmdb-addon/raw/main/images/background.png",
@@ -241,10 +241,10 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
                             ]
                         },
                         {
-                            "name": "skip"
+                            "name": "search"
                         },
                         {
-                            "name": "search"
+                            "name": "skip"
                         }
                     ],
                     "extraSupported": [
@@ -445,10 +445,10 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
                             ]
                         },
                         {
-                            "name": "skip"
+                            "name": "search"
                         },
                         {
-                            "name": "search"
+                            "name": "skip"
                         }
                     ],
                     "extraSupported": [
