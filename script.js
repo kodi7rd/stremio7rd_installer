@@ -2076,7 +2076,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
         "transportName": "",
         "manifest": {
             "id": "stremio.addons.mediafusion|elfhosted.realdebrid",
-            "version": "4.1.0",
+            "version": "4.1.3",
             "name": "MediaFusion | ElfHosted RD",
             "contactEmail": "mhdzumair@gmail.com",
             "description": "Universal Stremio Add-on for Movies, Series, Live TV &amp; Sports Events. Source: https://github.com/mhdzumair/MediaFusion",
