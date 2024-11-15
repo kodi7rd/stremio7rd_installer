@@ -2268,6 +2268,32 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
         "flags": {}
     }
 
+    const JacketCommunityStremioUserSettingsB64 = btoa(`{"addonHost":"https://stremio-jackett.elfhosted.com","service":"realdebrid","debridKey":"${realDebridApiKey}","maxSize":"0","exclusionKeywords":[],"languages":["en","multi"],"sort":"qualitythensize","resultsPerQuality":"25","maxResults":"100","exclusion":[],"tmdbApi":"","torrenting":false,"debrid":true,"metadataProvider":"cinemeta"}`);
+    const JACKET_COMMUNITY_ADDON = {
+        
+        "transportUrl": `https://stremio-jackett.elfhosted.com/${JacketCommunityStremioUserSettingsB64}/manifest.json`,
+        "transportName": "",
+        "manifest": {
+            "id": "community.aymene69.jackett",
+            "icon": "https://i.imgur.com/tVjqEJP.png",
+            "version": "4.1.6",
+            "catalogs": [],
+            "resources": [
+                "stream"
+            ],
+            "types": [
+                "movie",
+                "series"
+            ],
+            "name": "Jackett Community",
+            "description": "Elevate your Stremio experience with seamless access to Jackett torrent links, effortlessly fetching torrents for your selected movies within the Stremio interface.",
+            "behaviorHints": {
+                "configurable": true
+            }
+        },
+        "flags": {}
+    }
+
     // TV Addons
     const TVAddonsToggles = [
         { toggleId: 'israel_tv_addon_toggle', addon: ISRAEL_TV_ADDON },
@@ -2331,7 +2357,8 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
         { toggleId: 'comet_addon_toggle', addon: COMET_ADDON },
         { toggleId: 'cometfr_addon_toggle', addon: COMETFR_ADDON },
         { toggleId: 'peerflix_addon_toggle', addon: PEERFLIX_ADDON },
-        { toggleId: 'yggstremio_addon_toggle', addon: YGGSTREMIO_ADDON }
+        { toggleId: 'yggstremio_addon_toggle', addon: YGGSTREMIO_ADDON },
+        { toggleId: 'jacket_community_addon_toggle', addon: JACKET_COMMUNITY_ADDON }
     ];
     
     let torrentAddons = [];
@@ -2477,7 +2504,8 @@ function enforceAtLeastOneSelectedForTorrents() {
         document.getElementById('comet_addon_toggle'),
         document.getElementById('cometfr_addon_toggle'),
         document.getElementById('peerflix_addon_toggle'),
-        document.getElementById('yggstremio_addon_toggle')
+        document.getElementById('yggstremio_addon_toggle'),
+        document.getElementById('jacket_community_addon_toggle')
     ];
 
     torrentCheckboxes.forEach(checkbox => {
