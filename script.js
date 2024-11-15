@@ -2268,6 +2268,34 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
         "flags": {}
     }
 
+    const JackettioStremioUserSettingsB64 = btoa(`{"maxTorrents":30,"priotizePackTorrents":2,"excludeKeywords":[],"debridId":"realdebrid","hideUncached":true,"sortCached":[["quality",true],["size",true]],"sortUncached":[["seeders",true]],"forceCacheNextEpisode":false,"priotizeLanguages":[],"indexerTimeoutSec":10,"metaLanguage":"","enableMediaFlow":false,"mediaflowProxyUrl":"","mediaflowApiPassword":"","mediaflowPublicIp":"","qualities":[0,480,720,1080],"indexers":["bitsearch","eztv","thepiratebay","therarbg","yts"],"debridApiKey":"${realDebridApiKey}"}`);
+    const JACKETTIO_ADDON = {
+        "transportUrl": `https://jackettio.elfhosted.com/${JackettioStremioUserSettingsB64}/manifest.json`,
+        "transportName": "",
+        "manifest": {
+            "id": "jackettio.elfhosted.com",
+            "version": "1.6.0",
+            "name": "Jackettio RD",
+            "description": "Stremio addon that resolve streams using Jackett and Debrid. It seamlessly integrates with private trackers.",
+            "icon": "https://jackettio.elfhosted.com/icon",
+            "resources": [
+                "stream"
+            ],
+            "types": [
+                "movie",
+                "series"
+            ],
+            "idPrefixes": [
+                "tt"
+            ],
+            "catalogs": [],
+            "behaviorHints": {
+                "configurable": true
+            }
+        },
+        "flags": {}
+    }
+
     const JacketCommunityStremioUserSettingsB64 = btoa(`{"addonHost":"https://stremio-jackett.elfhosted.com","service":"realdebrid","debridKey":"${realDebridApiKey}","maxSize":"0","exclusionKeywords":[],"languages":["en","multi"],"sort":"qualitythensize","resultsPerQuality":"25","maxResults":"100","exclusion":[],"tmdbApi":"","torrenting":false,"debrid":true,"metadataProvider":"cinemeta"}`);
     const JACKET_COMMUNITY_ADDON = {
         
@@ -2358,6 +2386,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
         { toggleId: 'cometfr_addon_toggle', addon: COMETFR_ADDON },
         { toggleId: 'peerflix_addon_toggle', addon: PEERFLIX_ADDON },
         { toggleId: 'yggstremio_addon_toggle', addon: YGGSTREMIO_ADDON },
+        { toggleId: 'jackettio_addon_toggle', addon: JACKETTIO_ADDON },
         { toggleId: 'jacket_community_addon_toggle', addon: JACKET_COMMUNITY_ADDON }
     ];
     
@@ -2505,6 +2534,7 @@ function enforceAtLeastOneSelectedForTorrents() {
         document.getElementById('cometfr_addon_toggle'),
         document.getElementById('peerflix_addon_toggle'),
         document.getElementById('yggstremio_addon_toggle'),
+        document.getElementById('jackettio_addon_toggle'),
         document.getElementById('jacket_community_addon_toggle')
     ];
 
