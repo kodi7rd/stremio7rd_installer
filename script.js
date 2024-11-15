@@ -2164,6 +2164,45 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
         },
         "flags": {}
     }
+
+    const cometFRUserSettingsB64 = btoa(`{"indexers":["yggtorrent","sharewood-api","yggcookie","gktorrent","dmm","yggapi"],"maxResults":50,"maxSize":0,"resultFormat":["All"],"resolutions":["All"],"languages":["English"],"debridService":"realdebrid","debridApiKey":"${realDebridApiKey}","debridStreamProxyPassword":""}`);
+    const COMETFR_ADDON = {
+        "transportUrl": `https://comet.stremiofr.com/${cometFRUserSettingsB64}/manifest.json`,
+        "transportName": "",
+        "manifest": {
+            "id": "stremio.comet.fr",
+            "name": "CometFR | RD",
+            "description": "Stremio addons for French content.",
+            "version": "1.0.0",
+            "catalogs": [],
+            "resources": [
+                {
+                    "name": "stream",
+                    "types": [
+                        "movie",
+                        "series"
+                    ],
+                    "idPrefixes": [
+                        "tt",
+                        "kitsu"
+                    ]
+                }
+            ],
+            "types": [
+                "movie",
+                "series",
+                "anime",
+                "other"
+            ],
+            "logo": "https://i.imgur.com/dUL8j6C.png",
+            "background": "https://i.imgur.com/WwnXB3k.jpeg",
+            "behaviorHints": {
+                "configurable": true,
+                "configurationRequired": false
+            }
+        },
+        "flags": {}
+    }
     
     const PEERFLIX_ADDON = {
         "transportUrl": `https://peerflix-addon.onrender.com/language=en%7Cdebridoptions=nodownloadlinks,nocatalog%7Crealdebrid=${realDebridApiKey}/manifest.json`,
@@ -2290,6 +2329,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
         { toggleId: 'torrentio_addon_toggle', addon: TORRENTIO_ADDON },
         ...(MediaFusionEncryptedSecret !== "invalid_rd_api_key" ? [{ toggleId: 'mediafusion_addon_toggle', addon: MEDIAFUSION_ADDON }] : []),
         { toggleId: 'comet_addon_toggle', addon: COMET_ADDON },
+        { toggleId: 'cometfr_addon_toggle', addon: COMETFR_ADDON },
         { toggleId: 'peerflix_addon_toggle', addon: PEERFLIX_ADDON },
         { toggleId: 'yggstremio_addon_toggle', addon: YGGSTREMIO_ADDON }
     ];
@@ -2435,6 +2475,7 @@ function enforceAtLeastOneSelectedForTorrents() {
         document.getElementById('torrentio_addon_toggle'),
         document.getElementById('mediafusion_addon_toggle'),
         document.getElementById('comet_addon_toggle'),
+        document.getElementById('cometfr_addon_toggle'),
         document.getElementById('peerflix_addon_toggle'),
         document.getElementById('yggstremio_addon_toggle')
     ];
