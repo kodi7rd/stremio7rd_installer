@@ -183,7 +183,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
     }
     
     const TMDB_ADDON = {
-        "transportUrl": "https://94c8cb9f702d-tmdb-addon.baby-beamup.club/%7B%22provide_imdbId%22%3A%22true%22%2C%22use_tmdb_prefix%22%3A%22true%22%2C%22language%22%3A%22he-IL%22%7D/manifest.json",
+        "transportUrl": "https://94c8cb9f702d-tmdb-addon.baby-beamup.club/%7B%22ratings%22%3A%22on%22%2C%22rpdbkey%22%3A%22t0-free-rpdb%22%2C%22provide_imdbId%22%3A%22true%22%2C%22use_tmdb_prefix%22%3A%22true%22%2C%22language%22%3A%22he-IL%22%7D/manifest.json",
         "transportName": "",
         "manifest": {
             "id": "tmdb-addon",
