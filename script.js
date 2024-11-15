@@ -2201,6 +2201,34 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
         "flags": {}
     }
 
+    const YggStremioUserSettingsB64 = btoa(`{"maxTorrents":50,"priotizePackTorrents":2,"excludeKeywords":[],"debridId":"realdebrid","hideUncached":true,"sortCached":[["quality",true],["size",true]],"sortUncached":[["seeders",true]],"forceCacheNextEpisode":false,"priotizeLanguages":["multi","english"],"indexerTimeoutSec":10,"metaLanguage":"en","enableMediaFlow":false,"mediaflowProxyUrl":"","mediaflowApiPassword":"","mediaflowPublicIp":"","qualities":[0,360,480,720,1080,2160],"indexers":["torrent9","gktorrent","yggtorrent"],"debridApiKey":"${realDebridApiKey}"}`);
+    const YGGSTREMIO_ADDON = {
+        "transportUrl": `https://yggstremio.fun/${YggStremioUserSettingsB64}/manifest.json`,
+        "transportName": "",
+        "manifest": {
+            "id": "community.stremio.yggstremio",
+            "version": "1.6.0",
+            "name": "YggStremio RD",
+            "description": "Get streams from Ygg indexer",
+            "icon": "https://yggstremio.fun/icon",
+            "resources": [
+                "stream"
+            ],
+            "types": [
+                "movie",
+                "series"
+            ],
+            "idPrefixes": [
+                "tt"
+            ],
+            "catalogs": [],
+            "behaviorHints": {
+                "configurable": true
+            }
+        },
+        "flags": {}
+    }
+
     // TV Addons
     const TVAddonsToggles = [
         { toggleId: 'israel_tv_addon_toggle', addon: ISRAEL_TV_ADDON },
@@ -2262,7 +2290,8 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
         { toggleId: 'torrentio_addon_toggle', addon: TORRENTIO_ADDON },
         ...(MediaFusionEncryptedSecret !== "invalid_rd_api_key" ? [{ toggleId: 'mediafusion_addon_toggle', addon: MEDIAFUSION_ADDON }] : []),
         { toggleId: 'comet_addon_toggle', addon: COMET_ADDON },
-        { toggleId: 'peerflix_addon_toggle', addon: PEERFLIX_ADDON }
+        { toggleId: 'peerflix_addon_toggle', addon: PEERFLIX_ADDON },
+        { toggleId: 'yggstremio_addon_toggle', addon: YGGSTREMIO_ADDON }
     ];
     
     let torrentAddons = [];
@@ -2406,7 +2435,8 @@ function enforceAtLeastOneSelectedForTorrents() {
         document.getElementById('torrentio_addon_toggle'),
         document.getElementById('mediafusion_addon_toggle'),
         document.getElementById('comet_addon_toggle'),
-        document.getElementById('peerflix_addon_toggle')
+        document.getElementById('peerflix_addon_toggle'),
+        document.getElementById('yggstremio_addon_toggle')
     ];
 
     torrentCheckboxes.forEach(checkbox => {
