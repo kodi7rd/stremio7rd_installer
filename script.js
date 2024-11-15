@@ -627,7 +627,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
     }
     
     const STREAMING_CATALOGS_ADDON = {
-        "transportUrl": "https://7a82163c306e-stremio-netflix-catalog-addon.baby-beamup.club/bmZ4LGhibSxkbnAsYW1wLGF0cCxjcnUsaGx1LHBtcDo6OjE3MjkxOTY4NDM1Njk%3D/manifest.json",
+        "transportUrl": "https://7a82163c306e-stremio-netflix-catalog-addon.baby-beamup.club/bmZ4LGhibSxkbnAsYW1wLGF0cCxjcnUsaGx1LHBtcDp0MC1mcmVlLXJwZGI6OjE3MjkxOTY4NDM1Njk%3D/manifest.json",
         "transportName": "",
         "manifest": {
             "id": "pw.ers.netflix-catalog",
