@@ -735,7 +735,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
     }
     
     const CYBERFLIX_ADDON = {
-        "transportUrl": "https://cyberflix.elfhosted.com/c/catalogs=cd492,15846,c4e72,071c0,61f57,60f26,5653e,223ce,bfb17,ed8a6,88ef9,f3440%7Clang=en/manifest.json",
+        "transportUrl": "https://cyberflix.elfhosted.com/c/catalogs=cd492,15846,c4e72,071c0,61f57,60f26,5653e,223ce,bfb17,ed8a6,88ef9,f3440%7Crpgb=t0-free-rpdb%7Clang=en/manifest.json",
         "transportName": "",
         "manifest": {
             "id": "marcojoao.ml.cyberflix.catalog",
@@ -763,7 +763,6 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
                     "id": "netflix.popular.movie",
                     "name": "Popular Movies",
                     "type": "Netflix",
-                    "pageSize": 25,
                     "extra": [
                         {
                             "name": "genre",
@@ -793,6 +792,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
                             "name": "skip"
                         }
                     ],
+                    "pageSize": 25,
                     "extraSupported": [
                         "genre",
                         "skip"
@@ -802,7 +802,6 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
                     "id": "netflix.popular.series",
                     "name": "Popular Series",
                     "type": "Netflix",
-                    "pageSize": 25,
                     "extra": [
                         {
                             "name": "genre",
@@ -833,6 +832,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
                             "name": "skip"
                         }
                     ],
+                    "pageSize": 25,
                     "extraSupported": [
                         "genre",
                         "skip"
@@ -842,7 +842,6 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
                     "id": "disney_plus.popular.movie",
                     "name": "Popular Movies",
                     "type": "Disney Plus",
-                    "pageSize": 25,
                     "extra": [
                         {
                             "name": "genre",
@@ -872,6 +871,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
                             "name": "skip"
                         }
                     ],
+                    "pageSize": 25,
                     "extraSupported": [
                         "genre",
                         "skip"
@@ -881,7 +881,6 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
                     "id": "disney_plus.popular.series",
                     "name": "Popular Series",
                     "type": "Disney Plus",
-                    "pageSize": 25,
                     "extra": [
                         {
                             "name": "genre",
@@ -896,6 +895,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
                                 "Family",
                                 "Fantasy",
                                 "History",
+                                "Horror",
                                 "Kids",
                                 "Music",
                                 "Mystery",
@@ -910,6 +910,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
                             "name": "skip"
                         }
                     ],
+                    "pageSize": 25,
                     "extraSupported": [
                         "genre",
                         "skip"
@@ -919,7 +920,6 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
                     "id": "hbo_max.popular.movie",
                     "name": "Popular Movies",
                     "type": "Hbo Max",
-                    "pageSize": 25,
                     "extra": [
                         {
                             "name": "genre",
@@ -949,6 +949,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
                             "name": "skip"
                         }
                     ],
+                    "pageSize": 25,
                     "extraSupported": [
                         "genre",
                         "skip"
@@ -958,7 +959,6 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
                     "id": "hbo_max.popular.series",
                     "name": "Popular Series",
                     "type": "Hbo Max",
-                    "pageSize": 25,
                     "extra": [
                         {
                             "name": "genre",
@@ -989,6 +989,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
                             "name": "skip"
                         }
                     ],
+                    "pageSize": 25,
                     "extraSupported": [
                         "genre",
                         "skip"
@@ -998,7 +999,6 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
                     "id": "amazon_prime.popular.movie",
                     "name": "Popular Movies",
                     "type": "Amazon Prime",
-                    "pageSize": 25,
                     "extra": [
                         {
                             "name": "genre",
@@ -1028,6 +1028,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
                             "name": "skip"
                         }
                     ],
+                    "pageSize": 25,
                     "extraSupported": [
                         "genre",
                         "skip"
@@ -1037,7 +1038,6 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
                     "id": "amazon_prime.popular.series",
                     "name": "Popular Series",
                     "type": "Amazon Prime",
-                    "pageSize": 25,
                     "extra": [
                         {
                             "name": "genre",
@@ -1068,6 +1068,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
                             "name": "skip"
                         }
                     ],
+                    "pageSize": 25,
                     "extraSupported": [
                         "genre",
                         "skip"
@@ -1077,7 +1078,6 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
                     "id": "apple_tv_plus.popular.movie",
                     "name": "Popular Movies",
                     "type": "Apple Tv Plus",
-                    "pageSize": 25,
                     "extra": [
                         {
                             "name": "genre",
@@ -1092,7 +1092,6 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
                                 "Family",
                                 "Fantasy",
                                 "History",
-                                "Horror",
                                 "Music",
                                 "Mystery",
                                 "Romance",
@@ -1106,6 +1105,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
                             "name": "skip"
                         }
                     ],
+                    "pageSize": 25,
                     "extraSupported": [
                         "genre",
                         "skip"
@@ -1115,7 +1115,6 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
                     "id": "apple_tv_plus.popular.series",
                     "name": "Popular Series",
                     "type": "Apple Tv Plus",
-                    "pageSize": 25,
                     "extra": [
                         {
                             "name": "genre",
@@ -1145,6 +1144,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
                             "name": "skip"
                         }
                     ],
+                    "pageSize": 25,
                     "extraSupported": [
                         "genre",
                         "skip"
@@ -1154,7 +1154,6 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
                     "id": "anime.popular.movie",
                     "name": "Popular Movies",
                     "type": "Anime",
-                    "pageSize": 25,
                     "extra": [
                         {
                             "name": "genre",
@@ -1182,6 +1181,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
                             "name": "skip"
                         }
                     ],
+                    "pageSize": 25,
                     "extraSupported": [
                         "genre",
                         "skip"
@@ -1191,7 +1191,6 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
                     "id": "anime.popular.series",
                     "name": "Popular Series",
                     "type": "Anime",
-                    "pageSize": 25,
                     "extra": [
                         {
                             "name": "genre",
@@ -1219,6 +1218,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
                             "name": "skip"
                         }
                     ],
+                    "pageSize": 25,
                     "extraSupported": [
                         "genre",
                         "skip"
@@ -1226,8 +1226,8 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
                 }
             ],
             "background": "http://cyberflix.elfhosted.com/background.png",
-            "last_update": "2024-08-18 02:23:41.705295",
-            "server_version": "0.3.3"
+            "last_update": "2024-11-18 22:57:50.456692",
+            "server_version": "1.0.0"
         },
         "flags": {}
     }
