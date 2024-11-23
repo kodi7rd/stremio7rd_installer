@@ -2298,7 +2298,6 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 
     const JacketCommunityStremioUserSettingsB64 = btoa(`{"addonHost":"https://stremio-jackett.elfhosted.com","service":"realdebrid","debridKey":"${realDebridApiKey}","maxSize":"0","exclusionKeywords":[],"languages":["en","multi"],"sort":"qualitythensize","resultsPerQuality":"25","maxResults":"100","exclusion":[],"tmdbApi":"","torrenting":false,"debrid":true,"metadataProvider":"cinemeta"}`);
     const JACKET_COMMUNITY_ADDON = {
-        
         "transportUrl": `https://stremio-jackett.elfhosted.com/${JacketCommunityStremioUserSettingsB64}/manifest.json`,
         "transportName": "",
         "manifest": {
