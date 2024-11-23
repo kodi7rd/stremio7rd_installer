@@ -2165,7 +2165,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
         "flags": {}
     }
 
-    const cometFRUserSettingsB64 = btoa(`{"indexers":["yggtorrent","sharewood-api","yggcookie","gktorrent","dmm","yggapi"],"maxResults":50,"maxSize":0,"resultFormat":["All"],"resolutions":["All"],"languages":["English"],"debridService":"realdebrid","debridApiKey":"${realDebridApiKey}","debridStreamProxyPassword":""}`);
+    const cometFRUserSettingsB64 = btoa(`{"indexers":["yggtorrent","sharewood-api","yggcookie","gktorrent","dmm","yggapi"],"maxResults":90,"maxResultsPerResolution":10,"maxSize":0,"reverseResultOrder":false,"removeTrash":false,"resultFormat":["All"],"resolutions":["All"],"languages":["English"],"debridService":"realdebrid","debridApiKey":"${realDebridApiKey}","debridStreamProxyPassword":""}`);
     const COMETFR_ADDON = {
         "transportUrl": `https://comet.stremiofr.com/${cometFRUserSettingsB64}/manifest.json`,
         "transportName": "",
