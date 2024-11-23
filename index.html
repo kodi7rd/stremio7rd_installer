@@ -134,12 +134,18 @@
             <label for="password">סיסמה למשתמש ה-Stremio:</label>
             <input type="password" id="password" name="password" required>
             
-            <label for="rd_api_key">
+            <label for="selectedDebridService">בחר שירות דבריד:</label>
+            <select id="selectedDebridService">
+                <option value="realdebrid_service" selected>Real Debrid</option>
+                <option value="premiumize_service">Premiumize</option>
+            </select>
+            
+            <label for="selected_debrid_api_key">
             מפתח API של RealDebrid
             <br>
             <a href="#" onclick="openRDApiKeyPage(); return false;" style="color: #1e90ff; text-decoration: underline; font-weight: bold;"><span style="font-size: 2em;">(לחץ והעתק אותו מכאן)</span></a>
             </label>
-            <input type="text" id="rd_api_key" name="rd_api_key" required>
+            <input type="text" id="selected_debrid_api_key" name="selected_debrid_api_key" required>
             
             <button type="submit">התקן תוספים</button>
         </form>

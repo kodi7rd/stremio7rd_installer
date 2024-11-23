@@ -8,7 +8,7 @@ const LOCAL_FILES_ADDON_ID = 'org.stremio.local'
 const HEB_SUBS_PREMIUM_ADDON_ID = 'heb-subs-premium'
 const EXCLUDED_ADDONS_LIST = [HEB_SUBS_PREMIUM_ADDON_ID];
 
-async function defineAddonsJSON(authKey, realDebridApiKey) {
+async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridApiKey) {
 
     async function getInstalledAddons(authKey) {
         console.log("Loading addons...");
@@ -57,8 +57,8 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
         }
     }
 
-    async function getMediaFusionEncryptedSecret(realDebridApiKey) {
-        const MediaFusionUserSettings = `{"streaming_provider":{"token":"${realDebridApiKey}","service":"realdebrid","enable_watchlist_catalogs":false,"download_via_browser":false,"only_show_cached_streams":false},"selected_catalogs":[],"selected_resolutions":["4k","2160p","1440p","1080p","720p","576p","480p","360p","240p",null],"enable_catalogs":true,"enable_imdb_metadata":false,"max_size":"inf","max_streams_per_resolution":"50","torrent_sorting_priority":["language","cached","resolution","quality","size","seeders","created_at"],"show_full_torrent_name":true,"nudity_filter":[],"certification_filter":[],"language_sorting":["English","Tamil","Hindi","Malayalam","Kannada","Telugu","Chinese","Russian","Arabic","Japanese","Korean","Taiwanese","Latino","French","Spanish","Portuguese","Italian","German","Ukrainian","Polish","Czech","Thai","Indonesian","Vietnamese","Dutch","Bengali","Turkish","Greek",null],"quality_filter":["BluRay/UHD","WEB/HD","DVD/TV/SAT","CAM/Screener","Unknown"],"api_password":null,"mediaflow_config":null,"rpdb_config":null,"live_search_streams":false,"contribution_streams":false}`;
+    async function getMediaFusionEncryptedSecret(selectedDebridApiKey) {
+        const MediaFusionUserSettings = `{"streaming_provider":{"token":"${selectedDebridApiKey}","service":"realdebrid","enable_watchlist_catalogs":false,"download_via_browser":false,"only_show_cached_streams":false},"selected_catalogs":[],"selected_resolutions":["4k","2160p","1440p","1080p","720p","576p","480p","360p","240p",null],"enable_catalogs":true,"enable_imdb_metadata":false,"max_size":"inf","max_streams_per_resolution":"50","torrent_sorting_priority":["language","cached","resolution","quality","size","seeders","created_at"],"show_full_torrent_name":true,"nudity_filter":[],"certification_filter":[],"language_sorting":["English","Tamil","Hindi","Malayalam","Kannada","Telugu","Chinese","Russian","Arabic","Japanese","Korean","Taiwanese","Latino","French","Spanish","Portuguese","Italian","German","Ukrainian","Polish","Czech","Thai","Indonesian","Vietnamese","Dutch","Bengali","Turkish","Greek",null],"quality_filter":["BluRay/UHD","WEB/HD","DVD/TV/SAT","CAM/Screener","Unknown"],"api_password":null,"mediaflow_config":null,"rpdb_config":null,"live_search_streams":false,"contribution_streams":false}`;
 
         let MediaFusionEncryptedSecret = "invalid_rd_api_key"; // Default in case of failure
             
@@ -2012,8 +2012,8 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
         "flags": {}
     }
     
-    const TORRENTIO_ADDON = {
-        "transportUrl": `https://torrentio.strem.fun/sort=qualitysize%7Crealdebrid=${realDebridApiKey}/manifest.json`,
+    const TORRENTIO_RD_ADDON = {
+        "transportUrl": `https://torrentio.strem.fun/sort=qualitysize%7Crealdebrid=${selectedDebridApiKey}/manifest.json`,
         "transportName": "",
         "manifest": {
             "id": "com.stremio.torrentio.addon",
@@ -2070,7 +2070,65 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
         "flags": {}
     }
     
-    const MediaFusionEncryptedSecret = await getMediaFusionEncryptedSecret(realDebridApiKey);
+    const TORRENTIO_PM_ADDON = {
+        "transportUrl": `https://torrentio.strem.fun/sort=qualitysize%7Cdebridoptions=nodownloadlinks%7Cpremiumize=${selectedDebridApiKey}/manifest.json`,
+        "transportName": "",
+        "manifest": {
+            "id": "com.stremio.torrentio.addon",
+            "version": "0.0.14",
+            "name": "Torrentio PM",
+            "description": "Provides torrent streams from scraped torrent providers. Currently supports YTS(+), EZTV(+), RARBG(+), 1337x(+), ThePirateBay(+), KickassTorrents(+), TorrentGalaxy(+), MagnetDL(+), HorribleSubs(+), NyaaSi(+), TokyoTosho(+), AniDex(+), Rutor(+), Rutracker(+), Comando(+), BluDV(+), Torrent9(+), ilCorSaRoNeRo(+), MejorTorrent(+), Wolfmax4k(+), Cinecalidad(+) and Premiumize enabled. To configure providers, RealDebrid/Premiumize/AllDebrid/DebridLink/Offcloud/Put.io support and other settings visit https://torrentio.strem.fun",
+            "catalogs": [
+                {
+                    "id": "torrentio-premiumize",
+                    "name": "Premiumize Cloud - נצפה בעבר",
+                    "type": "other",
+                    "extra": [
+                        {
+                            "name": "skip"
+                        }
+                    ]
+                }
+            ],
+            "resources": [
+                {
+                    "name": "stream",
+                    "types": [
+                        "movie",
+                        "series"
+                    ],
+                    "idPrefixes": [
+                        "tt",
+                        "kitsu"
+                    ]
+                },
+                {
+                    "name": "meta",
+                    "types": [
+                        "other"
+                    ],
+                    "idPrefixes": [
+                        "premiumize"
+                    ]
+                }
+            ],
+            "types": [
+                "movie",
+                "series",
+                "anime",
+                "other"
+            ],
+            "background": "https://i.ibb.co/VtSfFP9/t8wVwcg.jpg",
+            "logo": "https://i.ibb.co/w4BnkC9/GwxAcDV.png",
+            "behaviorHints": {
+                "configurable": true,
+                "configurationRequired": false
+            }
+        },
+        "flags": {}
+    }
+    
+    const MediaFusionEncryptedSecret = await getMediaFusionEncryptedSecret(selectedDebridApiKey);
     const MEDIAFUSION_ADDON = {
         "transportUrl": `https://mediafusion.elfhosted.com/${MediaFusionEncryptedSecret}/manifest.json`,
         "transportName": "",
@@ -2126,7 +2184,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
         "flags": {}
     }
 
-    const cometUserSettingsB64 = btoa(`{"indexers":["bitsearch","eztv","thepiratebay","therarbg","yts"],"maxResults":0,"maxResultsPerResolution":0,"maxSize":0,"removeTrash":false,"resultFormat":["All"],"resolutions":["All"],"languages":["All"],"debridService":"realdebrid","debridApiKey":"${realDebridApiKey}","debridStreamProxyPassword":""}`);
+    const cometUserSettingsB64 = btoa(`{"indexers":["bitsearch","eztv","thepiratebay","therarbg","yts"],"maxResults":0,"maxResultsPerResolution":0,"maxSize":0,"removeTrash":false,"resultFormat":["All"],"resolutions":["All"],"languages":["All"],"debridService":"realdebrid","debridApiKey":"${selectedDebridApiKey}","debridStreamProxyPassword":""}`);
     const COMET_ADDON = {
         "transportUrl": `https://comet.elfhosted.com/${cometUserSettingsB64}/manifest.json`,
         "transportName": "",
@@ -2165,7 +2223,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
         "flags": {}
     }
 
-    const cometFRUserSettingsB64 = btoa(`{"indexers":["yggtorrent","sharewood-api","yggcookie","gktorrent","dmm","yggapi"],"maxResults":90,"maxResultsPerResolution":10,"maxSize":0,"reverseResultOrder":false,"removeTrash":false,"resultFormat":["All"],"resolutions":["All"],"languages":["English"],"debridService":"realdebrid","debridApiKey":"${realDebridApiKey}","debridStreamProxyPassword":""}`);
+    const cometFRUserSettingsB64 = btoa(`{"indexers":["yggtorrent","sharewood-api","yggcookie","gktorrent","dmm","yggapi"],"maxResults":90,"maxResultsPerResolution":10,"maxSize":0,"reverseResultOrder":false,"removeTrash":false,"resultFormat":["All"],"resolutions":["All"],"languages":["English"],"debridService":"realdebrid","debridApiKey":"${selectedDebridApiKey}","debridStreamProxyPassword":""}`);
     const COMETFR_ADDON = {
         "transportUrl": `https://comet.stremiofr.com/${cometFRUserSettingsB64}/manifest.json`,
         "transportName": "",
@@ -2205,7 +2263,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
     }
     
     const PEERFLIX_ADDON = {
-        "transportUrl": `https://peerflix-addon.onrender.com/language=en%7Cdebridoptions=nocatalog,autodownload%7Crealdebrid=${realDebridApiKey}/manifest.json`,
+        "transportUrl": `https://peerflix-addon.onrender.com/language=en%7Cdebridoptions=nocatalog,torrentlinks,autodownload%7Crealdebrid=${selectedDebridApiKey}/manifest.json`,
         "transportName": "",
         "manifest": {
             "id": "com.keopps.peerflix",
@@ -2240,7 +2298,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
         "flags": {}
     }
 
-    const YggStremioUserSettingsB64 = btoa(`{"maxTorrents":50,"priotizePackTorrents":2,"excludeKeywords":[],"debridId":"realdebrid","hideUncached":true,"sortCached":[["quality",true],["size",true]],"sortUncached":[["seeders",true]],"forceCacheNextEpisode":false,"priotizeLanguages":["multi","english"],"indexerTimeoutSec":10,"metaLanguage":"en","enableMediaFlow":false,"mediaflowProxyUrl":"","mediaflowApiPassword":"","mediaflowPublicIp":"","qualities":[0,360,480,720,1080,2160],"indexers":["torrent9","gktorrent","yggtorrent"],"debridApiKey":"${realDebridApiKey}"}`);
+    const YggStremioUserSettingsB64 = btoa(`{"maxTorrents":50,"priotizePackTorrents":2,"excludeKeywords":[],"debridId":"realdebrid","hideUncached":true,"sortCached":[["quality",true],["size",true]],"sortUncached":[["seeders",true]],"forceCacheNextEpisode":false,"priotizeLanguages":["multi","english"],"indexerTimeoutSec":10,"metaLanguage":"en","enableMediaFlow":false,"mediaflowProxyUrl":"","mediaflowApiPassword":"","mediaflowPublicIp":"","qualities":[0,360,480,720,1080,2160],"indexers":["torrent9","gktorrent","yggtorrent"],"debridApiKey":"${selectedDebridApiKey}"}`);
     const YGGSTREMIO_ADDON = {
         "transportUrl": `https://yggstremio.fun/${YggStremioUserSettingsB64}/manifest.json`,
         "transportName": "",
@@ -2268,7 +2326,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
         "flags": {}
     }
 
-    const JackettioStremioUserSettingsB64 = btoa(`{"maxTorrents":40,"priotizePackTorrents":2,"excludeKeywords":[],"debridId":"realdebrid","hideUncached":false,"sortCached":[["quality",true],["size",true]],"sortUncached":[["quality",true],["size",true]],"forceCacheNextEpisode":false,"priotizeLanguages":[],"indexerTimeoutSec":10,"metaLanguage":"","enableMediaFlow":false,"mediaflowProxyUrl":"","mediaflowApiPassword":"","mediaflowPublicIp":"","qualities":[0,360,480,720,1080,2160],"indexers":["bitsearch","eztv","thepiratebay","therarbg","yts"],"debridApiKey":"${realDebridApiKey}"}`);
+    const JackettioStremioUserSettingsB64 = btoa(`{"maxTorrents":40,"priotizePackTorrents":2,"excludeKeywords":[],"debridId":"realdebrid","hideUncached":false,"sortCached":[["quality",true],["size",true]],"sortUncached":[["quality",true],["size",true]],"forceCacheNextEpisode":false,"priotizeLanguages":[],"indexerTimeoutSec":10,"metaLanguage":"","enableMediaFlow":false,"mediaflowProxyUrl":"","mediaflowApiPassword":"","mediaflowPublicIp":"","qualities":[0,360,480,720,1080,2160],"indexers":["bitsearch","eztv","thepiratebay","therarbg","yts"],"debridApiKey":"${selectedDebridApiKey}"}`);
     const JACKETTIO_ADDON = {
         "transportUrl": `https://jackettio.elfhosted.com/${JackettioStremioUserSettingsB64}/manifest.json`,
         "transportName": "",
@@ -2296,7 +2354,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
         "flags": {}
     }
 
-    const JacketCommunityStremioUserSettingsB64 = btoa(`{"addonHost":"https://stremio-jackett.elfhosted.com","service":"realdebrid","debridKey":"${realDebridApiKey}","maxSize":"0","exclusionKeywords":[],"languages":["en","multi"],"sort":"qualitythensize","resultsPerQuality":"25","maxResults":"100","exclusion":[],"tmdbApi":"","torrenting":false,"debrid":true,"metadataProvider":"cinemeta"}`);
+    const JacketCommunityStremioUserSettingsB64 = btoa(`{"addonHost":"https://stremio-jackett.elfhosted.com","service":"realdebrid","debridKey":"${selectedDebridApiKey}","maxSize":"0","exclusionKeywords":[],"languages":["en","multi"],"sort":"qualitythensize","resultsPerQuality":"25","maxResults":"100","exclusion":[],"tmdbApi":"","torrenting":false,"debrid":true,"metadataProvider":"cinemeta"}`);
     const JACKET_COMMUNITY_ADDON = {
         "transportUrl": `https://stremio-jackett.elfhosted.com/${JacketCommunityStremioUserSettingsB64}/manifest.json`,
         "transportName": "",
@@ -2379,7 +2437,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
 
     // RD Addons
     const torrentAddonsToggles = [
-        { toggleId: 'torrentio_addon_toggle', addon: TORRENTIO_ADDON },
+        { toggleId: 'torrentio_addon_toggle', addon: selectedDebridService === 'realdebrid_service' ? TORRENTIO_RD_ADDON : TORRENTIO_PM_ADDON },
         ...(MediaFusionEncryptedSecret !== "invalid_rd_api_key" ? [{ toggleId: 'mediafusion_addon_toggle', addon: MEDIAFUSION_ADDON }] : []),
         { toggleId: 'comet_addon_toggle', addon: COMET_ADDON },
         { toggleId: 'cometfr_addon_toggle', addon: COMETFR_ADDON },
@@ -2513,8 +2571,9 @@ document.getElementById('stremioForm').addEventListener('submit', async function
     const password = document.getElementById('password').value;
     const authKey = await loginToStremio(email, password);
     
-    const realDebridApiKey = document.getElementById('rd_api_key').value;
-    const addons = await defineAddonsJSON(authKey, realDebridApiKey);
+    const selectedDebridApiKey = document.getElementById('selected_debrid_api_key').value;
+    const selectedDebridService = document.getElementById('selectedDebridService').value;
+    const addons = await defineAddonsJSON(authKey, selectedDebridService, selectedDebridApiKey);
     
     await installAddons(authKey, addons);
 });

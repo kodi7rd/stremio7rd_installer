@@ -151,3 +151,44 @@ button:hover {
 #customModal button:hover {
     background-color: #1c86ee; /* Darker blue on hover */
 }
+/* Style for the select dropdown */
+#selectedDebridService {
+    width: 100%; /* Make it take the full width */
+    padding: 10px; /* Add padding for better visual spacing */
+    margin-bottom: 15px; /* Space below the dropdown */
+    border: 1px solid #333; /* Dark border */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #333; /* Dark background */
+    color: #e0e0e0; /* Light text color */
+    box-sizing: border-box; /* Ensure padding does not affect layout */
+    text-align: center; /* Center the text horizontally inside the dropdown */
+    font-size: 16px; /* Adjust font size */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+/* Center text for the option elements */
+#selectedDebridService option {
+    text-align: center; /* Center the text in the options */
+}
+
+/* Hover effect for the dropdown */
+#selectedDebridService:hover {
+    background-color: #444; /* Slightly lighter background on hover */
+}
+
+/* Focused state for the dropdown */
+#selectedDebridService:focus {
+    background-color: #555; /* Darker background when focused */
+    border-color: #1e90ff; /* Highlight with blue border when focused */
+    outline: none; /* Remove default outline */
+}
+
+/* Label style for the dropdown */
+label[for="selectedDebridService"] {
+    display: block; /* Make label block to take full width */
+    margin: 10px 0 5px; /* Space above and below the label */
+    font-weight: bold;
+    color: #e0e0e0; /* Light color */
+    font-size: 18px; /* Slightly larger font size */
+    text-align: center; /* Center the label text */
+}
