@@ -2205,11 +2205,11 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
     }
     
     const PEERFLIX_ADDON = {
-        "transportUrl": `https://peerflix-addon.onrender.com/language=en%7Cdebridoptions=nodownloadlinks,nocatalog%7Crealdebrid=${realDebridApiKey}/manifest.json`,
+        "transportUrl": `https://peerflix-addon.onrender.com/language=en%7Cdebridoptions=nocatalog,autodownload%7Crealdebrid=${realDebridApiKey}/manifest.json`,
         "transportName": "",
         "manifest": {
             "id": "com.keopps.peerflix",
-            "version": "2.2.0",
+            "version": "2.3.2",
             "name": "Peerflix RD",
             "description": "Peerflix proporciona los mejores enlaces en español e inglés de películas y series de TV en Stremio.Para configurar proveedores de chache, RealDebrid/Premiumize/AllDebrid/DebridLink/Offcloud/Put.io visita https://peerflix-addon.onrender.com",
             "catalogs": [],
