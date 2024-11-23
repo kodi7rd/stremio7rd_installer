@@ -2126,7 +2126,7 @@ async function defineAddonsJSON(authKey, realDebridApiKey) {
         "flags": {}
     }
 
-    const cometUserSettingsB64 = btoa(`{"indexers":["bitsearch","eztv","thepiratebay","therarbg","yts"],"maxResults":0,"maxSize":0,"resultFormat":["All"],"resolutions":["All"],"languages":["All"],"debridService":"realdebrid","debridApiKey":"${realDebridApiKey}","debridStreamProxyPassword":""}`);
+    const cometUserSettingsB64 = btoa(`{"indexers":["bitsearch","eztv","thepiratebay","therarbg","yts"],"maxResults":0,"maxResultsPerResolution":0,"maxSize":0,"removeTrash":false,"resultFormat":["All"],"resolutions":["All"],"languages":["All"],"debridService":"realdebrid","debridApiKey":"${realDebridApiKey}","debridStreamProxyPassword":""}`);
     const COMET_ADDON = {
         "transportUrl": `https://comet.elfhosted.com/${cometUserSettingsB64}/manifest.json`,
         "transportName": "",
