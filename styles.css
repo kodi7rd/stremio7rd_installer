@@ -161,14 +161,14 @@ button:hover {
     background-color: #333; /* Dark background */
     color: #e0e0e0; /* Light text color */
     box-sizing: border-box; /* Ensure padding does not affect layout */
-    text-align: center; /* Center the text horizontally inside the dropdown */
     font-size: 16px; /* Adjust font size */
     transition: background-color 0.3s; /* Smooth transition */
+    text-align: left; /* Align text to the left inside the dropdown */
 }
 
-/* Center text for the option elements */
+/* Left-align text for the option elements */
 #selectedDebridService option {
-    text-align: center; /* Center the text in the options */
+    text-align: left; /* Left-align the text inside the options */
 }
 
 /* Hover effect for the dropdown */
@@ -190,5 +190,4 @@ label[for="selectedDebridService"] {
     font-weight: bold;
     color: #e0e0e0; /* Light color */
     font-size: 18px; /* Slightly larger font size */
-    text-align: center; /* Center the label text */
 }
