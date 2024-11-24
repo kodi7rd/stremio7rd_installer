@@ -135,15 +135,15 @@
             <input type="password" id="password" name="password" required>
             
             <label for="selectedDebridService">בחר שירות דבריד:</label>
-            <select id="selectedDebridService">
+            <select id="selectedDebridService" onchange="updateSelectedDebridServiceLabel()">
                 <option value="realdebrid_service" selected>Real Debrid</option>
                 <option value="premiumize_service">Premiumize</option>
             </select>
             
             <label for="selected_debrid_api_key">
-            מפתח API של RealDebrid
+            <span id="selectedDebridServiceLabel">מפתח API של RealDebrid</span>
             <br>
-            <a href="#" onclick="openRDApiKeyPage(); return false;" style="color: #1e90ff; text-decoration: underline; font-weight: bold;"><span style="font-size: 2em;">(לחץ והעתק אותו מכאן)</span></a>
+            <a href="#" onclick="openDebridApiKeyPage(); return false;" style="color: #1e90ff; text-decoration: underline; font-weight: bold;"><span style="font-size: 2em;">(לחץ והעתק אותו מכאן)</span></a>
             </label>
             <input type="text" id="selected_debrid_api_key" name="selected_debrid_api_key" required>
             

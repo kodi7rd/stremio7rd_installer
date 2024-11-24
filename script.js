@@ -57,10 +57,22 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         }
     }
 
-    async function getMediaFusionEncryptedSecret(selectedDebridApiKey) {
-        const MediaFusionUserSettings = `{"streaming_provider":{"token":"${selectedDebridApiKey}","service":"realdebrid","enable_watchlist_catalogs":false,"download_via_browser":false,"only_show_cached_streams":false},"selected_catalogs":[],"selected_resolutions":["4k","2160p","1440p","1080p","720p","576p","480p","360p","240p",null],"enable_catalogs":true,"enable_imdb_metadata":false,"max_size":"inf","max_streams_per_resolution":"50","torrent_sorting_priority":["language","cached","resolution","quality","size","seeders","created_at"],"show_full_torrent_name":true,"nudity_filter":[],"certification_filter":[],"language_sorting":["English","Tamil","Hindi","Malayalam","Kannada","Telugu","Chinese","Russian","Arabic","Japanese","Korean","Taiwanese","Latino","French","Spanish","Portuguese","Italian","German","Ukrainian","Polish","Czech","Thai","Indonesian","Vietnamese","Dutch","Bengali","Turkish","Greek",null],"quality_filter":["BluRay/UHD","WEB/HD","DVD/TV/SAT","CAM/Screener","Unknown"],"api_password":null,"mediaflow_config":null,"rpdb_config":null,"live_search_streams":false,"contribution_streams":false}`;
+    async function getMediaFusionEncryptedSecret() {
+        
+        let mediaFusionSelectedDebridService = "";
+        let only_show_cached_streams = "";
 
-        let MediaFusionEncryptedSecret = "invalid_rd_api_key"; // Default in case of failure
+        if (selectedDebridService === "realdebrid_service") {
+            mediaFusionSelectedDebridService = "realdebrid";
+            only_show_cached_streams = "false";
+        } else if (selectedDebridService === "premiumize_service") {
+            mediaFusionSelectedDebridService = "premiumize";
+            only_show_cached_streams = "true";
+        }
+
+        const MediaFusionUserSettings = `{"streaming_provider":{"token":"${selectedDebridApiKey}","service":"${mediaFusionSelectedDebridService}","enable_watchlist_catalogs":false,"download_via_browser":false,"only_show_cached_streams":${only_show_cached_streams}},"selected_catalogs":[],"selected_resolutions":["4k","2160p","1440p","1080p","720p","576p","480p","360p","240p",null],"enable_catalogs":true,"enable_imdb_metadata":false,"max_size":"inf","max_streams_per_resolution":"50","torrent_sorting_priority":["language","cached","resolution","quality","size","seeders","created_at"],"show_full_torrent_name":true,"nudity_filter":[],"certification_filter":[],"language_sorting":["English","Tamil","Hindi","Malayalam","Kannada","Telugu","Chinese","Russian","Arabic","Japanese","Korean","Taiwanese","Latino","French","Spanish","Portuguese","Italian","German","Ukrainian","Polish","Czech","Thai","Indonesian","Vietnamese","Dutch","Bengali","Turkish","Greek",null],"quality_filter":["BluRay/UHD","WEB/HD","DVD/TV/SAT","CAM/Screener","Unknown"],"api_password":null,"mediaflow_config":null,"rpdb_config":null,"live_search_streams":false,"contribution_streams":false}`;
+
+        let MediaFusionEncryptedSecret = "invalid_api_key"; // Default in case of failure
             
         // Helper function to add a timeout to the fetch request
         const fetchWithTimeout = (url, options, timeout) => {
@@ -2128,14 +2140,69 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "flags": {}
     }
     
-    const MediaFusionEncryptedSecret = await getMediaFusionEncryptedSecret(selectedDebridApiKey);
-    const MEDIAFUSION_ADDON = {
+    const MediaFusionEncryptedSecret = await getMediaFusionEncryptedSecret();
+    const MEDIAFUSION_RD_ADDON = {
         "transportUrl": `https://mediafusion.elfhosted.com/${MediaFusionEncryptedSecret}/manifest.json`,
         "transportName": "",
         "manifest": {
             "id": "stremio.addons.mediafusion|elfhosted.realdebrid",
             "version": "4.1.9",
             "name": "MediaFusion | ElfHosted RD",
+            "contactEmail": "mhdzumair@gmail.com",
+            "description": "Universal Stremio Add-on for Movies, Series, Live TV &amp; Sports Events. Source: https://github.com/mhdzumair/MediaFusion",
+            "logo": "https://mediafusion.elfhosted.com/static/images/mediafusion-elfhosted-logo.png",
+            "behaviorHints": {
+                "configurable": true,
+                "configurationRequired": false
+            },
+            "resources": [
+                "catalog",
+                {
+                    "name": "stream",
+                    "types": [
+                        "movie",
+                        "series",
+                        "tv",
+                        "events"
+                    ],
+                    "idPrefixes": [
+                        "tt",
+                        "mf",
+                        "dl"
+                    ]
+                },
+                {
+                    "name": "meta",
+                    "types": [
+                        "movie",
+                        "series",
+                        "tv",
+                        "events"
+                    ],
+                    "idPrefixes": [
+                        "mf",
+                        "dl"
+                    ]
+                }
+            ],
+            "types": [
+                "movie",
+                "series",
+                "tv",
+                "events"
+            ],
+            "catalogs": []
+        },
+        "flags": {}
+    }
+    
+    const MEDIAFUSION_PM_ADDON = {
+        "transportUrl": `https://mediafusion.elfhosted.com/${MediaFusionEncryptedSecret}/manifest.json`,
+        "transportName": "",
+        "manifest": {
+            "id": "stremio.addons.mediafusion|elfhosted.premiumize",
+            "version": "4.1.9",
+            "name": "MediaFusion | ElfHosted PM",
             "contactEmail": "mhdzumair@gmail.com",
             "description": "Universal Stremio Add-on for Movies, Series, Live TV &amp; Sports Events. Source: https://github.com/mhdzumair/MediaFusion",
             "logo": "https://mediafusion.elfhosted.com/static/images/mediafusion-elfhosted-logo.png",
@@ -2437,8 +2504,16 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
 
     // RD Addons
     const torrentAddonsToggles = [
-        { toggleId: 'torrentio_addon_toggle', addon: selectedDebridService === 'realdebrid_service' ? TORRENTIO_RD_ADDON : TORRENTIO_PM_ADDON },
-        ...(MediaFusionEncryptedSecret !== "invalid_rd_api_key" ? [{ toggleId: 'mediafusion_addon_toggle', addon: MEDIAFUSION_ADDON }] : []),
+        { 
+            toggleId: 'torrentio_addon_toggle', 
+            addon: selectedDebridService === 'realdebrid_service' ? TORRENTIO_RD_ADDON : TORRENTIO_PM_ADDON 
+        },
+        ...(MediaFusionEncryptedSecret !== "invalid_api_key" ? [
+            { 
+                toggleId: 'mediafusion_addon_toggle', 
+                addon: selectedDebridService === 'realdebrid_service' ? MEDIAFUSION_RD_ADDON : MEDIAFUSION_PM_ADDON 
+            }
+        ] : []),
         { toggleId: 'comet_addon_toggle', addon: COMET_ADDON },
         { toggleId: 'cometfr_addon_toggle', addon: COMETFR_ADDON },
         { toggleId: 'peerflix_addon_toggle', addon: PEERFLIX_ADDON },
@@ -2545,6 +2620,8 @@ async function installAddons(authKey, addons) {
             // Clear all input fields
             document.getElementById('stremioForm').reset();
             
+            updateSelectedDebridServiceLabel();
+            
             // Open Stremio home page
             window.open("stremio:///board", "_blank");
             
@@ -2578,9 +2655,29 @@ document.getElementById('stremioForm').addEventListener('submit', async function
     await installAddons(authKey, addons);
 });
 
-function openRDApiKeyPage() {
-    alert("הינך מועבר לאתר של Real Debrid לצורך העתקת מפתח ה-API האישי שלך.\n\nאם הינך מקבל עמוד שגיאה - התחבר למשתמש שלך על ידי לחיצה על Login בראש הדף בצד ימין.");
-    window.open("https://real-debrid.com/apitoken", "_blank");
+function openDebridApiKeyPage() {
+    const selectedDebridService = document.getElementById("selectedDebridService").value;
+
+    if (selectedDebridService === "realdebrid_service") {
+        // Real Debrid link
+        alert("הינך מועבר לאתר של Real Debrid לצורך העתקת מפתח ה-API האישי שלך.\n\nאם הינך מקבל עמוד שגיאה - התחבר למשתמש שלך על ידי לחיצה על Login בראש הדף בצד ימין.");
+        window.open("https://real-debrid.com/apitoken", "_blank");
+    } else if (selectedDebridService === "premiumize_service") {
+        // Premiumize link
+        alert("הינך מועבר לאתר של Premiumize לצורך העתקת מפתח ה-API האישי שלך.\n\nיש לוודא שהינך מחובר למשתמש שלך.");
+        window.open("https://www.premiumize.me/account", "_blank");
+    }
+}
+
+function updateSelectedDebridServiceLabel() {
+    const selectedDebridService = document.getElementById("selectedDebridService").value;
+    const selectedDebridServiceLabel = document.getElementById("selectedDebridServiceLabel");
+
+    if (selectedDebridService === "realdebrid_service") {
+        selectedDebridServiceLabel.textContent = "מפתח API של RealDebrid";
+    } else if (selectedDebridService === "premiumize_service") {
+        selectedDebridServiceLabel.textContent = "מפתח API של Premiumize";
+    }
 }
 
 // Enforce that at least one toggle is selected for Torrentio RD / Comet RD
