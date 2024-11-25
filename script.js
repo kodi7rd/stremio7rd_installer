@@ -2415,7 +2415,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
     }
     
     const PEERFLIX_RD_ADDON = {
-        "transportUrl": `https://peerflix-addon.onrender.com/language=en%7Cdebridoptions=nocatalog,torrentlinks,autodownload%7Crealdebrid=${selectedDebridApiKey}/manifest.json`,
+        "transportUrl": `https://peerflix-addon.onrender.com/language=en%7Cdebridoptions=nocatalog,autodownload%7Crealdebrid=${selectedDebridApiKey}/manifest.json`,
         "transportName": "",
         "manifest": {
             "id": "com.keopps.peerflix",
@@ -2676,7 +2676,9 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
             addon: selectedDebridService === 'realdebrid_service' ? PEERFLIX_RD_ADDON : PEERFLIX_PM_ADDON 
         },
         // { toggleId: 'yggstremio_addon_toggle', addon: YGGSTREMIO_RD_ADDON }, # COMMENTED - RD DOESNT WORK, WAITING FOR AD SUPPORT
-        { toggleId: 'jackettio_addon_toggle', addon: JACKETTIO_RD_ADDON },
+        ...(selectedDebridService === 'realdebrid_service' ? [
+            { toggleId: 'jackettio_addon_toggle', addon: JACKETTIO_RD_ADDON }
+        ] : []),
         { 
             toggleId: 'jacket_community_addon_toggle', 
             addon: selectedDebridService === 'realdebrid_service' ? JACKET_COMMUNITY_RD_ADDON : JACKET_COMMUNITY_PM_ADDON 
