@@ -2081,7 +2081,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         },
         "flags": {}
     }
-    
     const TORRENTIO_PM_ADDON = {
         "transportUrl": `https://torrentio.strem.fun/sort=qualitysize%7Cdebridoptions=nodownloadlinks%7Cpremiumize=${selectedDebridApiKey}/manifest.json`,
         "transportName": "",
@@ -2195,7 +2194,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         },
         "flags": {}
     }
-    
     const MEDIAFUSION_PM_ADDON = {
         "transportUrl": `https://mediafusion.elfhosted.com/${MediaFusionEncryptedSecret}/manifest.json`,
         "transportName": "",
@@ -2333,9 +2331,15 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         },
         "flags": {}
     }
-
-    const cometFRUserSettingsB64 = btoa(`{"indexers":["yggtorrent","sharewood-api","yggcookie","gktorrent","dmm","yggapi"],"maxResults":90,"maxResultsPerResolution":10,"maxSize":0,"reverseResultOrder":false,"removeTrash":false,"resultFormat":["All"],"resolutions":["All"],"languages":["English"],"debridService":"realdebrid","debridApiKey":"${selectedDebridApiKey}","debridStreamProxyPassword":""}`);
-    const COMETFR_ADDON = {
+        
+    let cometFRSelectedDebridService = "";
+    if (selectedDebridService === "realdebrid_service") {
+        cometFRSelectedDebridService = "realdebrid";
+    } else if (selectedDebridService === "premiumize_service") {
+        cometFRSelectedDebridService = "premiumize";
+    }
+    const cometFRUserSettingsB64 = btoa(`{"indexers":["yggtorrent","sharewood-api","yggcookie","gktorrent","dmm","yggapi"],"maxResults":0,"maxResultsPerResolution":0,"maxSize":0,"reverseResultOrder":false,"removeTrash":false,"resultFormat":["All"],"resolutions":["All"],"languages":["English"],"debridService":"${cometFRSelectedDebridService}","debridApiKey":"${selectedDebridApiKey}","debridStreamProxyPassword":""}`);
+    const COMETFR_RD_ADDON = {
         "transportUrl": `https://comet.stremiofr.com/${cometFRUserSettingsB64}/manifest.json`,
         "transportName": "",
         "manifest": {
@@ -2372,14 +2376,86 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         },
         "flags": {}
     }
+    const COMETFR_PM_ADDON = {
+        "transportUrl": `https://comet.stremiofr.com/${cometFRUserSettingsB64}/manifest.json`,
+        "transportName": "",
+        "manifest": {
+            "id": "stremio.comet.fr",
+            "name": "CometFR | PM",
+            "description": "Stremio addons for French content.",
+            "version": "1.0.0",
+            "catalogs": [],
+            "resources": [
+                {
+                    "name": "stream",
+                    "types": [
+                        "movie",
+                        "series"
+                    ],
+                    "idPrefixes": [
+                        "tt",
+                        "kitsu"
+                    ]
+                }
+            ],
+            "types": [
+                "movie",
+                "series",
+                "anime",
+                "other"
+            ],
+            "logo": "https://i.imgur.com/dUL8j6C.png",
+            "background": "https://i.imgur.com/WwnXB3k.jpeg",
+            "behaviorHints": {
+                "configurable": true,
+                "configurationRequired": false
+            }
+        },
+        "flags": {}
+    }
     
-    const PEERFLIX_ADDON = {
+    const PEERFLIX_RD_ADDON = {
         "transportUrl": `https://peerflix-addon.onrender.com/language=en%7Cdebridoptions=nocatalog,torrentlinks,autodownload%7Crealdebrid=${selectedDebridApiKey}/manifest.json`,
         "transportName": "",
         "manifest": {
             "id": "com.keopps.peerflix",
             "version": "2.3.2",
             "name": "Peerflix RD",
+            "description": "Peerflix proporciona los mejores enlaces en español e inglés de películas y series de TV en Stremio.Para configurar proveedores de chache, RealDebrid/Premiumize/AllDebrid/DebridLink/Offcloud/Put.io visita https://peerflix-addon.onrender.com",
+            "catalogs": [],
+            "resources": [
+                {
+                    "name": "stream",
+                    "types": [
+                        "movie",
+                        "series"
+                    ],
+                    "idPrefixes": [
+                        "tt",
+                        "kitsu"
+                    ]
+                }
+            ],
+            "types": [
+                "movie",
+                "series"
+            ],
+            "background": "https://i.ibb.co/vL3SKgX/peerflix-background-2.jpg",
+            "logo": "https://i.ibb.co/9s1GqHn/logo512.png",
+            "behaviorHints": {
+                "configurable": true,
+                "configurationRequired": false
+            }
+        },
+        "flags": {}
+    }
+    const PEERFLIX_PM_ADDON = {
+        "transportUrl": `https://peerflix-addon.onrender.com/language=en%7Cdebridoptions=nodownloadlinks,nocatalog%7Cpremiumize=${selectedDebridApiKey}/manifest.json`,
+        "transportName": "",
+        "manifest": {
+            "id": "com.keopps.peerflix",
+            "version": "2.3.2",
+            "name": "Peerflix PM",
             "description": "Peerflix proporciona los mejores enlaces en español e inglés de películas y series de TV en Stremio.Para configurar proveedores de chache, RealDebrid/Premiumize/AllDebrid/DebridLink/Offcloud/Put.io visita https://peerflix-addon.onrender.com",
             "catalogs": [],
             "resources": [
@@ -2562,8 +2638,14 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
             toggleId: 'comet_addon_toggle', 
             addon: selectedDebridService === 'realdebrid_service' ? COMET_RD_ADDON : COMET_PM_ADDON 
         },
-        { toggleId: 'cometfr_addon_toggle', addon: COMETFR_ADDON },
-        { toggleId: 'peerflix_addon_toggle', addon: PEERFLIX_ADDON },
+        { 
+            toggleId: 'cometfr_addon_toggle', 
+            addon: selectedDebridService === 'realdebrid_service' ? COMETFR_RD_ADDON : COMETFR_PM_ADDON 
+        },
+        { 
+            toggleId: 'peerflix_addon_toggle', 
+            addon: selectedDebridService === 'realdebrid_service' ? PEERFLIX_RD_ADDON : PEERFLIX_PM_ADDON 
+        },
         { toggleId: 'yggstremio_addon_toggle', addon: YGGSTREMIO_ADDON },
         { toggleId: 'jackettio_addon_toggle', addon: JACKETTIO_ADDON },
         { toggleId: 'jacket_community_addon_toggle', addon: JACKET_COMMUNITY_ADDON }
