@@ -2486,7 +2486,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
     }
 
     const YggStremioUserSettingsB64 = btoa(`{"maxTorrents":50,"priotizePackTorrents":2,"excludeKeywords":[],"debridId":"realdebrid","hideUncached":true,"sortCached":[["quality",true],["size",true]],"sortUncached":[["seeders",true]],"forceCacheNextEpisode":false,"priotizeLanguages":["multi","english"],"indexerTimeoutSec":10,"metaLanguage":"en","enableMediaFlow":false,"mediaflowProxyUrl":"","mediaflowApiPassword":"","mediaflowPublicIp":"","qualities":[0,360,480,720,1080,2160],"indexers":["torrent9","gktorrent","yggtorrent"],"debridApiKey":"${selectedDebridApiKey}"}`);
-    const YGGSTREMIO_ADDON = {
+    const YGGSTREMIO_RD_ADDON = {
         "transportUrl": `https://yggstremio.fun/${YggStremioUserSettingsB64}/manifest.json`,
         "transportName": "",
         "manifest": {
@@ -2514,7 +2514,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
     }
 
     const JackettioStremioUserSettingsB64 = btoa(`{"maxTorrents":40,"priotizePackTorrents":2,"excludeKeywords":[],"debridId":"realdebrid","hideUncached":false,"sortCached":[["quality",true],["size",true]],"sortUncached":[["quality",true],["size",true]],"forceCacheNextEpisode":false,"priotizeLanguages":[],"indexerTimeoutSec":10,"metaLanguage":"","enableMediaFlow":false,"mediaflowProxyUrl":"","mediaflowApiPassword":"","mediaflowPublicIp":"","qualities":[0,360,480,720,1080,2160],"indexers":["bitsearch","eztv","thepiratebay","therarbg","yts"],"debridApiKey":"${selectedDebridApiKey}"}`);
-    const JACKETTIO_ADDON = {
+    const JACKETTIO_RD_ADDON = {
         "transportUrl": `https://jackettio.elfhosted.com/${JackettioStremioUserSettingsB64}/manifest.json`,
         "transportName": "",
         "manifest": {
@@ -2646,8 +2646,8 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
             toggleId: 'peerflix_addon_toggle', 
             addon: selectedDebridService === 'realdebrid_service' ? PEERFLIX_RD_ADDON : PEERFLIX_PM_ADDON 
         },
-        { toggleId: 'yggstremio_addon_toggle', addon: YGGSTREMIO_ADDON },
-        { toggleId: 'jackettio_addon_toggle', addon: JACKETTIO_ADDON },
+        // { toggleId: 'yggstremio_addon_toggle', addon: YGGSTREMIO_RD_ADDON }, # COMMENTED - RD DOESNT WORK, WAITING FOR AD SUPPORT
+        { toggleId: 'jackettio_addon_toggle', addon: JACKETTIO_RD_ADDON },
         { toggleId: 'jacket_community_addon_toggle', addon: JACKET_COMMUNITY_ADDON }
     ];
     
