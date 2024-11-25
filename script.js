@@ -2540,9 +2540,15 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         },
         "flags": {}
     }
-
-    const JacketCommunityStremioUserSettingsB64 = btoa(`{"addonHost":"https://stremio-jackett.elfhosted.com","service":"realdebrid","debridKey":"${selectedDebridApiKey}","maxSize":"0","exclusionKeywords":[],"languages":["en","multi"],"sort":"qualitythensize","resultsPerQuality":"25","maxResults":"100","exclusion":[],"tmdbApi":"","torrenting":false,"debrid":true,"metadataProvider":"cinemeta"}`);
-    const JACKET_COMMUNITY_ADDON = {
+        
+    let jacketCommunitySelectedDebridService = "";
+    if (selectedDebridService === "realdebrid_service") {
+        jacketCommunitySelectedDebridService = "realdebrid";
+    } else if (selectedDebridService === "premiumize_service") {
+        jacketCommunitySelectedDebridService = "premiumize";
+    }
+    const JacketCommunityStremioUserSettingsB64 = btoa(`{"addonHost":"https://stremio-jackett.elfhosted.com","service":"${jacketCommunitySelectedDebridService}","debridKey":"${selectedDebridApiKey}","maxSize":"0","exclusionKeywords":[],"languages":["en","multi"],"sort":"qualitythensize","resultsPerQuality":"25","maxResults":"100","exclusion":[],"tmdbApi":"","torrenting":false,"debrid":true,"metadataProvider":"cinemeta"}`);
+    const JACKET_COMMUNITY_RD_ADDON = {
         "transportUrl": `https://stremio-jackett.elfhosted.com/${JacketCommunityStremioUserSettingsB64}/manifest.json`,
         "transportName": "",
         "manifest": {
@@ -2557,7 +2563,30 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                 "movie",
                 "series"
             ],
-            "name": "Jackett Community",
+            "name": "Jackett Community RD",
+            "description": "Elevate your Stremio experience with seamless access to Jackett torrent links, effortlessly fetching torrents for your selected movies within the Stremio interface.",
+            "behaviorHints": {
+                "configurable": true
+            }
+        },
+        "flags": {}
+    }
+    const JACKET_COMMUNITY_PM_ADDON = {
+        "transportUrl": `https://stremio-jackett.elfhosted.com/${JacketCommunityStremioUserSettingsB64}/manifest.json`,
+        "transportName": "",
+        "manifest": {
+            "id": "community.aymene69.jackett",
+            "icon": "https://i.imgur.com/tVjqEJP.png",
+            "version": "4.1.6",
+            "catalogs": [],
+            "resources": [
+                "stream"
+            ],
+            "types": [
+                "movie",
+                "series"
+            ],
+            "name": "Jackett Community PM",
             "description": "Elevate your Stremio experience with seamless access to Jackett torrent links, effortlessly fetching torrents for your selected movies within the Stremio interface.",
             "behaviorHints": {
                 "configurable": true
@@ -2648,7 +2677,10 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         },
         // { toggleId: 'yggstremio_addon_toggle', addon: YGGSTREMIO_RD_ADDON }, # COMMENTED - RD DOESNT WORK, WAITING FOR AD SUPPORT
         { toggleId: 'jackettio_addon_toggle', addon: JACKETTIO_RD_ADDON },
-        { toggleId: 'jacket_community_addon_toggle', addon: JACKET_COMMUNITY_ADDON }
+        { 
+            toggleId: 'jacket_community_addon_toggle', 
+            addon: selectedDebridService === 'realdebrid_service' ? JACKET_COMMUNITY_RD_ADDON : JACKET_COMMUNITY_PM_ADDON 
+        }
     ];
     
     let torrentAddons = [];
