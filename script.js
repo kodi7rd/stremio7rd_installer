@@ -1961,11 +1961,11 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
     }
     
     const SUBSOURCE_ADDON = {
-        "transportUrl": "https://subsource.strem.bar/SGVicmV3L2hpSW5jbHVkZQ==/manifest.json",
+        "transportUrl": "https://subsource.strem.bar/SGVicmV3L2hpSW5jbHVkZS8=/manifest.json",
         "transportName": "",
         "manifest": {
             "id": "community.subsource.subtitles",
-            "version": "0.0.6",
+            "version": "1.0.4",
             "name": "SubSource Subtitles",
             "description": "Unofficial addon for getting subtitles from SubSource.net",
             "logo": "https://raw.githubusercontent.com/nexusdiscord/tv-logo/master/ss.png",
@@ -1984,7 +1984,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
             "catalogs": [],
             "behaviorHints": {
                 "configurable": true,
-                "configurationRequired": false
+                "configurableRequired": false
             }
         },
         "flags": {}
