@@ -86,7 +86,7 @@ button:hover {
     align-items: center; /* Center items vertically */
     justify-content: center; /* Center items horizontally */
     margin-bottom: 5px; /* Space between each toggle item */
-    width: 100%; /* Make each item take the full width of the group */
+    width: auto; /* Allow items to take the required width */
 }
 .toggle-input {
     display: none; /* Hide the default checkbox */

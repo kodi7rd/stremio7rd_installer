@@ -2872,7 +2872,30 @@ function enforceAtLeastOneSelectedForTorrents() {
     });
 }
 
-// Call the enforce function when the DOM is fully loaded
+// Function to update the visibility of torrent addons based on the selected Debrid service
+function updateTorrentsAddonsVisibility() {
+    const selectedDebridService = document.getElementById("selectedDebridService").value;
+
+    // Only target toggle items for torrent addons that have the 'data-debrid-service' attribute
+    const toggleItems = document.querySelectorAll('.toggle-item[data-debrid-service]');
+
+    toggleItems.forEach(item => {
+        const debridServices = item.getAttribute('data-debrid-service').split(' ');
+
+        // Show or hide based on whether the selected Debrid service matches
+        if (debridServices.includes(selectedDebridService)) {
+            item.style.display = 'block'; // Show item
+        } else {
+            item.style.display = 'none'; // Hide item
+        }
+    });
+}
+
+// Event listener for Debrid service change
+document.getElementById('selectedDebridService').addEventListener('change', updateTorrentsAddonsVisibility);
+
+// Call the function when the DOM is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
-    enforceAtLeastOneSelectedForTorrents();
+    updateTorrentsAddonsVisibility();
+    enforceAtLeastOneSelectedForTorrents(); // Assuming this function handles the check for at least one selection
 });
