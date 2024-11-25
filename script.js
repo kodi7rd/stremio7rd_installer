@@ -2649,48 +2649,54 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
             subtitlesAddons.push(addon);
         }
     });
-
-
-    // RD Addons
-    const torrentAddonsToggles = [
-        { 
-            toggleId: 'torrentio_addon_toggle', 
-            addon: selectedDebridService === 'realdebrid_service' ? TORRENTIO_RD_ADDON : TORRENTIO_PM_ADDON 
-        },
-        ...(MediaFusionEncryptedSecret !== "invalid_api_key" ? [
-            { 
-                toggleId: 'mediafusion_addon_toggle', 
-                addon: selectedDebridService === 'realdebrid_service' ? MEDIAFUSION_RD_ADDON : MEDIAFUSION_PM_ADDON 
-            }
-        ] : []),
-        { 
-            toggleId: 'comet_addon_toggle', 
-            addon: selectedDebridService === 'realdebrid_service' ? COMET_RD_ADDON : COMET_PM_ADDON 
-        },
-        { 
-            toggleId: 'cometfr_addon_toggle', 
-            addon: selectedDebridService === 'realdebrid_service' ? COMETFR_RD_ADDON : COMETFR_PM_ADDON 
-        },
-        { 
-            toggleId: 'peerflix_addon_toggle', 
-            addon: selectedDebridService === 'realdebrid_service' ? PEERFLIX_RD_ADDON : PEERFLIX_PM_ADDON 
-        },
-        // { toggleId: 'yggstremio_addon_toggle', addon: YGGSTREMIO_RD_ADDON }, # COMMENTED - RD DOESNT WORK, WAITING FOR AD SUPPORT
-        ...(selectedDebridService === 'realdebrid_service' ? [
-            { toggleId: 'jackettio_addon_toggle', addon: JACKETTIO_RD_ADDON }
-        ] : []),
-        { 
-            toggleId: 'jacket_community_addon_toggle', 
-            addon: selectedDebridService === 'realdebrid_service' ? JACKET_COMMUNITY_RD_ADDON : JACKET_COMMUNITY_PM_ADDON 
-        }
-    ];
     
-    let torrentAddons = [];
-    torrentAddonsToggles.forEach(({ toggleId, addon }) => {
-        if (document.getElementById(toggleId).checked) {
-            torrentAddons.push(addon);
-        }
-    });
+    // Static RD Addons List
+    const rdAddons = [
+        { toggleId: 'torrentio_addon_toggle', addon: TORRENTIO_RD_ADDON },
+        ...(MediaFusionEncryptedSecret !== "invalid_api_key" ? [
+            { toggleId: 'mediafusion_addon_toggle', addon: MEDIAFUSION_RD_ADDON }
+        ] : []),
+        { toggleId: 'comet_addon_toggle', addon: COMET_RD_ADDON },
+        { toggleId: 'cometfr_addon_toggle', addon: COMETFR_RD_ADDON },
+        { toggleId: 'peerflix_addon_toggle', addon: PEERFLIX_RD_ADDON },
+        // { toggleId: 'yggstremio_addon_toggle', addon: YGGSTREMIO_RD_ADDON },
+        { toggleId: 'jackettio_addon_toggle', addon: JACKETTIO_RD_ADDON },
+        { toggleId: 'jacket_community_addon_toggle', addon: JACKET_COMMUNITY_RD_ADDON }
+    ];
+
+    // Static PM Addons List
+    const pmAddons = [
+        { toggleId: 'torrentio_addon_toggle', addon: TORRENTIO_PM_ADDON },
+        ...(MediaFusionEncryptedSecret !== "invalid_api_key" ? [
+            { toggleId: 'mediafusion_addon_toggle', addon: MEDIAFUSION_PM_ADDON }
+        ] : []),
+        { toggleId: 'comet_addon_toggle', addon: COMET_PM_ADDON },
+        { toggleId: 'cometfr_addon_toggle', addon: COMETFR_PM_ADDON },
+        { toggleId: 'peerflix_addon_toggle', addon: PEERFLIX_PM_ADDON },
+        { toggleId: 'jacket_community_addon_toggle', addon: JACKET_COMMUNITY_PM_ADDON }
+    ];
+
+    // Static Alldebrid Addons List
+    // const adAddons = [
+        // { toggleId: 'torrentio_addon_toggle', addon: TORRENTIO_ALLDEBRID_ADDON },
+        // { toggleId: 'comet_addon_toggle', addon: COMET_ALLDEBRID_ADDON },
+        // { toggleId: 'cometfr_addon_toggle', addon: COMETFR_ALLDEBRID_ADDON },
+        // { toggleId: 'peerflix_addon_toggle', addon: PEERFLIX_ALLDEBRID_ADDON },
+        // ...(MediaFusionEncryptedSecret !== "invalid_api_key" ? [
+            // { toggleId: 'mediafusion_addon_toggle', addon: MEDIAFUSION_ALLDEBRID_ADDON }
+        // ] : []),
+        // { toggleId: 'jackettio_addon_toggle', addon: JACKETTIO_ALLDEBRID_ADDON },
+        // { toggleId: 'jacket_community_addon_toggle', addon: JACKET_COMMUNITY_ALLDEBRID_ADDON }
+    // ];
+
+    // Select the appropriate addons list based on the selectedDebridService
+    const torrentAddonsToggles = selectedDebridService === 'realdebrid_service' ? rdAddons :
+                                 selectedDebridService === 'premiumize_service' ? pmAddons : adAddons;
+
+    // Generate the final list of enabled addons
+    const torrentAddons = torrentAddonsToggles
+        .filter(({ toggleId }) => document.getElementById(toggleId).checked)
+        .map(({ addon }) => addon);
 
 
     // Combine static addons with excluded addons data
@@ -2843,7 +2849,7 @@ function updateSelectedDebridServiceLabel() {
     }
 }
 
-// Enforce that at least one toggle is selected for Torrentio RD / Comet RD
+// Enforce that at least one toggle addon is selected
 function enforceAtLeastOneSelectedForTorrents() {
     const torrentCheckboxes = [
         document.getElementById('torrentio_addon_toggle'),
@@ -2851,7 +2857,7 @@ function enforceAtLeastOneSelectedForTorrents() {
         document.getElementById('comet_addon_toggle'),
         document.getElementById('cometfr_addon_toggle'),
         document.getElementById('peerflix_addon_toggle'),
-        document.getElementById('yggstremio_addon_toggle'),
+        // document.getElementById('yggstremio_addon_toggle'),
         document.getElementById('jackettio_addon_toggle'),
         document.getElementById('jacket_community_addon_toggle')
     ];
