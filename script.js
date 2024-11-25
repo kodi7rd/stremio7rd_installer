@@ -2843,7 +2843,7 @@ function updateSelectedDebridServiceLabel() {
     const selectedDebridServiceLabel = document.getElementById("selectedDebridServiceLabel");
 
     if (selectedDebridService === "realdebrid_service") {
-        selectedDebridServiceLabel.textContent = "מפתח API של RealDebrid";
+        selectedDebridServiceLabel.textContent = "מפתח API של Real Debrid";
     } else if (selectedDebridService === "premiumize_service") {
         selectedDebridServiceLabel.textContent = "מפתח API של Premiumize";
     }

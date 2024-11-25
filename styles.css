@@ -163,12 +163,13 @@ button:hover {
     box-sizing: border-box; /* Ensure padding does not affect layout */
     font-size: 16px; /* Adjust font size */
     transition: background-color 0.3s; /* Smooth transition */
-    text-align: left; /* Align text to the left inside the dropdown */
+    text-align: center; /* Center-align the text inside the dropdown */
+    text-align-last: center; /* Ensure the selected option is also centered */
 }
 
 /* Left-align text for the option elements */
 #selectedDebridService option {
-    text-align: left; /* Left-align the text inside the options */
+    text-align: center; /* Center-align the text inside the options */
 }
 
 /* Hover effect for the dropdown */

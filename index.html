@@ -12,7 +12,7 @@
         <a href="https://linktr.ee/stremio7rd" target="_blank" style="color: #1e90ff; text-decoration: underline; font-weight: bold; font-size: 20px;">קישור לקבוצת הטלגרם</a>
         <br><br>
         <hr>
-        <p style="font-size: 22px; line-height: 1.5; font-weight: bold; color: orange;">
+        <p style="font-size: 22px; line-height: 1.5; font-weight: bold; color: yellow;">
             חובה וחשוב קודם כל לקנות מנוי של ריל דבריד.<br>
             חשוב להדגיש הבילד שיצרנו לכם לא יעבוד ללא המנוי לכן צריך לעשות את הצעד הזה.<br>
             הבילד תומך בשירותים: Real Debrid, Premiumize.
@@ -21,12 +21,26 @@
             <br>
             <a href="https://www.premiumize.me/premium" target="_blank" style="color: #1e90ff; text-decoration: underline; font-weight: bold; font-size: 20px;">קישור לרכישת מנוי Premiumize</a>
         </p>
-        <p style="font-size: 22px; line-height: 1.5; font-weight: bold; color: orange;">
+        <p style="font-size: 22px; line-height: 1.5; font-weight: bold; color: yellow;">
             שימו לב! התקנת הבילד דורסת את התוספים המותקנים לכם כעת, ומתקינה את התוספים המוצגים למטה, לפי  בחירתכם.<br><br>
             אם אינכם בטוחים מה לבחור/לשנות - מומלץ להשאיר את התוספים שמסומנים ברירת מחדל.<br>
         </p>
         <hr>
         <form id="stremioForm">
+
+            <div class="toggle-group">
+                <label style="font-size: 20px;">בחר את תוספי <span style="text-decoration: underline;">ערוצי הטלוויזיה</span> שברצונך להתקין:</label>
+                <div class="toggle-item">
+                    <input type="checkbox" id="israel_tv_addon_toggle" name="israel_tv_addon_toggle" class="toggle-input" checked>
+                    <label for="israel_tv_addon_toggle" class="toggle-label">Israel TV (עידן פלוס)</label>
+                </div>
+                <div class="toggle-item">
+                    <input type="checkbox" id="usa_tv_addon_toggle" name="usa_tv_addon_toggle" class="toggle-input" checked>
+                    <label for="usa_tv_addon_toggle" class="toggle-label">USA TV (ערוצים מהעולם)</label>
+                </div>
+            </div>
+            
+            <hr>
 
             <div class="toggle-group">
                 <label style="font-size: 20px;">בחר את תוספי <span style="text-decoration: underline;">הקטלוגים</span> שברצונך להתקין:</label>
@@ -49,6 +63,56 @@
             </div>
             
             <hr>
+            
+            <div class="toggle-group">
+                <label style="font-size: 20px;">בחר את תוספי <span style="text-decoration: underline;">הכתוביות</span> שברצונך להתקין:</label>
+                <h3><strong style="color: yellow;">מומלץ בחום! תוסף כתוביות פרימיום: <a href="https://stremiohebsubs.onrender.com/configure" target="_blank" style="color: yellow;">Heb Subs Premium</a></strong></h3>
+                <div class="toggle-item">
+                    <input type="checkbox" id="ktuvit_addon_toggle" name="ktuvit_addon_toggle" class="toggle-input" checked>
+                    <label for="ktuvit_addon_toggle" class="toggle-label">Ktuvit</label>
+                </div>
+                <div class="toggle-item">
+                    <input type="checkbox" id="wizdom_addon_toggle" name="wizdom_addon_toggle" class="toggle-input" checked>
+                    <label for="wizdom_addon_toggle" class="toggle-label">Wizdom</label>
+                </div>
+                <div class="toggle-item">
+                    <input type="checkbox" id="opensubtitles_v3_addon_toggle" name="opensubtitles_v3_addon_toggle" class="toggle-input">
+                    <label for="opensubtitles_v3_addon_toggle" class="toggle-label">OpenSubtitles v3 (לא חובה)</label>
+                </div>
+                <div class="toggle-item">
+                    <input type="checkbox" id="opensubtitles_pro_addon_toggle" name="opensubtitles_pro_addon_toggle" class="toggle-input" checked>
+                    <label for="opensubtitles_pro_addon_toggle" class="toggle-label">OpenSubtitles PRO</label>
+                </div>
+                <div class="toggle-item">
+                    <input type="checkbox" id="subsource_addon_toggle" name="subsource_addon_toggle" class="toggle-input" checked>
+                    <label for="subsource_addon_toggle" class="toggle-label">SubSource</label>
+                </div>
+                <div class="toggle-item">
+                    <input type="checkbox" id="yify_addon_toggle" name="yify_addon_toggle" class="toggle-input" checked>
+                    <label for="yify_addon_toggle" class="toggle-label">YIFY (לסרטים בלבד)</label>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <br>
+            
+            <!-- Debrid Service Selection -->
+            <label for="selectedDebridService">
+                <strong><span style="color: red;">*</span> בחר את שירות הדבריד אליו אתה מנוי:</strong>
+            </label>
+            <select id="selectedDebridService" onchange="updateSelectedDebridServiceLabel()" required>
+                <option value="realdebrid_service" selected>Real Debrid</option>
+                <option value="premiumize_service">Premiumize</option>
+            </select>
+            
+            <!-- Debrid API Key -->
+            <label for="selected_debrid_api_key">
+            <span style="color: red;">*</span> <span id="selectedDebridServiceLabel">מפתח API של Real Debrid</span>
+            <br>
+            <a href="#" onclick="openDebridApiKeyPage(); return false;" style="color: #1e90ff; text-decoration: underline; font-weight: bold;"><span style="font-size: 1.8em;">(לחץ כאן כדי להעתיק את המפתח מאתר השירות)</span></a>
+            </label>
+            <input type="text" id="selected_debrid_api_key" name="selected_debrid_api_key" required>
 
             <div class="toggle-group">
                 <label style="font-size: 20px;">בחר את תוספי <span style="text-decoration: underline;">הדבריד</span> שברצונך להתקין:</label>
@@ -86,71 +150,20 @@
                 </div>
             </div>
             
-            <hr>
-            
-            <div class="toggle-group">
-                <label style="font-size: 20px;">בחר את תוספי <span style="text-decoration: underline;">הכתוביות</span> שברצונך להתקין:</label>
-                <h3><strong style="color: yellow;">מומלץ בחום! תוסף כתוביות פרימיום: <a href="https://stremiohebsubs.onrender.com/configure" target="_blank" style="color: yellow;">Heb Subs Premium</a></strong></h3>
-                <div class="toggle-item">
-                    <input type="checkbox" id="ktuvit_addon_toggle" name="ktuvit_addon_toggle" class="toggle-input" checked>
-                    <label for="ktuvit_addon_toggle" class="toggle-label">Ktuvit</label>
-                </div>
-                <div class="toggle-item">
-                    <input type="checkbox" id="wizdom_addon_toggle" name="wizdom_addon_toggle" class="toggle-input" checked>
-                    <label for="wizdom_addon_toggle" class="toggle-label">Wizdom</label>
-                </div>
-                <div class="toggle-item">
-                    <input type="checkbox" id="opensubtitles_v3_addon_toggle" name="opensubtitles_v3_addon_toggle" class="toggle-input">
-                    <label for="opensubtitles_v3_addon_toggle" class="toggle-label">OpenSubtitles v3 (לא חובה)</label>
-                </div>
-                <div class="toggle-item">
-                    <input type="checkbox" id="opensubtitles_pro_addon_toggle" name="opensubtitles_pro_addon_toggle" class="toggle-input" checked>
-                    <label for="opensubtitles_pro_addon_toggle" class="toggle-label">OpenSubtitles PRO</label>
-                </div>
-                <div class="toggle-item">
-                    <input type="checkbox" id="subsource_addon_toggle" name="subsource_addon_toggle" class="toggle-input" checked>
-                    <label for="subsource_addon_toggle" class="toggle-label">SubSource</label>
-                </div>
-                <div class="toggle-item">
-                    <input type="checkbox" id="yify_addon_toggle" name="yify_addon_toggle" class="toggle-input" checked>
-                    <label for="yify_addon_toggle" class="toggle-label">YIFY (לסרטים בלבד)</label>
-                </div>
-            </div>
-            
-            <hr>
-
-            <div class="toggle-group">
-                <label style="font-size: 20px;">בחר את תוספי <span style="text-decoration: underline;">ערוצי הטלוויזיה</span> שברצונך להתקין:</label>
-                <div class="toggle-item">
-                    <input type="checkbox" id="israel_tv_addon_toggle" name="israel_tv_addon_toggle" class="toggle-input" checked>
-                    <label for="israel_tv_addon_toggle" class="toggle-label">Israel TV (עידן פלוס)</label>
-                </div>
-                <div class="toggle-item">
-                    <input type="checkbox" id="usa_tv_addon_toggle" name="usa_tv_addon_toggle" class="toggle-input" checked>
-                    <label for="usa_tv_addon_toggle" class="toggle-label">USA TV (ערוצים מהעולם)</label>
-                </div>
-            </div>
-            
-            <hr>
             <br>
-            <label for="email">אימייל של משתמש ה-Stremio: <span style="text-decoration: underline; color: red;">(התחברות דרך פייסבוק אינה נתמכת!)</span></label>
+            
+            <!-- Email Field -->
+            <label for="email">
+                 <span style="color: red;">*</span> <strong>אימייל של משתמש ה-Stremio:</strong>
+                <span style="text-decoration: underline; color: red;">(התחברות דרך פייסבוק אינה נתמכת!)</span>
+            </label>
             <input type="text" id="email" name="email" required>
             
-            <label for="password">סיסמה למשתמש ה-Stremio:</label>
-            <input type="password" id="password" name="password" required>
-            
-            <label for="selectedDebridService">בחר שירות דבריד:</label>
-            <select id="selectedDebridService" onchange="updateSelectedDebridServiceLabel()">
-                <option value="realdebrid_service" selected>Real Debrid</option>
-                <option value="premiumize_service">Premiumize</option>
-            </select>
-            
-            <label for="selected_debrid_api_key">
-            <span id="selectedDebridServiceLabel">מפתח API של RealDebrid</span>
-            <br>
-            <a href="#" onclick="openDebridApiKeyPage(); return false;" style="color: #1e90ff; text-decoration: underline; font-weight: bold;"><span style="font-size: 2em;">(לחץ והעתק אותו מכאן)</span></a>
+            <!-- Password Field -->
+            <label for="password">
+                <span style="color: red;">*</span> <strong>סיסמה למשתמש ה-Stremio:</strong>
             </label>
-            <input type="text" id="selected_debrid_api_key" name="selected_debrid_api_key" required>
+            <input type="password" id="password" name="password" required>
             
             <button type="submit">התקן תוספים</button>
         </form>
