@@ -2145,7 +2145,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "transportName": "",
         "manifest": {
             "id": "stremio.addons.mediafusion|elfhosted.realdebrid",
-            "version": "4.1.9",
+            "version": "4.1.10",
             "name": "MediaFusion | ElfHosted RD",
             "contactEmail": "mhdzumair@gmail.com",
             "description": "Universal Stremio Add-on for Movies, Series, Live TV &amp; Sports Events. Source: https://github.com/mhdzumair/MediaFusion",
@@ -2199,7 +2199,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "transportName": "",
         "manifest": {
             "id": "stremio.addons.mediafusion|elfhosted.premiumize",
-            "version": "4.1.9",
+            "version": "4.1.10",
             "name": "MediaFusion | ElfHosted PM",
             "contactEmail": "mhdzumair@gmail.com",
             "description": "Universal Stremio Add-on for Movies, Series, Live TV &amp; Sports Events. Source: https://github.com/mhdzumair/MediaFusion",
