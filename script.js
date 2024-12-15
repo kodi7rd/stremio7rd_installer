@@ -150,7 +150,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "transportName": "",
         "manifest": {
             "id": "community.usatv",
-            "version": "1.3.0",
+            "version": "1.4.0",
             "catalogs": [
                 {
                     "name": "USA TV - ערוצים מהעולם",
