@@ -2415,7 +2415,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
     }
     
     const PEERFLIX_RD_ADDON = {
-        "transportUrl": `https://peerflix-addon.onrender.com/language=en%7Cdebridoptions=nocatalog,autodownload%7Crealdebrid=${selectedDebridApiKey}/manifest.json`,
+        "transportUrl": `https://peerflix-addon.onrender.com/language=en%7Cdebridoptions=nocatalog%7Crealdebrid=${selectedDebridApiKey}/manifest.json`,
         "transportName": "",
         "manifest": {
             "id": "com.keopps.peerflix",
