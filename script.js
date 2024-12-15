@@ -2511,7 +2511,17 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "flags": {}
     }
 
-    const JackettioStremioUserSettingsB64 = btoa(`{"maxTorrents":40,"priotizePackTorrents":2,"excludeKeywords":[],"debridId":"realdebrid","hideUncached":false,"sortCached":[["quality",true],["size",true]],"sortUncached":[["quality",true],["size",true]],"forceCacheNextEpisode":false,"priotizeLanguages":[],"indexerTimeoutSec":10,"metaLanguage":"","enableMediaFlow":false,"mediaflowProxyUrl":"","mediaflowApiPassword":"","mediaflowPublicIp":"","qualities":[0,360,480,720,1080,2160],"indexers":["bitsearch","eztv","thepiratebay","therarbg","yts"],"debridApiKey":"${selectedDebridApiKey}"}`);
+        
+    let JackettioSelectedDebridService = "";
+    let JackettioHideUncached = "";
+    if (selectedDebridService === "realdebrid_service") {
+        JackettioSelectedDebridService = "realdebrid";
+        JackettioHideUncached = "false";
+    } else if (selectedDebridService === "premiumize_service") {
+        JackettioSelectedDebridService = "premiumize";
+        JackettioHideUncached = "true";
+    }
+    const JackettioStremioUserSettingsB64 = btoa(`{"maxTorrents":40,"priotizePackTorrents":2,"excludeKeywords":[],"debridId":"${JackettioSelectedDebridService}","hideUncached":${JackettioHideUncached},"sortCached":[["quality",true],["size",true]],"sortUncached":[["quality",true],["size",true]],"forceCacheNextEpisode":false,"priotizeLanguages":[],"indexerTimeoutSec":10,"metaLanguage":"","enableMediaFlow":false,"mediaflowProxyUrl":"","mediaflowApiPassword":"","mediaflowPublicIp":"","qualities":[0,360,480,720,1080,2160],"indexers":["bitsearch","eztv","thepiratebay","therarbg","yts"],"debridApiKey":"${selectedDebridApiKey}"}`);
     const JACKETTIO_RD_ADDON = {
         "transportUrl": `https://jackettio.elfhosted.com/${JackettioStremioUserSettingsB64}/manifest.json`,
         "transportName": "",
@@ -2519,6 +2529,32 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
             "id": "jackettio.elfhosted.com",
             "version": "1.7.0",
             "name": "Jackettio RD",
+            "description": "Stremio addon that resolve streams using Jackett and Debrid. It seamlessly integrates with private trackers.",
+            "icon": "https://jackettio.elfhosted.com/icon",
+            "resources": [
+                "stream"
+            ],
+            "types": [
+                "movie",
+                "series"
+            ],
+            "idPrefixes": [
+                "tt"
+            ],
+            "catalogs": [],
+            "behaviorHints": {
+                "configurable": true
+            }
+        },
+        "flags": {}
+    }
+    const JACKETTIO_PM_ADDON = {
+        "transportUrl": `https://jackettio.elfhosted.com/${JackettioStremioUserSettingsB64}/manifest.json`,
+        "transportName": "",
+        "manifest": {
+            "id": "jackettio.elfhosted.com",
+            "version": "1.7.0",
+            "name": "Jackettio PM",
             "description": "Stremio addon that resolve streams using Jackett and Debrid. It seamlessly integrates with private trackers.",
             "icon": "https://jackettio.elfhosted.com/icon",
             "resources": [
@@ -2671,6 +2707,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         { toggleId: 'comet_addon_toggle', addon: COMET_PM_ADDON },
         { toggleId: 'cometfr_addon_toggle', addon: COMETFR_PM_ADDON },
         { toggleId: 'peerflix_addon_toggle', addon: PEERFLIX_PM_ADDON },
+        { toggleId: 'jackettio_addon_toggle', addon: JACKETTIO_PM_ADDON },
         { toggleId: 'jacket_community_addon_toggle', addon: JACKET_COMMUNITY_PM_ADDON }
     ];
 
