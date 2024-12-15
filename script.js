@@ -2517,7 +2517,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "transportName": "",
         "manifest": {
             "id": "jackettio.elfhosted.com",
-            "version": "1.6.2",
+            "version": "1.7.0",
             "name": "Jackettio RD",
             "description": "Stremio addon that resolve streams using Jackett and Debrid. It seamlessly integrates with private trackers.",
             "icon": "https://jackettio.elfhosted.com/icon",
