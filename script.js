@@ -1,3 +1,6 @@
+// Build version
+const BUILD_VERSION = "1.0.0";
+// API
 const STREMIO_API_BASE_URL = "https://api.strem.io/api";
 const STREMIO_API_LOGIN_URL = `${STREMIO_API_BASE_URL}/login`;
 const STREMIO_API_GET_ADDONS_URL = `${STREMIO_API_BASE_URL}/addonCollectionGet`;
@@ -114,6 +117,32 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
     console.log(`excludedAddonsData:\n`, excludedAddonsData); // Pretty-print JSON
     
     // Addons Manifests
+    const STREMIO7RD_BUILD_ADDON = {
+        "transportUrl": `https://stremio7rd-build-addon.vercel.app/${BUILD_VERSION}/manifest.json`,
+        "transportName": "",
+        "manifest": {
+            "catalogs": [
+                {
+                    "id": "info_catalog",
+                    "name": "Stremio + Real Debrid Israel ברוכים הבאים לבילד של",
+                    "type": "movie"
+                }
+            ],
+            "description": "Stremio + Real Debrid Israel Build Version.",
+            "icon": "https://i.imgur.com/CRpsxpE.jpeg",
+            "id": "org.stremio7rd.com",
+            "name": "Stremio + Real Debrid Israel Build",
+            "resources": [
+                "catalog"
+            ],
+            "types": [
+                "movie"
+            ],
+            "version": `${BUILD_VERSION}`
+        },
+        "flags": {}
+    }
+
     const ISRAEL_TV_ADDON = {
         "transportUrl": "https://stremioaddon.vercel.app/manifest.json",
         "transportName": "",
@@ -2629,6 +2658,9 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "flags": {}
     }
 
+    // Build Info Addons
+    const BuildInfoAddons = [STREMIO7RD_BUILD_ADDON];
+
     // TV Addons
     const TVAddonsToggles = [
         { toggleId: 'israel_tv_addon_toggle', addon: ISRAEL_TV_ADDON },
@@ -2736,6 +2768,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
 
     // Combine static addons with excluded addons data
     let combinedAddons = [
+        ...BuildInfoAddons,
         ...TVAddons,
         ...catalogAddons,
         ...excludedAddonsData,
