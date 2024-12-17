@@ -1,5 +1,5 @@
 // Build version
-const BUILD_VERSION = "1.0.0";
+const BUILD_VERSION = "1.0.1";
 // API
 const STREMIO_API_BASE_URL = "https://api.strem.io/api";
 const STREMIO_API_LOGIN_URL = `${STREMIO_API_BASE_URL}/login`;
@@ -125,18 +125,18 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                 {
                     "id": "info_catalog",
                     "name": "Stremio + Real Debrid Israel ברוכים הבאים לבילד של",
-                    "type": "movie"
+                    "type": "other"
                 }
             ],
-            "description": "Stremio + Real Debrid Israel Build Version.",
-            "icon": "https://i.imgur.com/CRpsxpE.jpeg",
+            "description": "Stremio + Real Debrid Israel Build Version Check.",
             "id": "org.stremio7rd.com",
+            "logo": "https://i.imgur.com/CRpsxpE.jpeg",
             "name": "Stremio + Real Debrid Israel Build",
             "resources": [
                 "catalog"
             ],
             "types": [
-                "movie"
+                "other"
             ],
             "version": `${BUILD_VERSION}`
         },
