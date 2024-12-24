@@ -121,26 +121,41 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "transportUrl": `https://stremio7rd-build.vercel.app/current_version=${BUILD_VERSION},show_catalog_even_if_updated=true/manifest.json`,
         "transportName": "",
         "manifest": {
-            "catalogs": [
-                {
-                    "id": "info_catalog",
-                    "name": "Stremio + Real Debrid Israel ברוכים הבאים לבילד של",
-                    "type": "other"
-                }
-            ],
-            "description": "Stremio + Real Debrid Israel Build Version Check.",
             "id": "org.stremio7rd.com",
-            "logo": "https://i.imgur.com/CRpsxpE.jpeg",
+            "version": `${BUILD_VERSION}`,
             "name": "Stremio + Real Debrid Israel Build",
-            "resources": [
-                "catalog"
-            ],
+            "contactEmail": null,
+            "description": "Stremio + Real Debrid Israel Build Version Check.",
+            "logo": "https://i.imgur.com/CRpsxpE.jpeg",
+            "background": null,
             "types": [
                 "other"
             ],
-            "version": `${BUILD_VERSION}`
+            "resources": [
+                "catalog"
+            ],
+            "idPrefixes": null,
+            "catalogs": [
+                {
+                    "id": "info_catalog",
+                    "type": "other",
+                    "name": "Stremio + Real Debrid Israel ברוכים הבאים לבילד של",
+                    "extraRequired": [],
+                    "extraSupported": []
+                }
+            ],
+            "addonCatalogs": [],
+            "behaviorHints": {
+                "adult": false,
+                "p2p": false,
+                "configurable": true,
+                "configurationRequired": false
+            }
         },
-        "flags": {}
+        "flags": {
+            "official": false,
+            "protected": false
+        }
     }
 
     const ISRAEL_TV_ADDON = {
