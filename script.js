@@ -1,5 +1,5 @@
 // Build version
-const BUILD_VERSION = "2.0.0";
+const BUILD_VERSION = "2.1.0";
 // API
 const STREMIO_API_BASE_URL = "https://api.strem.io/api";
 const STREMIO_API_LOGIN_URL = `${STREMIO_API_BASE_URL}/login`;
@@ -118,7 +118,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
     
     // Addons Manifests
     const STREMIO7RD_BUILD_ADDON = {
-        "transportUrl": `https://stremio7rd-build.vercel.app/${BUILD_VERSION}/manifest.json`,
+        "transportUrl": `https://stremio7rd-build.vercel.app/current_version=${BUILD_VERSION},show_catalog_even_if_updated=true/manifest.json`,
         "transportName": "",
         "manifest": {
             "catalogs": [
