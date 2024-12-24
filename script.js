@@ -2053,6 +2053,42 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "flags": {}
     }
     
+    const SUBHERO_ADDON = {
+        "transportUrl": "https://subhero.onrender.com/%7B%22language%22%3A%22he%22%7D/manifest.json",
+        "transportName": "",
+        "manifest": {
+            "id": "community.subhero.wyzie",
+            "version": "1.0.3",
+            "name": "SubHero",
+            "contactEmail": null,
+            "description": "Subtitles with language filtering. Subtitles provided & scraped by Wyzie API.",
+            "logo": "https://cdn.icon-icons.com/icons2/3606/PNG/512/sculpture_statue_texture_futuristic_art_geometry_organic_abstract_shape_explode_shae_icon_226539.png",
+            "background": "https://w.wallhaven.cc/full/0p/wallhaven-0pjkp9.png",
+            "types": [
+                "movie",
+                "series"
+            ],
+            "resources": [
+                "subtitles"
+            ],
+            "idPrefixes": [
+                "tt"
+            ],
+            "catalogs": [],
+            "addonCatalogs": [],
+            "behaviorHints": {
+                "adult": false,
+                "p2p": false,
+                "configurable": true,
+                "configurationRequired": false
+            }
+        },
+        "flags": {
+            "official": false,
+            "protected": false
+        }
+    }
+    
     const TORRENTIO_RD_ADDON = {
         "transportUrl": `https://torrentio.strem.fun/sort=qualitysize%7Crealdebrid=${selectedDebridApiKey}/manifest.json`,
         "transportName": "",
@@ -2706,7 +2742,8 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         { toggleId: 'opensubtitles_v3_addon_toggle', addon: OPENSUBTITLES_V3_ADDON },
         { toggleId: 'opensubtitles_pro_addon_toggle', addon: OPENSUBTITLES_PRO_ADDON },
         { toggleId: 'subsource_addon_toggle', addon: SUBSOURCE_ADDON },
-        { toggleId: 'yify_addon_toggle', addon: YIFY_ADDON }
+        { toggleId: 'yify_addon_toggle', addon: YIFY_ADDON },
+        { toggleId: 'subhero_addon_toggle', addon: SUBHERO_ADDON }
     ];
 
     let subtitlesAddons = [];
