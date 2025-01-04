@@ -73,7 +73,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
             only_show_cached_streams = "true";
         }
 
-        const MediaFusionUserSettings = `{"streaming_provider":{"token":"${selectedDebridApiKey}","service":"${mediaFusionSelectedDebridService}","enable_watchlist_catalogs":false,"download_via_browser":false,"only_show_cached_streams":${only_show_cached_streams}},"selected_catalogs":[],"selected_resolutions":["4k","2160p","1440p","1080p","720p","576p","480p","360p","240p",null],"enable_catalogs":false,"enable_imdb_metadata":false,"max_size":"inf","max_streams_per_resolution":"999","torrent_sorting_priority":[{"key":"cached","direction":"desc"},{"key":"resolution","direction":"desc"},{"key":"size","direction":"desc"}],"show_full_torrent_name":true,"nudity_filter":["Disable"],"certification_filter":["Disable"],"language_sorting":["English","Tamil","Hindi","Malayalam","Kannada","Telugu","Chinese","Russian","Arabic","Japanese","Korean","Taiwanese","Latino","French","Spanish","Portuguese","Italian","German","Ukrainian","Polish","Czech","Thai","Indonesian","Vietnamese","Dutch","Bengali","Turkish","Greek",null],"quality_filter":["BluRay/UHD","WEB/HD","DVD/TV/SAT","CAM/Screener","Unknown"],"api_password":null,"mediaflow_config":null,"rpdb_config":null,"live_search_streams":false,"contribution_streams":false}`;
+        const MediaFusionUserSettings = `{"streaming_provider":{"token":"${selectedDebridApiKey}","service":"${mediaFusionSelectedDebridService}","enable_watchlist_catalogs":false,"download_via_browser":false,"only_show_cached_streams":${only_show_cached_streams}},"selected_catalogs":[],"selected_resolutions":["4k","2160p","1440p","1080p","720p","576p","480p","360p","240p",null],"enable_catalogs":false,"enable_imdb_metadata":false,"max_size":"inf","max_streams_per_resolution":"999","torrent_sorting_priority":[{"key":"cached","direction":"desc"},{"key":"resolution","direction":"desc"},{"key":"size","direction":"desc"}],"show_full_torrent_name":true,"show_language_country_flag":true,"nudity_filter":["Disable"],"certification_filter":["Disable"],"language_sorting":["English","Tamil","Hindi","Malayalam","Kannada","Telugu","Chinese","Russian","Arabic","Japanese","Korean","Taiwanese","Latino","French","Spanish","Portuguese","Italian","German","Ukrainian","Polish","Czech","Thai","Indonesian","Vietnamese","Dutch","Bengali","Turkish","Greek",null],"quality_filter":["BluRay/UHD","WEB/HD","DVD/TV/SAT","CAM/Screener","Unknown"],"api_password":null,"mediaflow_config":null,"rpdb_config":null,"live_search_streams":false,"contribution_streams":false}`;
 
         let MediaFusionEncryptedSecret = "invalid_api_key"; // Default in case of failure
             
@@ -2224,8 +2224,8 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "transportUrl": `https://mediafusion.elfhosted.com/${MediaFusionEncryptedSecret}/manifest.json`,
         "transportName": "",
         "manifest": {
-            "id": "stremio.addons.mediafusion|elfhosted.realdebrid",
-            "version": "4.1.20",
+            "id": "stremio.addons.mediafusion|elfhostedrd.realdebrid",
+            "version": "4.3.5",
             "name": "MediaFusion | ElfHosted RD",
             "contactEmail": "mhdzumair@gmail.com",
             "description": "Universal Stremio Add-on for Movies, Series, Live TV &amp; Sports Events. Source: https://github.com/mhdzumair/MediaFusion",
@@ -2277,8 +2277,8 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "transportUrl": `https://mediafusion.elfhosted.com/${MediaFusionEncryptedSecret}/manifest.json`,
         "transportName": "",
         "manifest": {
-            "id": "stremio.addons.mediafusion|elfhosted.premiumize",
-            "version": "4.1.20",
+            "id": "stremio.addons.mediafusion|elfhostedpm.premiumize",
+            "version": "4.3.5",
             "name": "MediaFusion | ElfHosted PM",
             "contactEmail": "mhdzumair@gmail.com",
             "description": "Universal Stremio Add-on for Movies, Series, Live TV &amp; Sports Events. Source: https://github.com/mhdzumair/MediaFusion",
