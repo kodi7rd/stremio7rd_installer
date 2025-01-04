@@ -118,7 +118,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
     
     // Addons Manifests
     const STREMIO7RD_BUILD_ADDON = {
-        "transportUrl": `https://stremio7rd-build.vercel.app/current_version=${BUILD_VERSION},show_catalog_even_if_updated=true/manifest.json`,
+        "transportUrl": `https://stremio7rd-build.vercel.app/current_version=${BUILD_VERSION},show_catalog_even_if_updated=True/manifest.json`,
         "transportName": "",
         "manifest": {
             "id": "org.stremio7rd.com",
