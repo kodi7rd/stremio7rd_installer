@@ -2493,11 +2493,11 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
     }
     
     const PEERFLIX_RD_ADDON = {
-        "transportUrl": `https://peerflix-addon.onrender.com/language=en%7Cdebridoptions=nocatalog%7Crealdebrid=${selectedDebridApiKey}/manifest.json`,
+        "transportUrl": `https://peerflix-addon.onrender.com/language=en%7Cdebridoptions=nocatalog%7Crealdebrid=${selectedDebridApiKey}%7Csort=quality-desc,size-desc/manifest.json`,
         "transportName": "",
         "manifest": {
             "id": "com.keopps.peerflix",
-            "version": "2.4.2",
+            "version": "2.6.2",
             "name": "Peerflix RD",
             "description": "Peerflix proporciona los mejores enlaces en español e inglés de películas y series de TV en Stremio.Para configurar proveedores de chache, RealDebrid/Premiumize/AllDebrid/DebridLink/Offcloud/Put.io/Torbox visita https://peerflix-addon.onrender.com",
             "catalogs": [],
@@ -2528,11 +2528,11 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "flags": {}
     }
     const PEERFLIX_PM_ADDON = {
-        "transportUrl": `https://peerflix-addon.onrender.com/language=en%7Cdebridoptions=nodownloadlinks,nocatalog%7Cpremiumize=${selectedDebridApiKey}/manifest.json`,
+        "transportUrl": `https://peerflix-addon.onrender.com/language=en%7Cdebridoptions=nodownloadlinks,nocatalog%7Cpremiumize=${selectedDebridApiKey}%7Csort=quality-desc,size-desc/manifest.json`,
         "transportName": "",
         "manifest": {
             "id": "com.keopps.peerflix",
-            "version": "2.4.2",
+            "version": "2.6.2",
             "name": "Peerflix PM",
             "description": "Peerflix proporciona los mejores enlaces en español e inglés de películas y series de TV en Stremio.Para configurar proveedores de chache, RealDebrid/Premiumize/AllDebrid/DebridLink/Offcloud/Put.io/Torbox visita https://peerflix-addon.onrender.com",
             "catalogs": [],
