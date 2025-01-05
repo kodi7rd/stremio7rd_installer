@@ -3011,11 +3011,17 @@ function updateTorrentsAddonsVisibility() {
     });
 }
 
+// Function to update the build version element
+function updateBuildVersionInPage() {
+    document.getElementById("build-version").textContent = `גרסת בילד: ${BUILD_VERSION}`;
+}
+
 // Event listener for Debrid service change
 document.getElementById('selectedDebridService').addEventListener('change', updateTorrentsAddonsVisibility);
 
 // Call the function when the DOM is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
+    updateBuildVersionInPage();
     updateTorrentsAddonsVisibility();
     enforceAtLeastOneSelectedForTorrents(); // Assuming this function handles the check for at least one selection
 });
