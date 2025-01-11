@@ -795,7 +795,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "transportName": "",
         "manifest": {
             "id": "marcojoao.ml.cyberflix.catalog",
-            "version": "1.5.2",
+            "version": "1.6.0",
             "name": "Cyberflix Catalog",
             "description": "Cyberflix, an catalog add-on for Stremio, aggregates the most popular steaming platforms such as Netflix, Amazon Prime or Hulu, and also specific catalogs for Kids, Asian or Anime.",
             "logo": "http://cyberflix.elfhosted.com/logo.png",
@@ -838,8 +838,8 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                                 "Mystery",
                                 "Romance",
                                 "Sci-Fi",
+                                "Short",
                                 "Sport",
-                                "TV",
                                 "Thriller",
                                 "Western"
                             ]
@@ -848,7 +848,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                             "name": "skip"
                         }
                     ],
-                    "pageSize": 25,
                     "extraSupported": [
                         "genre",
                         "skip"
@@ -878,8 +877,8 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                                 "Mystery",
                                 "Romance",
                                 "Sci-Fi",
+                                "Short",
                                 "Sport",
-                                "TV",
                                 "Thriller",
                                 "Western"
                             ]
@@ -888,7 +887,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                             "name": "skip"
                         }
                     ],
-                    "pageSize": 25,
                     "extraSupported": [
                         "genre",
                         "skip"
@@ -917,8 +915,8 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                                 "Mystery",
                                 "Romance",
                                 "Sci-Fi",
+                                "Short",
                                 "Sport",
-                                "TV",
                                 "Thriller",
                                 "Western"
                             ]
@@ -927,7 +925,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                             "name": "skip"
                         }
                     ],
-                    "pageSize": 25,
                     "extraSupported": [
                         "genre",
                         "skip"
@@ -957,8 +954,8 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                                 "Mystery",
                                 "Romance",
                                 "Sci-Fi",
+                                "Short",
                                 "Sport",
-                                "TV",
                                 "Western"
                             ]
                         },
@@ -966,7 +963,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                             "name": "skip"
                         }
                     ],
-                    "pageSize": 25,
                     "extraSupported": [
                         "genre",
                         "skip"
@@ -995,8 +991,8 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                                 "Mystery",
                                 "Romance",
                                 "Sci-Fi",
+                                "Short",
                                 "Sport",
-                                "TV",
                                 "Thriller",
                                 "Western"
                             ]
@@ -1005,7 +1001,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                             "name": "skip"
                         }
                     ],
-                    "pageSize": 25,
                     "extraSupported": [
                         "genre",
                         "skip"
@@ -1035,8 +1030,8 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                                 "Mystery",
                                 "Romance",
                                 "Sci-Fi",
+                                "Short",
                                 "Sport",
-                                "TV",
                                 "Thriller",
                                 "Western"
                             ]
@@ -1045,7 +1040,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                             "name": "skip"
                         }
                     ],
-                    "pageSize": 25,
                     "extraSupported": [
                         "genre",
                         "skip"
@@ -1074,8 +1068,8 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                                 "Mystery",
                                 "Romance",
                                 "Sci-Fi",
+                                "Short",
                                 "Sport",
-                                "TV",
                                 "Thriller",
                                 "Western"
                             ]
@@ -1084,7 +1078,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                             "name": "skip"
                         }
                     ],
-                    "pageSize": 25,
                     "extraSupported": [
                         "genre",
                         "skip"
@@ -1114,8 +1107,8 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                                 "Mystery",
                                 "Romance",
                                 "Sci-Fi",
+                                "Short",
                                 "Sport",
-                                "TV",
                                 "Thriller",
                                 "Western"
                             ]
@@ -1124,7 +1117,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                             "name": "skip"
                         }
                     ],
-                    "pageSize": 25,
                     "extraSupported": [
                         "genre",
                         "skip"
@@ -1152,8 +1144,8 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                                 "Mystery",
                                 "Romance",
                                 "Sci-Fi",
+                                "Short",
                                 "Sport",
-                                "TV",
                                 "Thriller"
                             ]
                         },
@@ -1161,7 +1153,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                             "name": "skip"
                         }
                     ],
-                    "pageSize": 25,
                     "extraSupported": [
                         "genre",
                         "skip"
@@ -1191,8 +1182,8 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                                 "Mystery",
                                 "Romance",
                                 "Sci-Fi",
+                                "Short",
                                 "Sport",
-                                "TV",
                                 "Thriller"
                             ]
                         },
@@ -1200,7 +1191,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                             "name": "skip"
                         }
                     ],
-                    "pageSize": 25,
                     "extraSupported": [
                         "genre",
                         "skip"
@@ -1237,7 +1227,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                             "name": "skip"
                         }
                     ],
-                    "pageSize": 25,
                     "extraSupported": [
                         "genre",
                         "skip"
@@ -1261,7 +1250,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                                 "Fantasy",
                                 "History",
                                 "Horror",
-                                "Kids",
                                 "Music",
                                 "Mystery",
                                 "Romance",
@@ -1274,7 +1262,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                             "name": "skip"
                         }
                     ],
-                    "pageSize": 25,
                     "extraSupported": [
                         "genre",
                         "skip"
@@ -1282,8 +1269,8 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                 }
             ],
             "background": "http://cyberflix.elfhosted.com/background.png",
-            "last_update": "2024-11-18 22:57:50.456692",
-            "server_version": "1.0.0"
+            "last_update": "2025-01-11 22:47:39.789510",
+            "server_version": "2.0.0"
         },
         "flags": {}
     }
