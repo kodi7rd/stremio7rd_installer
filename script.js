@@ -121,38 +121,26 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
             "id": "org.stremio7rd.com",
             "version": `${BUILD_VERSION}`,
             "name": "Stremio + Real Debrid Israel Build",
-            "contactEmail": null,
             "description": "Stremio + Real Debrid Israel Build Version Check.",
             "logo": "https://i.imgur.com/CRpsxpE.jpeg",
-            "background": null,
-            "types": [
-                "other"
-            ],
             "resources": [
                 "catalog"
             ],
-            "idPrefixes": null,
+            "types": [
+                "other"
+            ],
             "catalogs": [
                 {
-                    "id": "info_catalog",
                     "type": "other",
-                    "name": "Stremio + Real Debrid Israel ברוכים הבאים לבילד של",
-                    "extraRequired": [],
-                    "extraSupported": []
+                    "id": "info_catalog",
+                    "name": "Stremio + Real Debrid Israel ברוכים הבאים לבילד של"
                 }
             ],
-            "addonCatalogs": [],
             "behaviorHints": {
-                "adult": false,
-                "p2p": false,
-                "configurable": true,
-                "configurationRequired": false
+                "configurable": true
             }
         },
-        "flags": {
-            "official": false,
-            "protected": false
-        }
+        "flags": {}
     }
 
     const ISRAEL_TV_ADDON = {
