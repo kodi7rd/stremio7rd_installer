@@ -2391,34 +2391,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "flags": {}
     }
 
-    const YggStremioUserSettingsB64 = btoa(`{"maxTorrents":50,"priotizePackTorrents":2,"excludeKeywords":[],"debridId":"realdebrid","hideUncached":true,"sortCached":[["quality",true],["size",true]],"sortUncached":[["seeders",true]],"forceCacheNextEpisode":false,"priotizeLanguages":["multi","english"],"indexerTimeoutSec":10,"metaLanguage":"en","enableMediaFlow":false,"mediaflowProxyUrl":"","mediaflowApiPassword":"","mediaflowPublicIp":"","qualities":[0,360,480,720,1080,2160],"indexers":["torrent9","gktorrent","yggtorrent"],"debridApiKey":"${selectedDebridApiKey}"}`);
-    const YGGSTREMIO_RD_ADDON = {
-        "transportUrl": `https://yggstremio.fun/${YggStremioUserSettingsB64}/manifest.json`,
-        "transportName": "",
-        "manifest": {
-            "id": "community.stremio.yggstremio",
-            "version": "1.6.0",
-            "name": "YggStremio RD",
-            "description": "Get streams from Ygg indexer",
-            "icon": "https://yggstremio.fun/icon",
-            "resources": [
-                "stream"
-            ],
-            "types": [
-                "movie",
-                "series"
-            ],
-            "idPrefixes": [
-                "tt"
-            ],
-            "catalogs": [],
-            "behaviorHints": {
-                "configurable": true
-            }
-        },
-        "flags": {}
-    }
-
         
     let JackettioSelectedDebridService = "";
     let JackettioHideUncached = "";
@@ -2605,7 +2577,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         { toggleId: 'comet_addon_toggle', addon: COMET_RD_ADDON },
         { toggleId: 'cometfr_addon_toggle', addon: COMETFR_RD_ADDON },
         { toggleId: 'peerflix_addon_toggle', addon: PEERFLIX_RD_ADDON },
-        // { toggleId: 'yggstremio_addon_toggle', addon: YGGSTREMIO_RD_ADDON },
         { toggleId: 'jackettio_addon_toggle', addon: JACKETTIO_RD_ADDON },
         { toggleId: 'jacket_community_addon_toggle', addon: JACKET_COMMUNITY_RD_ADDON }
     ];
@@ -2623,22 +2594,9 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         { toggleId: 'jacket_community_addon_toggle', addon: JACKET_COMMUNITY_PM_ADDON }
     ];
 
-    // Static Alldebrid Addons List
-    // const adAddons = [
-        // { toggleId: 'torrentio_addon_toggle', addon: TORRENTIO_ALLDEBRID_ADDON },
-        // { toggleId: 'comet_addon_toggle', addon: COMET_ALLDEBRID_ADDON },
-        // { toggleId: 'cometfr_addon_toggle', addon: COMETFR_ALLDEBRID_ADDON },
-        // { toggleId: 'peerflix_addon_toggle', addon: PEERFLIX_ALLDEBRID_ADDON },
-        // ...(MediaFusionEncryptedSecret !== "invalid_api_key" ? [
-            // { toggleId: 'mediafusion_addon_toggle', addon: MEDIAFUSION_ALLDEBRID_ADDON }
-        // ] : []),
-        // { toggleId: 'jackettio_addon_toggle', addon: JACKETTIO_ALLDEBRID_ADDON },
-        // { toggleId: 'jacket_community_addon_toggle', addon: JACKET_COMMUNITY_ALLDEBRID_ADDON }
-    // ];
-
     // Select the appropriate addons list based on the selectedDebridService
     const torrentAddonsToggles = selectedDebridService === 'realdebrid_service' ? rdAddons :
-                                 selectedDebridService === 'premiumize_service' ? pmAddons : adAddons;
+                                 selectedDebridService === 'premiumize_service' ? pmAddons : [];
 
     // Generate the final list of enabled addons
     const torrentAddons = torrentAddonsToggles
@@ -2805,7 +2763,6 @@ function enforceAtLeastOneSelectedForTorrents() {
         document.getElementById('comet_addon_toggle'),
         document.getElementById('cometfr_addon_toggle'),
         document.getElementById('peerflix_addon_toggle'),
-        // document.getElementById('yggstremio_addon_toggle'),
         document.getElementById('jackettio_addon_toggle'),
         document.getElementById('jacket_community_addon_toggle')
     ];
