@@ -63,14 +63,17 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
     async function getMediaFusionEncryptedSecret() {
         
         let mediaFusionSelectedDebridService = "";
+        let only_show_cached_streams = "";
 
         if (selectedDebridService === "realdebrid_service") {
             mediaFusionSelectedDebridService = "realdebrid";
+            only_show_cached_streams = "false";
         } else if (selectedDebridService === "premiumize_service") {
             mediaFusionSelectedDebridService = "premiumize";
+            only_show_cached_streams = "true";
         }
 
-        const MediaFusionUserSettings = `{"streaming_provider":{"token":"${selectedDebridApiKey}","service":"${mediaFusionSelectedDebridService}","enable_watchlist_catalogs":false,"download_via_browser":false,"only_show_cached_streams":true},"selected_catalogs":[],"selected_resolutions":["4k","2160p","1440p","1080p","720p","576p","480p","360p","240p",null],"enable_catalogs":false,"enable_imdb_metadata":false,"max_size":"inf","max_streams_per_resolution":"999","torrent_sorting_priority":[{"key":"cached","direction":"desc"},{"key":"resolution","direction":"desc"},{"key":"size","direction":"desc"}],"show_full_torrent_name":true,"show_language_country_flag":false,"nudity_filter":["Disable"],"certification_filter":["Disable"],"language_sorting":["English","Tamil","Hindi","Malayalam","Kannada","Telugu","Chinese","Russian","Arabic","Japanese","Korean","Taiwanese","Latino","French","Spanish","Portuguese","Italian","German","Ukrainian","Polish","Czech","Thai","Indonesian","Vietnamese","Dutch","Bengali","Turkish","Greek",null],"quality_filter":["BluRay/UHD","WEB/HD","DVD/TV/SAT","CAM/Screener","Unknown"],"api_password":null,"mediaflow_config":null,"rpdb_config":null,"live_search_streams":false,"contribution_streams":false}`;
+        const MediaFusionUserSettings = `{"streaming_provider":{"token":"${selectedDebridApiKey}","service":"${mediaFusionSelectedDebridService}","enable_watchlist_catalogs":false,"download_via_browser":false,"only_show_cached_streams":${only_show_cached_streams}},"selected_catalogs":[],"selected_resolutions":["4k","2160p","1440p","1080p","720p","576p","480p","360p","240p",null],"enable_catalogs":false,"enable_imdb_metadata":false,"max_size":"inf","max_streams_per_resolution":"999","torrent_sorting_priority":[{"key":"cached","direction":"desc"},{"key":"resolution","direction":"desc"},{"key":"size","direction":"desc"}],"show_full_torrent_name":true,"show_language_country_flag":false,"nudity_filter":["Disable"],"certification_filter":["Disable"],"language_sorting":["English","Tamil","Hindi","Malayalam","Kannada","Telugu","Chinese","Russian","Arabic","Japanese","Korean","Taiwanese","Latino","French","Spanish","Portuguese","Italian","German","Ukrainian","Polish","Czech","Thai","Indonesian","Vietnamese","Dutch","Bengali","Turkish","Greek",null],"quality_filter":["BluRay/UHD","WEB/HD","DVD/TV/SAT","CAM/Screener","Unknown"],"api_password":null,"mediaflow_config":null,"rpdb_config":null,"live_search_streams":false,"contribution_streams":false}`;
 
         let MediaFusionEncryptedSecret = "invalid_api_key"; // Default in case of failure
             
