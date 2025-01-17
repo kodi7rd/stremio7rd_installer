@@ -225,6 +225,82 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         },
         "flags": {}
     }
+
+    const MOVEONJOY_TV_ADDON = {
+        "transportUrl": "https://moveonjoy-stremio.vercel.app/manifest.json",
+        "transportName": "",
+        "manifest": {
+            "id": "com.pigzillaaa.moveonjoy",
+            "version": "1.0.0",
+            "name": "MoveOnJoy TV",
+            "contactEmail": null,
+            "description": "A Stremio addon for TV channels from MoveOnJoy.",
+            "logo": "https://raw.githubusercontent.com/pigzillaaa/moveonjoy-streamio/refs/heads/main/mylogo.png",
+            "background": null,
+            "types": [
+                "tv"
+            ],
+            "resources": [
+                "catalog",
+                "stream",
+                "meta"
+            ],
+            "idPrefixes": [
+                "moveonjoy"
+            ],
+            "catalogs": [
+                {
+                    "id": "moveonjoy-all",
+                    "type": "tv",
+                    "name": "MoveOnJoy TV",
+                    "extraRequired": [],
+                    "extraSupported": []
+                }
+            ],
+            "addonCatalogs": [],
+            "behaviorHints": {
+                "adult": false,
+                "p2p": false,
+                "configurable": false,
+                "configurationRequired": false
+            }
+        },
+        "flags": {
+            "official": false,
+            "protected": false
+        }
+    }
+
+    const UDP_TV_ADDON = {
+        "transportUrl": "https://udptv-stremio.vercel.app/manifest.json",
+        "transportName": "",
+        "manifest": {
+            "catalogs": [
+                {
+                    "id": "udptv-all",
+                    "name": "UDP TV - ערוצים מהעולם",
+                    "type": "tv"
+                }
+            ],
+            "description": "A Stremio addon for TV channels from UDP TV.",
+            "id": "com.pigzillaaa.udptv",
+            "idPrefixes": [
+                "udptv"
+            ],
+            "logo": "https://codeberg.org/pigzillaaa/udptv-stremio/raw/branch/main/udp-banner.png",
+            "name": "UDP TV",
+            "resources": [
+                "catalog",
+                "stream",
+                "meta"
+            ],
+            "types": [
+                "tv"
+            ],
+            "version": "1.0.0"
+        },
+        "flags": {}
+    }
     
     const TMDB_ADDON = {
         "transportUrl": "https://94c8cb9f702d-tmdb-addon.baby-beamup.club/%7B%22ratings%22%3A%22on%22%2C%22rpdbkey%22%3A%22t0-free-rpdb%22%2C%22provide_imdbId%22%3A%22true%22%2C%22use_tmdb_prefix%22%3A%22true%22%2C%22language%22%3A%22he-IL%22%7D/manifest.json",
@@ -2518,7 +2594,9 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
     // TV Addons
     const TVAddonsToggles = [
         { toggleId: 'israel_tv_addon_toggle', addon: ISRAEL_TV_ADDON },
-        { toggleId: 'usa_tv_addon_toggle', addon: USA_TV_ADDON }
+        { toggleId: 'usa_tv_addon_toggle', addon: USA_TV_ADDON },
+        { toggleId: 'moveonjoy_tv_addon_toggle', addon: MOVEONJOY_TV_ADDON },
+        { toggleId: 'udp_tv_addon_toggle', addon: UDP_TV_ADDON }
     ];
     
     let TVAddons = [];
