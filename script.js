@@ -1933,7 +1933,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
     }
     
     const TORRENTIO_RD_ADDON = {
-        "transportUrl": `https://torrentio.strem.fun/sort=qualitysize%7Cdebridoptions=nodownloadlinks%7Crealdebrid=${selectedDebridApiKey}/manifest.json`,
+        "transportUrl": `https://torrentio.strem.fun/sort=qualitysize%7Crealdebrid=${selectedDebridApiKey}/manifest.json`,
         "transportName": "",
         "manifest": {
             "id": "com.stremio.torrentio.addon",
