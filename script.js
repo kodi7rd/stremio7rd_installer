@@ -1837,7 +1837,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "transportName": "",
         "manifest": {
             "id": "community.subsource.subtitles",
-            "version": "1.0.5",
+            "version": "1.0.6",
             "name": "SubSource Subtitles",
             "description": "Unofficial addon for getting subtitles from SubSource.net",
             "logo": "https://raw.githubusercontent.com/nexusdiscord/tv-logo/master/ss.png",
