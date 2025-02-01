@@ -2570,9 +2570,9 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "transportUrl": `https://stremio-jackett.elfhosted.com/${JacketCommunityStremioUserSettingsB64}/manifest.json`,
         "transportName": "",
         "manifest": {
-            "id": "community.aymene69.jackett",
+            "id": "stremio-jackett.elfhosted.com",
             "icon": "https://i.imgur.com/tVjqEJP.png",
-            "version": "4.1.6",
+            "version": "4.2.4",
             "catalogs": [],
             "resources": [
                 "stream"
