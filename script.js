@@ -303,11 +303,11 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
     }
     
     const TMDB_ADDON = {
-        "transportUrl": "https://94c8cb9f702d-tmdb-addon.baby-beamup.club/%7B%22ratings%22%3A%22on%22%2C%22rpdbkey%22%3A%22t0-free-rpdb%22%2C%22provide_imdbId%22%3A%22true%22%2C%22use_tmdb_prefix%22%3A%22true%22%2C%22language%22%3A%22he-IL%22%7D/manifest.json",
+        "transportUrl": "https://94c8cb9f702d-tmdb-addon.baby-beamup.club/%7B%22rpdbkey%22%3A%22t0-free-rpdb%22%2C%22provideImdbId%22%3A%22true%22%2C%22tmdbPrefix%22%3A%22true%22%2C%22language%22%3A%22he-IL%22%2C%22streaming%22%3A%5B%5D%2C%22catalogs%22%3A%5B%7B%22id%22%3A%22tmdb.top%22%2C%22type%22%3A%22movie%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22tmdb.top%22%2C%22type%22%3A%22series%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22tmdb.year%22%2C%22type%22%3A%22movie%22%2C%22showInHome%22%3Afalse%7D%2C%7B%22id%22%3A%22tmdb.language%22%2C%22type%22%3A%22movie%22%2C%22showInHome%22%3Afalse%7D%2C%7B%22id%22%3A%22tmdb.trending%22%2C%22type%22%3A%22movie%22%2C%22showInHome%22%3Afalse%7D%2C%7B%22id%22%3A%22tmdb.year%22%2C%22type%22%3A%22series%22%2C%22showInHome%22%3Afalse%7D%2C%7B%22id%22%3A%22tmdb.language%22%2C%22type%22%3A%22series%22%2C%22showInHome%22%3Afalse%7D%2C%7B%22id%22%3A%22tmdb.trending%22%2C%22type%22%3A%22series%22%2C%22showInHome%22%3Afalse%7D%5D%7D/manifest.json",
         "transportName": "",
         "manifest": {
             "id": "tmdb-addon",
-            "version": "3.0.18",
+            "version": "3.1.1",
             "favicon": "https://github.com/mrcanelas/tmdb-addon/raw/main/images/favicon.png",
             "logo": "https://github.com/mrcanelas/tmdb-addon/raw/main/images/logo.png",
             "background": "https://github.com/mrcanelas/tmdb-addon/raw/main/images/background.png",
@@ -339,6 +339,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                         {
                             "name": "genre",
                             "options": [
+                                "Top",
                                 "אימה",
                                 "אנימציה",
                                 "אקשן",
@@ -382,6 +383,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                         {
                             "name": "genre",
                             "options": [
+                                "2025",
                                 "2024",
                                 "2023",
                                 "2022",
@@ -401,8 +403,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                                 "2008",
                                 "2007",
                                 "2006",
-                                "2005",
-                                "2004"
+                                "2005"
                             ],
                             "isRequired": true
                         },
@@ -546,6 +547,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                         {
                             "name": "genre",
                             "options": [
+                                "Top",
                                 "אנימציה",
                                 "אקשן והרפתקאות",
                                 "דוקומנטרי",
@@ -586,6 +588,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                         {
                             "name": "genre",
                             "options": [
+                                "2025",
                                 "2024",
                                 "2023",
                                 "2022",
@@ -605,8 +608,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                                 "2008",
                                 "2007",
                                 "2006",
-                                "2005",
-                                "2004"
+                                "2005"
                             ],
                             "isRequired": true
                         },
