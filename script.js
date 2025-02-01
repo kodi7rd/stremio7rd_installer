@@ -2542,14 +2542,14 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
     } else if (selectedDebridService === "premiumize_service") {
         jacketCommunitySelectedDebridService = "premiumize";
     }
-    const JacketCommunityStremioUserSettingsB64 = btoa(`{"addonHost":"https://stremio-jackett.elfhosted.com","service":"${jacketCommunitySelectedDebridService}","debridKey":"${selectedDebridApiKey}","maxSize":"0","exclusionKeywords":[],"languages":["en","multi"],"sort":"qualitythensize","resultsPerQuality":"25","maxResults":"100","exclusion":[],"tmdbApi":"","torrenting":false,"debrid":true,"metadataProvider":"cinemeta"}`);
+    const JacketCommunityStremioUserSettingsB64 = btoa(`{"addonHost":"https://stremio-jackett.elfhosted.com","service":"${jacketCommunitySelectedDebridService}","debridKey":"${selectedDebridApiKey}","maxSize":"0","exclusionKeywords":[],"languages":["en","multi"],"getAllLanguages":false,"sort":"qualitythensize","resultsPerQuality":"25","maxResults":"100","exclusion":[],"tmdbApi":"","torrenting":false,"debrid":true,"metadataProvider":"cinemeta"}`);
     const JACKET_COMMUNITY_RD_ADDON = {
         "transportUrl": `https://stremio-jackett.elfhosted.com/${JacketCommunityStremioUserSettingsB64}/manifest.json`,
         "transportName": "",
         "manifest": {
-            "id": "community.aymene69.jackett",
+            "id": "stremio-jackett.elfhosted.com",
             "icon": "https://i.imgur.com/tVjqEJP.png",
-            "version": "4.1.6",
+            "version": "4.2.4",
             "catalogs": [],
             "resources": [
                 "stream"
