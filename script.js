@@ -1814,6 +1814,33 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "flags": {}
     }
     
+    const TELEGRAM_ADDON = {
+        "transportUrl": "https://stremio-hebrew-telegram-subtitles.vercel.app/manifest.json",
+        "transportName": "",
+        "manifest": {
+            "id": "hebrew-telegram-subtitles",
+            "version": "1.0.0",
+            "name": "Hebrew Telegram Subtitles",
+            "description": "Hebrew Subtitle Provider From Telegram",
+            "logo": "https://i.imgur.com/RCaCMfe.png",
+            "resources": [
+                "subtitles"
+            ],
+            "types": [
+                "movie",
+                "series"
+            ],
+            "catalogs": [],
+            "idPrefixes": [
+                "tt"
+            ],
+            "behaviorHints": {
+                "configurable": false
+            }
+        },
+        "flags": {}
+    }
+    
     const KTUVIT_ADDON = {
         "transportUrl": "https://4b139a4b7f94-ktuvit-stremio.baby-beamup.club/manifest.json",
         "transportName": "",
@@ -2635,6 +2662,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
     
     // Subtitles Addons
     const subtitlesAddonsToggles = [
+        { toggleId: 'telegram_addon_toggle', addon: TELEGRAM_ADDON },
         { toggleId: 'ktuvit_addon_toggle', addon: KTUVIT_ADDON },
         { toggleId: 'wizdom_addon_toggle', addon: WIZDOM_ADDON },
         { toggleId: 'opensubtitles_v3_addon_toggle', addon: OPENSUBTITLES_V3_ADDON },
