@@ -146,6 +146,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "flags": {}
     }
 
+    // IPTV Addons
     const ISRAEL_TV_ADDON = {
         "transportUrl": "https://stremioaddon.vercel.app/manifest.json",
         "transportName": "",
@@ -302,6 +303,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "flags": {}
     }
     
+    // Catalogs Addons
     const TMDB_ADDON = {
         "transportUrl": "https://94c8cb9f702d-tmdb-addon.baby-beamup.club/%7B%22rpdbkey%22%3A%22t0-free-rpdb%22%2C%22provideImdbId%22%3A%22true%22%2C%22tmdbPrefix%22%3A%22true%22%2C%22language%22%3A%22he-IL%22%2C%22streaming%22%3A%5B%5D%2C%22catalogs%22%3A%5B%7B%22id%22%3A%22tmdb.top%22%2C%22type%22%3A%22movie%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22tmdb.top%22%2C%22type%22%3A%22series%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22tmdb.year%22%2C%22type%22%3A%22movie%22%2C%22showInHome%22%3Afalse%7D%2C%7B%22id%22%3A%22tmdb.language%22%2C%22type%22%3A%22movie%22%2C%22showInHome%22%3Afalse%7D%2C%7B%22id%22%3A%22tmdb.trending%22%2C%22type%22%3A%22movie%22%2C%22showInHome%22%3Afalse%7D%2C%7B%22id%22%3A%22tmdb.year%22%2C%22type%22%3A%22series%22%2C%22showInHome%22%3Afalse%7D%2C%7B%22id%22%3A%22tmdb.language%22%2C%22type%22%3A%22series%22%2C%22showInHome%22%3Afalse%7D%2C%7B%22id%22%3A%22tmdb.trending%22%2C%22type%22%3A%22series%22%2C%22showInHome%22%3Afalse%7D%5D%7D/manifest.json",
         "transportName": "",
@@ -1814,6 +1816,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "flags": {}
     }
     
+    // Subtitles Addons
     const TELEGRAM_ADDON = {
         "transportUrl": "https://stremio-hebrew-telegram-subtitles.vercel.app/manifest.json",
         "transportName": "",
@@ -2004,42 +2007,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "flags": {}
     }
     
-    const SUBHERO_ADDON = {
-        "transportUrl": "https://subhero.onrender.com/%7B%22language%22%3A%22he%22%7D/manifest.json",
-        "transportName": "",
-        "manifest": {
-            "id": "community.subhero.wyzie",
-            "version": "1.0.3",
-            "name": "SubHero",
-            "contactEmail": null,
-            "description": "Subtitles with language filtering. Subtitles provided & scraped by Wyzie API.",
-            "logo": "https://cdn.icon-icons.com/icons2/3606/PNG/512/sculpture_statue_texture_futuristic_art_geometry_organic_abstract_shape_explode_shae_icon_226539.png",
-            "background": "https://w.wallhaven.cc/full/0p/wallhaven-0pjkp9.png",
-            "types": [
-                "movie",
-                "series"
-            ],
-            "resources": [
-                "subtitles"
-            ],
-            "idPrefixes": [
-                "tt"
-            ],
-            "catalogs": [],
-            "addonCatalogs": [],
-            "behaviorHints": {
-                "adult": false,
-                "p2p": false,
-                "configurable": true,
-                "configurationRequired": false
-            }
-        },
-        "flags": {
-            "official": false,
-            "protected": false
-        }
-    }
-    
+    // Torrents Addons
     const TORRENTIO_RD_ADDON = {
         "transportUrl": `https://torrentio.strem.fun/sort=qualitysize%7Crealdebrid=${selectedDebridApiKey}/manifest.json`,
         "transportName": "",
@@ -2668,8 +2636,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         { toggleId: 'opensubtitles_v3_addon_toggle', addon: OPENSUBTITLES_V3_ADDON },
         { toggleId: 'opensubtitles_pro_addon_toggle', addon: OPENSUBTITLES_PRO_ADDON },
         { toggleId: 'subsource_addon_toggle', addon: SUBSOURCE_ADDON },
-        { toggleId: 'yify_addon_toggle', addon: YIFY_ADDON },
-        { toggleId: 'subhero_addon_toggle', addon: SUBHERO_ADDON }
+        { toggleId: 'yify_addon_toggle', addon: YIFY_ADDON }
     ];
 
     let subtitlesAddons = [];
