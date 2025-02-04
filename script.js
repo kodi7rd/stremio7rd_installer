@@ -1824,7 +1824,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
             "id": "hebrew-telegram-subtitles",
             "version": "1.0.0",
             "name": "Hebrew Telegram Subtitles",
-            "description": "Hebrew Subtitle Provider From Telegram",
+            "description": "Hebrew Subtitles Provider From Telegram",
             "logo": "https://i.imgur.com/RCaCMfe.png",
             "resources": [
                 "subtitles"
