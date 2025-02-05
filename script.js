@@ -117,13 +117,15 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
     console.log(`excludedAddonsData:\n`, excludedAddonsData); // Pretty-print JSON
     
     // Addons Manifests
+    let debrid_service_short_name = selectedDebridService === "realdebrid" ? "RD" : "PM";
+    let debrid_service_text = selectedDebridService ? ` | ${debrid_service_short_name}` : "";
     const STREMIO7RD_BUILD_ADDON = {
-        "transportUrl": `https://stremio7rd-build.vercel.app/current_version=${BUILD_VERSION},show_catalog_even_if_updated=True/manifest.json`,
+        "transportUrl": `https://stremio7rd-build.vercel.app/current_version=${BUILD_VERSION},show_catalog_even_if_updated=True,debrid_service=${selectedDebridService},debrid_service_api_key=${selectedDebridApiKey}/manifest.json`,
         "transportName": "",
         "manifest": {
             "id": "org.stremio7rd.com",
             "version": `${BUILD_VERSION}`,
-            "name": "Stremio + Real Debrid Israel Build",
+            "name": `Stremio + Real Debrid Israel Build${debrid_service_text}`,
             "description": "Stremio + Real Debrid Israel Build Version Check.",
             "logo": "https://i.imgur.com/CRpsxpE.jpeg",
             "resources": [
