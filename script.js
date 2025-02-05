@@ -117,10 +117,17 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
     console.log(`excludedAddonsData:\n`, excludedAddonsData); // Pretty-print JSON
     
     // Addons Manifests
-    let debrid_service_short_name = selectedDebridService === "realdebrid" ? "RD" : "PM";
+    let debrid_service_name = "";
+    let debrid_service_short_name = "";
+    if (selectedDebridService === "realdebrid_service") {
+        debrid_service_name = "realdebrid";
+        debrid_service_short_name = "RD";
+    } else if (selectedDebridService === "premiumize_service") {
+        debrid_service_name = "premiumize";
+        debrid_service_short_name = "PM";
     let debrid_service_text = selectedDebridService ? ` | ${debrid_service_short_name}` : "";
     const STREMIO7RD_BUILD_ADDON = {
-        "transportUrl": `https://stremio7rd-build.vercel.app/current_version=${BUILD_VERSION},show_catalog_even_if_updated=True,debrid_service=${selectedDebridService},debrid_service_api_key=${selectedDebridApiKey}/manifest.json`,
+        "transportUrl": `https://stremio7rd-build.vercel.app/current_version=${BUILD_VERSION},show_catalog_even_if_updated=True,debrid_service=${debrid_service_name},debrid_service_api_key=${selectedDebridApiKey}/manifest.json`,
         "transportName": "",
         "manifest": {
             "id": "org.stremio7rd.com",
