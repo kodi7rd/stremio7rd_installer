@@ -1,5 +1,5 @@
 // Build version
-const BUILD_VERSION = "2.5.0";
+const BUILD_VERSION = "2.6.0";
 // API
 const STREMIO_API_BASE_URL = "https://api.strem.io/api";
 const STREMIO_API_LOGIN_URL = `${STREMIO_API_BASE_URL}/login`;
