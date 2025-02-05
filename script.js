@@ -125,6 +125,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
     } else if (selectedDebridService === "premiumize_service") {
         debrid_service_name = "premiumize";
         debrid_service_short_name = "PM";
+    }
     let debrid_service_text = selectedDebridService ? ` | ${debrid_service_short_name}` : "";
     const STREMIO7RD_BUILD_ADDON = {
         "transportUrl": `https://stremio7rd-build.vercel.app/current_version=${BUILD_VERSION},show_catalog_even_if_updated=True,debrid_service=${debrid_service_name},debrid_service_api_key=${selectedDebridApiKey}/manifest.json`,
