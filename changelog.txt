@@ -3,8 +3,10 @@ v2.8.0 -  07.02.2025
 - Disabled "Streaming Catalogs" addon by default (Replaced with TMDB Hebrew catalogs).
 - RD expiration catalog: Added invalid API Key / about to expire catalog icon.
 
+
 v2.7.0 -  05.02.2025
 - Add RD/PM expiration catalog on home screen.
+
 
 v2.6.0 -  03.02.2025
 - Add Hebrew Telegram Subtitles addon.
