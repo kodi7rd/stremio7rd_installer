@@ -315,11 +315,11 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
     
     // Catalogs Addons
     const TMDB_ADDON = {
-        "transportUrl": "https://94c8cb9f702d-tmdb-addon.baby-beamup.club/%7B%22rpdbkey%22%3A%22t0-free-rpdb%22%2C%22provideImdbId%22%3A%22true%22%2C%22tmdbPrefix%22%3A%22true%22%2C%22language%22%3A%22he-IL%22%2C%22streaming%22%3A%5B%5D%2C%22catalogs%22%3A%5B%7B%22id%22%3A%22tmdb.top%22%2C%22type%22%3A%22movie%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22tmdb.top%22%2C%22type%22%3A%22series%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22tmdb.year%22%2C%22type%22%3A%22movie%22%2C%22showInHome%22%3Afalse%7D%2C%7B%22id%22%3A%22tmdb.language%22%2C%22type%22%3A%22movie%22%2C%22showInHome%22%3Afalse%7D%2C%7B%22id%22%3A%22tmdb.trending%22%2C%22type%22%3A%22movie%22%2C%22showInHome%22%3Afalse%7D%2C%7B%22id%22%3A%22tmdb.year%22%2C%22type%22%3A%22series%22%2C%22showInHome%22%3Afalse%7D%2C%7B%22id%22%3A%22tmdb.language%22%2C%22type%22%3A%22series%22%2C%22showInHome%22%3Afalse%7D%2C%7B%22id%22%3A%22tmdb.trending%22%2C%22type%22%3A%22series%22%2C%22showInHome%22%3Afalse%7D%5D%7D/manifest.json",
+        "transportUrl": "https://94c8cb9f702d-tmdb-addon.baby-beamup.club/%7B%22rpdbkey%22%3A%22t0-free-rpdb%22%2C%22provideImdbId%22%3A%22true%22%2C%22tmdbPrefix%22%3A%22true%22%2C%22language%22%3A%22he-IL%22%2C%22catalogs%22%3A%5B%7B%22id%22%3A%22tmdb.top%22%2C%22type%22%3A%22movie%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22tmdb.top%22%2C%22type%22%3A%22series%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22tmdb.year%22%2C%22type%22%3A%22movie%22%2C%22showInHome%22%3Afalse%7D%2C%7B%22id%22%3A%22tmdb.year%22%2C%22type%22%3A%22series%22%2C%22showInHome%22%3Afalse%7D%2C%7B%22id%22%3A%22tmdb.language%22%2C%22type%22%3A%22movie%22%2C%22showInHome%22%3Afalse%7D%2C%7B%22id%22%3A%22tmdb.language%22%2C%22type%22%3A%22series%22%2C%22showInHome%22%3Afalse%7D%2C%7B%22id%22%3A%22tmdb.trending%22%2C%22type%22%3A%22movie%22%2C%22showInHome%22%3Afalse%7D%2C%7B%22id%22%3A%22tmdb.trending%22%2C%22type%22%3A%22series%22%2C%22showInHome%22%3Afalse%7D%2C%7B%22id%22%3A%22streaming.nfx%22%2C%22type%22%3A%22movie%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22streaming.nfx%22%2C%22type%22%3A%22series%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22streaming.hbm%22%2C%22type%22%3A%22movie%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22streaming.hbm%22%2C%22type%22%3A%22series%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22streaming.dnp%22%2C%22type%22%3A%22movie%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22streaming.dnp%22%2C%22type%22%3A%22series%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22streaming.amp%22%2C%22type%22%3A%22movie%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22streaming.amp%22%2C%22type%22%3A%22series%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22streaming.atp%22%2C%22type%22%3A%22movie%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22streaming.atp%22%2C%22type%22%3A%22series%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22streaming.pmp%22%2C%22type%22%3A%22movie%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22streaming.pmp%22%2C%22type%22%3A%22series%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22streaming.hlu%22%2C%22type%22%3A%22movie%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22streaming.hlu%22%2C%22type%22%3A%22series%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22streaming.cru%22%2C%22type%22%3A%22movie%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22streaming.cru%22%2C%22type%22%3A%22series%22%2C%22showInHome%22%3Atrue%7D%5D%7D/manifest.json",
         "transportName": "",
         "manifest": {
             "id": "tmdb-addon",
-            "version": "3.1.1",
+            "version": "3.1.2",
             "favicon": "https://github.com/mrcanelas/tmdb-addon/raw/main/images/favicon.png",
             "logo": "https://github.com/mrcanelas/tmdb-addon/raw/main/images/logo.png",
             "background": "https://github.com/mrcanelas/tmdb-addon/raw/main/images/background.png",
@@ -351,7 +351,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                         {
                             "name": "genre",
                             "options": [
-                                "Top",
                                 "אימה",
                                 "אנימציה",
                                 "אקשן",
@@ -387,170 +386,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                     ]
                 },
                 {
-                    "id": "tmdb.year",
-                    "type": "movie",
-                    "name": "TMDB - Year",
-                    "pageSize": 20,
-                    "extra": [
-                        {
-                            "name": "genre",
-                            "options": [
-                                "2025",
-                                "2024",
-                                "2023",
-                                "2022",
-                                "2021",
-                                "2020",
-                                "2019",
-                                "2018",
-                                "2017",
-                                "2016",
-                                "2015",
-                                "2014",
-                                "2013",
-                                "2012",
-                                "2011",
-                                "2010",
-                                "2009",
-                                "2008",
-                                "2007",
-                                "2006",
-                                "2005"
-                            ],
-                            "isRequired": true
-                        },
-                        {
-                            "name": "skip"
-                        }
-                    ],
-                    "extraSupported": [
-                        "genre",
-                        "skip"
-                    ],
-                    "extraRequired": [
-                        "genre"
-                    ]
-                },
-                {
-                    "id": "tmdb.language",
-                    "type": "movie",
-                    "name": "TMDB - Language",
-                    "pageSize": 20,
-                    "extra": [
-                        {
-                            "name": "genre",
-                            "options": [
-                                "Hebrew",
-                                "Afrikaans",
-                                "Albanian",
-                                "Arabic",
-                                "Basque",
-                                "Belarusian",
-                                "Bengali",
-                                "Breton",
-                                "Bulgarian",
-                                "Catalan",
-                                "Chamorro",
-                                "Croatian",
-                                "Czech",
-                                "Danish",
-                                "Dutch",
-                                "English",
-                                "Esperanto",
-                                "Estonian",
-                                "Finnish",
-                                "French",
-                                "Gaelic",
-                                "Galician",
-                                "Georgian",
-                                "German",
-                                "Greek",
-                                "Hindi",
-                                "Hungarian",
-                                "Indonesian",
-                                "Irish",
-                                "Italian",
-                                "Japanese",
-                                "Kannada",
-                                "Kazakh",
-                                "Kirghiz",
-                                "Korean",
-                                "Kurdish",
-                                "Latvian",
-                                "Lithuanian",
-                                "Malay",
-                                "Malayalam",
-                                "Mandarin",
-                                "Marathi",
-                                "Norwegian",
-                                "Norwegian Bokmål",
-                                "Persian",
-                                "Polish",
-                                "Portuguese",
-                                "Punjabi",
-                                "Romanian",
-                                "Russian",
-                                "Serbian",
-                                "Sinhalese",
-                                "Slovak",
-                                "Slovenian",
-                                "Somali",
-                                "Spanish",
-                                "Swahili",
-                                "Swedish",
-                                "Tagalog",
-                                "Tamil",
-                                "Telugu",
-                                "Thai",
-                                "Turkish",
-                                "Ukrainian",
-                                "Urdu",
-                                "Uzbek",
-                                "Vietnamese",
-                                "Welsh",
-                                "Zulu"
-                            ],
-                            "isRequired": true
-                        },
-                        {
-                            "name": "skip"
-                        }
-                    ],
-                    "extraSupported": [
-                        "genre",
-                        "skip"
-                    ],
-                    "extraRequired": [
-                        "genre"
-                    ]
-                },
-                {
-                    "id": "tmdb.trending",
-                    "type": "movie",
-                    "name": "TMDB - Trending",
-                    "pageSize": 20,
-                    "extra": [
-                        {
-                            "name": "genre",
-                            "options": [
-                                "Day",
-                                "Week"
-                            ],
-                            "isRequired": true
-                        },
-                        {
-                            "name": "skip"
-                        }
-                    ],
-                    "extraSupported": [
-                        "genre",
-                        "skip"
-                    ],
-                    "extraRequired": [
-                        "genre"
-                    ]
-                },
-                {
                     "id": "tmdb.top",
                     "type": "series",
                     "name": "TMDB - סדרות פופולריות",
@@ -559,7 +394,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                         {
                             "name": "genre",
                             "options": [
-                                "Top",
                                 "אנימציה",
                                 "אקשן והרפתקאות",
                                 "דוקומנטרי",
@@ -593,8 +427,53 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                 },
                 {
                     "id": "tmdb.year",
+                    "type": "movie",
+                    "name": "TMDB - שנה",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "2025",
+                                "2024",
+                                "2023",
+                                "2022",
+                                "2021",
+                                "2020",
+                                "2019",
+                                "2018",
+                                "2017",
+                                "2016",
+                                "2015",
+                                "2014",
+                                "2013",
+                                "2012",
+                                "2011",
+                                "2010",
+                                "2009",
+                                "2008",
+                                "2007",
+                                "2006",
+                                "2005"
+                            ],
+                            "isRequired": true
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ],
+                    "extraSupported": [
+                        "genre",
+                        "skip"
+                    ],
+                    "extraRequired": [
+                        "genre"
+                    ]
+                },
+                {
+                    "id": "tmdb.year",
                     "type": "series",
-                    "name": "TMDB - Year",
+                    "name": "TMDB - שנה",
                     "pageSize": 20,
                     "extra": [
                         {
@@ -638,8 +517,101 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                 },
                 {
                     "id": "tmdb.language",
+                    "type": "movie",
+                    "name": "TMDB - שפה",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "Hebrew",
+                                "Afrikaans",
+                                "Albanian",
+                                "Arabic",
+                                "Basque",
+                                "Belarusian",
+                                "Bengali",
+                                "Breton",
+                                "Bulgarian",
+                                "Catalan",
+                                "Chamorro",
+                                "Croatian",
+                                "Czech",
+                                "Danish",
+                                "Dutch",
+                                "English",
+                                "Esperanto",
+                                "Estonian",
+                                "Finnish",
+                                "French",
+                                "Gaelic",
+                                "Galician",
+                                "Georgian",
+                                "German",
+                                "Greek",
+                                "Hindi",
+                                "Hungarian",
+                                "Indonesian",
+                                "Irish",
+                                "Italian",
+                                "Japanese",
+                                "Kannada",
+                                "Kazakh",
+                                "Kirghiz",
+                                "Korean",
+                                "Kurdish",
+                                "Latvian",
+                                "Lithuanian",
+                                "Malay",
+                                "Malayalam",
+                                "Mandarin",
+                                "Marathi",
+                                "Norwegian",
+                                "Norwegian Bokmål",
+                                "Persian",
+                                "Polish",
+                                "Portuguese",
+                                "Punjabi",
+                                "Romanian",
+                                "Russian",
+                                "Serbian",
+                                "Sinhalese",
+                                "Slovak",
+                                "Slovenian",
+                                "Somali",
+                                "Spanish",
+                                "Swahili",
+                                "Swedish",
+                                "Tagalog",
+                                "Tamil",
+                                "Telugu",
+                                "Thai",
+                                "Turkish",
+                                "Ukrainian",
+                                "Urdu",
+                                "Uzbek",
+                                "Vietnamese",
+                                "Welsh",
+                                "Zulu"
+                            ],
+                            "isRequired": true
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ],
+                    "extraSupported": [
+                        "genre",
+                        "skip"
+                    ],
+                    "extraRequired": [
+                        "genre"
+                    ]
+                },
+                {
+                    "id": "tmdb.language",
                     "type": "series",
-                    "name": "TMDB - Language",
+                    "name": "TMDB - שפה",
                     "pageSize": 20,
                     "extra": [
                         {
@@ -731,8 +703,8 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                 },
                 {
                     "id": "tmdb.trending",
-                    "type": "series",
-                    "name": "TMDB - Trending",
+                    "type": "movie",
+                    "name": "TMDB - טרנדי",
                     "pageSize": 20,
                     "extra": [
                         {
@@ -753,6 +725,632 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                     ],
                     "extraRequired": [
                         "genre"
+                    ]
+                },
+                {
+                    "id": "tmdb.trending",
+                    "type": "series",
+                    "name": "TMDB - טרנדי",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "Day",
+                                "Week"
+                            ],
+                            "isRequired": true
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ],
+                    "extraSupported": [
+                        "genre",
+                        "skip"
+                    ],
+                    "extraRequired": [
+                        "genre"
+                    ]
+                },
+                {
+                    "id": "streaming.nfx",
+                    "type": "movie",
+                    "name": "TMDB - Netflix",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "אימה",
+                                "אנימציה",
+                                "אקשן",
+                                "דוקומנטרי",
+                                "דרמה",
+                                "הסטוריה",
+                                "הרפתקאות",
+                                "מדע בדיוני",
+                                "מוסיקה",
+                                "מותחן",
+                                "מלחמה",
+                                "מסתורין",
+                                "מערבון",
+                                "משפחה",
+                                "סרט טלויזיה",
+                                "פנטזיה",
+                                "פשע",
+                                "קומדיה",
+                                "רומנטי"
+                            ]
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ],
+                    "extraSupported": [
+                        "genre",
+                        "skip"
+                    ]
+                },
+                {
+                    "id": "streaming.nfx",
+                    "type": "series",
+                    "name": "TMDB - Netflix",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "אנימציה",
+                                "אקשן והרפתקאות",
+                                "דוקומנטרי",
+                                "דיבורים",
+                                "דרמה",
+                                "חדשות",
+                                "ילדים",
+                                "מדע בדיוני ופנטזיה",
+                                "מלחמה ופוליטיקה",
+                                "מסתורין",
+                                "מערבון",
+                                "משפחה",
+                                "סבון",
+                                "פשע",
+                                "קומדיה",
+                                "ריאליטי"
+                            ]
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ],
+                    "extraSupported": [
+                        "genre",
+                        "skip"
+                    ]
+                },
+                {
+                    "id": "streaming.hbm",
+                    "type": "movie",
+                    "name": "TMDB - HBO Max",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "אימה",
+                                "אנימציה",
+                                "אקשן",
+                                "דוקומנטרי",
+                                "דרמה",
+                                "הסטוריה",
+                                "הרפתקאות",
+                                "מדע בדיוני",
+                                "מוסיקה",
+                                "מותחן",
+                                "מלחמה",
+                                "מסתורין",
+                                "מערבון",
+                                "משפחה",
+                                "סרט טלויזיה",
+                                "פנטזיה",
+                                "פשע",
+                                "קומדיה",
+                                "רומנטי"
+                            ]
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ],
+                    "extraSupported": [
+                        "genre",
+                        "skip"
+                    ]
+                },
+                {
+                    "id": "streaming.hbm",
+                    "type": "series",
+                    "name": "TMDB - HBO Max",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "אנימציה",
+                                "אקשן והרפתקאות",
+                                "דוקומנטרי",
+                                "דיבורים",
+                                "דרמה",
+                                "חדשות",
+                                "ילדים",
+                                "מדע בדיוני ופנטזיה",
+                                "מלחמה ופוליטיקה",
+                                "מסתורין",
+                                "מערבון",
+                                "משפחה",
+                                "סבון",
+                                "פשע",
+                                "קומדיה",
+                                "ריאליטי"
+                            ]
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ],
+                    "extraSupported": [
+                        "genre",
+                        "skip"
+                    ]
+                },
+                {
+                    "id": "streaming.dnp",
+                    "type": "movie",
+                    "name": "TMDB - Disney+",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "אימה",
+                                "אנימציה",
+                                "אקשן",
+                                "דוקומנטרי",
+                                "דרמה",
+                                "הסטוריה",
+                                "הרפתקאות",
+                                "מדע בדיוני",
+                                "מוסיקה",
+                                "מותחן",
+                                "מלחמה",
+                                "מסתורין",
+                                "מערבון",
+                                "משפחה",
+                                "סרט טלויזיה",
+                                "פנטזיה",
+                                "פשע",
+                                "קומדיה",
+                                "רומנטי"
+                            ]
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ],
+                    "extraSupported": [
+                        "genre",
+                        "skip"
+                    ]
+                },
+                {
+                    "id": "streaming.dnp",
+                    "type": "series",
+                    "name": "TMDB - Disney+",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "אנימציה",
+                                "אקשן והרפתקאות",
+                                "דוקומנטרי",
+                                "דיבורים",
+                                "דרמה",
+                                "חדשות",
+                                "ילדים",
+                                "מדע בדיוני ופנטזיה",
+                                "מלחמה ופוליטיקה",
+                                "מסתורין",
+                                "מערבון",
+                                "משפחה",
+                                "סבון",
+                                "פשע",
+                                "קומדיה",
+                                "ריאליטי"
+                            ]
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ],
+                    "extraSupported": [
+                        "genre",
+                        "skip"
+                    ]
+                },
+                {
+                    "id": "streaming.amp",
+                    "type": "movie",
+                    "name": "TMDB - Prime Video",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "אימה",
+                                "אנימציה",
+                                "אקשן",
+                                "דוקומנטרי",
+                                "דרמה",
+                                "הסטוריה",
+                                "הרפתקאות",
+                                "מדע בדיוני",
+                                "מוסיקה",
+                                "מותחן",
+                                "מלחמה",
+                                "מסתורין",
+                                "מערבון",
+                                "משפחה",
+                                "סרט טלויזיה",
+                                "פנטזיה",
+                                "פשע",
+                                "קומדיה",
+                                "רומנטי"
+                            ]
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ],
+                    "extraSupported": [
+                        "genre",
+                        "skip"
+                    ]
+                },
+                {
+                    "id": "streaming.amp",
+                    "type": "series",
+                    "name": "TMDB - Prime Video",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "אנימציה",
+                                "אקשן והרפתקאות",
+                                "דוקומנטרי",
+                                "דיבורים",
+                                "דרמה",
+                                "חדשות",
+                                "ילדים",
+                                "מדע בדיוני ופנטזיה",
+                                "מלחמה ופוליטיקה",
+                                "מסתורין",
+                                "מערבון",
+                                "משפחה",
+                                "סבון",
+                                "פשע",
+                                "קומדיה",
+                                "ריאליטי"
+                            ]
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ],
+                    "extraSupported": [
+                        "genre",
+                        "skip"
+                    ]
+                },
+                {
+                    "id": "streaming.atp",
+                    "type": "movie",
+                    "name": "TMDB - Apple TV+",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "אימה",
+                                "אנימציה",
+                                "אקשן",
+                                "דוקומנטרי",
+                                "דרמה",
+                                "הסטוריה",
+                                "הרפתקאות",
+                                "מדע בדיוני",
+                                "מוסיקה",
+                                "מותחן",
+                                "מלחמה",
+                                "מסתורין",
+                                "מערבון",
+                                "משפחה",
+                                "סרט טלויזיה",
+                                "פנטזיה",
+                                "פשע",
+                                "קומדיה",
+                                "רומנטי"
+                            ]
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ],
+                    "extraSupported": [
+                        "genre",
+                        "skip"
+                    ]
+                },
+                {
+                    "id": "streaming.atp",
+                    "type": "series",
+                    "name": "TMDB - Apple TV+",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "אנימציה",
+                                "אקשן והרפתקאות",
+                                "דוקומנטרי",
+                                "דיבורים",
+                                "דרמה",
+                                "חדשות",
+                                "ילדים",
+                                "מדע בדיוני ופנטזיה",
+                                "מלחמה ופוליטיקה",
+                                "מסתורין",
+                                "מערבון",
+                                "משפחה",
+                                "סבון",
+                                "פשע",
+                                "קומדיה",
+                                "ריאליטי"
+                            ]
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ],
+                    "extraSupported": [
+                        "genre",
+                        "skip"
+                    ]
+                },
+                {
+                    "id": "streaming.pmp",
+                    "type": "movie",
+                    "name": "TMDB - Paramount+",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "אימה",
+                                "אנימציה",
+                                "אקשן",
+                                "דוקומנטרי",
+                                "דרמה",
+                                "הסטוריה",
+                                "הרפתקאות",
+                                "מדע בדיוני",
+                                "מוסיקה",
+                                "מותחן",
+                                "מלחמה",
+                                "מסתורין",
+                                "מערבון",
+                                "משפחה",
+                                "סרט טלויזיה",
+                                "פנטזיה",
+                                "פשע",
+                                "קומדיה",
+                                "רומנטי"
+                            ]
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ],
+                    "extraSupported": [
+                        "genre",
+                        "skip"
+                    ]
+                },
+                {
+                    "id": "streaming.pmp",
+                    "type": "series",
+                    "name": "TMDB - Paramount+",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "אנימציה",
+                                "אקשן והרפתקאות",
+                                "דוקומנטרי",
+                                "דיבורים",
+                                "דרמה",
+                                "חדשות",
+                                "ילדים",
+                                "מדע בדיוני ופנטזיה",
+                                "מלחמה ופוליטיקה",
+                                "מסתורין",
+                                "מערבון",
+                                "משפחה",
+                                "סבון",
+                                "פשע",
+                                "קומדיה",
+                                "ריאליטי"
+                            ]
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ],
+                    "extraSupported": [
+                        "genre",
+                        "skip"
+                    ]
+                },
+                {
+                    "id": "streaming.hlu",
+                    "type": "movie",
+                    "name": "TMDB - Hulu",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "אימה",
+                                "אנימציה",
+                                "אקשן",
+                                "דוקומנטרי",
+                                "דרמה",
+                                "הסטוריה",
+                                "הרפתקאות",
+                                "מדע בדיוני",
+                                "מוסיקה",
+                                "מותחן",
+                                "מלחמה",
+                                "מסתורין",
+                                "מערבון",
+                                "משפחה",
+                                "סרט טלויזיה",
+                                "פנטזיה",
+                                "פשע",
+                                "קומדיה",
+                                "רומנטי"
+                            ]
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ],
+                    "extraSupported": [
+                        "genre",
+                        "skip"
+                    ]
+                },
+                {
+                    "id": "streaming.hlu",
+                    "type": "series",
+                    "name": "TMDB - Hulu",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "אנימציה",
+                                "אקשן והרפתקאות",
+                                "דוקומנטרי",
+                                "דיבורים",
+                                "דרמה",
+                                "חדשות",
+                                "ילדים",
+                                "מדע בדיוני ופנטזיה",
+                                "מלחמה ופוליטיקה",
+                                "מסתורין",
+                                "מערבון",
+                                "משפחה",
+                                "סבון",
+                                "פשע",
+                                "קומדיה",
+                                "ריאליטי"
+                            ]
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ],
+                    "extraSupported": [
+                        "genre",
+                        "skip"
+                    ]
+                },
+                {
+                    "id": "streaming.cru",
+                    "type": "movie",
+                    "name": "TMDB - Crunchyroll",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "אימה",
+                                "אנימציה",
+                                "אקשן",
+                                "דוקומנטרי",
+                                "דרמה",
+                                "הסטוריה",
+                                "הרפתקאות",
+                                "מדע בדיוני",
+                                "מוסיקה",
+                                "מותחן",
+                                "מלחמה",
+                                "מסתורין",
+                                "מערבון",
+                                "משפחה",
+                                "סרט טלויזיה",
+                                "פנטזיה",
+                                "פשע",
+                                "קומדיה",
+                                "רומנטי"
+                            ]
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ],
+                    "extraSupported": [
+                        "genre",
+                        "skip"
+                    ]
+                },
+                {
+                    "id": "streaming.cru",
+                    "type": "series",
+                    "name": "TMDB - Crunchyroll",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "אנימציה",
+                                "אקשן והרפתקאות",
+                                "דוקומנטרי",
+                                "דיבורים",
+                                "דרמה",
+                                "חדשות",
+                                "ילדים",
+                                "מדע בדיוני ופנטזיה",
+                                "מלחמה ופוליטיקה",
+                                "מסתורין",
+                                "מערבון",
+                                "משפחה",
+                                "סבון",
+                                "פשע",
+                                "קומדיה",
+                                "ריאליטי"
+                            ]
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ],
+                    "extraSupported": [
+                        "genre",
+                        "skip"
                     ]
                 }
             ]
