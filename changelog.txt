@@ -1,0 +1,12 @@
+v2.8.0 -  07.02.2025
+- TMDB 3.1.2 addon now provides Hebrew catalogs for Network Streaming providers.
+- Disabled "Streaming Catalogs" addon by default (Replaced with TMDB Hebrew catalogs).
+- RD expiration check: Added invalid API Key / about to expire catalog icon.
+
+v2.7.0 -  05.02.2025
+- Add RD/PM expiration catalog on home screen.
+
+v2.6.0 -  03.02.2025
+- Add Hebrew Telegram Subtitles addon.
+- Update MediaFusion to 4.3.17
+- Remove SubHero subtitles addon.
