@@ -3218,11 +3218,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
     if (document.getElementById('tmdb_addon_toggle').checked) {
         catalogAddons.push(TMDB_ADDON);
     }
-
-    // Add Stremio's core Cinemeta + Local Files addons
-    catalogAddons.push(
-        ...installedAddons.filter(addon => addon.manifest.id === CINEMETA_ADDON_ID || addon.manifest.id === LOCAL_FILES_ADDON_ID)
-    );
     
     // Conditionally add other catalog addons based on toggles
     if (document.getElementById('streaming_catalogs_addon_toggle').checked) {
@@ -3234,6 +3229,11 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
     if (document.getElementById('anime_kitsu_addon_toggle').checked) {
         catalogAddons.push(ANIME_KITSU_ADDON);
     }
+
+    // Add Stremio's core Cinemeta + Local Files addons
+    catalogAddons.push(
+        ...installedAddons.filter(addon => addon.manifest.id === CINEMETA_ADDON_ID || addon.manifest.id === LOCAL_FILES_ADDON_ID)
+    );
     
     
     // Subtitles Addons
