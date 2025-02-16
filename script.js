@@ -756,7 +756,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                 {
                     "id": "streaming.nfx",
                     "type": "movie",
-                    "name": "TMDB - Netflix",
+                    "name": "TMDB - נטפליקס",
                     "pageSize": 20,
                     "extra": [
                         {
@@ -795,7 +795,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                 {
                     "id": "streaming.nfx",
                     "type": "series",
-                    "name": "TMDB - Netflix",
+                    "name": "TMDB - נטפליקס",
                     "pageSize": 20,
                     "extra": [
                         {
@@ -906,7 +906,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                 {
                     "id": "streaming.dnp",
                     "type": "movie",
-                    "name": "TMDB - Disney+",
+                    "name": "TMDB - דיסני פלוס",
                     "pageSize": 20,
                     "extra": [
                         {
@@ -945,7 +945,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                 {
                     "id": "streaming.dnp",
                     "type": "series",
-                    "name": "TMDB - Disney+",
+                    "name": "TMDB - דיסני פלוס",
                     "pageSize": 20,
                     "extra": [
                         {
@@ -981,7 +981,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                 {
                     "id": "streaming.amp",
                     "type": "movie",
-                    "name": "TMDB - Prime Video",
+                    "name": "TMDB - אמזון פריים",
                     "pageSize": 20,
                     "extra": [
                         {
@@ -1020,7 +1020,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                 {
                     "id": "streaming.amp",
                     "type": "series",
-                    "name": "TMDB - Prime Video",
+                    "name": "TMDB - אמזון פריים",
                     "pageSize": 20,
                     "extra": [
                         {
@@ -1056,7 +1056,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                 {
                     "id": "streaming.atp",
                     "type": "movie",
-                    "name": "TMDB - Apple TV+",
+                    "name": "TMDB - אפל טיוי פלוס",
                     "pageSize": 20,
                     "extra": [
                         {
@@ -1095,7 +1095,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                 {
                     "id": "streaming.atp",
                     "type": "series",
-                    "name": "TMDB - Apple TV+",
+                    "name": "TMDB - אפל טיוי פלוס",
                     "pageSize": 20,
                     "extra": [
                         {
@@ -1131,7 +1131,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                 {
                     "id": "streaming.pmp",
                     "type": "movie",
-                    "name": "TMDB - Paramount+",
+                    "name": "TMDB - פרמאונט",
                     "pageSize": 20,
                     "extra": [
                         {
@@ -1170,7 +1170,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                 {
                     "id": "streaming.pmp",
                     "type": "series",
-                    "name": "TMDB - Paramount+",
+                    "name": "TMDB - פרמאונט",
                     "pageSize": 20,
                     "extra": [
                         {
@@ -1206,7 +1206,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                 {
                     "id": "streaming.hlu",
                     "type": "movie",
-                    "name": "TMDB - Hulu",
+                    "name": "TMDB - הולו",
                     "pageSize": 20,
                     "extra": [
                         {
@@ -1245,7 +1245,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                 {
                     "id": "streaming.hlu",
                     "type": "series",
-                    "name": "TMDB - Hulu",
+                    "name": "TMDB - הולו",
                     "pageSize": 20,
                     "extra": [
                         {
@@ -1281,7 +1281,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                 {
                     "id": "streaming.cru",
                     "type": "movie",
-                    "name": "TMDB - Crunchyroll",
+                    "name": "TMDB - קראנצ'ירול",
                     "pageSize": 20,
                     "extra": [
                         {
@@ -1320,7 +1320,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                 {
                     "id": "streaming.cru",
                     "type": "series",
-                    "name": "TMDB - Crunchyroll",
+                    "name": "TMDB - קראנצ'ירול",
                     "pageSize": 20,
                     "extra": [
                         {
