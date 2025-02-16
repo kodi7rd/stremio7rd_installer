@@ -3152,7 +3152,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "manifest": {
             "id": "stremio-jackett.elfhosted.com",
             "icon": "https://i.imgur.com/tVjqEJP.png",
-            "version": "4.2.4",
+            "version": "4.2.6",
             "catalogs": [],
             "resources": [
                 "stream"
@@ -3175,7 +3175,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "manifest": {
             "id": "stremio-jackett.elfhosted.com",
             "icon": "https://i.imgur.com/tVjqEJP.png",
-            "version": "4.2.4",
+            "version": "4.2.6",
             "catalogs": [],
             "resources": [
                 "stream"
