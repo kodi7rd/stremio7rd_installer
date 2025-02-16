@@ -319,10 +319,10 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "transportName": "",
         "manifest": {
             "id": "tmdb-addon",
-            "version": "3.1.2",
-            "favicon": "https://github.com/mrcanelas/tmdb-addon/raw/main/images/favicon.png",
-            "logo": "https://github.com/mrcanelas/tmdb-addon/raw/main/images/logo.png",
-            "background": "https://github.com/mrcanelas/tmdb-addon/raw/main/images/background.png",
+            "version": "3.1.3",
+            "favicon": "https://github.com/mrcanelas/tmdb-addon/raw/main/addon/images/favicon.png",
+            "logo": "https://github.com/mrcanelas/tmdb-addon/raw/main/addon/images/logo.png",
+            "background": "https://github.com/mrcanelas/tmdb-addon/raw/main/addon/images/background.png",
             "name": "The Movie Database Addon",
             "description": "Metadata provided by TMDB with he-IL language.",
             "resources": [
