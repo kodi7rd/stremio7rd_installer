@@ -1,3 +1,9 @@
+v2.9.0 -  16.02.2025
+- Update TMDB to 3.1.3 + Translate Networks catalogs to Hebrew.
+- Update MediaFusion to 4.3.21
+- Update Jackett Community to 4.2.6
+
+
 v2.8.0 -  07.02.2025
 - TMDB 3.1.2 addon now provides Hebrew catalogs for Network Streaming providers.
 - Disabled "Streaming Catalogs" addon by default (Replaced with TMDB Hebrew catalogs).
