@@ -1131,7 +1131,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                 {
                     "id": "streaming.pmp",
                     "type": "movie",
-                    "name": "TMDB - פרמאונט+",
+                    "name": "TMDB - פרמאונט",
                     "pageSize": 20,
                     "extra": [
                         {
@@ -1170,7 +1170,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                 {
                     "id": "streaming.pmp",
                     "type": "series",
-                    "name": "TMDB - פרמאונט+",
+                    "name": "TMDB - פרמאונט",
                     "pageSize": 20,
                     "extra": [
                         {
