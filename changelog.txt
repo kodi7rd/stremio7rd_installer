@@ -1,6 +1,6 @@
 v3.1.0 -  22.02.2025
 - TMDb catalogs - Disable RPDB rating in favor of Hebrew posters.
-- If you still you want rating, re-configure TMDB with "t0-free-rpdb" API key, or using Rating addon:
+- If you still you want rating, re-configure TMDB with "t0-free-rpdb" API key (posters will be in English), or using Rating addon:
 https://47623cd32ba8-stremio-addon-ratings.baby-beamup.club
 
 v3.0.0 -  22.02.2025
