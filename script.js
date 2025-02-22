@@ -370,19 +370,12 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                                 "פשע",
                                 "קומדיה",
                                 "רומנטי"
-                            ]
-                        },
-                        {
-                            "name": "search"
+                            ],
+                            "isRequired": false
                         },
                         {
                             "name": "skip"
                         }
-                    ],
-                    "extraSupported": [
-                        "genre",
-                        "skip",
-                        "search"
                     ]
                 },
                 {
@@ -410,19 +403,12 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                                 "פשע",
                                 "קומדיה",
                                 "ריאליטי"
-                            ]
-                        },
-                        {
-                            "name": "search"
+                            ],
+                            "isRequired": false
                         },
                         {
                             "name": "skip"
                         }
-                    ],
-                    "extraSupported": [
-                        "genre",
-                        "skip",
-                        "search"
                     ]
                 },
                 {
@@ -461,13 +447,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                         {
                             "name": "skip"
                         }
-                    ],
-                    "extraSupported": [
-                        "genre",
-                        "skip"
-                    ],
-                    "extraRequired": [
-                        "genre"
                     ]
                 },
                 {
@@ -506,13 +485,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                         {
                             "name": "skip"
                         }
-                    ],
-                    "extraSupported": [
-                        "genre",
-                        "skip"
-                    ],
-                    "extraRequired": [
-                        "genre"
                     ]
                 },
                 {
@@ -599,13 +571,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                         {
                             "name": "skip"
                         }
-                    ],
-                    "extraSupported": [
-                        "genre",
-                        "skip"
-                    ],
-                    "extraRequired": [
-                        "genre"
                     ]
                 },
                 {
@@ -692,13 +657,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                         {
                             "name": "skip"
                         }
-                    ],
-                    "extraSupported": [
-                        "genre",
-                        "skip"
-                    ],
-                    "extraRequired": [
-                        "genre"
                     ]
                 },
                 {
@@ -718,13 +676,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                         {
                             "name": "skip"
                         }
-                    ],
-                    "extraSupported": [
-                        "genre",
-                        "skip"
-                    ],
-                    "extraRequired": [
-                        "genre"
                     ]
                 },
                 {
@@ -744,13 +695,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                         {
                             "name": "skip"
                         }
-                    ],
-                    "extraSupported": [
-                        "genre",
-                        "skip"
-                    ],
-                    "extraRequired": [
-                        "genre"
                     ]
                 },
                 {
@@ -781,15 +725,12 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                                 "פשע",
                                 "קומדיה",
                                 "רומנטי"
-                            ]
+                            ],
+                            "isRequired": false
                         },
                         {
                             "name": "skip"
                         }
-                    ],
-                    "extraSupported": [
-                        "genre",
-                        "skip"
                     ]
                 },
                 {
@@ -817,15 +758,12 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                                 "פשע",
                                 "קומדיה",
                                 "ריאליטי"
-                            ]
+                            ],
+                            "isRequired": false
                         },
                         {
                             "name": "skip"
                         }
-                    ],
-                    "extraSupported": [
-                        "genre",
-                        "skip"
                     ]
                 },
                 {
@@ -856,15 +794,12 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                                 "פשע",
                                 "קומדיה",
                                 "רומנטי"
-                            ]
+                            ],
+                            "isRequired": false
                         },
                         {
                             "name": "skip"
                         }
-                    ],
-                    "extraSupported": [
-                        "genre",
-                        "skip"
                     ]
                 },
                 {
@@ -892,15 +827,12 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                                 "פשע",
                                 "קומדיה",
                                 "ריאליטי"
-                            ]
+                            ],
+                            "isRequired": false
                         },
                         {
                             "name": "skip"
                         }
-                    ],
-                    "extraSupported": [
-                        "genre",
-                        "skip"
                     ]
                 },
                 {
@@ -931,15 +863,12 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                                 "פשע",
                                 "קומדיה",
                                 "רומנטי"
-                            ]
+                            ],
+                            "isRequired": false
                         },
                         {
                             "name": "skip"
                         }
-                    ],
-                    "extraSupported": [
-                        "genre",
-                        "skip"
                     ]
                 },
                 {
@@ -967,21 +896,18 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                                 "פשע",
                                 "קומדיה",
                                 "ריאליטי"
-                            ]
+                            ],
+                            "isRequired": false
                         },
                         {
                             "name": "skip"
                         }
-                    ],
-                    "extraSupported": [
-                        "genre",
-                        "skip"
                     ]
                 },
                 {
                     "id": "streaming.amp",
                     "type": "movie",
-                    "name": "TMDB - אמזון פריים",
+                    "name": "TMDB - אמזון פריים וידאו",
                     "pageSize": 20,
                     "extra": [
                         {
@@ -1006,21 +932,18 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                                 "פשע",
                                 "קומדיה",
                                 "רומנטי"
-                            ]
+                            ],
+                            "isRequired": false
                         },
                         {
                             "name": "skip"
                         }
-                    ],
-                    "extraSupported": [
-                        "genre",
-                        "skip"
                     ]
                 },
                 {
                     "id": "streaming.amp",
                     "type": "series",
-                    "name": "TMDB - אמזון פריים",
+                    "name": "TMDB - אמזון פריים וידאו",
                     "pageSize": 20,
                     "extra": [
                         {
@@ -1042,15 +965,12 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                                 "פשע",
                                 "קומדיה",
                                 "ריאליטי"
-                            ]
+                            ],
+                            "isRequired": false
                         },
                         {
                             "name": "skip"
                         }
-                    ],
-                    "extraSupported": [
-                        "genre",
-                        "skip"
                     ]
                 },
                 {
@@ -1081,15 +1001,12 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                                 "פשע",
                                 "קומדיה",
                                 "רומנטי"
-                            ]
+                            ],
+                            "isRequired": false
                         },
                         {
                             "name": "skip"
                         }
-                    ],
-                    "extraSupported": [
-                        "genre",
-                        "skip"
                     ]
                 },
                 {
@@ -1117,15 +1034,12 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                                 "פשע",
                                 "קומדיה",
                                 "ריאליטי"
-                            ]
+                            ],
+                            "isRequired": false
                         },
                         {
                             "name": "skip"
                         }
-                    ],
-                    "extraSupported": [
-                        "genre",
-                        "skip"
                     ]
                 },
                 {
@@ -1156,15 +1070,12 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                                 "פשע",
                                 "קומדיה",
                                 "רומנטי"
-                            ]
+                            ],
+                            "isRequired": false
                         },
                         {
                             "name": "skip"
                         }
-                    ],
-                    "extraSupported": [
-                        "genre",
-                        "skip"
                     ]
                 },
                 {
@@ -1192,15 +1103,12 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                                 "פשע",
                                 "קומדיה",
                                 "ריאליטי"
-                            ]
+                            ],
+                            "isRequired": false
                         },
                         {
                             "name": "skip"
                         }
-                    ],
-                    "extraSupported": [
-                        "genre",
-                        "skip"
                     ]
                 },
                 {
@@ -1231,15 +1139,12 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                                 "פשע",
                                 "קומדיה",
                                 "רומנטי"
-                            ]
+                            ],
+                            "isRequired": false
                         },
                         {
                             "name": "skip"
                         }
-                    ],
-                    "extraSupported": [
-                        "genre",
-                        "skip"
                     ]
                 },
                 {
@@ -1267,15 +1172,12 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                                 "פשע",
                                 "קומדיה",
                                 "ריאליטי"
-                            ]
+                            ],
+                            "isRequired": false
                         },
                         {
                             "name": "skip"
                         }
-                    ],
-                    "extraSupported": [
-                        "genre",
-                        "skip"
                     ]
                 },
                 {
@@ -1306,15 +1208,12 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                                 "פשע",
                                 "קומדיה",
                                 "רומנטי"
-                            ]
+                            ],
+                            "isRequired": false
                         },
                         {
                             "name": "skip"
                         }
-                    ],
-                    "extraSupported": [
-                        "genre",
-                        "skip"
                     ]
                 },
                 {
@@ -1342,15 +1241,36 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                                 "פשע",
                                 "קומדיה",
                                 "ריאליטי"
-                            ]
+                            ],
+                            "isRequired": false
                         },
                         {
                             "name": "skip"
                         }
-                    ],
-                    "extraSupported": [
-                        "genre",
-                        "skip"
+                    ]
+                },
+                {
+                    "id": "tmdb.search",
+                    "type": "movie",
+                    "name": "TMDB - חיפוש",
+                    "extra": [
+                        {
+                            "name": "search",
+                            "isRequired": true,
+                            "options": []
+                        }
+                    ]
+                },
+                {
+                    "id": "tmdb.search",
+                    "type": "series",
+                    "name": "TMDB - חיפוש",
+                    "extra": [
+                        {
+                            "name": "search",
+                            "isRequired": true,
+                            "options": []
+                        }
                     ]
                 }
             ]
