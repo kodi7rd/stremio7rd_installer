@@ -2536,6 +2536,38 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
     }
     
     // Torrents Addons
+    const MOVIESONLINEDATES_ADDON = {
+        "transportUrl": "https://stremio-movies-online-dates.vercel.app/manifest.json",
+        "transportName": "",
+        "manifest": {
+            "id": "plugin.info.MoviesDatesOnline",
+            "version": "1.0.0",
+            "name": "מתי יגיע לרשת?",
+            "description": "מידע מתי כל סרט מגיע לרשת. המידע לקוח מהערוץ הטלגרם \"מתי יגיע לרשת?\" @MoviesOnlineDates",
+            "logo": "https://i.imgur.com/nxcvzQp.jpeg",
+            "catalogs": [],
+            "types": [
+                "movie"
+            ],
+            "resources": [
+                {
+                    "name": "stream",
+                    "types": [
+                        "movie"
+                    ],
+                    "idPrefixes": [
+                        "tt",
+                        "tmdb:"
+                    ]
+                }
+            ],
+            "behaviorHints": {
+                "configurable": false
+            }
+        },
+        "flags": {}
+    }
+
     const TORRENTIO_RD_ADDON = {
         "transportUrl": `https://torrentio.strem.fun/sort=qualitysize%7Crealdebrid=${selectedDebridApiKey}/manifest.json`,
         "transportName": "",
@@ -3217,6 +3249,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         ...catalogAddons,
         ...excludedAddonsData,
         ...subtitlesAddons,
+        MOVIESONLINEDATES_ADDON,
         ...torrentAddons
     ];
 
