@@ -2798,15 +2798,14 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
     } else if (selectedDebridService === "premiumize_service") {
         cometSelectedDebridService = "premiumize";
     }
-    const cometUserSettingsB64 = btoa(`{"indexers":["bitsearch","eztv","thepiratebay","therarbg","yts"],"maxResults":0,"maxResultsPerResolution":0,"maxSize":0,"removeTrash":false,"resultFormat":["All"],"resolutions":["All"],"languages":["All"],"debridService":"${cometSelectedDebridService}","debridApiKey":"${selectedDebridApiKey}","debridStreamProxyPassword":""}`);
+    const cometUserSettingsB64 = btoa(`{"maxResultsPerResolution":0,"maxSize":0,"cachedOnly":false,"removeTrash":false,"resultFormat":["all"],"debridService":"${cometSelectedDebridService}","debridApiKey":"${selectedDebridApiKey}","debridStreamProxyPassword":"","languages":{"required":[],"exclude":[],"preferred":[]},"resolutions":{},"options":{"remove_ranks_under":-10000000000,"allow_english_in_languages":false,"remove_unknown_languages":false}}`);
     const COMET_RD_ADDON = {
         "transportUrl": `https://comet.elfhosted.com/${cometUserSettingsB64}/manifest.json`,
         "transportName": "",
         "manifest": {
-            "id": "comet.elfhosted.com",
-            "name": "Comet | ElfHosted | RD",
+            "id": "comet.elfhosted.com.uPfy",
             "description": "Stremio's fastest torrent/debrid search add-on.",
-            "version": "1.0.0",
+            "version": "2.0.0",
             "catalogs": [],
             "resources": [
                 {
@@ -2832,7 +2831,8 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
             "behaviorHints": {
                 "configurable": true,
                 "configurationRequired": false
-            }
+            },
+            "name": "Comet | ElfHosted | RD"
         },
         "flags": {}
     }
@@ -2840,10 +2840,9 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "transportUrl": `https://comet.elfhosted.com/${cometUserSettingsB64}/manifest.json`,
         "transportName": "",
         "manifest": {
-            "id": "comet.elfhosted.com",
-            "name": "Comet | ElfHosted | PM",
+            "id": "comet.elfhosted.com.uPfy",
             "description": "Stremio's fastest torrent/debrid search add-on.",
-            "version": "1.0.0",
+            "version": "2.0.0",
             "catalogs": [],
             "resources": [
                 {
@@ -2869,7 +2868,8 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
             "behaviorHints": {
                 "configurable": true,
                 "configurationRequired": false
-            }
+            },
+            "name": "Comet | ElfHosted | PM"
         },
         "flags": {}
     }
