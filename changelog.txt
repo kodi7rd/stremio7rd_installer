@@ -1,3 +1,8 @@
+v3.2.0 -  08.03.2025
+- Add "מתי יגיע לרשת?" addon. Credits to @MoviesOnlineDates Telegram chanel.
+- Comet - Update version to 2.0.0.
+
+
 v3.1.0 -  22.02.2025
 - TMDb catalogs - Disable RPDB rating in favor of Hebrew posters.
 - If you still you want rating, re-configure TMDB with "t0-free-rpdb" API key (posters will be in English), or use Rating addon:
