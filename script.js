@@ -2873,88 +2873,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         },
         "flags": {}
     }
-        
-    let cometFRSelectedDebridService = "";
-    if (selectedDebridService === "realdebrid_service") {
-        cometFRSelectedDebridService = "realdebrid";
-    } else if (selectedDebridService === "premiumize_service") {
-        cometFRSelectedDebridService = "premiumize";
-    }
-    const cometFRUserSettingsB64 = btoa(`{"indexers":["yggtorrent","sharewood-api","yggcookie","gktorrent","dmm","yggapi"],"maxResults":0,"maxResultsPerResolution":0,"maxSize":0,"reverseResultOrder":false,"removeTrash":false,"resultFormat":["All"],"resolutions":["All"],"languages":["English"],"debridService":"${cometFRSelectedDebridService}","debridApiKey":"${selectedDebridApiKey}","debridStreamProxyPassword":""}`);
-    const COMETFR_RD_ADDON = {
-        "transportUrl": `https://comet.stremiofr.com/${cometFRUserSettingsB64}/manifest.json`,
-        "transportName": "",
-        "manifest": {
-            "id": "stremio.comet.fr",
-            "name": "CometFR | RD",
-            "description": "Stremio addons for French content.",
-            "version": "1.0.0",
-            "catalogs": [],
-            "resources": [
-                {
-                    "name": "stream",
-                    "types": [
-                        "movie",
-                        "series"
-                    ],
-                    "idPrefixes": [
-                        "tt",
-                        "kitsu"
-                    ]
-                }
-            ],
-            "types": [
-                "movie",
-                "series",
-                "anime",
-                "other"
-            ],
-            "logo": "https://i.imgur.com/dUL8j6C.png",
-            "background": "https://i.imgur.com/WwnXB3k.jpeg",
-            "behaviorHints": {
-                "configurable": true,
-                "configurationRequired": false
-            }
-        },
-        "flags": {}
-    }
-    const COMETFR_PM_ADDON = {
-        "transportUrl": `https://comet.stremiofr.com/${cometFRUserSettingsB64}/manifest.json`,
-        "transportName": "",
-        "manifest": {
-            "id": "stremio.comet.fr",
-            "name": "CometFR | PM",
-            "description": "Stremio addons for French content.",
-            "version": "1.0.0",
-            "catalogs": [],
-            "resources": [
-                {
-                    "name": "stream",
-                    "types": [
-                        "movie",
-                        "series"
-                    ],
-                    "idPrefixes": [
-                        "tt",
-                        "kitsu"
-                    ]
-                }
-            ],
-            "types": [
-                "movie",
-                "series",
-                "anime",
-                "other"
-            ],
-            "logo": "https://i.imgur.com/dUL8j6C.png",
-            "background": "https://i.imgur.com/WwnXB3k.jpeg",
-            "behaviorHints": {
-                "configurable": true,
-                "configurationRequired": false
-            }
-        },
-        "flags": {}
-    }
     
     const PEERFLIX_RD_ADDON = {
         "transportUrl": `https://peerflix-addon.onrender.com/language=en%7Cdebridoptions=nocatalog%7Crealdebrid=${selectedDebridApiKey}%7Csort=quality-desc,size-desc/manifest.json`,
@@ -3213,7 +3131,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
             { toggleId: 'mediafusion_addon_toggle', addon: MEDIAFUSION_RD_ADDON }
         ] : []),
         { toggleId: 'comet_addon_toggle', addon: COMET_RD_ADDON },
-        { toggleId: 'cometfr_addon_toggle', addon: COMETFR_RD_ADDON },
         { toggleId: 'peerflix_addon_toggle', addon: PEERFLIX_RD_ADDON },
         { toggleId: 'jackettio_addon_toggle', addon: JACKETTIO_RD_ADDON },
         { toggleId: 'jacket_community_addon_toggle', addon: JACKET_COMMUNITY_RD_ADDON }
@@ -3226,7 +3143,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
             { toggleId: 'mediafusion_addon_toggle', addon: MEDIAFUSION_PM_ADDON }
         ] : []),
         { toggleId: 'comet_addon_toggle', addon: COMET_PM_ADDON },
-        { toggleId: 'cometfr_addon_toggle', addon: COMETFR_PM_ADDON },
         { toggleId: 'peerflix_addon_toggle', addon: PEERFLIX_PM_ADDON },
         { toggleId: 'jackettio_addon_toggle', addon: JACKETTIO_PM_ADDON },
         { toggleId: 'jacket_community_addon_toggle', addon: JACKET_COMMUNITY_PM_ADDON }
@@ -3400,7 +3316,6 @@ function enforceAtLeastOneSelectedForTorrents() {
         document.getElementById('torrentio_addon_toggle'),
         document.getElementById('mediafusion_addon_toggle'),
         document.getElementById('comet_addon_toggle'),
-        document.getElementById('cometfr_addon_toggle'),
         document.getElementById('peerflix_addon_toggle'),
         document.getElementById('jackettio_addon_toggle'),
         document.getElementById('jacket_community_addon_toggle')
