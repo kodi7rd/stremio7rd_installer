@@ -1,3 +1,8 @@
+v3.4.0 -  31.03.2025
+- Update Torrentio RD/PM to 0.0.15.
+- Remove SubSource subtitles addon. (They removed Hebrew language...)
+
+
 v3.3.0 -  12.03.2025
 - Remove CometFR addon.
 
