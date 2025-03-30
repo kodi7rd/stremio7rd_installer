@@ -2573,9 +2573,9 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "transportName": "",
         "manifest": {
             "id": "com.stremio.torrentio.addon",
-            "version": "0.0.14",
+            "version": "0.0.15",
             "name": "Torrentio RD",
-            "description": "Provides torrent streams from scraped torrent providers. Currently supports YTS(+), EZTV(+), RARBG(+), 1337x(+), ThePirateBay(+), KickassTorrents(+), TorrentGalaxy(+), MagnetDL(+), HorribleSubs(+), NyaaSi(+), TokyoTosho(+), AniDex(+), Rutor(+), Rutracker(+), Comando(+), BluDV(+), Torrent9(+), ilCorSaRoNeRo(+), MejorTorrent(+), Wolfmax4k(+), Cinecalidad(+) and RealDebrid enabled. To configure providers, RealDebrid/Premiumize/AllDebrid/DebridLink/Offcloud/TorBox/Put.io support and other settings visit https://torrentio.strem.fun",
+            "description": "Provides torrent streams from scraped torrent providers. Currently supports YTS(+), EZTV(+), RARBG(+), 1337x(+), ThePirateBay(+), KickassTorrents(+), TorrentGalaxy(+), MagnetDL(+), HorribleSubs(+), NyaaSi(+), TokyoTosho(+), AniDex(+), Rutor(+), Rutracker(+), Comando(+), BluDV(+), Torrent9(+), ilCorSaRoNeRo(+), MejorTorrent(+), Wolfmax4k(+), Cinecalidad(+), BestTorrents(+) and RealDebrid enabled. To configure providers, RealDebrid/Premiumize/AllDebrid/DebridLink/EasyDebrid/Offcloud/TorBox/Put.io support and other settings visit https://torrentio.strem.fun",
             "catalogs": [
                 {
                     "id": "torrentio-realdebrid",
@@ -2593,7 +2593,8 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                     "name": "stream",
                     "types": [
                         "movie",
-                        "series"
+                        "series",
+                        "anime"
                     ],
                     "idPrefixes": [
                         "tt",
@@ -2616,8 +2617,8 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                 "anime",
                 "other"
             ],
-            "background": "https://i.ibb.co/VtSfFP9/t8wVwcg.jpg",
-            "logo": "https://i.ibb.co/w4BnkC9/GwxAcDV.png",
+            "background": "https://torrentio.strem.fun/images/background_v1.jpg",
+            "logo": "https://torrentio.strem.fun/images/logo_v1.png",
             "behaviorHints": {
                 "configurable": true,
                 "configurationRequired": false
@@ -2630,9 +2631,9 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "transportName": "",
         "manifest": {
             "id": "com.stremio.torrentio.addon",
-            "version": "0.0.14",
+            "version": "0.0.15",
             "name": "Torrentio PM",
-            "description": "Provides torrent streams from scraped torrent providers. Currently supports YTS(+), EZTV(+), RARBG(+), 1337x(+), ThePirateBay(+), KickassTorrents(+), TorrentGalaxy(+), MagnetDL(+), HorribleSubs(+), NyaaSi(+), TokyoTosho(+), AniDex(+), Rutor(+), Rutracker(+), Comando(+), BluDV(+), Torrent9(+), ilCorSaRoNeRo(+), MejorTorrent(+), Wolfmax4k(+), Cinecalidad(+) and Premiumize enabled. To configure providers, RealDebrid/Premiumize/AllDebrid/DebridLink/Offcloud/Put.io support and other settings visit https://torrentio.strem.fun",
+            "description": "Provides torrent streams from scraped torrent providers. Currently supports YTS(+), EZTV(+), RARBG(+), 1337x(+), ThePirateBay(+), KickassTorrents(+), TorrentGalaxy(+), MagnetDL(+), HorribleSubs(+), NyaaSi(+), TokyoTosho(+), AniDex(+), Rutor(+), Rutracker(+), Comando(+), BluDV(+), Torrent9(+), ilCorSaRoNeRo(+), MejorTorrent(+), Wolfmax4k(+), Cinecalidad(+), BestTorrents(+) and Premiumize enabled. To configure providers, RealDebrid/Premiumize/AllDebrid/DebridLink/EasyDebrid/Offcloud/TorBox/Put.io support and other settings visit https://torrentio.strem.fun",
             "catalogs": [
                 {
                     "id": "torrentio-premiumize",
@@ -2650,7 +2651,8 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                     "name": "stream",
                     "types": [
                         "movie",
-                        "series"
+                        "series",
+                        "anime"
                     ],
                     "idPrefixes": [
                         "tt",
@@ -2673,8 +2675,8 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                 "anime",
                 "other"
             ],
-            "background": "https://i.ibb.co/VtSfFP9/t8wVwcg.jpg",
-            "logo": "https://i.ibb.co/w4BnkC9/GwxAcDV.png",
+            "background": "https://torrentio.strem.fun/images/background_v1.jpg",
+            "logo": "https://torrentio.strem.fun/images/logo_v1.png",
             "behaviorHints": {
                 "configurable": true,
                 "configurationRequired": false
