@@ -9,7 +9,9 @@ const STREMIO_API_SET_ADDONS_URL = `${STREMIO_API_BASE_URL}/addonCollectionSet`;
 const CINEMETA_ADDON_ID = 'com.linvo.cinemeta'
 const LOCAL_FILES_ADDON_ID = 'org.stremio.local'
 const HEB_SUBS_PREMIUM_ADDON_ID = 'heb-subs-premium'
-const EXCLUDED_ADDONS_LIST = [HEB_SUBS_PREMIUM_ADDON_ID];
+const EXCLUDED_SUBTITLES_ADDONS_LIST = [HEB_SUBS_PREMIUM_ADDON_ID];
+const STREMIOGRAM_ADDON_ID = 'plugin.video.stremiogram'
+const EXCLUDED_VIDEO_ADDONS_LIST = [STREMIOGRAM_ADDON_ID];
 
 async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridApiKey) {
 
@@ -47,9 +49,12 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         try {
             // Loop through installed addons to check for specific ID
             installedAddons.forEach(addon => {
-                if (EXCLUDED_ADDONS_LIST.includes(addon.manifest.id)) {
+                if (EXCLUDED_SUBTITLES_ADDONS_LIST.includes(addon.manifest.id)) {
                     console.log(`${addon.manifest.name} installed! (Addon ID: ${addon.manifest.id}) Preserving addon...`);
-                    excludedAddonsData.push(addon); // Collect excluded addons JSON data
+                    excludedSubtitlesAddonsData.push(addon); // Collect excluded addons JSON data
+                } else if (EXCLUDED_VIDEO_ADDONS_LIST.includes(addon.manifest.id)) {
+                    console.log(`${addon.manifest.name} installed! (Addon ID: ${addon.manifest.id}) Preserving addon...`);
+                    excludedVideoAddonsData.push(addon);
                 }
             });
         } catch (error) {
@@ -112,9 +117,11 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
     
     const installedAddons = await getInstalledAddons(authKey);
     
-    let excludedAddonsData = [];
+    let excludedSubtitlesAddonsData = [];
+    let excludedVideoAddonsData = [];
     await checkForExcludedAddons(installedAddons);
-    console.log(`excludedAddonsData:\n`, excludedAddonsData); // Pretty-print JSON
+    console.log(`excludedSubtitlesAddonsData:\n`, excludedSubtitlesAddonsData); // Pretty-print JSON
+    console.log(`excludedVideoAddonsData:\n`, excludedVideoAddonsData); // Pretty-print JSON
     
     // Addons Manifests
     let debrid_service_name = "";
@@ -3134,9 +3141,10 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         ...BuildInfoAddons,
         ...TVAddons,
         ...catalogAddons,
-        ...excludedAddonsData,
+        ...excludedSubtitlesAddonsData,
         ...subtitlesAddons,
         MOVIESONLINEDATES_ADDON,
+        ...excludedVideoAddonsData,
         ...torrentAddons
     ];
 
