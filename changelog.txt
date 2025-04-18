@@ -1,3 +1,7 @@
+v3.5.0 -  18.04.2025
+- Update TMDB to 3.1.4.
+
+
 v3.4.0 -  31.03.2025
 - Update Torrentio RD/PM to 0.0.15.
 - Remove SubSource subtitles addon. (They removed Hebrew language...)
