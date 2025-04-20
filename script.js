@@ -3062,22 +3062,19 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
 
 
     // Catalog Addons 
+    const catalogAddonsToggles = [
+        { toggleId: 'tmdb_addon_toggle', addon: TMDB_ADDON },
+        { toggleId: 'streaming_catalogs_addon_toggle', addon: STREAMING_CATALOGS_ADDON },
+        { toggleId: 'cyberflix_addon_toggle', addon: CYBERFLIX_ADDON },
+        { toggleId: 'anime_kitsu_addon_toggle', addon: ANIME_KITSU_ADDON }
+    ];
+
     let catalogAddons = [];
-    
-    if (document.getElementById('tmdb_addon_toggle').checked) {
-        catalogAddons.push(TMDB_ADDON);
-    }
-    
-    // Conditionally add other catalog addons based on toggles
-    if (document.getElementById('streaming_catalogs_addon_toggle').checked) {
-        catalogAddons.push(STREAMING_CATALOGS_ADDON);
-    }
-    if (document.getElementById('cyberflix_addon_toggle').checked) {
-        catalogAddons.push(CYBERFLIX_ADDON);
-    }
-    if (document.getElementById('anime_kitsu_addon_toggle').checked) {
-        catalogAddons.push(ANIME_KITSU_ADDON);
-    }
+    catalogAddonsToggles.forEach(({ toggleId, addon }) => {
+        if (document.getElementById(toggleId).checked) {
+            catalogAddons.push(addon);
+        }
+    });
 
     // Add Stremio's core Cinemeta + Local Files addons
     catalogAddons.push(
