@@ -247,45 +247,46 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "transportUrl": "https://moveonjoy-stremio.vercel.app/manifest.json",
         "transportName": "",
         "manifest": {
-            "id": "com.pigzillaaa.moveonjoy",
-            "version": "1.0.0",
-            "name": "MoveOnJoy TV",
-            "contactEmail": null,
-            "description": "A Stremio addon for TV channels from MoveOnJoy.",
-            "logo": "https://raw.githubusercontent.com/pigzillaaa/moveonjoy-streamio/refs/heads/main/mylogo.png",
-            "background": null,
-            "types": [
-                "tv"
+            "catalogs": [
+                {
+                    "extra": [
+                        {
+                            "isRequired": false,
+                            "name": "genre",
+                            "options": [
+                                "Documentary",
+                                "Entertainment",
+                                "Events",
+                                "Kids",
+                                "Movies",
+                                "News",
+                                "Sports"
+                            ]
+                        }
+                    ],
+                    "id": "moveonjoy-all",
+                    "name": "MoveOnJoy TV - ערוצים מהעולם",
+                    "type": "tv"
+                }
             ],
+            "description": "MoveOnJoy TV provides live TV channels. Watch sports, news, and entertainment streams seamlessly within Stremio. Created by @pigzillaaaaa",
+            "id": "com.pigzillaaa.moveonjoy",
+            "idPrefixes": [
+                "moveonjoy"
+            ],
+            "logo": "https://raw.githubusercontent.com/pigzillaaaaa/imgs/refs/heads/main/moveonjoy/banner.png",
+            "name": "MoveOnJoy TV",
             "resources": [
                 "catalog",
                 "stream",
                 "meta"
             ],
-            "idPrefixes": [
-                "moveonjoy"
+            "types": [
+                "tv"
             ],
-            "catalogs": [
-                {
-                    "id": "moveonjoy-all",
-                    "type": "tv",
-                    "name": "MoveOnJoy TV",
-                    "extraRequired": [],
-                    "extraSupported": []
-                }
-            ],
-            "addonCatalogs": [],
-            "behaviorHints": {
-                "adult": false,
-                "p2p": false,
-                "configurable": false,
-                "configurationRequired": false
-            }
+            "version": "1.0.1"
         },
-        "flags": {
-            "official": false,
-            "protected": false
-        }
+        "flags": {}
     }
 
     const UDP_TV_ADDON = {
@@ -294,17 +295,31 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "manifest": {
             "catalogs": [
                 {
+                    "extra": [
+                        {
+                            "isRequired": false,
+                            "name": "genre",
+                            "options": [
+                                "Local",
+                                "Sports",
+                                "Movies",
+                                "Kids",
+                                "Entertainment",
+                                "News"
+                            ]
+                        }
+                    ],
                     "id": "udptv-all",
                     "name": "UDP TV - ערוצים מהעולם",
                     "type": "tv"
                 }
             ],
-            "description": "A Stremio addon for TV channels from UDP TV.",
+            "description": "A Stremio addon for TV channels from UDP TV. Join our discord: https://discord.gg/aVuhm62hFU (#iptv)",
             "id": "com.pigzillaaa.udptv",
             "idPrefixes": [
                 "udptv"
             ],
-            "logo": "https://codeberg.org/pigzillaaa/udptv-stremio/raw/branch/main/udp-banner.png",
+            "logo": "https://raw.githubusercontent.com/pigzillaaaaa/imgs/refs/heads/main/udptv/banner.png",
             "name": "UDP TV",
             "resources": [
                 "catalog",
@@ -314,7 +329,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
             "types": [
                 "tv"
             ],
-            "version": "1.0.0"
+            "version": "1.0.2"
         },
         "flags": {}
     }
