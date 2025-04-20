@@ -8,10 +8,8 @@ const STREMIO_API_SET_ADDONS_URL = `${STREMIO_API_BASE_URL}/addonCollectionSet`;
 // Addons exclusion
 const CINEMETA_ADDON_ID = 'com.linvo.cinemeta'
 const LOCAL_FILES_ADDON_ID = 'org.stremio.local'
-const HEB_SUBS_PREMIUM_ADDON_ID = 'heb-subs-premium'
-const EXCLUDED_SUBTITLES_ADDONS_LIST = [HEB_SUBS_PREMIUM_ADDON_ID];
-const STREMIOGRAM_ADDON_ID = 'plugin.video.stremiogram'
-const EXCLUDED_VIDEO_ADDONS_LIST = [STREMIOGRAM_ADDON_ID];
+const EXCLUDED_SUBTITLES_ADDONS_LIST = ['heb-subs-premium'];
+const EXCLUDED_VIDEO_ADDONS_LIST = ['plugin.video.stremiogram'];
 
 async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridApiKey) {
 
@@ -52,6 +50,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                 if (EXCLUDED_SUBTITLES_ADDONS_LIST.includes(addon.manifest.id)) {
                     console.log(`${addon.manifest.name} installed! (Addon ID: ${addon.manifest.id}) Preserving addon...`);
                     excludedSubtitlesAddonsData.push(addon); // Collect excluded addons JSON data
+                    alert("המערכת זיהתה שמותקן לך תוסף הכתוביות Heb Subs Premium.\nהתוסף נשמר בהצלחה בהתקנה זו.");
                 } else if (EXCLUDED_VIDEO_ADDONS_LIST.includes(addon.manifest.id)) {
                     console.log(`${addon.manifest.name} installed! (Addon ID: ${addon.manifest.id}) Preserving addon...`);
                     excludedVideoAddonsData.push(addon);
@@ -3144,30 +3143,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         ...excludedVideoAddonsData,
         ...torrentAddons
     ];
-
-    // Check if HEB_SUBS_PREMIUM_ADDON_ID is in the combined addons
-    if (combinedAddons.some(addon => addon.manifest.id === HEB_SUBS_PREMIUM_ADDON_ID)) {
-        // Show the custom modal
-        const modal = document.getElementById('customModal');
-        modal.style.display = 'flex';
-
-        // Wait for user's choice
-        const userChoice = await new Promise((resolve) => {
-            document.getElementById('yesButton').onclick = () => {
-                modal.style.display = 'none';
-                resolve(true); // User chose "Yes"
-            };
-            document.getElementById('noButton').onclick = () => {
-                modal.style.display = 'none';
-                resolve(false); // User chose "No"
-            };
-        });
-
-        // If the user chose "Yes," remove all other subtitles addons
-        if (userChoice) {
-            combinedAddons = combinedAddons.filter(addon => !subtitlesAddons.includes(addon));
-        }
-    }
 
     console.log(`Final addons JSON array:\n`, combinedAddons); // Pretty-print JSON
     return combinedAddons;
