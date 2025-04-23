@@ -2492,6 +2492,36 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "flags": {}
     }
     
+    const SUBSOURCE_ADDON = {
+        "transportUrl": "https://subsource.strem.bar/SGVicmV3L2hpSW5jbHVkZS8=/manifest.json",
+        "transportName": "",
+        "manifest": {
+            "id": "community.subsource.subtitles",
+            "version": "1.0.6",
+            "name": "SubSource Subtitles",
+            "description": "Unofficial addon for getting subtitles from SubSource.net",
+            "logo": "https://raw.githubusercontent.com/nexusdiscord/tv-logo/master/ss.png",
+            "background": "https://raw.githubusercontent.com/nexusdiscord/tv-logo/master/backgroundcinema.jpg",
+            "resources": [
+                "subtitles"
+            ],
+            "types": [
+                "movie",
+                "series",
+                "subtitles"
+            ],
+            "idPrefixes": [
+                "tt"
+            ],
+            "catalogs": [],
+            "behaviorHints": {
+                "configurable": true,
+                "configurableRequired": false
+            }
+        },
+        "flags": {}
+    }
+    
     const YIFY_ADDON = {
         "transportUrl": "https://2ecbbd610840-yifysubtitles.baby-beamup.club/hebrew/manifest.json",
         "transportName": "",
@@ -3103,6 +3133,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         { toggleId: 'wizdom_addon_toggle', addon: WIZDOM_ADDON },
         { toggleId: 'opensubtitles_v3_addon_toggle', addon: OPENSUBTITLES_V3_ADDON },
         { toggleId: 'opensubtitles_pro_addon_toggle', addon: OPENSUBTITLES_PRO_ADDON },
+        { toggleId: 'subsource_addon_toggle', addon: SUBSOURCE_ADDON },
         { toggleId: 'yify_addon_toggle', addon: YIFY_ADDON }
     ];
 
