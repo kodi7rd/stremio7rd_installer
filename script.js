@@ -2367,10 +2367,10 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
     
     // Subtitles Addons
     const TELEGRAM_ADDON = {
-        "transportUrl": "https://stremio-hebrew-telegram-subtitles.vercel.app/manifest.json",
+        "transportUrl": "https://stremio7rd-hebrew-telegram-subtitles.vercel.app/manifest.json",
         "transportName": "",
         "manifest": {
-            "id": "hebrew-telegram-subtitles",
+            "id": "service.subtitles.stremio7rd-hebrew-telegram-subtitles",
             "version": "1.0.0",
             "name": "Hebrew Telegram Subtitles",
             "description": "Hebrew Subtitles Provider From Telegram",
