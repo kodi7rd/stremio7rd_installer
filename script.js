@@ -2558,7 +2558,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
     
     // Torrents Addons
     const MOVIESONLINEDATES_ADDON = {
-        "transportUrl": "https://stremio-movies-online-dates.vercel.app/manifest.json",
+        "transportUrl": "https://stremio7rd-movies-online-dates.vercel.app/manifest.json",
         "transportName": "",
         "manifest": {
             "id": "plugin.info.MoviesDatesOnline",
