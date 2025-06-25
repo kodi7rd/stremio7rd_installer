@@ -1,3 +1,8 @@
+v3.8.0 -  25.06.2025
+- Update TMDB to 3.1.6. Hebrew search is still broken until developer will fix. but...
+- Added AIOLists addon for Hebrew search in TMDb. https://aiolists.elfhosted.com
+
+
 v3.7.0 -  01.06.2025
 - Change Vercel hosted URLs for the following addons:
   * Stremio + Real Debrid Israel Build
