@@ -1299,6 +1299,66 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "flags": {}
     }
     
+    const AIOLISTS_ADDON = {
+        "transportUrl": "https://aiolists.elfhosted.com/H4sIAAAAAAAAA12RX3OiMBTFv0ueacfin9nypkVdXIG1YAV3fIjkIqkksEkQpdPvvhPBXbeP-Z1zb05OPhAu6Q-4IAshA4mS7Md3Z8XIfgJYgAiLI3BkIbgssv08oT5dOOvGefLo4vlRQ7JZaZht5-uzx1YDf7Puu8zpu2E89Oz8PQ5fmR9O69jcZvH7JPMDRzpsSLfUGblh0vPsQ-Pbq4sXDIZueKxde3xeviwasnGoTx3Tt8e1u4nPfnho4mabe2Hcjxty9MO3ozefUu2Nzed6G7nUzyWNo0kZ9Rd5vFnRKKgpYW-XxMxPe31f1Hs8zxYPoZucWDhapk7Um-9tPoxmL-_5b9Nvsu33MC1SmM-CbN0VEYCUtOAO-dfNOEmKiqt7tJYgOGbQEgYKE6xwUFQi0UxbOucS80OFD5pmoJnARzVOEpDy1vaNvkIqQGZf8fRcUgFyrJDFqzzv6P8JciqVLwgIZP3aGSjHUq1LghXozGbPHD70Rg_mMDRNazCw-oPH0bfetpuTbhcfWR-fBsooIcCXWmiXCWDFCcgdSSqpCqaBhxnIdo6BOPx1adC6XCAUh5cS7qyUlYVQQMaEFLxjshDqp4AUBPDkZiRU4n0Oc-ACZjRX-n1KVGAg4Fp4xZy0QWaAVSUAWSnOJRhIXBXXnmjx1pWOj2RW1IoyGDyNkIEOWFwSgeu0EOSQXBvhWJaVoJxKZKCMXCtCOwNJwCLJ2j--brr-8u728uCLvDMQ5pRBy6fXvKTL9_kHoDILRZEDAAA/manifest.json",
+        "transportName": "",
+        "manifest": {
+            "id": "org.stremio.aiolists",
+            "version": "1.2.7-1750891482504",
+            "name": "AIOLists",
+            "description": "Manage all your lists in one place.",
+            "resources": [
+                "catalog",
+                "meta"
+            ],
+            "types": [
+                "movie",
+                "series",
+                "all"
+            ],
+            "idPrefixes": [
+                "tt",
+                "tmdb:"
+            ],
+            "catalogs": [
+                {
+                    "id": "aiolists_search_movies",
+                    "type": "movie",
+                    "name": "Search Movies",
+                    "extra": [
+                        {
+                            "name": "search",
+                            "isRequired": true
+                        }
+                    ],
+                    "extraSupported": [
+                        "search"
+                    ]
+                },
+                {
+                    "id": "aiolists_search_series",
+                    "type": "series",
+                    "name": "Search Series",
+                    "extra": [
+                        {
+                            "name": "search",
+                            "isRequired": true
+                        }
+                    ],
+                    "extraSupported": [
+                        "search"
+                    ]
+                }
+            ],
+            "logo": "https://i.imgur.com/DigFuAQ.png",
+            "behaviorHints": {
+                "configurable": true,
+                "configurationRequired": false
+            }
+        },
+        "flags": {}
+    }
+    
     const STREAMING_CATALOGS_ADDON = {
         "transportUrl": "https://7a82163c306e-stremio-netflix-catalog-addon.baby-beamup.club/bmZ4LGhibSxkbnAsYW1wLGF0cCxjcnUsaGx1LHBtcDp0MC1mcmVlLXJwZGI6OjE3MjkxOTY4NDM1Njk%3D/manifest.json",
         "transportName": "",
@@ -3108,6 +3168,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
     // Catalog Addons 
     const catalogAddonsToggles = [
         { toggleId: 'tmdb_addon_toggle', addon: TMDB_ADDON },
+        { toggleId: 'aiolists_addon_toggle', addon: AIOLISTS_ADDON },
         { toggleId: 'streaming_catalogs_addon_toggle', addon: STREAMING_CATALOGS_ADDON },
         { toggleId: 'cyberflix_addon_toggle', addon: CYBERFLIX_ADDON },
         { toggleId: 'anime_kitsu_addon_toggle', addon: ANIME_KITSU_ADDON }
