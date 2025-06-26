@@ -2457,28 +2457,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "flags": {}
     }
     
-    const KTUVIT_ADDON = {
-        "transportUrl": "https://4b139a4b7f94-ktuvit-stremio.baby-beamup.club/manifest.json",
-        "transportName": "",
-        "manifest": {
-            "id": "me.stremio.ktuvit",
-            "contactEmail": "maor@magori.online",
-            "version": "0.1.2",
-            "catalogs": [],
-            "resources": [
-                "subtitles"
-            ],
-            "types": [
-                "movie",
-                "series"
-            ],
-            "name": "Ktuvit.me Subtitles",
-            "description": "An unofficial Stremio addon for Hebrew subtitles from Ktuvit.me. Developed by Maor Development",
-            "logo": "https://i0.wp.com/kodibeginner.com/wp-content/uploads/2020/10/ktuvit-me.jpg?w=300&ssl=1"
-        },
-        "flags": {}
-    }
-    
     const WIZDOM_ADDON = {
         "transportUrl": "https://4b139a4b7f94-wizdom-stremio-v2.baby-beamup.club/manifest.json",
         "transportName": "",
@@ -2497,6 +2475,28 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
             "name": "Wizdom Subtitles",
             "description": "An unofficial Stremio addon for Hebrew subtitles from wizdom.xyz. Developed by Maor Development",
             "logo": "https://i.ibb.co/KLYK0TH/wizdon256.png"
+        },
+        "flags": {}
+    }
+    
+    const KTUVIT_ADDON = {
+        "transportUrl": "https://4b139a4b7f94-ktuvit-stremio.baby-beamup.club/manifest.json",
+        "transportName": "",
+        "manifest": {
+            "id": "me.stremio.ktuvit",
+            "contactEmail": "maor@magori.online",
+            "version": "0.1.2",
+            "catalogs": [],
+            "resources": [
+                "subtitles"
+            ],
+            "types": [
+                "movie",
+                "series"
+            ],
+            "name": "Ktuvit.me Subtitles",
+            "description": "An unofficial Stremio addon for Hebrew subtitles from Ktuvit.me. Developed by Maor Development",
+            "logo": "https://i0.wp.com/kodibeginner.com/wp-content/uploads/2020/10/ktuvit-me.jpg?w=300&ssl=1"
         },
         "flags": {}
     }
@@ -3194,8 +3194,8 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
     // Subtitles Addons
     const subtitlesAddonsToggles = [
         { toggleId: 'telegram_addon_toggle', addon: TELEGRAM_ADDON },
-        { toggleId: 'ktuvit_addon_toggle', addon: KTUVIT_ADDON },
         { toggleId: 'wizdom_addon_toggle', addon: WIZDOM_ADDON },
+        { toggleId: 'ktuvit_addon_toggle', addon: KTUVIT_ADDON },
         { toggleId: 'opensubtitles_v3_addon_toggle', addon: OPENSUBTITLES_V3_ADDON },
         { toggleId: 'opensubtitles_pro_addon_toggle', addon: OPENSUBTITLES_PRO_ADDON },
         { toggleId: 'subsource_addon_toggle', addon: SUBSOURCE_ADDON },
