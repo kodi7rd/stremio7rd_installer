@@ -2561,7 +2561,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "transportName": "",
         "manifest": {
             "id": "community.subsource.subtitles",
-            "version": "1.0.8",
+            "version": "1.1.2",
             "name": "SubSource Subtitles",
             "description": "Unofficial addon for getting subtitles from SubSource.net",
             "logo": "https://raw.githubusercontent.com/nexusdiscord/tv-logo/master/ss.png",
@@ -2581,6 +2581,10 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
             "behaviorHints": {
                 "configurable": true,
                 "configurableRequired": false
+            },
+            "stremioAddonsConfig": {
+                "issuer": "https://stremio-addons.net",
+                "signature": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..Yw7m0oOLj9gCM47lmL6qWA.zHG2dJVTR6Xxk1DsjYO_Q00EdW0kTedpCb8F7cq32g4cOto2QQq3l09Mtok3O2YLT2R3CCXg-SrnWTljgxZxJagzbSOLHQRAraAwSyCcuWMWuFY3P3KDnslQtjyFuzR2.k1bpKxf6IJ87C01Jc3X_VQ"
             }
         },
         "flags": {}
