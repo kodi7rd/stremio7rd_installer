@@ -248,52 +248,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "flags": {}
     }
 
-    const MOVEONJOY_TV_ADDON = {
-        "transportUrl": "https://moveonjoy-stremio.vercel.app/manifest.json",
-        "transportName": "",
-        "manifest": {
-            "catalogs": [
-                {
-                    "extra": [
-                        {
-                            "isRequired": false,
-                            "name": "genre",
-                            "options": [
-                                "Documentary",
-                                "Entertainment",
-                                "Events",
-                                "Kids",
-                                "Movies",
-                                "News",
-                                "Sports"
-                            ]
-                        }
-                    ],
-                    "id": "moveonjoy-all",
-                    "name": "MoveOnJoy TV - ערוצים מהעולם",
-                    "type": "tv"
-                }
-            ],
-            "description": "MoveOnJoy TV provides live TV channels. Watch sports, news, and entertainment streams seamlessly within Stremio. Created by @pigzillaaaaa",
-            "id": "com.pigzillaaa.moveonjoy",
-            "idPrefixes": [
-                "moveonjoy"
-            ],
-            "logo": "https://raw.githubusercontent.com/pigzillaaaaa/imgs/refs/heads/main/moveonjoy/banner.png",
-            "name": "MoveOnJoy TV",
-            "resources": [
-                "catalog",
-                "stream",
-                "meta"
-            ],
-            "types": [
-                "tv"
-            ],
-            "version": "1.0.1"
-        },
-        "flags": {}
-    }
-
     const UDP_TV_ADDON = {
         "transportUrl": "https://udptv-stremio.vercel.app/manifest.json",
         "transportName": "",
@@ -3166,7 +3120,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
     const TVAddonsToggles = [
         { toggleId: 'israel_tv_addon_toggle', addon: ISRAEL_TV_ADDON },
         { toggleId: 'usa_tv_addon_toggle', addon: USA_TV_ADDON },
-        { toggleId: 'moveonjoy_tv_addon_toggle', addon: MOVEONJOY_TV_ADDON },
         { toggleId: 'udp_tv_addon_toggle', addon: UDP_TV_ADDON }
     ];
     
