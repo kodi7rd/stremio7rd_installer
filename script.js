@@ -247,51 +247,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         },
         "flags": {}
     }
-
-    const UDP_TV_ADDON = {
-        "transportUrl": "https://udptv-stremio.vercel.app/manifest.json",
-        "transportName": "",
-        "manifest": {
-            "catalogs": [
-                {
-                    "extra": [
-                        {
-                            "isRequired": false,
-                            "name": "genre",
-                            "options": [
-                                "Local",
-                                "Sports",
-                                "Movies",
-                                "Kids",
-                                "Entertainment",
-                                "News"
-                            ]
-                        }
-                    ],
-                    "id": "udptv-all",
-                    "name": "UDP TV - ערוצים מהעולם",
-                    "type": "tv"
-                }
-            ],
-            "description": "A Stremio addon for TV channels from UDP TV. Join our discord: https://discord.gg/aVuhm62hFU (#iptv)",
-            "id": "com.pigzillaaa.udptv",
-            "idPrefixes": [
-                "udptv"
-            ],
-            "logo": "https://raw.githubusercontent.com/pigzillaaaaa/imgs/refs/heads/main/udptv/banner.png",
-            "name": "UDP TV",
-            "resources": [
-                "catalog",
-                "stream",
-                "meta"
-            ],
-            "types": [
-                "tv"
-            ],
-            "version": "1.0.2"
-        },
-        "flags": {}
-    }
     
     // Catalogs Addons
     const TMDB_ADDON = {
@@ -3119,8 +3074,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
     // TV Addons
     const TVAddonsToggles = [
         { toggleId: 'israel_tv_addon_toggle', addon: ISRAEL_TV_ADDON },
-        { toggleId: 'usa_tv_addon_toggle', addon: USA_TV_ADDON },
-        { toggleId: 'udp_tv_addon_toggle', addon: UDP_TV_ADDON }
+        { toggleId: 'usa_tv_addon_toggle', addon: USA_TV_ADDON }
     ];
     
     let TVAddons = [];
