@@ -1,9 +1,9 @@
-v3.8.0 -  25.06.2025
+v3.8.0 - 25.06.2025
 - Update TMDB to 3.1.6. Hebrew search is still broken until developer will fix. but...
 - Added AIOLists addon for Hebrew search in TMDb. https://aiolists.elfhosted.com
 
 
-v3.7.0 -  01.06.2025
+v3.7.0 - 01.06.2025
 - Change Vercel hosted URLs for the following addons:
   * Stremio + Real Debrid Israel Build
   * Hebrew Telegram Subtitles
@@ -11,57 +11,57 @@ v3.7.0 -  01.06.2025
 Why? don't try to understand.
 
 
-v3.6.0 -  23.04.2025
+v3.6.0 - 23.04.2025
 - Bring back SubSource subtitles addon. (Hebrew language is back) + update version to 1.0.8
 - Update UDP TV to 1.0.2
 - Update MoveOnJoy to 1.0.1
 
 
-v3.5.0 -  18.04.2025
+v3.5.0 - 18.04.2025
 - Update TMDB to 3.1.4
 
 
-v3.4.0 -  31.03.2025
+v3.4.0 - 31.03.2025
 - Update Torrentio RD/PM to 0.0.15
 - Remove SubSource subtitles addon. (They removed Hebrew language...)
 
 
-v3.3.0 -  12.03.2025
+v3.3.0 - 12.03.2025
 - Remove CometFR addon.
 
 
-v3.2.0 -  08.03.2025
+v3.2.0 - 08.03.2025
 - Add "מתי יגיע לרשת?" addon. Credits to @MoviesOnlineDates Telegram chanel.
 - Comet - Update version to 2.0.0
 
 
-v3.1.0 -  22.02.2025
+v3.1.0 - 22.02.2025
 - TMDb catalogs - Disable RPDB rating in favor of Hebrew posters.
 - If you still you want rating, re-configure TMDB with "t0-free-rpdb" API key (posters will be in English), or use Rating addon:
 https://47623cd32ba8-stremio-addon-ratings.baby-beamup.club
 
 
-v3.0.0 -  22.02.2025
+v3.0.0 - 22.02.2025
 - Fix TMDB v3.1.3 Hebrew search.
 
 
-v2.9.0 -  16.02.2025
+v2.9.0 - 16.02.2025
 - Update TMDB to 3.1.3 + Translate Networks catalogs to Hebrew.
 - Update MediaFusion to 4.3.21
 - Update Jackett Community to 4.2.6
 
 
-v2.8.0 -  07.02.2025
+v2.8.0 - 07.02.2025
 - TMDB 3.1.2 addon now provides Hebrew catalogs for Network Streaming providers.
 - Disabled "Streaming Catalogs" addon by default (Replaced with TMDB Hebrew catalogs).
 - RD expiration catalog: Added invalid API Key / about to expire catalog icon.
 
 
-v2.7.0 -  05.02.2025
+v2.7.0 - 05.02.2025
 - Add RD/PM expiration catalog on home screen.
 
 
-v2.6.0 -  03.02.2025
+v2.6.0 - 03.02.2025
 - Add Hebrew Telegram Subtitles addon.
 - Update MediaFusion to 4.3.17
 - Remove SubHero subtitles addon.
