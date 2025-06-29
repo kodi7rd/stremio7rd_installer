@@ -2537,8 +2537,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         },
         "flags": {}
     }
-    
-    // Torrents Addons
+    // Informational Addons
     const MOVIESONLINEDATES_ADDON = {
         "transportUrl": "https://stremio7rd-movies-online-dates.vercel.app/manifest.json",
         "transportName": "",
@@ -2571,6 +2570,34 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "flags": {}
     }
 
+    const RATINGS_AGGREGATOR_ADDON = {
+        "transportUrl": "https://rating-aggregator-7h42.vercel.app/manifest.json",
+        "transportName": "",
+        "manifest": {
+            "id": "community.ratings.aggregator",
+            "version": "1.5.1",
+            "name": "🎯 Ratings Aggregator",
+            "description": "Aggregated ratings from IMDb, TMDb, Metacritic, Common Sense, CringeMDB and more.",
+            "catalogs": [],
+            "resources": [
+                "stream"
+            ],
+            "types": [
+                "movie",
+                "series"
+            ],
+            "idPrefixes": [
+                "tt"
+            ],
+            "behaviorHints": {
+                "configurable": true,
+                "configurationRequired": false
+            }
+        },
+        "flags": {}
+    }
+    
+    // Torrents Addons
     const TORRENTIO_RD_ADDON = {
         "transportUrl": `https://torrentio.strem.fun/sort=qualitysize%7Crealdebrid=${selectedDebridApiKey}/manifest.json`,
         "transportName": "",
@@ -3111,6 +3138,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         ...excludedSubtitlesAddonsData,
         ...subtitlesAddons,
         MOVIESONLINEDATES_ADDON,
+        RATINGS_AGGREGATOR_ADDON,
         ...excludedVideoAddonsData,
         ...torrentAddons
     ];
