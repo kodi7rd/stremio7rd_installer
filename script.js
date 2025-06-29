@@ -3013,60 +3013,6 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         },
         "flags": {}
     }
-        
-    let jacketCommunitySelectedDebridService = "";
-    if (selectedDebridService === "realdebrid_service") {
-        jacketCommunitySelectedDebridService = "realdebrid";
-    } else if (selectedDebridService === "premiumize_service") {
-        jacketCommunitySelectedDebridService = "premiumize";
-    }
-    const JacketCommunityStremioUserSettingsB64 = btoa(`{"addonHost":"https://stremio-jackett.elfhosted.com","service":"${jacketCommunitySelectedDebridService}","debridKey":"${selectedDebridApiKey}","maxSize":"0","exclusionKeywords":[],"languages":["en","multi"],"getAllLanguages":false,"sort":"qualitythensize","resultsPerQuality":"25","maxResults":"100","exclusion":[],"tmdbApi":"","torrenting":false,"debrid":true,"metadataProvider":"cinemeta"}`);
-    const JACKET_COMMUNITY_RD_ADDON = {
-        "transportUrl": `https://stremio-jackett.elfhosted.com/${JacketCommunityStremioUserSettingsB64}/manifest.json`,
-        "transportName": "",
-        "manifest": {
-            "id": "stremio-jackett.elfhosted.com",
-            "icon": "https://i.imgur.com/tVjqEJP.png",
-            "version": "4.2.6",
-            "catalogs": [],
-            "resources": [
-                "stream"
-            ],
-            "types": [
-                "movie",
-                "series"
-            ],
-            "name": "Jackett Community RD",
-            "description": "Elevate your Stremio experience with seamless access to Jackett torrent links, effortlessly fetching torrents for your selected movies within the Stremio interface.",
-            "behaviorHints": {
-                "configurable": true
-            }
-        },
-        "flags": {}
-    }
-    const JACKET_COMMUNITY_PM_ADDON = {
-        "transportUrl": `https://stremio-jackett.elfhosted.com/${JacketCommunityStremioUserSettingsB64}/manifest.json`,
-        "transportName": "",
-        "manifest": {
-            "id": "stremio-jackett.elfhosted.com",
-            "icon": "https://i.imgur.com/tVjqEJP.png",
-            "version": "4.2.6",
-            "catalogs": [],
-            "resources": [
-                "stream"
-            ],
-            "types": [
-                "movie",
-                "series"
-            ],
-            "name": "Jackett Community PM",
-            "description": "Elevate your Stremio experience with seamless access to Jackett torrent links, effortlessly fetching torrents for your selected movies within the Stremio interface.",
-            "behaviorHints": {
-                "configurable": true
-            }
-        },
-        "flags": {}
-    }
 
     // Build Info Addons
     const BuildInfoAddons = [STREMIO7RD_BUILD_ADDON];
@@ -3133,8 +3079,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         ] : []),
         { toggleId: 'comet_addon_toggle', addon: COMET_RD_ADDON },
         { toggleId: 'peerflix_addon_toggle', addon: PEERFLIX_RD_ADDON },
-        { toggleId: 'jackettio_addon_toggle', addon: JACKETTIO_RD_ADDON },
-        { toggleId: 'jacket_community_addon_toggle', addon: JACKET_COMMUNITY_RD_ADDON }
+        { toggleId: 'jackettio_addon_toggle', addon: JACKETTIO_RD_ADDON }
     ];
 
     // Static PM Addons List
@@ -3145,8 +3090,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         ] : []),
         { toggleId: 'comet_addon_toggle', addon: COMET_PM_ADDON },
         { toggleId: 'peerflix_addon_toggle', addon: PEERFLIX_PM_ADDON },
-        { toggleId: 'jackettio_addon_toggle', addon: JACKETTIO_PM_ADDON },
-        { toggleId: 'jacket_community_addon_toggle', addon: JACKET_COMMUNITY_PM_ADDON }
+        { toggleId: 'jackettio_addon_toggle', addon: JACKETTIO_PM_ADDON }
     ];
 
     // Select the appropriate addons list based on the selectedDebridService
@@ -3295,8 +3239,7 @@ function enforceAtLeastOneSelectedForTorrents() {
         document.getElementById('mediafusion_addon_toggle'),
         document.getElementById('comet_addon_toggle'),
         document.getElementById('peerflix_addon_toggle'),
-        document.getElementById('jackettio_addon_toggle'),
-        document.getElementById('jacket_community_addon_toggle')
+        document.getElementById('jackettio_addon_toggle')
     ];
 
     torrentCheckboxes.forEach(checkbox => {
