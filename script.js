@@ -2884,7 +2884,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "transportName": "",
         "manifest": {
             "id": "com.keopps.peerflix",
-            "version": "2.6.2",
+            "version": "2.7.1",
             "name": "Peerflix RD",
             "description": "Peerflix proporciona los mejores enlaces en español e inglés de películas y series de TV en Stremio.Para configurar proveedores de chache, RealDebrid/Premiumize/AllDebrid/DebridLink/Offcloud/Put.io/Torbox visita https://peerflix-addon.onrender.com",
             "catalogs": [],
@@ -2906,7 +2906,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                 "series"
             ],
             "background": "https://i.ibb.co/vL3SKgX/peerflix-background-2.jpg",
-            "logo": "https://i.ibb.co/9s1GqHn/logo512.png",
+            "logo": "https://peerflix.mov/static/logo.png",
             "behaviorHints": {
                 "configurable": true,
                 "configurationRequired": false
@@ -2919,7 +2919,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "transportName": "",
         "manifest": {
             "id": "com.keopps.peerflix",
-            "version": "2.6.2",
+            "version": "2.7.1",
             "name": "Peerflix PM",
             "description": "Peerflix proporciona los mejores enlaces en español e inglés de películas y series de TV en Stremio.Para configurar proveedores de chache, RealDebrid/Premiumize/AllDebrid/DebridLink/Offcloud/Put.io/Torbox visita https://peerflix-addon.onrender.com",
             "catalogs": [],
@@ -2941,7 +2941,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                 "series"
             ],
             "background": "https://i.ibb.co/vL3SKgX/peerflix-background-2.jpg",
-            "logo": "https://i.ibb.co/9s1GqHn/logo512.png",
+            "logo": "https://peerflix.mov/static/logo.png",
             "behaviorHints": {
                 "configurable": true,
                 "configurationRequired": false
