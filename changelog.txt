@@ -1,3 +1,13 @@
+v4.0.0 - 29.06.2025
+- TMDb - Change from public instance to private Vercel self hosted instance on version 3.1.5 (with proper Hebrew search).
+- Add Rating Aggregator addon (https://rating-aggregator-7h42.vercel.app/).
+- Add Informationl addons toggles category in build installation page (מתי יגיע לרשת, Rating Aggregator).
+- Remove inactive/deprecated addons: Jackett Community, MoveOnJoy TV, UDP TV.
+- SubSource - Update to 1.1.2
+- USA TV - Update to 1.5.0
+- Peerflix RD/PM - Update to 2.7.1
+
+
 v3.8.0 - 25.06.2025
 - Update TMDB to 3.1.6. Hebrew search is still broken until developer will fix. but...
 - Added AIOLists addon for Hebrew search in TMDb. https://aiolists.elfhosted.com
