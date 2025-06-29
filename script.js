@@ -2576,7 +2576,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "manifest": {
             "id": "community.ratings.aggregator",
             "version": "1.5.1",
-            "name": "🎯 דירוגים",
+            "name": "🎯 Ratings Aggregator",
             "description": "Aggregated ratings from IMDb, TMDb, Metacritic, Common Sense, CringeMDB and more.",
             "catalogs": [],
             "resources": [
