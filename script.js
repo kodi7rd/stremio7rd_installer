@@ -2344,7 +2344,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
     }
     
     // Subtitles Addons
-    const TELEGRAM_ADDON = {
+    const HEBREW_TELEGRAM_SUBTITLES_ADDON = {
         "transportUrl": "https://stremio7rd-hebrew-telegram-subtitles.vercel.app/manifest.json",
         "transportName": "",
         "manifest": {
@@ -2538,7 +2538,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "flags": {}
     }
     // Informational Addons
-    const MOVIESONLINEDATES_ADDON = {
+    const MOVIES_ONLINE_DATES_ADDON = {
         "transportUrl": "https://stremio7rd-movies-online-dates.vercel.app/manifest.json",
         "transportName": "",
         "manifest": {
@@ -3082,7 +3082,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
     
     // Subtitles Addons
     const subtitlesAddonsToggles = [
-        { toggleId: 'telegram_addon_toggle', addon: TELEGRAM_ADDON },
+        { toggleId: 'hebrew_telegram_subtitles_addon_toggle', addon: HEBREW_TELEGRAM_SUBTITLES_ADDON },
         { toggleId: 'wizdom_addon_toggle', addon: WIZDOM_ADDON },
         { toggleId: 'ktuvit_addon_toggle', addon: KTUVIT_ADDON },
         { toggleId: 'opensubtitles_v3_addon_toggle', addon: OPENSUBTITLES_V3_ADDON },
@@ -3097,6 +3097,21 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
             subtitlesAddons.push(addon);
         }
     });
+    
+    
+    // Informational Addons
+    const informationalAddonsToggles = [
+        { toggleId: 'movies_dates_online_addon_toggle', addon: MOVIES_ONLINE_DATES_ADDON },
+        { toggleId: 'ratings_aggregator_addon_toggle', addon: RATINGS_AGGREGATOR_ADDON }
+    ];
+
+    let informationalAddons = [];
+    informationalAddonsToggles.forEach(({ toggleId, addon }) => {
+        if (document.getElementById(toggleId).checked) {
+            informationalAddons.push(addon);
+        }
+    });
+    
     
     // Static RD Addons List
     const rdAddons = [
@@ -3137,8 +3152,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         ...catalogAddons,
         ...excludedSubtitlesAddonsData,
         ...subtitlesAddons,
-        MOVIESONLINEDATES_ADDON,
-        RATINGS_AGGREGATOR_ADDON,
+        ...informationalAddons,
         ...excludedVideoAddonsData,
         ...torrentAddons
     ];
