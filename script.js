@@ -199,7 +199,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "transportName": "",
         "manifest": {
             "id": "community.usatv",
-            "version": "1.4.0",
+            "version": "1.5.0",
             "catalogs": [
                 {
                     "name": "USA TV - ערוצים מהעולם",
@@ -218,6 +218,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
                                 "Lifestyle",
                                 "Kids",
                                 "Documentaries",
+                                "Music",
                                 "Latino"
                             ]
                         }
@@ -238,7 +239,11 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
             "name": "USA TV",
             "description": "USA TV provides access to channels across various categories including local channels, news, sports, entertainment, premium, lifestyle, kids' shows, documentaries, Latino programming, and much more.",
             "logo": "https://848b3516657c-usatv.baby-beamup.club/public/logo.png",
-            "background": "https://848b3516657c-usatv.baby-beamup.club/public/background.jpg"
+            "background": "https://848b3516657c-usatv.baby-beamup.club/public/background.jpg",
+            "stremioAddonsConfig": {
+                "issuer": "https://stremio-addons.net",
+                "signature": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..qY7PYCUnYu5_32aTUNzbAQ.v_1myLs0nxC_zSiH4-s1J_sidcK4SBxU4SjPTRjhlGQ7fzez2wTfQRBFxwKU5Lbk2QmxQPoA93cxyEA8bKHqbnJzhQsX7F5Dp5tEZ6H2XP4YkGFv2pcOEIVIB8Ys62hb.5ZBarJAORtRT6T78I87X8Q"
+            }
         },
         "flags": {}
     }
