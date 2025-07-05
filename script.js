@@ -1216,7 +1216,975 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         },
         "flags": {}
     }
-    
+
+    const TMDB_ENGLISH_ADDON = {
+        "transportUrl": "https://stremio7rd-tmdb-addon.vercel.app/%7B%22rpdbkey%22%3A%22t0-free-rpdb%22%2C%22provideImdbId%22%3A%22true%22%2C%22tmdbPrefix%22%3A%22true%22%2C%22language%22%3A%22en-US%22%2C%22streaming%22%3A%5B%22nfx%22%2C%22hbm%22%2C%22dnp%22%2C%22amp%22%2C%22atp%22%2C%22pmp%22%2C%22hlu%22%2C%22cru%22%5D%2C%22catalogs%22%3A%5B%7B%22id%22%3A%22tmdb.top%22%2C%22type%22%3A%22movie%22%2C%22name%22%3A%22Popular%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22tmdb.top%22%2C%22type%22%3A%22series%22%2C%22name%22%3A%22Popular%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22tmdb.year%22%2C%22type%22%3A%22movie%22%2C%22name%22%3A%22Year%22%2C%22showInHome%22%3Afalse%7D%2C%7B%22id%22%3A%22tmdb.year%22%2C%22type%22%3A%22series%22%2C%22name%22%3A%22Year%22%2C%22showInHome%22%3Afalse%7D%2C%7B%22id%22%3A%22tmdb.language%22%2C%22type%22%3A%22movie%22%2C%22name%22%3A%22Language%22%2C%22showInHome%22%3Afalse%7D%2C%7B%22id%22%3A%22tmdb.language%22%2C%22type%22%3A%22series%22%2C%22name%22%3A%22Language%22%2C%22showInHome%22%3Afalse%7D%2C%7B%22id%22%3A%22tmdb.trending%22%2C%22type%22%3A%22movie%22%2C%22name%22%3A%22Trending%22%2C%22showInHome%22%3Afalse%7D%2C%7B%22id%22%3A%22tmdb.trending%22%2C%22type%22%3A%22series%22%2C%22name%22%3A%22Trending%22%2C%22showInHome%22%3Afalse%7D%2C%7B%22id%22%3A%22streaming.nfx%22%2C%22type%22%3A%22movie%22%2C%22name%22%3A%22Netflix%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22streaming.nfx%22%2C%22type%22%3A%22series%22%2C%22name%22%3A%22Netflix%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22streaming.hbm%22%2C%22type%22%3A%22movie%22%2C%22name%22%3A%22HBO%20Max%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22streaming.hbm%22%2C%22type%22%3A%22series%22%2C%22name%22%3A%22HBO%20Max%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22streaming.dnp%22%2C%22type%22%3A%22movie%22%2C%22name%22%3A%22Disney%2B%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22streaming.dnp%22%2C%22type%22%3A%22series%22%2C%22name%22%3A%22Disney%2B%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22streaming.amp%22%2C%22type%22%3A%22movie%22%2C%22name%22%3A%22Prime%20Video%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22streaming.amp%22%2C%22type%22%3A%22series%22%2C%22name%22%3A%22Prime%20Video%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22streaming.atp%22%2C%22type%22%3A%22movie%22%2C%22name%22%3A%22Apple%20TV%2B%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22streaming.atp%22%2C%22type%22%3A%22series%22%2C%22name%22%3A%22Apple%20TV%2B%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22streaming.pmp%22%2C%22type%22%3A%22movie%22%2C%22name%22%3A%22Paramount%2B%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22streaming.pmp%22%2C%22type%22%3A%22series%22%2C%22name%22%3A%22Paramount%2B%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22streaming.hlu%22%2C%22type%22%3A%22movie%22%2C%22name%22%3A%22Hulu%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22streaming.hlu%22%2C%22type%22%3A%22series%22%2C%22name%22%3A%22Hulu%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22streaming.cru%22%2C%22type%22%3A%22movie%22%2C%22name%22%3A%22Crunchyroll%22%2C%22showInHome%22%3Atrue%7D%2C%7B%22id%22%3A%22streaming.cru%22%2C%22type%22%3A%22series%22%2C%22name%22%3A%22Crunchyroll%22%2C%22showInHome%22%3Atrue%7D%5D%7D/manifest.json",
+        "transportName": "",
+        "manifest": {
+            "id": "tmdb-addon",
+            "version": "3.1.5",
+            "favicon": "https://stremio7rd-tmdb-addon.vercel.app/favicon.png",
+            "logo": "https://stremio7rd-tmdb-addon.vercel.app/logo.png",
+            "background": "https://stremio7rd-tmdb-addon.vercel.app/background.png",
+            "name": "The Movie Database",
+            "description": "Stremio addon that provides rich metadata for movies and TV shows from TMDB, featuring customizable catalogs, multi-language support, favorites lists, watchlist, ratings, and IMDb integration. Current settings: Language: en-US | TMDB Account: Not Connected | MDBList Integration: Not Connected | IMDb Integration: Enabled | RPDB Integration: Enabled | Search: Enabled | Active Catalogs: 26",
+            "resources": [
+                "catalog",
+                "meta"
+            ],
+            "types": [
+                "movie",
+                "series"
+            ],
+            "idPrefixes": [
+                "tmdb:",
+                "tt"
+            ],
+            "stremioAddonsConfig": {
+                "issuer": "https://stremio-addons.net",
+                "signature": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..DTiTHmYyIbuTMPJB35cqsw.S2C6xuCL9OoHJbtX97v-2w3IM4iFqr2Qy4xRRlvyzIY2fZAcwmm6JUMdsc2LSTigIPQeGPomaqX53ECt23cJKuH-IKs4hHLH4sLYRZNL_VC0YefQNrWjMRZ75Yz-bVx3.DJZBtIb1bOCq6Z62AMUGvw"
+            },
+            "behaviorHints": {
+                "configurable": true,
+                "configurationRequired": false
+            },
+            "catalogs": [
+                {
+                    "id": "tmdb.top",
+                    "type": "movie",
+                    "name": "TMDB - Popular",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "Action",
+                                "Adventure",
+                                "Animation",
+                                "Comedy",
+                                "Crime",
+                                "Documentary",
+                                "Drama",
+                                "Family",
+                                "Fantasy",
+                                "History",
+                                "Horror",
+                                "Music",
+                                "Mystery",
+                                "Romance",
+                                "Science Fiction",
+                                "TV Movie",
+                                "Thriller",
+                                "War",
+                                "Western"
+                            ],
+                            "isRequired": false
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ]
+                },
+                {
+                    "id": "tmdb.top",
+                    "type": "series",
+                    "name": "TMDB - Popular",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "Action & Adventure",
+                                "Animation",
+                                "Comedy",
+                                "Crime",
+                                "Documentary",
+                                "Drama",
+                                "Family",
+                                "Kids",
+                                "Mystery",
+                                "News",
+                                "Reality",
+                                "Sci-Fi & Fantasy",
+                                "Soap",
+                                "Talk",
+                                "War & Politics",
+                                "Western"
+                            ],
+                            "isRequired": false
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ]
+                },
+                {
+                    "id": "tmdb.year",
+                    "type": "movie",
+                    "name": "TMDB - Year",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "2025",
+                                "2024",
+                                "2023",
+                                "2022",
+                                "2021",
+                                "2020",
+                                "2019",
+                                "2018",
+                                "2017",
+                                "2016",
+                                "2015",
+                                "2014",
+                                "2013",
+                                "2012",
+                                "2011",
+                                "2010",
+                                "2009",
+                                "2008",
+                                "2007",
+                                "2006",
+                                "2005"
+                            ],
+                            "isRequired": true
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ]
+                },
+                {
+                    "id": "tmdb.year",
+                    "type": "series",
+                    "name": "TMDB - Year",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "2025",
+                                "2024",
+                                "2023",
+                                "2022",
+                                "2021",
+                                "2020",
+                                "2019",
+                                "2018",
+                                "2017",
+                                "2016",
+                                "2015",
+                                "2014",
+                                "2013",
+                                "2012",
+                                "2011",
+                                "2010",
+                                "2009",
+                                "2008",
+                                "2007",
+                                "2006",
+                                "2005"
+                            ],
+                            "isRequired": true
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ]
+                },
+                {
+                    "id": "tmdb.language",
+                    "type": "movie",
+                    "name": "TMDB - Language",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "English",
+                                "Afrikaans",
+                                "Albanian",
+                                "Arabic",
+                                "Basque",
+                                "Belarusian",
+                                "Bengali",
+                                "Breton",
+                                "Bulgarian",
+                                "Catalan",
+                                "Chamorro",
+                                "Croatian",
+                                "Czech",
+                                "Danish",
+                                "Dutch",
+                                "Esperanto",
+                                "Estonian",
+                                "Finnish",
+                                "French",
+                                "Gaelic",
+                                "Galician",
+                                "Georgian",
+                                "German",
+                                "Greek",
+                                "Hebrew",
+                                "Hindi",
+                                "Hungarian",
+                                "Indonesian",
+                                "Irish",
+                                "Italian",
+                                "Japanese",
+                                "Kannada",
+                                "Kazakh",
+                                "Kirghiz",
+                                "Korean",
+                                "Kurdish",
+                                "Latvian",
+                                "Lithuanian",
+                                "Malay",
+                                "Malayalam",
+                                "Mandarin",
+                                "Marathi",
+                                "Norwegian",
+                                "Norwegian Bokmål",
+                                "Persian",
+                                "Polish",
+                                "Portuguese",
+                                "Punjabi",
+                                "Romanian",
+                                "Russian",
+                                "Serbian",
+                                "Sinhalese",
+                                "Slovak",
+                                "Slovenian",
+                                "Somali",
+                                "Spanish",
+                                "Swahili",
+                                "Swedish",
+                                "Tagalog",
+                                "Tamil",
+                                "Telugu",
+                                "Thai",
+                                "Turkish",
+                                "Ukrainian",
+                                "Urdu",
+                                "Uzbek",
+                                "Vietnamese",
+                                "Welsh",
+                                "Zulu"
+                            ],
+                            "isRequired": true
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ]
+                },
+                {
+                    "id": "tmdb.language",
+                    "type": "series",
+                    "name": "TMDB - Language",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "English",
+                                "Afrikaans",
+                                "Albanian",
+                                "Arabic",
+                                "Basque",
+                                "Belarusian",
+                                "Bengali",
+                                "Breton",
+                                "Bulgarian",
+                                "Catalan",
+                                "Chamorro",
+                                "Croatian",
+                                "Czech",
+                                "Danish",
+                                "Dutch",
+                                "Esperanto",
+                                "Estonian",
+                                "Finnish",
+                                "French",
+                                "Gaelic",
+                                "Galician",
+                                "Georgian",
+                                "German",
+                                "Greek",
+                                "Hebrew",
+                                "Hindi",
+                                "Hungarian",
+                                "Indonesian",
+                                "Irish",
+                                "Italian",
+                                "Japanese",
+                                "Kannada",
+                                "Kazakh",
+                                "Kirghiz",
+                                "Korean",
+                                "Kurdish",
+                                "Latvian",
+                                "Lithuanian",
+                                "Malay",
+                                "Malayalam",
+                                "Mandarin",
+                                "Marathi",
+                                "Norwegian",
+                                "Norwegian Bokmål",
+                                "Persian",
+                                "Polish",
+                                "Portuguese",
+                                "Punjabi",
+                                "Romanian",
+                                "Russian",
+                                "Serbian",
+                                "Sinhalese",
+                                "Slovak",
+                                "Slovenian",
+                                "Somali",
+                                "Spanish",
+                                "Swahili",
+                                "Swedish",
+                                "Tagalog",
+                                "Tamil",
+                                "Telugu",
+                                "Thai",
+                                "Turkish",
+                                "Ukrainian",
+                                "Urdu",
+                                "Uzbek",
+                                "Vietnamese",
+                                "Welsh",
+                                "Zulu"
+                            ],
+                            "isRequired": true
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ]
+                },
+                {
+                    "id": "tmdb.trending",
+                    "type": "movie",
+                    "name": "TMDB - Trending",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "Day",
+                                "Week"
+                            ],
+                            "isRequired": true
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ]
+                },
+                {
+                    "id": "tmdb.trending",
+                    "type": "series",
+                    "name": "TMDB - Trending",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "Day",
+                                "Week"
+                            ],
+                            "isRequired": true
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ]
+                },
+                {
+                    "id": "streaming.nfx",
+                    "type": "movie",
+                    "name": "TMDB - Netflix",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "Action",
+                                "Adventure",
+                                "Animation",
+                                "Comedy",
+                                "Crime",
+                                "Documentary",
+                                "Drama",
+                                "Family",
+                                "Fantasy",
+                                "History",
+                                "Horror",
+                                "Music",
+                                "Mystery",
+                                "Romance",
+                                "Science Fiction",
+                                "TV Movie",
+                                "Thriller",
+                                "War",
+                                "Western"
+                            ],
+                            "isRequired": false
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ]
+                },
+                {
+                    "id": "streaming.nfx",
+                    "type": "series",
+                    "name": "TMDB - Netflix",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "Action & Adventure",
+                                "Animation",
+                                "Comedy",
+                                "Crime",
+                                "Documentary",
+                                "Drama",
+                                "Family",
+                                "Kids",
+                                "Mystery",
+                                "News",
+                                "Reality",
+                                "Sci-Fi & Fantasy",
+                                "Soap",
+                                "Talk",
+                                "War & Politics",
+                                "Western"
+                            ],
+                            "isRequired": false
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ]
+                },
+                {
+                    "id": "streaming.hbm",
+                    "type": "movie",
+                    "name": "TMDB - HBO Max",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "Action",
+                                "Adventure",
+                                "Animation",
+                                "Comedy",
+                                "Crime",
+                                "Documentary",
+                                "Drama",
+                                "Family",
+                                "Fantasy",
+                                "History",
+                                "Horror",
+                                "Music",
+                                "Mystery",
+                                "Romance",
+                                "Science Fiction",
+                                "TV Movie",
+                                "Thriller",
+                                "War",
+                                "Western"
+                            ],
+                            "isRequired": false
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ]
+                },
+                {
+                    "id": "streaming.hbm",
+                    "type": "series",
+                    "name": "TMDB - HBO Max",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "Action & Adventure",
+                                "Animation",
+                                "Comedy",
+                                "Crime",
+                                "Documentary",
+                                "Drama",
+                                "Family",
+                                "Kids",
+                                "Mystery",
+                                "News",
+                                "Reality",
+                                "Sci-Fi & Fantasy",
+                                "Soap",
+                                "Talk",
+                                "War & Politics",
+                                "Western"
+                            ],
+                            "isRequired": false
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ]
+                },
+                {
+                    "id": "streaming.dnp",
+                    "type": "movie",
+                    "name": "TMDB - Disney+",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "Action",
+                                "Adventure",
+                                "Animation",
+                                "Comedy",
+                                "Crime",
+                                "Documentary",
+                                "Drama",
+                                "Family",
+                                "Fantasy",
+                                "History",
+                                "Horror",
+                                "Music",
+                                "Mystery",
+                                "Romance",
+                                "Science Fiction",
+                                "TV Movie",
+                                "Thriller",
+                                "War",
+                                "Western"
+                            ],
+                            "isRequired": false
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ]
+                },
+                {
+                    "id": "streaming.dnp",
+                    "type": "series",
+                    "name": "TMDB - Disney+",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "Action & Adventure",
+                                "Animation",
+                                "Comedy",
+                                "Crime",
+                                "Documentary",
+                                "Drama",
+                                "Family",
+                                "Kids",
+                                "Mystery",
+                                "News",
+                                "Reality",
+                                "Sci-Fi & Fantasy",
+                                "Soap",
+                                "Talk",
+                                "War & Politics",
+                                "Western"
+                            ],
+                            "isRequired": false
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ]
+                },
+                {
+                    "id": "streaming.amp",
+                    "type": "movie",
+                    "name": "TMDB - Prime Video",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "Action",
+                                "Adventure",
+                                "Animation",
+                                "Comedy",
+                                "Crime",
+                                "Documentary",
+                                "Drama",
+                                "Family",
+                                "Fantasy",
+                                "History",
+                                "Horror",
+                                "Music",
+                                "Mystery",
+                                "Romance",
+                                "Science Fiction",
+                                "TV Movie",
+                                "Thriller",
+                                "War",
+                                "Western"
+                            ],
+                            "isRequired": false
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ]
+                },
+                {
+                    "id": "streaming.amp",
+                    "type": "series",
+                    "name": "TMDB - Prime Video",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "Action & Adventure",
+                                "Animation",
+                                "Comedy",
+                                "Crime",
+                                "Documentary",
+                                "Drama",
+                                "Family",
+                                "Kids",
+                                "Mystery",
+                                "News",
+                                "Reality",
+                                "Sci-Fi & Fantasy",
+                                "Soap",
+                                "Talk",
+                                "War & Politics",
+                                "Western"
+                            ],
+                            "isRequired": false
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ]
+                },
+                {
+                    "id": "streaming.atp",
+                    "type": "movie",
+                    "name": "TMDB - Apple TV+",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "Action",
+                                "Adventure",
+                                "Animation",
+                                "Comedy",
+                                "Crime",
+                                "Documentary",
+                                "Drama",
+                                "Family",
+                                "Fantasy",
+                                "History",
+                                "Horror",
+                                "Music",
+                                "Mystery",
+                                "Romance",
+                                "Science Fiction",
+                                "TV Movie",
+                                "Thriller",
+                                "War",
+                                "Western"
+                            ],
+                            "isRequired": false
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ]
+                },
+                {
+                    "id": "streaming.atp",
+                    "type": "series",
+                    "name": "TMDB - Apple TV+",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "Action & Adventure",
+                                "Animation",
+                                "Comedy",
+                                "Crime",
+                                "Documentary",
+                                "Drama",
+                                "Family",
+                                "Kids",
+                                "Mystery",
+                                "News",
+                                "Reality",
+                                "Sci-Fi & Fantasy",
+                                "Soap",
+                                "Talk",
+                                "War & Politics",
+                                "Western"
+                            ],
+                            "isRequired": false
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ]
+                },
+                {
+                    "id": "streaming.pmp",
+                    "type": "movie",
+                    "name": "TMDB - Paramount+",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "Action",
+                                "Adventure",
+                                "Animation",
+                                "Comedy",
+                                "Crime",
+                                "Documentary",
+                                "Drama",
+                                "Family",
+                                "Fantasy",
+                                "History",
+                                "Horror",
+                                "Music",
+                                "Mystery",
+                                "Romance",
+                                "Science Fiction",
+                                "TV Movie",
+                                "Thriller",
+                                "War",
+                                "Western"
+                            ],
+                            "isRequired": false
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ]
+                },
+                {
+                    "id": "streaming.pmp",
+                    "type": "series",
+                    "name": "TMDB - Paramount+",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "Action & Adventure",
+                                "Animation",
+                                "Comedy",
+                                "Crime",
+                                "Documentary",
+                                "Drama",
+                                "Family",
+                                "Kids",
+                                "Mystery",
+                                "News",
+                                "Reality",
+                                "Sci-Fi & Fantasy",
+                                "Soap",
+                                "Talk",
+                                "War & Politics",
+                                "Western"
+                            ],
+                            "isRequired": false
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ]
+                },
+                {
+                    "id": "streaming.hlu",
+                    "type": "movie",
+                    "name": "TMDB - Hulu",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "Action",
+                                "Adventure",
+                                "Animation",
+                                "Comedy",
+                                "Crime",
+                                "Documentary",
+                                "Drama",
+                                "Family",
+                                "Fantasy",
+                                "History",
+                                "Horror",
+                                "Music",
+                                "Mystery",
+                                "Romance",
+                                "Science Fiction",
+                                "TV Movie",
+                                "Thriller",
+                                "War",
+                                "Western"
+                            ],
+                            "isRequired": false
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ]
+                },
+                {
+                    "id": "streaming.hlu",
+                    "type": "series",
+                    "name": "TMDB - Hulu",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "Action & Adventure",
+                                "Animation",
+                                "Comedy",
+                                "Crime",
+                                "Documentary",
+                                "Drama",
+                                "Family",
+                                "Kids",
+                                "Mystery",
+                                "News",
+                                "Reality",
+                                "Sci-Fi & Fantasy",
+                                "Soap",
+                                "Talk",
+                                "War & Politics",
+                                "Western"
+                            ],
+                            "isRequired": false
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ]
+                },
+                {
+                    "id": "streaming.cru",
+                    "type": "movie",
+                    "name": "TMDB - Crunchyroll",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "Action",
+                                "Adventure",
+                                "Animation",
+                                "Comedy",
+                                "Crime",
+                                "Documentary",
+                                "Drama",
+                                "Family",
+                                "Fantasy",
+                                "History",
+                                "Horror",
+                                "Music",
+                                "Mystery",
+                                "Romance",
+                                "Science Fiction",
+                                "TV Movie",
+                                "Thriller",
+                                "War",
+                                "Western"
+                            ],
+                            "isRequired": false
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ]
+                },
+                {
+                    "id": "streaming.cru",
+                    "type": "series",
+                    "name": "TMDB - Crunchyroll",
+                    "pageSize": 20,
+                    "extra": [
+                        {
+                            "name": "genre",
+                            "options": [
+                                "Action & Adventure",
+                                "Animation",
+                                "Comedy",
+                                "Crime",
+                                "Documentary",
+                                "Drama",
+                                "Family",
+                                "Kids",
+                                "Mystery",
+                                "News",
+                                "Reality",
+                                "Sci-Fi & Fantasy",
+                                "Soap",
+                                "Talk",
+                                "War & Politics",
+                                "Western"
+                            ],
+                            "isRequired": false
+                        },
+                        {
+                            "name": "skip"
+                        }
+                    ]
+                },
+                {
+                    "id": "tmdb.search",
+                    "type": "movie",
+                    "name": "TMDB - Search",
+                    "extra": [
+                        {
+                            "name": "search",
+                            "isRequired": true,
+                            "options": []
+                        }
+                    ]
+                },
+                {
+                    "id": "tmdb.search",
+                    "type": "series",
+                    "name": "TMDB - Search",
+                    "extra": [
+                        {
+                            "name": "search",
+                            "isRequired": true,
+                            "options": []
+                        }
+                    ]
+                }
+            ]
+        },
+        "flags": {}
+    }
+
     const AIOLISTS_ADDON = {
         "transportUrl": "https://aiolists.elfhosted.com/H4sIAAAAAAAAA12RX3OiMBTFv0ueacfin9nypkVdXIG1YAV3fIjkIqkksEkQpdPvvhPBXbeP-Z1zb05OPhAu6Q-4IAshA4mS7Md3Z8XIfgJYgAiLI3BkIbgssv08oT5dOOvGefLo4vlRQ7JZaZht5-uzx1YDf7Puu8zpu2E89Oz8PQ5fmR9O69jcZvH7JPMDRzpsSLfUGblh0vPsQ-Pbq4sXDIZueKxde3xeviwasnGoTx3Tt8e1u4nPfnho4mabe2Hcjxty9MO3ozefUu2Nzed6G7nUzyWNo0kZ9Rd5vFnRKKgpYW-XxMxPe31f1Hs8zxYPoZucWDhapk7Um-9tPoxmL-_5b9Nvsu33MC1SmM-CbN0VEYCUtOAO-dfNOEmKiqt7tJYgOGbQEgYKE6xwUFQi0UxbOucS80OFD5pmoJnARzVOEpDy1vaNvkIqQGZf8fRcUgFyrJDFqzzv6P8JciqVLwgIZP3aGSjHUq1LghXozGbPHD70Rg_mMDRNazCw-oPH0bfetpuTbhcfWR-fBsooIcCXWmiXCWDFCcgdSSqpCqaBhxnIdo6BOPx1adC6XCAUh5cS7qyUlYVQQMaEFLxjshDqp4AUBPDkZiRU4n0Oc-ACZjRX-n1KVGAg4Fp4xZy0QWaAVSUAWSnOJRhIXBXXnmjx1pWOj2RW1IoyGDyNkIEOWFwSgeu0EOSQXBvhWJaVoJxKZKCMXCtCOwNJwCLJ2j--brr-8u728uCLvDMQ5pRBy6fXvKTL9_kHoDILRZEDAAA/manifest.json",
         "transportName": "",
@@ -2576,6 +3544,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
     // Catalog Addons 
     const catalogAddonsToggles = [
         { toggleId: 'tmdb_hebrew_addon_toggle', addon: TMDB_HEBREW_ADDON },
+        { toggleId: 'tmdb_english_addon_toggle', addon: TMDB_ENGLISH_ADDON },
         { toggleId: 'aiolists_addon_toggle', addon: AIOLISTS_ADDON },
         { toggleId: 'streaming_catalogs_addon_toggle', addon: STREAMING_CATALOGS_ADDON },
         { toggleId: 'anime_kitsu_addon_toggle', addon: ANIME_KITSU_ADDON }
