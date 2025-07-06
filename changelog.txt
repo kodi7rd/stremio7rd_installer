@@ -1,6 +1,6 @@
 v4.1.0 - 07.07.2025
 - Add option to configure TMDb addon in English language (In addition to Hebrew).
-- Update MediaFusion to 4.3.21
+- Update MediaFusion to 4.3.33
 - Remove deprecated Cyberflix addon.
 
 
