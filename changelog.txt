@@ -1,3 +1,9 @@
+v4.1.0 - 07.07.2025
+- Add option to configure TMDb addon in English language (In addition to Hebrew).
+- Update MediaFusion to 4.3.21
+- Remove deprecated Cyberflix addon.
+
+
 v4.0.0 - 29.06.2025
 - TMDb - Change from public instance to private Vercel self hosted instance on version 3.1.5 (with proper Hebrew search).
 - Add Rating Aggregator addon (https://rating-aggregator-7h42.vercel.app/).
