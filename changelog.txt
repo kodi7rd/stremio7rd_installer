@@ -1,3 +1,8 @@
+v4.2.0 - 09.07.2025
+- Rating Aggregator (דירוגים) - Switch to new Elfhosted hosting URL (rating-aggregator.elfhosted.com).
+- Subsource - Switch to new hosting URL (subsource.strem.top).
+
+
 v4.1.0 - 07.07.2025
 - Add option to configure TMDb addon in English language (In addition to Hebrew).
 - Update MediaFusion to 4.3.33
