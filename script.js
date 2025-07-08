@@ -3054,7 +3054,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
     }
 
     const RATINGS_AGGREGATOR_ADDON = {
-        "transportUrl": "https://rating-aggregator-7h42.vercel.app/manifest.json",
+        "transportUrl": "https://rating-aggregator.elfhosted.com/manifest.json",
         "transportName": "",
         "manifest": {
             "id": "community.ratings.aggregator",
