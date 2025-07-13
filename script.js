@@ -3058,9 +3058,10 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "transportName": "",
         "manifest": {
             "id": "community.ratings.aggregator",
-            "version": "1.5.1",
             "name": "🎯 דירוגים",
+            "version": "1.8.0",
             "description": "Aggregated ratings from IMDb, TMDb, Metacritic, Common Sense, CringeMDB and more.",
+            "logo": "https://emojicdn.elk.sh/%F0%9F%8E%AF?style=google",
             "catalogs": [],
             "resources": [
                 "stream"
