@@ -1,6 +1,11 @@
+v4.3.0 - 18.07.2025
+- Add TorrentsDB addon (https://torrentsdb.com).
+- Rating Aggregator (דירוגים) - Update to 1.8.1
+
+
 v4.2.0 - 09.07.2025
-- Rating Aggregator (דירוגים) - Switch to new Elfhosted hosting URL (rating-aggregator.elfhosted.com).
-- Subsource - Switch to new hosting URL (subsource.strem.top).
+- Rating Aggregator (דירוגים) - Switch to new Elfhosted hosting URL (https://rating-aggregator.elfhosted.com).
+- Subsource - Switch to new hosting URL (https://subsource.strem.top).
 
 
 v4.1.0 - 07.07.2025
@@ -11,7 +16,7 @@ v4.1.0 - 07.07.2025
 
 v4.0.0 - 29.06.2025
 - TMDb - Change from public instance to private Vercel self hosted instance on version 3.1.5 (with proper Hebrew search).
-- Add Rating Aggregator addon (https://rating-aggregator-7h42.vercel.app/).
+- Add Rating Aggregator addon (https://rating-aggregator-7h42.vercel.app).
 - Add Informationl addons toggles category in build installation page (מתי יגיע לרשת, Rating Aggregator).
 - Remove inactive/deprecated addons: Jackett Community, MoveOnJoy TV, UDP TV.
 - SubSource - Update to 1.1.2
