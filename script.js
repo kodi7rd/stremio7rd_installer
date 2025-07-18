@@ -3308,6 +3308,87 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
     }
 
         
+    let TorrentsDBSelectedDebridService = "";
+    if (selectedDebridService === "realdebrid_service") {
+        TorrentsDBSelectedDebridService = "realdebrid";
+    } else if (selectedDebridService === "premiumize_service") {
+        TorrentsDBSelectedDebridService = "premiumize";
+    }
+    const TorrentsDBUserSettingsB64 = btoa(`{"sort":"qualitysize","${TorrentsDBSelectedDebridService}":"${selectedDebridApiKey}","debridoptions":["nocatalog"]}`);
+    const TORRENTSDB_RD_ADDON = {
+        "transportUrl": `https://torrentsdb.com/${TorrentsDBUserSettingsB64}/manifest.json`,
+        "transportName": "",
+        "manifest": {
+            "id": "com.torrentsdb.addon",
+            "version": "1.0.0",
+            "name": "TorrentsDB RD",
+            "description": "Provides torrent streams from scraped torrent providers. Currently supports YTS(+), EZTV(+), 1337x(+), TorrentCSV(+), 1lou(+), Nyaa(+), Sk-CzTorrent(+), 1TamilBlasters(+), LimeTorrent(+), 1TamilMV(+), RARGB(+), Knaben(+), ThePirateBay(+), KickassTorrents(+), AnimeTosho(+), ExtremlymTorrents(+), YggTorrent(+), TokyoTosho(+), Rutor(+), Rutracker(+), Torrent9(+), ilCorSaRoNeRo(+), Manual(+) and RealDebrid enabled. To configure providers, Premiumize/EasyDebrid/Debrider/AllDebrid/RealDebrid/DebridLink/Offcloud/TorBox/Put.io support and other settings visit https://torrentsdb.com",
+            "catalogs": [],
+            "resources": [
+                {
+                    "name": "stream",
+                    "types": [
+                        "movie",
+                        "series"
+                    ],
+                    "idPrefixes": [
+                        "tt",
+                        "kitsu"
+                    ]
+                }
+            ],
+            "types": [
+                "movie",
+                "series",
+                "anime",
+                "other"
+            ],
+            "logo": "https://torrentsdb.com/icon.svg",
+            "behaviorHints": {
+                "configurable": true,
+                "configurationRequired": false
+            }
+        },
+        "flags": {}
+    }
+    const TORRENTSDB_PM_ADDON = {
+        "transportUrl": `https://torrentsdb.com/${TorrentsDBUserSettingsB64}/manifest.json`,
+        "transportName": "",
+        "manifest": {
+            "id": "com.torrentsdb.addon",
+            "version": "1.0.0",
+            "name": "TorrentsDB PM",
+            "description": "Provides torrent streams from scraped torrent providers. Currently supports YTS(+), EZTV(+), 1337x(+), TorrentCSV(+), 1lou(+), Nyaa(+), Sk-CzTorrent(+), 1TamilBlasters(+), LimeTorrent(+), 1TamilMV(+), RARGB(+), Knaben(+), ThePirateBay(+), KickassTorrents(+), AnimeTosho(+), ExtremlymTorrents(+), YggTorrent(+), TokyoTosho(+), Rutor(+), Rutracker(+), Torrent9(+), ilCorSaRoNeRo(+), Manual(+) and Premiumize enabled. To configure providers, Premiumize/EasyDebrid/Debrider/AllDebrid/RealDebrid/DebridLink/Offcloud/TorBox/Put.io support and other settings visit https://torrentsdb.com",
+            "catalogs": [],
+            "resources": [
+                {
+                    "name": "stream",
+                    "types": [
+                        "movie",
+                        "series"
+                    ],
+                    "idPrefixes": [
+                        "tt",
+                        "kitsu"
+                    ]
+                }
+            ],
+            "types": [
+                "movie",
+                "series",
+                "anime",
+                "other"
+            ],
+            "logo": "https://torrentsdb.com/icon.svg",
+            "behaviorHints": {
+                "configurable": true,
+                "configurationRequired": false
+            }
+        },
+        "flags": {}
+    }
+
+
     let cometSelectedDebridService = "";
     if (selectedDebridService === "realdebrid_service") {
         cometSelectedDebridService = "realdebrid";
@@ -3389,7 +3470,8 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         },
         "flags": {}
     }
-    
+
+
     const PEERFLIX_RD_ADDON = {
         "transportUrl": `https://peerflix-addon.onrender.com/language=en%7Cdebridoptions=nocatalog%7Crealdebrid=${selectedDebridApiKey}%7Csort=quality-desc,size-desc/manifest.json`,
         "transportName": "",
@@ -3603,6 +3685,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         ...(MediaFusionEncryptedSecret !== "invalid_api_key" ? [
             { toggleId: 'mediafusion_addon_toggle', addon: MEDIAFUSION_RD_ADDON }
         ] : []),
+        { toggleId: 'torrentsdb_addon_toggle', addon: TORRENTSDB_RD_ADDON },
         { toggleId: 'comet_addon_toggle', addon: COMET_RD_ADDON },
         { toggleId: 'peerflix_addon_toggle', addon: PEERFLIX_RD_ADDON },
         { toggleId: 'jackettio_addon_toggle', addon: JACKETTIO_RD_ADDON }
@@ -3614,6 +3697,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         ...(MediaFusionEncryptedSecret !== "invalid_api_key" ? [
             { toggleId: 'mediafusion_addon_toggle', addon: MEDIAFUSION_PM_ADDON }
         ] : []),
+        { toggleId: 'torrentsdb_addon_toggle', addon: TORRENTSDB_PM_ADDON },
         { toggleId: 'comet_addon_toggle', addon: COMET_PM_ADDON },
         { toggleId: 'peerflix_addon_toggle', addon: PEERFLIX_PM_ADDON },
         { toggleId: 'jackettio_addon_toggle', addon: JACKETTIO_PM_ADDON }
