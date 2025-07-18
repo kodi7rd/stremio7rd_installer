@@ -3758,26 +3758,6 @@ function updateSelectedDebridServiceLabel() {
     }
 }
 
-// Enforce that at least one toggle addon is selected
-function enforceAtLeastOneSelectedForTorrents() {
-    const torrentCheckboxes = [
-        document.getElementById('torrentio_addon_toggle'),
-        document.getElementById('mediafusion_addon_toggle'),
-        document.getElementById('comet_addon_toggle'),
-        document.getElementById('peerflix_addon_toggle'),
-        document.getElementById('jackettio_addon_toggle')
-    ];
-
-    torrentCheckboxes.forEach(checkbox => {
-        checkbox.addEventListener("change", () => {
-            const isAnyChecked = torrentCheckboxes.some(cb => cb.checked);
-            if (!isAnyChecked) {
-                checkbox.checked = true; // Keep at least one checked
-            }
-        });
-    });
-}
-
 // Function to update the visibility of torrent addons based on the selected Debrid service
 function updateTorrentsAddonsVisibility() {
     const selectedDebridService = document.getElementById("selectedDebridService").value;
@@ -3809,5 +3789,4 @@ document.getElementById('selectedDebridService').addEventListener('change', upda
 document.addEventListener("DOMContentLoaded", () => {
     updateBuildVersionInPage();
     updateTorrentsAddonsVisibility();
-    enforceAtLeastOneSelectedForTorrents(); // Assuming this function handles the check for at least one selection
 });
