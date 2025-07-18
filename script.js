@@ -3058,9 +3058,9 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "transportName": "",
         "manifest": {
             "id": "community.ratings.aggregator",
+            "version": "1.8.1",
             "name": "🎯 דירוגים",
-            "version": "1.8.0",
-            "description": "Aggregated ratings from IMDb, TMDb, Metacritic, Common Sense, CringeMDB and more.",
+            "description": "Tired of tab-hopping? Get all your essential movie and series ratings in one place! Aggregates scores from IMDb, TMDb, Metacritic (critic & user), Common Sense Media, and CringeMDB (parent-safe tags). Streamline your watch decisions!",
             "logo": "https://emojicdn.elk.sh/%F0%9F%8E%AF?style=google",
             "catalogs": [],
             "resources": [
