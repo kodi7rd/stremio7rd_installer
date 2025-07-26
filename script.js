@@ -3473,7 +3473,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
 
 
     const PEERFLIX_RD_ADDON = {
-        "transportUrl": `https://peerflix-addon.onrender.com/language=en%7Cdebridoptions=nocatalog%7Crealdebrid=${selectedDebridApiKey}%7Csort=quality-desc,size-desc/manifest.json`,
+        "transportUrl": `https://addon.peerflix.mov/language=en%7Cdebridoptions=nocatalog%7Crealdebrid=${selectedDebridApiKey}%7Csort=quality-desc,size-desc/manifest.json`,
         "transportName": "",
         "manifest": {
             "id": "com.keopps.peerflix",
@@ -3508,7 +3508,7 @@ async function defineAddonsJSON(authKey, selectedDebridService, selectedDebridAp
         "flags": {}
     }
     const PEERFLIX_PM_ADDON = {
-        "transportUrl": `https://peerflix-addon.onrender.com/language=en%7Cdebridoptions=nodownloadlinks,nocatalog%7Cpremiumize=${selectedDebridApiKey}%7Csort=quality-desc,size-desc/manifest.json`,
+        "transportUrl": `https://addon.peerflix.mov/language=en%7Cdebridoptions=nodownloadlinks,nocatalog%7Cpremiumize=${selectedDebridApiKey}%7Csort=quality-desc,size-desc/manifest.json`,
         "transportName": "",
         "manifest": {
             "id": "com.keopps.peerflix",
